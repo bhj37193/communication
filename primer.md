@@ -2,24 +2,34 @@
 
 ## STATUS
 
-Session/chat-turn/submit-scoring endpoints are wired to `packages/core` (validator +
-score) + `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker, plus
-`apps/server/src/db/client.ts` (`pg`, `DATABASE_URL`). Committed and pushed to
-`origin` = `github.com/bhj37193/communication` (private). `pnpm -r test` green: core
-63/63, server 6/6 (caps.test.ts + app.test.ts).
+Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
++ `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker, plus
+`apps/server/src/db/client.ts` (`pg`, `DATABASE_URL`).
 
-**Next action (ONE task only):** ONE integration test driving `FakeChatModel`'s scripted
-GOOD/BAD runs end-to-end (good passes with exact deterministic score, bad fails,
-fabricated-quote feedback rejected). Connects to `charisma_test`, no real API key. Do NOT
-touch `packages/core` logic/tests. Refs: BUILD-EXECUTION-PLAN.md mock boundary 256-490,
-API contracts 493-610, Phase 0 tasks 1031-1278.
+**Completed this session:** P0-23-scoped loop-proof integration test at
+`apps/server/src/routes/sessions.test.ts` (real HTTP round trips via `app.inject`
+against `charisma_test`, no real API key, `packages/core` untouched): good run =
+exact score 100 + exact known-answer signals; bad run = exact score 20 +
+`monologue_brag`; fabricated-quote run = template fallback. Colocated, not at
+`test/integration/loop.test.ts` — don't duplicate. Narrower than P0-23's full scope
+(no 8-msg run, no progress_events/streak, no caps/retention/webhook suites — those
+don't exist yet). `pnpm -r test` green: core 63/63, server 9/9. `pnpm -r typecheck` clean.
+
+Flagged, unfixed: `routes/sessions.ts` `/end` passes `computeSignals` a
+`warmthTrace` missing the leading opener `0` (stored `[1,2,3,3,3]` vs contract
+`[0,1,2,3,3,3]` per `validator.test.ts`) — shifts `warmTwoIndex`, feeds reciprocity.
+Invisible on Sam good/bad scripts; latent bug for other content. Needs its own
+fix + regression test.
+
+**Next action (ONE task only):** P0-20 caps/circuit-breaker integration test (deps
+P0-16, satisfied): lower `DAILY_MODEL_BUDGET_USD` to cross it deterministically
+(FakeChatModel usage is fixed), assert `POST /v1/sessions` returns 409 CAPPED past
+the daily cap and 503 BUDGET_EXCEEDED once the breaker trips, while an already-open
+session finishes. `checkBreaker`/`checkDailyCap` already wired in `services/caps.ts`
++ `routes/sessions.ts` — test-only, no new service code expected. Do NOT touch
+`packages/core`. Refs: BUILD-EXECUTION-PLAN.md 1182-1190.
 
 Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
-
-Global ralph-loop hooks (`~/.claude/hooks/context-watchdog.optimized.sh`,
-`primer-resumer.sh`) were hardened this session (cwd/pid-tagged logs, EXIT trap, split
-`tmux send-keys` to avoid an autocomplete race, pane-tracker fallback). Threshold stays
-at 40% intentionally.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
