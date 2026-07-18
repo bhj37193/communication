@@ -1,13 +1,12 @@
 # Primer: Charisma Trainer (consumer, TEXT-CHAT charisma app). Name TBD.
 
-## STATUS (2026-07-18f)
+## STATUS
 
-**Completed:** Session/chat-turn/submit-scoring endpoints wired to `packages/core`
-(validator + score) + `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit
-breaker + `apps/server/src/db/client.ts` (`pg`, `DATABASE_URL`). Commits `a7b1a31`,
-`7bb25b2`. **VERIFIED GREEN:** `pnpm -r test` — core 63/63, server 6/6 (caps.test.ts +5,
-app.test.ts). Pushed to new remote `origin` = `github.com/bhj37193/communication`
-(private repo created this session).
+Session/chat-turn/submit-scoring endpoints are wired to `packages/core` (validator +
+score) + `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker, plus
+`apps/server/src/db/client.ts` (`pg`, `DATABASE_URL`). Committed and pushed to
+`origin` = `github.com/bhj37193/communication` (private). `pnpm -r test` green: core
+63/63, server 6/6 (caps.test.ts + app.test.ts).
 
 **Next action (ONE task only):** ONE integration test driving `FakeChatModel`'s scripted
 GOOD/BAD runs end-to-end (good passes with exact deterministic score, bad fails,
@@ -17,13 +16,10 @@ API contracts 493-610, Phase 0 tasks 1031-1278.
 
 Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
 
-## INFRA NOTE (out of band, not a build task)
 Global ralph-loop hooks (`~/.claude/hooks/context-watchdog.optimized.sh`,
-`primer-resumer.sh`) hardened this session: cwd+pid tagged log lines, EXIT trap, split
-`tmux send-keys` (text/Enter as separate calls with settle delay — atomic send can race
-the slash-command autocomplete popup and silently no-op), pane-tracker fallback when
-`$TMUX_PANE` is unset. Threshold intentionally left at 40% (already more aggressive than
-user's mentioned 65%, which traces to an unwired legacy script).
+`primer-resumer.sh`) were hardened this session (cwd/pid-tagged logs, EXIT trap, split
+`tmux send-keys` to avoid an autocomplete race, pane-tracker fallback). Threshold stays
+at 40% intentionally.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
