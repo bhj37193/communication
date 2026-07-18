@@ -1,0 +1,23 @@
+{
+  "name": "@charisma/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "psql -v ON_ERROR_STOP=1 -f src/db/migrations/0000_init.sql \"$DATABASE_URL_OWNER\""
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.38.0",
+    "fastify": "^5.2.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.0"
+  }
+}

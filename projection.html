@@ -1,0 +1,238 @@
+<title>Communication Trainer — 10-Year Model</title>
+<style>
+  :root{
+    --paper:#EEF0EB; --card:#FCFCFA; --ink:#1A1D23; --muted:#5C636E; --faint:#8A909A;
+    --hair:#DEDDD5; --hair2:#EAE9E2;
+    --accent:#20575F;
+    --bear:#B0563F; --real:#B0862F; --bull:#2F8A62;
+    --loss:#BC3B2E; --profit:#2F8A62;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    font-size:16px; line-height:1.55; padding:clamp(20px,5vw,64px) clamp(16px,5vw,56px);
+    -webkit-font-smoothing:antialiased;
+  }
+  .inner{max-width:1120px; margin:0 auto}
+  .num{font-family:var(--mono); font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600}
+  h1{font-family:var(--serif); font-weight:600; font-size:clamp(30px,5vw,46px); line-height:1.05; margin:.35em 0 .2em; text-wrap:balance}
+  .lede{color:var(--muted); max-width:64ch; font-size:17px}
+  .rule{height:1px; background:var(--hair); border:0; margin:36px 0}
+
+  /* callout */
+  .callout{background:var(--card); border:1px solid var(--hair); border-left:4px solid var(--accent);
+    border-radius:6px; padding:20px 22px; margin:28px 0}
+  .callout h3{margin:0 0 8px; font-family:var(--serif); font-size:19px; font-weight:600}
+  .callout p{margin:0; color:var(--muted); max-width:74ch}
+  .callout strong{color:var(--ink)}
+
+  /* summary cards */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:28px 0}
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card); border:1px solid var(--hair); border-radius:8px; padding:20px; border-top:4px solid var(--c)}
+  .card .name{font-family:var(--serif); font-size:22px; font-weight:600; color:var(--c)}
+  .card .tag{font-size:12.5px; color:var(--muted); margin:2px 0 16px}
+  .stat{display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; border-top:1px solid var(--hair2)}
+  .stat:first-of-type{border-top:0}
+  .stat .k{font-size:13px; color:var(--muted)}
+  .stat .v{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:15px; font-weight:500; text-align:right}
+  .v.neg{color:var(--loss)} .v.pos{color:var(--profit)}
+  .spark{display:flex; gap:3px; margin-top:16px}
+  .spark .c{flex:1; height:30px; border-radius:2px}
+  .sparklabel{display:flex; justify-content:space-between; font-size:10px; color:var(--faint); margin-top:5px; font-family:var(--mono)}
+
+  /* tables */
+  .tsec{margin:40px 0}
+  .thead{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+  .chip{font-family:var(--serif); font-size:20px; font-weight:600; color:#fff; background:var(--c); padding:3px 14px; border-radius:5px}
+  .thead .sub{font-size:13.5px; color:var(--muted)}
+  .scroll{overflow-x:auto; border:1px solid var(--hair); border-radius:8px; background:var(--card)}
+  table{border-collapse:collapse; width:100%; min-width:720px; font-size:13.5px}
+  th,td{padding:9px 12px; text-align:right; white-space:nowrap}
+  th:first-child,td:first-child{text-align:left; position:sticky; left:0; background:var(--card)}
+  thead th{background:color-mix(in srgb,var(--c) 12%,var(--card)); color:var(--ink); font-weight:600; font-size:12px;
+    letter-spacing:.02em; border-bottom:1px solid var(--hair)}
+  tbody td{border-bottom:1px solid var(--hair2); font-family:var(--mono); font-variant-numeric:tabular-nums}
+  tbody tr:last-child td{border-bottom:0}
+  tbody td:first-child{font-family:var(--sans); font-weight:600; color:var(--muted)}
+  tr.break td{background:color-mix(in srgb,var(--profit) 9%,var(--card))}
+  .neg{color:var(--loss)} .pos{color:var(--profit)}
+  .foot td{border-top:2px solid var(--hair)!important; font-weight:700; background:color-mix(in srgb,var(--c) 7%,var(--card))}
+
+  /* assumptions + levers */
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:12px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .panel{background:var(--card); border:1px solid var(--hair); border-radius:8px; padding:22px}
+  .panel h3{margin:0 0 14px; font-family:var(--serif); font-size:20px; font-weight:600}
+  .arow{display:flex; justify-content:space-between; gap:16px; padding:7px 0; border-top:1px solid var(--hair2); font-size:14px}
+  .arow:first-of-type{border-top:0}
+  .arow .k{color:var(--muted)} .arow .v{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right}
+  ol.levers{margin:0; padding-left:0; list-style:none; counter-reset:l}
+  ol.levers li{counter-increment:l; padding:12px 0 12px 44px; position:relative; border-top:1px solid var(--hair2); font-size:14.5px; color:var(--muted)}
+  ol.levers li:first-child{border-top:0}
+  ol.levers li::before{content:counter(l); position:absolute; left:0; top:12px; width:28px; height:28px; border-radius:50%;
+    background:var(--accent); color:#fff; font-family:var(--mono); font-size:13px; display:flex; align-items:center; justify-content:center; font-weight:600}
+  ol.levers li b{color:var(--ink)}
+  .disc{margin-top:36px; font-size:12.5px; color:var(--faint); max-width:80ch; line-height:1.6}
+  .kx{font-family:var(--serif); font-style:italic; color:var(--accent)}
+</style>
+
+<div class="wrap"><div class="inner">
+
+  <div class="eyebrow">Communication Trainer · Financial Model</div>
+  <h1>The 10-year game, in three futures</h1>
+  <p class="lede">A real-time AI communication coach (Deepgram streaming + LLM feedback, corpus behind an MCP server), sold freemium with a subscription core. Starting from zero distribution. Figures are USD; KRW shown at <span class="num">₩1,350</span>/$1. Net profit is after 22% Korea corporate tax with loss carryforward.</p>
+
+  <div class="callout">
+    <h3>Read this before the numbers: two levers decide everything</h3>
+    <p>This product is not classic SaaS. Every session burns <strong>AI cost-of-goods</strong>, and a free tier means you pay to serve users who never pay you (the <strong>freemium tax</strong>). The result the model keeps showing: the difference between the Realistic and Bull futures is <strong>not user count</strong> — it is a few points of paid-conversion and gross margin, compounded over ten years. Note the sobering line below: even in the Realistic case, with <strong>2.2M users</strong> at year 10, cumulative 10-year net profit is still slightly <span class="neg">negative</span>. You spend the decade building the asset; the real money is year 11 onward.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="--c:var(--bear)">
+      <div class="name">Bear</div>
+      <div class="tag">Distribution never clicks. A small lifestyle tool.</div>
+      <div class="stat"><span class="k">Year-10 users</span><span class="v">170,000</span></div>
+      <div class="stat"><span class="k">Paid users</span><span class="v">4,250</span></div>
+      <div class="stat"><span class="k">Year-10 MRR</span><span class="v">$38k · ₩0.5억</span></div>
+      <div class="stat"><span class="k">Year-10 net</span><span class="v neg">−$396k</span></div>
+      <div class="stat"><span class="k">Net margin</span><span class="v neg">−92%</span></div>
+      <div class="stat"><span class="k">Breakeven</span><span class="v neg">never</span></div>
+      <div class="stat"><span class="k">10-yr cum. net</span><span class="v neg">−$2.12M</span></div>
+      <div class="spark">
+        <div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div>
+      </div>
+      <div class="sparklabel"><span>Y1</span><span>net profit by year</span><span>Y10</span></div>
+    </div>
+
+    <div class="card" style="--c:var(--real)">
+      <div class="name">Realistic</div>
+      <div class="tag">A working growth loop. Real, but margin-thin.</div>
+      <div class="stat"><span class="k">Year-10 users</span><span class="v">2.20M</span></div>
+      <div class="stat"><span class="k">Paid users</span><span class="v">88,000</span></div>
+      <div class="stat"><span class="k">Year-10 MRR</span><span class="v">$1.06M · ₩14.3억</span></div>
+      <div class="stat"><span class="k">Year-10 net</span><span class="v pos">+$795k</span></div>
+      <div class="stat"><span class="k">Net margin</span><span class="v">7%</span></div>
+      <div class="stat"><span class="k">Breakeven</span><span class="v">Year 8</span></div>
+      <div class="stat"><span class="k">10-yr cum. net</span><span class="v neg">−$0.84M</span></div>
+      <div class="spark">
+        <div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div>
+      </div>
+      <div class="sparklabel"><span>Y1</span><span>crossover Y8</span><span>Y10</span></div>
+    </div>
+
+    <div class="card" style="--c:var(--bull)">
+      <div class="name">Bull</div>
+      <div class="tag">Viral loop hits. Category winner economics.</div>
+      <div class="stat"><span class="k">Year-10 users</span><span class="v">15.0M</span></div>
+      <div class="stat"><span class="k">Paid users</span><span class="v">900,000</span></div>
+      <div class="stat"><span class="k">Year-10 MRR</span><span class="v">$13.5M · ₩182억</span></div>
+      <div class="stat"><span class="k">Year-10 net</span><span class="v pos">+$40.6M</span></div>
+      <div class="stat"><span class="k">Net margin</span><span class="v pos">28%</span></div>
+      <div class="stat"><span class="k">Breakeven</span><span class="v">Year 4</span></div>
+      <div class="stat"><span class="k">10-yr cum. net</span><span class="v pos">+$110M · ₩1,486억</span></div>
+      <div class="spark">
+        <div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--loss)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div><div class="c" style="background:var(--profit)"></div>
+      </div>
+      <div class="sparklabel"><span>Y1</span><span>crossover Y4</span><span>Y10</span></div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- BEAR TABLE -->
+  <div class="tsec" style="--c:var(--bear)">
+    <div class="thead"><span class="chip">Bear</span><span class="sub">2.5% paid conversion · 55% gross margin · $9/mo ARPU · stays lean, never scales</span></div>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>Users (MAU)</th><th>Paid</th><th>Revenue</th><th>Total cost</th><th>Op. profit</th><th>Net (a/tax)</th><th>Margin</th><th>MRR $</th><th>MRR ₩</th></tr></thead>
+      <tbody>
+        <tr><td>Y1</td><td>5,000</td><td>125</td><td>$6.8k</td><td>$36.4k</td><td class="neg">−$29.7k</td><td class="neg">−$29.7k</td><td class="neg">−439%</td><td>$1.1k</td><td>₩0.02억</td></tr>
+        <tr><td>Y2</td><td>15,000</td><td>375</td><td>$27.0k</td><td>$90.0k</td><td class="neg">−$63.0k</td><td class="neg">−$63.0k</td><td class="neg">−233%</td><td>$3.4k</td><td>₩0.05억</td></tr>
+        <tr><td>Y3</td><td>30,000</td><td>750</td><td>$60.8k</td><td>$158.7k</td><td class="neg">−$98.0k</td><td class="neg">−$98.0k</td><td class="neg">−161%</td><td>$6.8k</td><td>₩0.09억</td></tr>
+        <tr><td>Y4</td><td>50,000</td><td>1,250</td><td>$108.0k</td><td>$254.1k</td><td class="neg">−$146.1k</td><td class="neg">−$146.1k</td><td class="neg">−135%</td><td>$11.3k</td><td>₩0.15억</td></tr>
+        <tr><td>Y5</td><td>70,000</td><td>1,750</td><td>$162.0k</td><td>$355.2k</td><td class="neg">−$193.2k</td><td class="neg">−$193.2k</td><td class="neg">−119%</td><td>$15.8k</td><td>₩0.21억</td></tr>
+        <tr><td>Y6</td><td>90,000</td><td>2,250</td><td>$216.0k</td><td>$449.8k</td><td class="neg">−$233.8k</td><td class="neg">−$233.8k</td><td class="neg">−108%</td><td>$20.3k</td><td>₩0.27억</td></tr>
+        <tr><td>Y7</td><td>110,000</td><td>2,750</td><td>$270.0k</td><td>$546.6k</td><td class="neg">−$276.6k</td><td class="neg">−$276.6k</td><td class="neg">−102%</td><td>$24.8k</td><td>₩0.33억</td></tr>
+        <tr><td>Y8</td><td>130,000</td><td>3,250</td><td>$324.0k</td><td>$642.3k</td><td class="neg">−$318.3k</td><td class="neg">−$318.3k</td><td class="neg">−98%</td><td>$29.3k</td><td>₩0.39억</td></tr>
+        <tr><td>Y9</td><td>150,000</td><td>3,750</td><td>$378.0k</td><td>$738.5k</td><td class="neg">−$360.5k</td><td class="neg">−$360.5k</td><td class="neg">−95%</td><td>$33.8k</td><td>₩0.46억</td></tr>
+        <tr><td>Y10</td><td>170,000</td><td>4,250</td><td>$432.0k</td><td>$828.3k</td><td class="neg">−$396.3k</td><td class="neg">−$396.3k</td><td class="neg">−92%</td><td>$38.3k</td><td>₩0.52억</td></tr>
+        <tr class="foot"><td>10-yr</td><td>—</td><td>—</td><td>$1.98M</td><td>$4.10M</td><td class="neg">−$2.12M</td><td class="neg">−$2.12M</td><td class="neg">−107%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- REALISTIC TABLE -->
+  <div class="tsec" style="--c:var(--real)">
+    <div class="thead"><span class="chip">Realistic</span><span class="sub">4% paid conversion · 66% gross margin · $12/mo ARPU · breakeven Year 8</span></div>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>Users (MAU)</th><th>Paid</th><th>Revenue</th><th>Total cost</th><th>Op. profit</th><th>Net (a/tax)</th><th>Margin</th><th>MRR $</th><th>MRR ₩</th></tr></thead>
+      <tbody>
+        <tr><td>Y1</td><td>10,000</td><td>400</td><td>$28.8k</td><td>$133.6k</td><td class="neg">−$104.8k</td><td class="neg">−$104.8k</td><td class="neg">−364%</td><td>$4.8k</td><td>₩0.06억</td></tr>
+        <tr><td>Y2</td><td>40,000</td><td>1,600</td><td>$144.0k</td><td>$371.5k</td><td class="neg">−$227.5k</td><td class="neg">−$227.5k</td><td class="neg">−158%</td><td>$19.2k</td><td>₩0.26억</td></tr>
+        <tr><td>Y3</td><td>100,000</td><td>4,000</td><td>$403.2k</td><td>$707.3k</td><td class="neg">−$304.1k</td><td class="neg">−$304.1k</td><td class="neg">−75%</td><td>$48.0k</td><td>₩0.65억</td></tr>
+        <tr><td>Y4</td><td>220,000</td><td>8,800</td><td>$921.6k</td><td>$1.33M</td><td class="neg">−$411.3k</td><td class="neg">−$411.3k</td><td class="neg">−45%</td><td>$105.6k</td><td>₩1.43억</td></tr>
+        <tr><td>Y5</td><td>400,000</td><td>16,000</td><td>$1.79M</td><td>$2.20M</td><td class="neg">−$417.0k</td><td class="neg">−$417.0k</td><td class="neg">−23%</td><td>$192.0k</td><td>₩2.59억</td></tr>
+        <tr><td>Y6</td><td>650,000</td><td>26,000</td><td>$3.02M</td><td>$3.40M</td><td class="neg">−$380.2k</td><td class="neg">−$380.2k</td><td class="neg">−13%</td><td>$312.0k</td><td>₩4.21억</td></tr>
+        <tr><td>Y7</td><td>950,000</td><td>38,000</td><td>$4.61M</td><td>$4.78M</td><td class="neg">−$175.7k</td><td class="neg">−$175.7k</td><td class="neg">−4%</td><td>$456.0k</td><td>₩6.16억</td></tr>
+        <tr class="break"><td>Y8</td><td>1.30M</td><td>52,000</td><td>$6.48M</td><td>$6.44M</td><td class="pos">+$43.2k</td><td class="pos">+$43.2k</td><td class="pos">+1%</td><td>$624.0k</td><td>₩8.42억</td></tr>
+        <tr><td>Y9</td><td>1.70M</td><td>68,000</td><td>$8.64M</td><td>$8.29M</td><td class="pos">+$345.6k</td><td class="pos">+$345.6k</td><td class="pos">+4%</td><td>$816.0k</td><td>₩11.0억</td></tr>
+        <tr><td>Y10</td><td>2.20M</td><td>88,000</td><td>$11.23M</td><td>$10.44M</td><td class="pos">+$794.9k</td><td class="pos">+$794.9k</td><td class="pos">+7%</td><td>$1.06M</td><td>₩14.3억</td></tr>
+        <tr class="foot"><td>10-yr</td><td>—</td><td>—</td><td>$37.27M</td><td>$38.10M</td><td class="neg">−$0.84M</td><td class="neg">−$0.84M</td><td class="neg">−2%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- BULL TABLE -->
+  <div class="tsec" style="--c:var(--bull)">
+    <div class="thead"><span class="chip">Bull</span><span class="sub">6% paid conversion · 74% gross margin · $15/mo ARPU · breakeven Year 4</span></div>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>Users (MAU)</th><th>Paid</th><th>Revenue</th><th>Total cost</th><th>Op. profit</th><th>Net (a/tax)</th><th>Margin</th><th>MRR $</th><th>MRR ₩</th></tr></thead>
+      <tbody>
+        <tr><td>Y1</td><td>25,000</td><td>1,500</td><td>$135.0k</td><td>$453.0k</td><td class="neg">−$318.0k</td><td class="neg">−$318.0k</td><td class="neg">−236%</td><td>$22.5k</td><td>₩0.30억</td></tr>
+        <tr><td>Y2</td><td>120,000</td><td>7,200</td><td>$783.0k</td><td>$1.44M</td><td class="neg">−$657.1k</td><td class="neg">−$657.1k</td><td class="neg">−84%</td><td>$108.0k</td><td>₩1.46억</td></tr>
+        <tr><td>Y3</td><td>400,000</td><td>24,000</td><td>$2.81M</td><td>$3.46M</td><td class="neg">−$656.1k</td><td class="neg">−$656.1k</td><td class="neg">−23%</td><td>$360.0k</td><td>₩4.86억</td></tr>
+        <tr class="break"><td>Y4</td><td>1.00M</td><td>60,000</td><td>$7.56M</td><td>$7.40M</td><td class="pos">+$163.4k</td><td class="pos">+$163.4k</td><td class="pos">+2%</td><td>$900.0k</td><td>₩12.2억</td></tr>
+        <tr><td>Y5</td><td>2.20M</td><td>132,000</td><td>$17.28M</td><td>$14.62M</td><td class="pos">+$2.66M</td><td class="pos">+$2.40M</td><td class="pos">+14%</td><td>$1.98M</td><td>₩26.7억</td></tr>
+        <tr><td>Y6</td><td>4.00M</td><td>240,000</td><td>$33.48M</td><td>$25.84M</td><td class="pos">+$7.64M</td><td class="pos">+$5.96M</td><td class="pos">+18%</td><td>$3.60M</td><td>₩48.6억</td></tr>
+        <tr><td>Y7</td><td>6.50M</td><td>390,000</td><td>$56.70M</td><td>$40.78M</td><td class="pos">+$15.92M</td><td class="pos">+$12.42M</td><td class="pos">+22%</td><td>$5.85M</td><td>₩79.0억</td></tr>
+        <tr><td>Y8</td><td>9.00M</td><td>540,000</td><td>$83.70M</td><td>$57.38M</td><td class="pos">+$26.32M</td><td class="pos">+$20.53M</td><td class="pos">+25%</td><td>$8.10M</td><td>₩109.4억</td></tr>
+        <tr><td>Y9</td><td>12.0M</td><td>720,000</td><td>$113.40M</td><td>$75.38M</td><td class="pos">+$38.02M</td><td class="pos">+$29.66M</td><td class="pos">+26%</td><td>$10.80M</td><td>₩145.8억</td></tr>
+        <tr><td>Y10</td><td>15.0M</td><td>900,000</td><td>$145.80M</td><td>$93.78M</td><td class="pos">+$52.02M</td><td class="pos">+$40.58M</td><td class="pos">+28%</td><td>$13.50M</td><td>₩182.3억</td></tr>
+        <tr class="foot"><td>10-yr</td><td>—</td><td>—</td><td>$461.6M</td><td>$319.6M</td><td class="pos">+$142.1M</td><td class="pos">+$110.1M</td><td class="pos">+24%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Assumptions driving the model</h3>
+      <div class="arow"><span class="k">FX rate</span><span class="v">₩1,350 / $1</span></div>
+      <div class="arow"><span class="k">Paid plan</span><span class="v">$9–15 / month</span></div>
+      <div class="arow"><span class="k">Paid conversion (of MAU)</span><span class="v">2.5% · 4% · 6%</span></div>
+      <div class="arow"><span class="k">Gross margin (after AI COGS)</span><span class="v">55% · 66% · 74%</span></div>
+      <div class="arow"><span class="k">Freemium tax (cost / free user / yr)</span><span class="v">$2.0 · $0.9 · $0.55</span></div>
+      <div class="arow"><span class="k">Corporate tax (w/ loss carryforward)</span><span class="v">22%</span></div>
+      <div class="arow"><span class="k">Revenue basis</span><span class="v">avg. paid users × ARPU × 12</span></div>
+      <div class="arow"><span class="k">OpEx</span><span class="v">% of revenue, declining w/ scale</span></div>
+    </div>
+    <div class="panel">
+      <h3>The levers, ranked by leverage</h3>
+      <ol class="levers">
+        <li><b>Paid conversion.</b> Moving from 2.5% → 6% is most of the gap between a hobby and a $145M business. Your practice-and-feedback loop is the conversion engine — free users who feel themselves improving convert.</li>
+        <li><b>Gross margin = AI cost control.</b> Streaming STT + LLM feedback is your COGS. Hard free-tier caps, cheaper models, on-device voice activity detection. Every margin point is worth millions by Year 8.</li>
+        <li><b>The freemium tax.</b> At millions of free users, serving non-payers is a real line item. Cap free usage tightly or it eats the gross profit the payers generate.</li>
+        <li><b>Distribution speed.</b> Sets the top line, but note: scale without the three levers above just means losing money faster (see Bear vs Bull, same product).</li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="disc"><span class="kx">On reading this:</span> these are illustrative scenarios, not a forecast — a 10-year model is a structured argument about which levers matter, and its precision is false comfort. The honest headline is that <b>distribution gets you users, but unit economics decide whether users are worth having</b>. Starting from zero audience, your first real milestone is not revenue: it is proving the free-to-paid loop works on a few thousand people, because that single ratio is what separates all three futures above.</p>
+
+</div></div>

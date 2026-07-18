@@ -1,0 +1,215 @@
+<title>Paid-Only vs Freemium — 10-Year Showdown</title>
+<style>
+  :root{
+    --paper:#EEF0EB; --card:#FCFCFA; --ink:#1A1D23; --muted:#5C636E; --faint:#8A909A;
+    --hair:#DEDDD5; --hair2:#EAE9E2; --accent:#20575F;
+    --free:#B0862F; --paid:#20575F;
+    --bear:#B0563F; --real:#B0862F; --bull:#2F8A62;
+    --loss:#BC3B2E; --profit:#2F8A62; --win:#1F7A54;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box} body{margin:0}
+  .wrap{background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.55;
+    padding:clamp(20px,5vw,64px) clamp(16px,5vw,56px); -webkit-font-smoothing:antialiased}
+  .inner{max-width:1120px; margin:0 auto}
+  .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600}
+  h1{font-family:var(--serif); font-weight:600; font-size:clamp(30px,5vw,46px); line-height:1.05; margin:.35em 0 .2em; text-wrap:balance}
+  .lede{color:var(--muted); max-width:66ch; font-size:17px}
+  h2{font-family:var(--serif); font-size:26px; font-weight:600; margin:44px 0 4px}
+  .rule{height:1px; background:var(--hair); border:0; margin:36px 0}
+  .callout{background:var(--card); border:1px solid var(--hair); border-left:4px solid var(--accent); border-radius:6px; padding:20px 22px; margin:26px 0}
+  .callout h3{margin:0 0 8px; font-family:var(--serif); font-size:19px; font-weight:600}
+  .callout p{margin:0 0 8px; color:var(--muted); max-width:76ch} .callout p:last-child{margin:0}
+  .callout strong{color:var(--ink)}
+  .mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+  /* head-to-head */
+  .vs{background:var(--card); border:1px solid var(--hair); border-radius:8px; overflow:hidden; margin:20px 0 34px}
+  .vshead{display:grid; grid-template-columns:1.4fr 1fr 1fr; border-bottom:1px solid var(--hair)}
+  .vshead>div{padding:12px 16px; font-weight:600}
+  .vshead .sc{font-family:var(--serif); font-size:19px; color:var(--c)}
+  .vshead .m{text-align:right; font-size:13px; letter-spacing:.04em; text-transform:uppercase}
+  .vshead .free{color:var(--free)} .vshead .paid{color:var(--paid)}
+  .vrow{display:grid; grid-template-columns:1.4fr 1fr 1fr; border-bottom:1px solid var(--hair2)}
+  .vrow:last-child{border-bottom:0}
+  .vrow>div{padding:9px 16px}
+  .vrow .lab{color:var(--muted); font-size:14px}
+  .vrow .val{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:14.5px}
+  .val.win{color:var(--win); font-weight:700}
+  .val.neg{color:var(--loss)} .val.pos{color:var(--profit)}
+  .badge{display:inline-block; font-size:11px; font-family:var(--sans); font-weight:600; color:#fff; background:var(--win); border-radius:4px; padding:1px 6px; margin-left:6px; vertical-align:1px}
+
+  /* tables */
+  .tsec{margin:34px 0}
+  .thead{display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
+  .chip{font-family:var(--serif); font-size:19px; font-weight:600; color:#fff; background:var(--c); padding:3px 14px; border-radius:5px}
+  .thead .sub{font-size:13px; color:var(--muted)}
+  .scroll{overflow-x:auto; border:1px solid var(--hair); border-radius:8px; background:var(--card)}
+  table{border-collapse:collapse; width:100%; min-width:680px; font-size:13.5px}
+  th,td{padding:9px 12px; text-align:right; white-space:nowrap}
+  th:first-child,td:first-child{text-align:left; position:sticky; left:0; background:var(--card)}
+  thead th{background:color-mix(in srgb,var(--c) 12%,var(--card)); font-weight:600; font-size:12px; border-bottom:1px solid var(--hair)}
+  tbody td{border-bottom:1px solid var(--hair2); font-family:var(--mono); font-variant-numeric:tabular-nums}
+  tbody tr:last-child td{border-bottom:0}
+  tbody td:first-child{font-family:var(--sans); font-weight:600; color:var(--muted)}
+  tr.break td{background:color-mix(in srgb,var(--profit) 9%,var(--card))}
+  .neg{color:var(--loss)} .pos{color:var(--profit)}
+  .foot td{border-top:2px solid var(--hair)!important; font-weight:700; background:color-mix(in srgb,var(--c) 7%,var(--card))}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr} .vshead,.vrow{grid-template-columns:1.3fr .85fr .85fr}}
+  .panel{background:var(--card); border:1px solid var(--hair); border-radius:8px; padding:22px}
+  .panel h3{margin:0 0 12px; font-family:var(--serif); font-size:19px; font-weight:600}
+  .panel ul{margin:0; padding-left:18px; color:var(--muted); font-size:14.5px}
+  .panel li{margin:7px 0} .panel li b{color:var(--ink)}
+  ol.rec{margin:0; padding-left:0; list-style:none; counter-reset:l}
+  ol.rec li{counter-increment:l; padding:12px 0 12px 44px; position:relative; border-top:1px solid var(--hair2); font-size:14.5px; color:var(--muted)}
+  ol.rec li:first-child{border-top:0}
+  ol.rec li::before{content:counter(l); position:absolute; left:0; top:12px; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-family:var(--mono); font-size:13px; display:flex; align-items:center; justify-content:center; font-weight:600}
+  ol.rec li b{color:var(--ink)}
+  .disc{margin-top:30px; font-size:12.5px; color:var(--faint); max-width:82ch; line-height:1.6}
+  .kx{font-family:var(--serif); font-style:italic; color:var(--accent)}
+</style>
+
+<div class="wrap"><div class="inner">
+
+  <div class="eyebrow">Pricing model · Head-to-head</div>
+  <h1>Paid-only vs freemium, over ten years</h1>
+  <p class="lede">Same product, same growth ambition, two pricing models. Paid-only assumes no free tier, a 7-day card-required trial with hard usage caps, and a 6–12% refund haircut for the money-back guarantee. Higher ARPU ($12–22 vs $9–15), because there is no free anchor. USD; KRW at ₩1,350/$1; net is after 22% tax.</p>
+
+  <div class="callout">
+    <h3>The verdict up front</h3>
+    <p><strong>Paid-only wins nearly every profitability metric, and it wins the Realistic case decisively.</strong> It breaks even years earlier and is cumulatively profitable over the decade in the Realistic case, where freemium is still cumulatively in the red at Year 10. It does this by deleting the freemium tax and charging more per user.</p>
+    <p><strong>Freemium only wins on reach.</strong> The 2.2M–15M user counts, and the higher top-line in the viral Bull case, exist only with a free tier. Paid-only caps you at roughly <strong>one to two orders of magnitude fewer humans</strong>. So freemium is a lottery ticket that pays off only if you go viral; paid-only is the more robust business if you do not.</p>
+  </div>
+
+  <h2>Realistic case — the one that matters most</h2>
+  <div class="vs" style="--c:var(--real)">
+    <div class="vshead"><div class="sc">Realistic</div><div class="m free">Freemium</div><div class="m paid">Paid-only</div></div>
+    <div class="vrow"><div class="lab">Humans reached (Y10)</div><div class="val win">2.20M</div><div class="val">~130k</div></div>
+    <div class="vrow"><div class="lab">Paying customers (Y10)</div><div class="val">88,000</div><div class="val win">92,000</div></div>
+    <div class="vrow"><div class="lab">ARPU / month</div><div class="val">$12</div><div class="val win">$18</div></div>
+    <div class="vrow"><div class="lab">Revenue (Y10)</div><div class="val">$11.2M</div><div class="val win">$16.2M</div></div>
+    <div class="vrow"><div class="lab">Net profit (Y10)</div><div class="val pos">+$0.79M</div><div class="val win">+$3.27M</div></div>
+    <div class="vrow"><div class="lab">Net margin (Y10)</div><div class="val">7%</div><div class="val win">20%</div></div>
+    <div class="vrow"><div class="lab">Breakeven year</div><div class="val">Year 8</div><div class="val win">Year 5</div></div>
+    <div class="vrow"><div class="lab">Year-10 MRR</div><div class="val">$1.06M · ₩14.3억</div><div class="val win">$1.51M · ₩20.3억</div></div>
+    <div class="vrow"><div class="lab">10-yr cumulative net</div><div class="val neg">−$0.84M</div><div class="val win">+$7.60M · ₩102.6억</div></div>
+  </div>
+
+  <h2>Bull case — where freemium fights back</h2>
+  <div class="vs" style="--c:var(--bull)">
+    <div class="vshead"><div class="sc">Bull</div><div class="m free">Freemium</div><div class="m paid">Paid-only</div></div>
+    <div class="vrow"><div class="lab">Humans reached (Y10)</div><div class="val win">15.0M</div><div class="val">~740k</div></div>
+    <div class="vrow"><div class="lab">Paying customers (Y10)</div><div class="val win">900,000</div><div class="val">540,000</div></div>
+    <div class="vrow"><div class="lab">Revenue (Y10)</div><div class="val win">$145.8M</div><div class="val">$121.6M</div></div>
+    <div class="vrow"><div class="lab">Net profit (Y10)</div><div class="val pos">+$40.6M</div><div class="val win">+$41.2M</div></div>
+    <div class="vrow"><div class="lab">Net margin (Y10)</div><div class="val">28%</div><div class="val win">34%</div></div>
+    <div class="vrow"><div class="lab">Breakeven year</div><div class="val">Year 4</div><div class="val">Year 4</div></div>
+    <div class="vrow"><div class="lab">Year-10 MRR</div><div class="val win">$13.5M · ₩182.3억</div><div class="val">$11.2M · ₩150.8억</div></div>
+    <div class="vrow"><div class="lab">10-yr cumulative net</div><div class="val pos">+$110.1M</div><div class="val win">+$122.6M · ₩1,656억</div></div>
+  </div>
+
+  <h2>Bear case — distribution never clicks</h2>
+  <div class="vs" style="--c:var(--bear)">
+    <div class="vshead"><div class="sc">Bear</div><div class="m free">Freemium</div><div class="m paid">Paid-only</div></div>
+    <div class="vrow"><div class="lab">Humans reached (Y10)</div><div class="val win">170k</div><div class="val">~19k</div></div>
+    <div class="vrow"><div class="lab">Paying customers (Y10)</div><div class="val">4,250</div><div class="val win">15,000</div></div>
+    <div class="vrow"><div class="lab">Net profit (Y10)</div><div class="val neg">−$396k</div><div class="val win">−$240k</div></div>
+    <div class="vrow"><div class="lab">Breakeven year</div><div class="val neg">never</div><div class="val neg">never</div></div>
+    <div class="vrow"><div class="lab">10-yr cumulative net</div><div class="val neg">−$2.12M</div><div class="val win">−$1.74M</div></div>
+  </div>
+  <p class="lede" style="font-size:15px">Neither model saves the Bear case, because neither fixes distribution. But paid-only loses less money getting there, and reaches more <em>paying</em> customers by not diluting effort on a free base.</p>
+
+  <hr class="rule">
+  <h2>Paid-only, year by year</h2>
+
+  <div class="tsec" style="--c:var(--bear)">
+    <div class="thead"><span class="chip">Bear</span><span class="sub">$12/mo · 62% GM · 12% refunds · never breaks even</span></div>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>Payers</th><th>Trials</th><th>Revenue</th><th>Total cost</th><th>Net (a/tax)</th><th>Margin</th><th>MRR $</th><th>MRR ₩</th></tr></thead>
+      <tbody>
+        <tr><td>Y1</td><td>300</td><td>600</td><td>$19.0k</td><td>$66.1k</td><td class="neg">−$47.1k</td><td class="neg">−248%</td><td>$3.2k</td><td>₩0.04억</td></tr>
+        <tr><td>Y2</td><td>1,000</td><td>1,400</td><td>$82.4k</td><td>$169.5k</td><td class="neg">−$87.1k</td><td class="neg">−106%</td><td>$10.6k</td><td>₩0.14억</td></tr>
+        <tr><td>Y3</td><td>2,200</td><td>2,400</td><td>$202.8k</td><td>$314.2k</td><td class="neg">−$111.4k</td><td class="neg">−55%</td><td>$23.2k</td><td>₩0.31억</td></tr>
+        <tr><td>Y4</td><td>3,800</td><td>3,200</td><td>$380.2k</td><td>$530.1k</td><td class="neg">−$150.0k</td><td class="neg">−39%</td><td>$40.1k</td><td>₩0.54억</td></tr>
+        <tr><td>Y5</td><td>5,500</td><td>3,400</td><td>$589.2k</td><td>$778.1k</td><td class="neg">−$188.8k</td><td class="neg">−32%</td><td>$58.1k</td><td>₩0.78억</td></tr>
+        <tr><td>Y6</td><td>7,200</td><td>3,400</td><td>$804.7k</td><td>$1.01M</td><td class="neg">−$207.7k</td><td class="neg">−26%</td><td>$76.0k</td><td>₩1.03억</td></tr>
+        <tr><td>Y7</td><td>9,000</td><td>3,600</td><td>$1.03M</td><td>$1.25M</td><td class="neg">−$222.8k</td><td class="neg">−22%</td><td>$95.0k</td><td>₩1.28억</td></tr>
+        <tr><td>Y8</td><td>11,000</td><td>4,000</td><td>$1.27M</td><td>$1.50M</td><td class="neg">−$236.4k</td><td class="neg">−19%</td><td>$116.2k</td><td>₩1.57억</td></tr>
+        <tr><td>Y9</td><td>13,000</td><td>4,000</td><td>$1.52M</td><td>$1.77M</td><td class="neg">−$252.1k</td><td class="neg">−17%</td><td>$137.3k</td><td>₩1.85억</td></tr>
+        <tr><td>Y10</td><td>15,000</td><td>4,000</td><td>$1.77M</td><td>$2.01M</td><td class="neg">−$239.9k</td><td class="neg">−14%</td><td>$158.4k</td><td>₩2.14억</td></tr>
+        <tr class="foot"><td>10-yr</td><td>—</td><td>—</td><td>$7.67M</td><td>$9.41M</td><td class="neg">−$1.74M</td><td class="neg">−23%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="tsec" style="--c:var(--real)">
+    <div class="thead"><span class="chip">Realistic</span><span class="sub">$18/mo · 72% GM · 9% refunds · breakeven Year 5</span></div>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>Payers</th><th>Trials</th><th>Revenue</th><th>Total cost</th><th>Net (a/tax)</th><th>Margin</th><th>MRR $</th><th>MRR ₩</th></tr></thead>
+      <tbody>
+        <tr><td>Y1</td><td>800</td><td>1,600</td><td>$78.6k</td><td>$278.2k</td><td class="neg">−$199.6k</td><td class="neg">−254%</td><td>$13.1k</td><td>₩0.18억</td></tr>
+        <tr><td>Y2</td><td>3,000</td><td>4,400</td><td>$373.5k</td><td>$756.4k</td><td class="neg">−$382.9k</td><td class="neg">−103%</td><td>$49.1k</td><td>₩0.66억</td></tr>
+        <tr><td>Y3</td><td>7,000</td><td>8,000</td><td>$982.8k</td><td>$1.40M</td><td class="neg">−$412.7k</td><td class="neg">−42%</td><td>$114.7k</td><td>₩1.55억</td></tr>
+        <tr><td>Y4</td><td>13,000</td><td>12,000</td><td>$1.97M</td><td>$2.29M</td><td class="neg">−$328.0k</td><td class="neg">−17%</td><td>$212.9k</td><td>₩2.87억</td></tr>
+        <tr class="break"><td>Y5</td><td>21,000</td><td>16,000</td><td>$3.34M</td><td>$3.32M</td><td class="pos">+$17.1k</td><td class="pos">+1%</td><td>$344.0k</td><td>₩4.64억</td></tr>
+        <tr><td>Y6</td><td>31,000</td><td>20,000</td><td>$5.11M</td><td>$4.57M</td><td class="pos">+$544.0k</td><td class="pos">+11%</td><td>$507.8k</td><td>₩6.86억</td></tr>
+        <tr><td>Y7</td><td>43,000</td><td>24,000</td><td>$7.27M</td><td>$6.06M</td><td class="pos">+$1.12M</td><td class="pos">+15%</td><td>$704.3k</td><td>₩9.51억</td></tr>
+        <tr><td>Y8</td><td>57,000</td><td>28,000</td><td>$9.83M</td><td>$7.78M</td><td class="pos">+$1.59M</td><td class="pos">+16%</td><td>$933.7k</td><td>₩12.6억</td></tr>
+        <tr><td>Y9</td><td>73,000</td><td>32,000</td><td>$12.78M</td><td>$9.73M</td><td class="pos">+$2.38M</td><td class="pos">+19%</td><td>$1.20M</td><td>₩16.1억</td></tr>
+        <tr><td>Y10</td><td>92,000</td><td>38,000</td><td>$16.22M</td><td>$12.02M</td><td class="pos">+$3.27M</td><td class="pos">+20%</td><td>$1.51M</td><td>₩20.3억</td></tr>
+        <tr class="foot"><td>10-yr</td><td>—</td><td>—</td><td>$57.95M</td><td>$48.20M</td><td class="pos">+$7.60M</td><td class="pos">+13%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="tsec" style="--c:var(--bull)">
+    <div class="thead"><span class="chip">Bull</span><span class="sub">$22/mo · 80% GM · 6% refunds · breakeven Year 4</span></div>
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th>Payers</th><th>Trials</th><th>Revenue</th><th>Total cost</th><th>Net (a/tax)</th><th>Margin</th><th>MRR $</th><th>MRR ₩</th></tr></thead>
+      <tbody>
+        <tr><td>Y1</td><td>2,500</td><td>5,000</td><td>$310.2k</td><td>$880.0k</td><td class="neg">−$569.8k</td><td class="neg">−184%</td><td>$51.7k</td><td>₩0.70억</td></tr>
+        <tr><td>Y2</td><td>10,000</td><td>15,000</td><td>$1.55M</td><td>$2.52M</td><td class="neg">−$972.9k</td><td class="neg">−63%</td><td>$206.8k</td><td>₩2.79억</td></tr>
+        <tr><td>Y3</td><td>28,000</td><td>36,000</td><td>$4.72M</td><td>$5.30M</td><td class="neg">−$585.7k</td><td class="neg">−12%</td><td>$579.0k</td><td>₩7.82억</td></tr>
+        <tr class="break"><td>Y4</td><td>60,000</td><td>64,000</td><td>$10.92M</td><td>$9.52M</td><td class="pos">+$1.40M</td><td class="pos">+13%</td><td>$1.24M</td><td>₩16.8억</td></tr>
+        <tr><td>Y5</td><td>110,000</td><td>100,000</td><td>$21.09M</td><td>$16.03M</td><td class="pos">+$4.11M</td><td class="pos">+19%</td><td>$2.27M</td><td>₩30.7억</td></tr>
+        <tr><td>Y6</td><td>175,000</td><td>130,000</td><td>$35.36M</td><td>$24.34M</td><td class="pos">+$8.60M</td><td class="pos">+24%</td><td>$3.62M</td><td>₩48.9억</td></tr>
+        <tr><td>Y7</td><td>255,000</td><td>160,000</td><td>$53.35M</td><td>$34.00M</td><td class="pos">+$15.10M</td><td class="pos">+28%</td><td>$5.27M</td><td>₩71.2억</td></tr>
+        <tr><td>Y8</td><td>345,000</td><td>180,000</td><td>$74.45M</td><td>$45.14M</td><td class="pos">+$22.86M</td><td class="pos">+31%</td><td>$7.13M</td><td>₩96.3억</td></tr>
+        <tr><td>Y9</td><td>440,000</td><td>190,000</td><td>$97.40M</td><td>$57.05M</td><td class="pos">+$31.48M</td><td class="pos">+32%</td><td>$9.10M</td><td>₩122.8억</td></tr>
+        <tr><td>Y10</td><td>540,000</td><td>200,000</td><td>$121.60M</td><td>$68.73M</td><td class="pos">+$41.24M</td><td class="pos">+34%</td><td>$11.17M</td><td>₩150.8억</td></tr>
+        <tr class="foot"><td>10-yr</td><td>—</td><td>—</td><td>$420.8M</td><td>$263.5M</td><td class="pos">+$122.6M</td><td class="pos">+29%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <hr class="rule">
+  <div class="grid2">
+    <div class="panel">
+      <h3>What you gain / give up with paid-only</h3>
+      <ul>
+        <li><b>Gain:</b> the freemium tax disappears. COGS is spent only on payers and capped trials.</li>
+        <li><b>Gain:</b> higher ARPU ($18 vs $12) with no free tier anchoring price low.</li>
+        <li><b>Gain:</b> profitable years earlier, and cumulatively positive in the Realistic case where freemium is not.</li>
+        <li><b>Gain:</b> survivable while bootstrapped, no need to fund millions of free users' AI bills.</li>
+        <li><b>Give up:</b> the "millions of users" outcome. That lives only in freemium's viral Bull case.</li>
+        <li><b>Give up:</b> ~20% of Bull-case top-line revenue, and the free-driven word-of-mouth loop.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>If you go paid-only, do these</h3>
+      <ol class="rec">
+        <li><b>Free trial, not just a refund.</b> A 7-day card-required trial beats "pay then refund" for getting people in the door. Keep the 30-day money-back as the closer on top.</li>
+        <li><b>Cap usage during trial and the refund window.</b> Or heavy extractors burn your Deepgram + LLM bill, then refund. This is the one AI-specific hole.</li>
+        <li><b>Watch the refund line.</b> Modeled at 6–12% off revenue. If it climbs past 15%, the guarantee is masking a product problem, fix the product, not the policy.</li>
+        <li><b>Keep a free tier as a future option.</b> If you later prove virality or raise money, add free then. Starting paid-only does not close that door.</li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="disc"><span class="kx">Bottom line:</span> for a bootstrapped founder starting from zero distribution, <b>paid-only is the more robust bet.</b> It is the better business in the Realistic case by a wide margin, and it barely trails, then overtakes on margin, even in the Bull case. Freemium only pulls ahead on raw reach and top-line, and only if the viral loop actually fires. You are trading a lottery ticket for a business that pays you sooner. Illustrative scenarios, not a forecast; the real unknown is still whether people convert after feeling themselves improve.</p>
+
+</div></div>
