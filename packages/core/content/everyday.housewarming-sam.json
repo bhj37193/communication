@@ -1,0 +1,118 @@
+{
+  "pack_id": "everyday",
+  "version": "1.0.0",
+  "open_starters": [
+    "what",
+    "how",
+    "why",
+    "tell me",
+    "describe",
+    "walk me through",
+    "where did",
+    "what's it like",
+    "which part",
+    "who"
+  ],
+  "closed_starters": [
+    "do you",
+    "did you",
+    "are you",
+    "is it",
+    "was it",
+    "have you",
+    "would you",
+    "can i"
+  ],
+  "signals": [
+    {
+      "id": "open_questions",
+      "kind": "count",
+      "description": "Count of user messages that are open questions.",
+      "weight": 8
+    },
+    {
+      "id": "followups",
+      "kind": "count",
+      "description": "Count of user messages that build on the character's previous answer.",
+      "weight": 10
+    },
+    {
+      "id": "reciprocity",
+      "kind": "count",
+      "description": "Self-disclosures after the first character turn at warmth >= 2.",
+      "weight": 10
+    },
+    {
+      "id": "spotlight_share",
+      "kind": "ratio",
+      "description": "Share of user messages that are about the character (question or follow-up).",
+      "weight": 10
+    },
+    {
+      "id": "interview_mode",
+      "kind": "flag",
+      "description": "Any run of 3+ consecutive user questions with zero self-disclosure.",
+      "weight": -20
+    },
+    {
+      "id": "monologue_brag",
+      "kind": "flag",
+      "description": "Any user message over 60 words, or an evidence-backed model brag flag.",
+      "weight": -20
+    },
+    {
+      "id": "final_warmth",
+      "kind": "count",
+      "description": "Last value of the server-held warmth trace, 0 to 3.",
+      "weight": 5
+    }
+  ],
+  "unit": {
+    "id": "everyday.followups.housewarming-sam",
+    "skill_id": "followups",
+    "principle": "The follow-up question, not the first question, is what makes someone feel heard.",
+    "exemplar": "Them: 'Just got back from a long trip, actually.' You: 'Back from where? What kind of trip takes someone away that long?' (You built on their answer instead of resetting.)",
+    "scenario": {
+      "title": "The Housewarming",
+      "setup_text": "You're at a friend's housewarming. You end up next to Sam, someone you've never met, by the drinks table. Sam is polite but not giving you much. You have 10 messages to make Sam actually want to keep talking to you.",
+      "character_name": "Sam",
+      "message_budget": 10
+    },
+    "persona": {
+      "brief": "Sam, any gender, at a friend's housewarming. Pleasant but reserved. Default replies are short, slightly flat, polite (1-2 sentences), like a real person sizing a stranger up. Never a coach, never gives advice, never breaks character.",
+      "hidden_depth": "Spent the last five months crewing a sailboat across the Pacific and moved back last week. Never leads with it. Reveals it only in layers, only when made to feel genuinely listened to.",
+      "opener": "Hey. Nice place, right? I think I'm mostly here for the snacks.",
+      "warmth_rules": {
+        "increments": [
+          "asks an open question about Sam or Sam's world (not yes/no)",
+          "follows up on something Sam just said, referencing the previous answer",
+          "after Sam shares something, reciprocates with a real short self-share (not a question)"
+        ],
+        "decrements": [
+          "monologues, brags, or performs",
+          "makes it about themselves and stays there",
+          "changes subject ignoring what Sam just said"
+        ],
+        "neutral": [
+          "bare flattery ('that's so cool!') with no real follow-up does NOTHING"
+        ]
+      },
+      "behavior_by_warmth": {
+        "0": "Short, polite, a little flat. Do NOT mention the sailing. Guarded.",
+        "1": "Slightly less guarded. One small real detail about the recent move. Still no sailing.",
+        "2": "Warm up noticeably. Volunteer a hint of the sailing trip. More energy, one vivid detail.",
+        "3": "Fully engaged and playful. Tell a vivid piece of the Pacific story and ask THEM a genuine question back with real curiosity."
+      }
+    },
+    "rubric": [
+      { "signal_id": "followups", "band": { "min": 2 }, "hard": true },
+      { "signal_id": "open_questions", "band": { "min": 2, "max": 6 }, "hard": true },
+      { "signal_id": "interview_mode", "band": { "max": 0 }, "hard": true },
+      { "signal_id": "monologue_brag", "band": { "max": 0 }, "hard": true },
+      { "signal_id": "spotlight_share", "band": { "min": 0.4, "max": 0.7 }, "hard": false },
+      { "signal_id": "reciprocity", "band": { "min": 1 }, "hard": false }
+    ],
+    "feedback_prompt": "You are a warm, sharp charisma coach. Score ONLY the USER's conversational skill in the transcript, using their actual words as evidence. Return JSON: win {text, quote: user's exact line}, fix {text: one instruction, the single highest-leverage change, anchored to a quote or number}, moment {text, quote}: find where Sam warmed up or stayed flat, tie it directly to what the USER did, and name the paradox out loud: they became more interesting the moment they made Sam feel interesting. If Sam never warmed, name the exact moment that kept Sam flat. Keep it short, specific, encouraging. Quote real lines only. Do not invent anything not in the transcript. Do not output a score.",
+    "mastery": { "passes_required": 2, "distinct_days": true }
+  }
+}
