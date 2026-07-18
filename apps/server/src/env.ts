@@ -5,6 +5,11 @@ const EnvSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
   DATABASE_URL: z.string().default('postgres://charisma_app@localhost:5432/charisma'),
   DATABASE_URL_OWNER: z.string().default('postgres://main@localhost:5432/charisma'),
+  // Provider selectors: composition.ts is the only file that reads these to
+  // instantiate concrete classes (mock-boundary architecture).
+  AUTH_PROVIDER: z.enum(['fake', 'clerk']).default('fake'),
+  MODEL_PROVIDER: z.enum(['fake', 'anthropic']).default('fake'),
+  DAILY_MODEL_BUDGET_USD: z.coerce.number().positive().default(20),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

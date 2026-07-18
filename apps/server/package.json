@@ -10,12 +10,15 @@
     "db:migrate": "psql -v ON_ERROR_STOP=1 -f src/db/migrations/0000_init.sql \"$DATABASE_URL_OWNER\""
   },
   "dependencies": {
+    "@charisma/core": "workspace:*",
     "drizzle-orm": "^0.38.0",
     "fastify": "^5.2.0",
+    "pg": "^8.13.0",
     "zod": "^3.25.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0",
     "vitest": "^3.2.0"
