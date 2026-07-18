@@ -1,34 +1,27 @@
 # Primer: Charisma Trainer (consumer, TEXT-CHAT charisma app). Name TBD.
 
-## STATUS (2026-07-18d, Phase 0 build)
+## STATUS (2026-07-18e, Phase 0 build)
 
-**Completed this session:** Drizzle schema + `0000_init` migration, applied to `charisma_test`.
-- `apps/server/src/db/schema.ts` (15 tables, 3 enums, drizzle-orm/pg-core).
-- `apps/server/src/db/migrations/0000_init.sql`: `charisma_app` role has NO password
-  (local trust auth, matches superuser `main`); role creation idempotent
-  (`IF NOT EXISTS` on `pg_roles`, cluster-wide, safe to re-run against `charisma` later);
-  `GRANT CONNECT` made dynamic via `EXECUTE format(..., current_database())`;
-  least-privilege grants + append-only `REVOKE UPDATE, DELETE ON progress_events` kept.
-- `apps/server/package.json`: added `drizzle-orm` dep, `db:migrate` script (plain `psql`,
-  no drizzle-kit yet). `env.ts` + root `.env.example`: added `DATABASE_URL` /
-  `DATABASE_URL_OWNER` (dev defaults, db `charisma`, port 5432, no Docker).
-- **VERIFIED GREEN:** `pnpm install` exit 0; `pnpm -r typecheck` exit 0 (both packages);
-  `db:migrate` against `charisma_test` exit 0, 15 tables/3 enums/role/fn created; manual
-  psql checks: `charisma_app` can SELECT/INSERT `users`, UPDATE on `progress_events`
-  correctly denied, role-creation block re-run is a no-op error-free; `pnpm -r test` exit
-  0 (`packages/core` 63/63 unchanged, `apps/server` 1/1 unchanged).
-- Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
+**Completed this session:** Session/chat-turn/submit-scoring endpoints wired to
+`packages/core` (validator + score) + `FakeChatModel` + `FakeAuthVerifier` + daily cap +
+cost circuit breaker. Committed `a7b1a31` ("checkpoint: wire session/chat-turn/scoring
+endpoints to core+fakes+caps", 14 files, +681/-5).
+- New `apps/server/src/db/client.ts` (`pg` driver) wired to `DATABASE_URL`.
+- `apps/server/src/services/caps.ts` (+ `caps.test.ts`, 5 tests): daily cap + cost circuit
+  breaker.
+- `apps/server/src/routes/sessions.ts` (301 lines): session/chat-turn/submit-scoring
+  endpoints, `app.ts`/`composition.ts` wired through.
+- **VERIFIED GREEN:** `pnpm -r test` exit 0 — `packages/core` 63/63 (score/schemas/validator
+  unchanged), `apps/server` 6/6 (`caps.test.ts` 5 new + `app.test.ts` 1, up from 1/1).
 
-**Next action (ONE task only):** wire session / chat-turn / submit-scoring endpoints to
-`packages/core` (validator + score) + FakeChatModel + FakeAuthVerifier + daily cap + cost
-circuit breaker. Needs a new `apps/server/src/db/client.ts` (`pg` driver dep) wired to
-`DATABASE_URL` — add as part of this task. Do NOT also build the integration test in the
-same pass. Refs: BUILD-EXECUTION-PLAN.md mock boundary 256-490, API contracts 493-610,
-character prompt 960-1030, Phase 0 tasks 1031-1278.
+**Next action (ONE task only, deferred from this cycle per HANDOFF.md):** ONE integration
+test driving `FakeChatModel`'s scripted GOOD/BAD runs end-to-end (good passes with exact
+deterministic score, bad fails, fabricated-quote feedback rejected). Connects to
+`charisma_test`, no real API key. Do NOT touch `packages/core` logic/tests. Refs:
+BUILD-EXECUTION-PLAN.md mock boundary 256-490, API contracts 493-610, Phase 0 tasks
+1031-1278.
 
-**After that:** ONE integration test driving FakeChatModel's scripted GOOD/BAD runs
-end-to-end (good passes with exact deterministic score, bad fails, fabricated-quote
-feedback rejected). Connects to `charisma_test`, no real API key.
+- Migration still applied to `charisma_test` ONLY, not yet to dev db `charisma`.
 
 ## LOCKED DECISIONS
 - **Entity:** Korean young-entrepreneur SME (청년창업중소기업 세액감면), founder relocating to
