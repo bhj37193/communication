@@ -13,13 +13,13 @@ exact score 100 + exact known-answer signals; bad run = exact score 20 +
 `monologue_brag`; fabricated-quote run = template fallback. Colocated, not at
 `test/integration/loop.test.ts` — don't duplicate. Narrower than P0-23's full scope
 (no 8-msg run, no progress_events/streak, no caps/retention/webhook suites — those
-don't exist yet). `pnpm -r test` green: core 63/63, server 9/9. `pnpm -r typecheck` clean.
+don't exist yet). `pnpm -r test` green: core 63/63, server 9/9. `pnpm -r typecheck`
+clean. Committed as `c9bb40c`.
 
-Flagged, unfixed: `routes/sessions.ts` `/end` passes `computeSignals` a
-`warmthTrace` missing the leading opener `0` (stored `[1,2,3,3,3]` vs contract
-`[0,1,2,3,3,3]` per `validator.test.ts`) — shifts `warmTwoIndex`, feeds reciprocity.
-Invisible on Sam good/bad scripts; latent bug for other content. Needs its own
-fix + regression test.
+Flagged, unfixed: `routes/sessions.ts` `/end` passes `computeSignals` a `warmthTrace`
+missing the leading opener `0` (stored `[1,2,3,3,3]` vs contract `[0,1,2,3,3,3]` per
+`validator.test.ts`) — shifts `warmTwoIndex`, feeds reciprocity. Invisible on Sam
+good/bad scripts; latent bug for other content. Needs its own fix + regression test.
 
 **Next action (ONE task only):** P0-20 caps/circuit-breaker integration test (deps
 P0-16, satisfied): lower `DAILY_MODEL_BUDGET_USD` to cross it deterministically
