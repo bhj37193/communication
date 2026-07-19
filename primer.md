@@ -5,33 +5,31 @@
 Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
 + `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker +
 retention/deletion sweep + Clerk webhook + analytics, plus `apps/server/src/db/client.ts`.
+Integration suite proves the full loop end to end; E2E smoke proves it over real HTTP
+against a real spawned server process; CI now runs the whole offline-green list on every PR.
 
-**Completed this session:** P0-22 analytics, content-free by construction (`packages/core`
-untouched). `services/analytics.ts`: `trackEvent`, allowlisted names, per-name Zod
-`.strict()` props (enums/numbers only); `d1_return` derived from `localDate(tz)` of the
-user's last event vs `now`; both inserts stamp `createdAt: now` explicitly (not DB
-`defaultNow()`) so the day-boundary is provable under synthetic timestamps. Wired into
-`routes/sessions.ts`: `upsertUser`->`signup`, `POST /sessions`->`session_started`,
-`/end`->`session_completed`, `/result`->`result_viewed`. Unwired (no route yet):
-`challenge_viewed`, `share_tapped`, `streak_broken`, `paywall_viewed`, `subscribe_*`.
-Tests: `analytics.test.ts`, 5 (dual `@ts-expect-error`+`.rejects.toThrow()` on bad enum;
-same-day negative case added after review caught original new-day test passed for wrong
-reason). `test` -> 23/23. `pnpm -r test`: core 63/63, server 23/23, typecheck clean.
+**Completed this session:** P0-25 CI pipeline (`packages/core` untouched). New:
+`.github/workflows/ci.yml` — postgres:18 service container (trust auth, matching local
+parity), migrates a fresh db, then runs the exact Section 3.6 list. Root script
+`ci:local` mirrors the same 7 commands for local runs, skipping migrate (local
+`charisma_test` already migrated; `0000_init.sql` isn't idempotent). `@charisma/content`/
+`@charisma/mobile` don't exist yet — `pnpm --filter` on an unscaffolded package no-ops at
+exit 0 (confirmed), so the list is clean today and activates once those land. `pnpm
+ci:local` -> exit 0, all 7 green; `ci.yml` YAML-parse validated. Also hardened
+`smoke.ts`: try/finally so the spawned server is killed even on an unexpected throw,
+not just an asserted mismatch.
 
 Flagged, unfixed (2, carried from P0-20): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b)
 409 CAPPED spec wants a next-open-time, current impl/test omit it. Both need own cycle.
 
-**Next action (ONE task only):** P0-23 integration suite, the loop proof (deps
-P0-18..P0-22, satisfied, AUTONOMOUS). Files: `test/integration/loop.test.ts`,
-`test/integration/setup.ts`. Full HTTP round trips vs app factory + `charisma_test` +
-Fakes -> good run (8 msgs, end, poll: score 100, passed, WIN quote matches U3), bad run
-(score 10, failed), fabricated-quote run (template fallback), plus caps/retention/webhook
-green together. Partial scoped version exists at `routes/sessions.test.ts`
-(`describe('the loop proof (P0-23, scoped)')`, good-run only) — extend, don't duplicate.
-Refs: BUILD-EXECUTION-PLAN.md ("P0-23"). Accept: `test:integration` (script TBD, add it).
-
-Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
+**Next action (ONE task only):** P0-26 AnthropicChatModel (deps P0-08/P0-12, satisfied;
+AUTONOMOUS build+unit, GATED G-01 for live smoke). Files: `model/AnthropicChatModel.ts`,
+`scripts/smoke-anthropic.ts`, unit tests w/ injected fake Anthropic client asserting model
+id, cache_control on system block, temps by tag, maxTokens, JSON retry, usage mapping.
+Goal: real ChatModel fully built offline; `smoke:anthropic` is the deferred live check
+once G-01 lands. Accept: `pnpm --filter @charisma/server test` (live: `smoke:anthropic`
+after G-01).
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
@@ -47,7 +45,8 @@ Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
 
 ## OUTSTANDING OPS / ENV FACTS
 - Native Postgres 18, localhost:5432, NO Docker. Superuser `main`, local trust auth, no
-  password. DBs `charisma` (dev) + `charisma_test` (test) exist.
+  password. DBs `charisma` (dev) + `charisma_test` (test) exist; migration applied to
+  `charisma_test` ONLY, not yet to dev db `charisma`.
 - Don't `kill $(lsof -ti:3000)` / assume port 3000 free — verify server boot via vitest
   `app.inject()`.
 - Open gates: G-01 Anthropic key, G-02 Clerk, G-03 Paddle, G-04 deploy.

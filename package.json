@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "e2e:smoke": "pnpm --filter @charisma/server e2e:smoke",
+    "ci:local": "pnpm -r typecheck && pnpm --filter @charisma/core test && pnpm --filter @charisma/content validate && pnpm --filter @charisma/server test && pnpm --filter @charisma/server test:integration && pnpm e2e:smoke && pnpm --filter @charisma/mobile test"
   }
 }

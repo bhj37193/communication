@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "test": "vitest run",
+    "test:integration": "vitest run",
+    "e2e:smoke": "tsx test/e2e/smoke.ts",
     "typecheck": "tsc --noEmit",
     "db:migrate": "psql -v ON_ERROR_STOP=1 -f src/db/migrations/0000_init.sql \"$DATABASE_URL_OWNER\""
   },
