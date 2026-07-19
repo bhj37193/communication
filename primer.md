@@ -9,39 +9,34 @@ Paddle/G-03 not needed yet).
 ## COMPLETED THIS SESSION
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
-- **Task #6 LIKELY STALLED (background agent a1a25387581a1450f)**: real
-  Clerk auth wiring, mobile + server. Self-reported (before stalling):
-  mobile suite 24/24 pass, server suite 35/35 pass, typecheck clean both
-  sides, no leaked secrets, no debug leftovers. Output has been **byte-
-  identical across 4+ polls**, frozen mid its own `advisor()` call
-  (`srvtoolu_01PuxmNNZ3wpt6uLQyvufWYy`, ~15:19:57) with no progress since —
-  treat as stalled, not "almost done." Mobile side of its work is confirmed
-  written: `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
+- **Task #6 IN PROGRESS (background agent a1a25387581a1450f)**: real Clerk
+  auth wiring, mobile + server. Its `advisor()` call took ~3.5 min and
+  returned at 15:23:14; it's now acting on that feedback (was reading
+  `AnthropicChatModel.test.ts`, likely checking a pattern/convention the
+  advisor flagged) — a few identical polls in a row earlier was NOT a
+  stall, just a slow advisor call; check timestamps before concluding
+  stuck. Self-reported before that call: mobile suite 24/24 pass, server
+  suite 35/35 pass, typecheck clean both sides, no debug leftovers, no
+  leaked secrets. Mobile side confirmed written:
+  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
   `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
   `apps/mobile/lib/auth.ts` has real `getClerkToken()`
   (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
-  Server-side files (env.ts/AuthVerifier.ts/composition.ts) not yet
-  independently confirmed by me. **The diff has NOT been reviewed by me.**
+  **The diff has NOT been independently reviewed by me yet.**
 
 ## EXACT NEXT STEP
-1. Do ONE non-blocking `TaskOutput(a1a25387581a1450f, block=false)` check.
-   If still identical/no new timestamp progress: stop polling, this agent
-   is dead weight. Either `TaskStop` it or just proceed treating its file
-   edits as-is (they're on disk regardless of task status).
-2. Read the actual diff myself: `git status` / `git diff` on
-   apps/server/src/env.ts, apps/server/src/auth/AuthVerifier.ts,
-   apps/server/src/composition.ts, apps/mobile/app/_layout.tsx,
-   apps/mobile/lib/auth.ts, plus any new sign-in/sign-up screen files.
-   Don't trust the self-report — verify server-side pieces exist.
-3. Run `pnpm --filter @charisma/server test` + typecheck server+mobile.
-   Confirm fake-auth path (`AUTH_PROVIDER=fake`, default) still passes.
-   Clerk path is unverifiable (no Clerk account — task #4): only claim it
-   typechecks/matches Clerk's API, never "works."
-4. If server-side pieces are missing/broken, finish them directly (don't
-   relaunch a background agent for this — do it inline, it's a small,
-   well-understood diff at this point).
-5. Then task #7 (eas.json + icons, need user artwork) and #8 (listing prep).
-6. Tasks #1-4 (Apple Developer, Expo/EAS, VPS, Clerk signups) are on the
+1. `TaskOutput(a1a25387581a1450f, block=false)` to check current state. If
+   `status: completed`, read the full diff (`git diff`) myself first —
+   don't just accept the self-report, especially server-side files
+   (env.ts CLERK_SECRET_KEY, AuthVerifier.ts ClerkAuthVerifier,
+   composition.ts wiring) which weren't independently confirmed.
+2. Run `pnpm --filter @charisma/server test` + typecheck server+mobile
+   myself. Confirm fake-auth path (`AUTH_PROVIDER=fake`, default) still
+   passes. Clerk path is unverifiable (no Clerk account — task #4): only
+   claim it typechecks/matches Clerk's API, never "works."
+3. Then task #7 (eas.json + icons, need user artwork, don't fabricate
+   branding) and #8 (App Store listing prep).
+4. Tasks #1-4 (Apple Developer, Expo/EAS, VPS, Clerk signups) are on the
    user — check in, don't assume done.
 
 ## LOCKED DECISIONS
