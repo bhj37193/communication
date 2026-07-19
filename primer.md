@@ -10,7 +10,8 @@ core+server `tsc --noEmit` clean, 72 core tests pass. Serve path for
 drill units NOT built: no serve path exists yet for ANY unit type in
 this phase-0 app (no unit-serving route, no mastery-fold write path from
 `progress_events` into `user_skill_state`, no mobile screen reads unit
-fields at all). Ralplan/consensus thread is superseded and closed.
+fields at all). Autopilot cleanly cancelled this session (state
+preserved for resume). Ralplan/consensus thread is superseded, closed.
 
 ## COMPLETED THIS SESSION
 - Sec 1-3, 5 of the curriculum doc (drills, sequencing, expert anchors,
