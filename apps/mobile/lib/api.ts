@@ -56,6 +56,15 @@ export interface EndSessionResult {
   status: 'scored';
 }
 
+export interface Challenge {
+  unit_id: string;
+  skill_id: string;
+  title: string;
+  setup_text: string;
+  character_name: string;
+  message_budget: number;
+}
+
 export interface FeedbackWin {
   text: string;
   quote: string;
@@ -121,6 +130,12 @@ export async function getSession(id: string): Promise<SessionState> {
   const res = await request(`/v1/sessions/${id}`, { method: 'GET' });
   if (res.status !== 200) await throwApiError(res);
   return (await res.json()) as SessionState;
+}
+
+export async function getChallenge(): Promise<Challenge> {
+  const res = await request('/v1/challenge/today', { method: 'GET' });
+  if (res.status !== 200) await throwApiError(res);
+  return (await res.json()) as Challenge;
 }
 
 export async function sendMessage(id: string, text: string): Promise<SendMessageResult> {

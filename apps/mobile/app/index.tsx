@@ -1,20 +1,27 @@
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useAuth } from './_layout';
-import { ApiError, createSession } from '../lib/api';
-
-// Phase-0 scenario copy is static server content with no fetch endpoint, so it
-// lives client-side (mirrors packages/core content everyday.housewarming-sam).
-const SCENARIO_TITLE = 'The Housewarming';
-const SCENARIO_SETUP =
-  "You're at a friend's housewarming. You end up next to Sam, someone you've never met, by the drinks table. Sam is polite but not giving you much. You have 10 messages to make Sam actually want to keep talking to you.";
+import { ApiError, type Challenge, createSession, getChallenge } from '../lib/api';
 
 export default function EntryScreen() {
   const router = useRouter();
   const { ready, authenticated } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [challenge, setChallenge] = useState<Challenge | null>(null);
+  const [challengeLoading, setChallengeLoading] = useState(false);
+  const [challengeError, setChallengeError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!authenticated) return;
+    setChallengeLoading(true);
+    setChallengeError(null);
+    getChallenge()
+      .then(setChallenge)
+      .catch(() => setChallengeError('Could not load today’s challenge.'))
+      .finally(() => setChallengeLoading(false));
+  }, [authenticated]);
 
   const onStart = async (): Promise<void> => {
     setLoading(true);
@@ -44,8 +51,15 @@ export default function EntryScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>{SCENARIO_TITLE}</Text>
-      <Text style={styles.setup}>{SCENARIO_SETUP}</Text>
+      {challengeLoading ? (
+        <ActivityIndicator />
+      ) : challenge ? (
+        <>
+          <Text style={styles.title}>{challenge.title}</Text>
+          <Text style={styles.setup}>{challenge.setup_text}</Text>
+        </>
+      ) : null}
+      {challengeError ? <Text style={styles.error}>{challengeError}</Text> : null}
 
       {error ? <Text style={styles.error}>{error}</Text> : null}
 

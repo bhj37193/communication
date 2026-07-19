@@ -17,6 +17,7 @@ jest.mock('../lib/api', () => ({
   sendMessage: jest.fn(),
   endSession: jest.fn(),
   getResult: jest.fn(),
+  getChallenge: jest.fn(),
 }));
 
 jest.mock('../lib/share', () => ({ shareScoreCard: jest.fn(() => Promise.resolve()) }));
@@ -30,7 +31,7 @@ let mockParams: Record<string, string> = {};
 import EntryScreen from '../app/index';
 import ChatScreen from '../app/chat';
 import ResultScreen from '../app/result';
-import { createSession, endSession, getResult, sendMessage } from '../lib/api';
+import { createSession, endSession, getChallenge, getResult, sendMessage } from '../lib/api';
 import { shareScoreCard } from '../lib/share';
 
 beforeEach(() => {
@@ -40,12 +41,21 @@ beforeEach(() => {
   (sendMessage as jest.Mock).mockReset();
   (endSession as jest.Mock).mockReset();
   (getResult as jest.Mock).mockReset();
+  (getChallenge as jest.Mock).mockReset();
   (shareScoreCard as jest.Mock).mockClear(); // keep the resolved-promise impl
   mockParams = {};
 });
 
 describe('EntryScreen', () => {
   it('renders the scenario and Start creates a session then navigates', async () => {
+    (getChallenge as jest.Mock).mockResolvedValue({
+      unit_id: 'everyday.followups.housewarming-sam',
+      skill_id: 'followups',
+      title: 'The Housewarming',
+      setup_text: "You're at a friend's housewarming.",
+      character_name: 'Sam',
+      message_budget: 10,
+    });
     (createSession as jest.Mock).mockResolvedValue({
       session_id: 's1',
       opener: 'Hey.',

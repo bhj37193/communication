@@ -3,6 +3,7 @@ import {
   createSession,
   deleteMyData,
   endSession,
+  getChallenge,
   getResult,
   getSession,
   sendMessage,
@@ -92,6 +93,32 @@ describe('getSession', () => {
       mockResponse(404, { error: { code: 'NOT_FOUND', message: 'nope' } }),
     );
     await expect(getSession('bad')).rejects.toBeInstanceOf(ApiError);
+  });
+});
+
+describe('getChallenge', () => {
+  it('GETs /v1/challenge/today and parses 200', async () => {
+    const body = {
+      unit_id: 'everyday.followups.housewarming-sam',
+      skill_id: 'followups',
+      title: 'The Housewarming',
+      setup_text: "You're at a friend's housewarming.",
+      character_name: 'Sam',
+      message_budget: 10,
+    };
+    fetchMock.mockResolvedValueOnce(mockResponse(200, body));
+    const res = await getChallenge();
+    const [url, init] = lastCall();
+    expect(url).toBe(`${BASE}/v1/challenge/today`);
+    expect(init.method).toBe('GET');
+    expect(res).toEqual(body);
+  });
+
+  it('throws ApiError on 401 UNAUTHENTICATED', async () => {
+    fetchMock.mockResolvedValueOnce(
+      mockResponse(401, { error: { code: 'UNAUTHENTICATED', message: 'sign in' } }),
+    );
+    await expect(getChallenge()).rejects.toBeInstanceOf(ApiError);
   });
 });
 

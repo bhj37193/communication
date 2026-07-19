@@ -8,10 +8,12 @@ import { and, eq } from 'drizzle-orm';
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 import type { Deps } from '../composition.js';
-import { SAM_PACK, SAM_UNIT_ID } from '../content.js';
-import { modelUsage, results, sessions, transcripts, users } from '../db/schema.js';
+import { SAM_PACK } from '../content.js';
+import { modelUsage, progressEvents, results, sessions, transcripts, userSkillState, users } from '../db/schema.js';
 import { trackEvent } from '../services/analytics.js';
 import { checkBreaker, checkDailyCap, incrementDailyUsage, nextLocalMidnightUTC } from '../services/caps.js';
+import { foldProgress } from '../services/fold.js';
+import { loadUnitSpec, routeNextUnit } from '../services/router.js';
 
 type UserRow = typeof users.$inferSelect;
 type SessionRow = typeof sessions.$inferSelect;
@@ -95,11 +97,14 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       return;
     }
 
+    const { unitId } = await routeNextUnit(deps, user.id);
+    const spec = await loadUnitSpec(deps, unitId);
+
     let sessionRow: SessionRow;
     try {
       const inserted = await deps.db
         .insert(sessions)
-        .values({ userId: user.id, unitId: SAM_UNIT_ID, warmthTrace: [0] })
+        .values({ userId: user.id, unitId, warmthTrace: [0] })
         .returning();
       sessionRow = inserted[0]!;
     } catch (err) {
@@ -110,7 +115,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       throw err;
     }
 
-    const opener: ChatMessage = { role: 'character', content: SAM_PACK.unit.persona.opener };
+    const opener: ChatMessage = { role: 'character', content: spec.persona.opener };
     await deps.db.insert(transcripts).values({
       sessionId: sessionRow.id,
       messages: [opener],
@@ -121,8 +126,8 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
 
     reply.code(201).send({
       session_id: sessionRow.id,
-      opener: SAM_PACK.unit.persona.opener,
-      remaining: SAM_PACK.unit.scenario.message_budget,
+      opener: spec.persona.opener,
+      remaining: spec.scenario.message_budget,
     });
   });
 
@@ -136,13 +141,14 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'session not found' } });
       return;
     }
+    const spec = await loadUnitSpec(deps, session.unitId);
     const [transcriptRow] = await deps.db.select().from(transcripts).where(eq(transcripts.sessionId, id));
     reply.send({
       session_id: session.id,
       state: session.state,
       warmth: session.warmth,
       messages: transcriptRow?.messages ?? [],
-      remaining: SAM_PACK.unit.scenario.message_budget - session.characterCalls,
+      remaining: spec.scenario.message_budget - session.characterCalls,
     });
   });
 
@@ -166,7 +172,8 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       reply.code(409).send({ error: { code: 'SESSION_NOT_OPEN', message: `session is ${session.state}` } });
       return;
     }
-    if (session.characterCalls >= SAM_PACK.unit.scenario.message_budget) {
+    const spec = await loadUnitSpec(deps, session.unitId);
+    if (session.characterCalls >= spec.scenario.message_budget) {
       reply.code(409).send({ error: { code: 'TURN_LIMIT', message: 'message budget exhausted' } });
       return;
     }
@@ -180,8 +187,8 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     const chatModel = deps.getChatModel(id);
     let completion: Awaited<ReturnType<typeof chatModel.complete>>;
     const characterCall = assembleCharacterTurn({
-      persona: SAM_PACK.unit.persona,
-      unit: SAM_PACK.unit,
+      persona: spec.persona,
+      unit: spec,
       warmth: session.warmth,
       transcript,
     });
@@ -210,7 +217,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     reply.send({
       reply: out.reply,
       warmth,
-      remaining: SAM_PACK.unit.scenario.message_budget - characterCalls,
+      remaining: spec.scenario.message_budget - characterCalls,
     });
   });
 
@@ -232,6 +239,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     const now = new Date();
     await deps.db.update(sessions).set({ state: 'scoring', endedAt: now }).where(eq(sessions.id, id));
 
+    const spec = await loadUnitSpec(deps, session.unitId);
     const [transcriptRow] = await deps.db.select().from(transcripts).where(eq(transcripts.sessionId, id));
     const transcript = ((transcriptRow?.messages as ChatMessage[] | undefined) ?? []);
     const warmthTrace = (session.warmthTrace as number[] | undefined) ?? [];
@@ -242,7 +250,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     let feedback: ReturnType<typeof buildTemplateFeedback> | undefined;
     let templateFallback = false;
     const userProfile = await getUserProfile(deps, user.id, id);
-    const feedbackCall = assembleFeedback({ unit: SAM_PACK.unit, transcript, userProfile });
+    const feedbackCall = assembleFeedback({ unit: spec, transcript, userProfile });
     for (let attempt = 0; attempt < 2 && !feedback; attempt += 1) {
       const completion = await chatModel.complete({
         system: feedbackCall.system,
@@ -263,7 +271,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       templateFallback = true;
     }
 
-    const passed = passes(signals, SAM_PACK.unit.rubric);
+    const passed = passes(signals, spec.rubric);
     const scoreValue = score(signals, SAM_PACK.signals);
 
     await deps.db.insert(results).values({
@@ -280,6 +288,54 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     await deps.db.update(sessions).set({ state: 'scored', feedbackCalls }).where(eq(sessions.id, id));
     deps.releaseChatModel(id);
     await trackEvent(deps.db, user, 'session_completed', { score: scoreValue, result: passed ? 'passed' : 'failed' }, now);
+
+    const skillId = spec.skill_id;
+    await deps.db.insert(progressEvents).values({
+      userId: user.id,
+      type: 'attempt_submitted',
+      payload: { unitId: session.unitId, skillId },
+      createdAt: now,
+    });
+    await deps.db.insert(progressEvents).values({
+      userId: user.id,
+      type: passed ? 'unit_passed' : 'unit_failed',
+      payload: { unitId: session.unitId, skillId },
+      createdAt: now,
+    });
+
+    const [priorState] = await deps.db
+      .select()
+      .from(userSkillState)
+      .where(and(eq(userSkillState.userId, user.id), eq(userSkillState.skillId, skillId)));
+    const priorStatus = priorState?.status ?? 'unlocked';
+
+    const events = (
+      await deps.db.select().from(progressEvents).where(eq(progressEvents.userId, user.id))
+    ).filter((ev) => (ev.payload as { skillId?: string }).skillId === skillId);
+    const folded = foldProgress(events, spec.mastery, user.tz, now);
+
+    if (priorStatus !== 'mastered' && folded.status === 'mastered') {
+      await deps.db.insert(progressEvents).values({
+        userId: user.id,
+        type: 'skill_mastered',
+        payload: { unitId: session.unitId, skillId },
+        createdAt: now,
+      });
+    }
+
+    await deps.db
+      .insert(userSkillState)
+      .values({
+        userId: user.id,
+        skillId,
+        status: folded.status,
+        passes: folded.passes,
+        lastPassDate: folded.lastPassDate,
+      })
+      .onConflictDoUpdate({
+        target: [userSkillState.userId, userSkillState.skillId],
+        set: { status: folded.status, passes: folded.passes, lastPassDate: folded.lastPassDate },
+      });
 
     reply.send({ session_id: id, status: 'scored' });
   });
@@ -312,6 +368,24 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       moment: row.moment,
       signals: row.signals,
       template_fallback: row.templateFallback,
+    });
+  });
+
+  app.get('/v1/challenge/today', async (req, reply) => {
+    const user = await requireUser(deps, req, reply);
+    if (!user) return;
+
+    const { unitId, skillId } = await routeNextUnit(deps, user.id);
+    const spec = await loadUnitSpec(deps, unitId);
+    await trackEvent(deps.db, user, 'challenge_viewed', {}, new Date());
+
+    reply.send({
+      unit_id: unitId,
+      skill_id: skillId,
+      title: spec.scenario.title,
+      setup_text: spec.scenario.setup_text,
+      character_name: spec.scenario.character_name,
+      message_budget: spec.scenario.message_budget,
     });
   });
 }
