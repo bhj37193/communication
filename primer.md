@@ -2,7 +2,9 @@
 _Last touched: 2026-07-19._
 
 ## STATUS
-Working tree clean, all committed and pushed to origin/main.
+Working tree clean, all committed and pushed to origin/main. Autopilot
+mode cancelled/state cleared this session (task was a single hosting
+step, not a 5-phase build).
 
 ## COMPLETED THIS SESSION
 Hosted the drafted privacy policy: moved `legal/privacy-policy.html` ->
