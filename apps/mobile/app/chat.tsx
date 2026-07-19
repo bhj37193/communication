@@ -40,22 +40,32 @@ export default function ChatScreen() {
   const [ending, setEnding] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<ScrollView>(null);
+  const activeRef = useRef(true);
 
   useEffect(() => {
     scrollRef.current?.scrollToEnd({ animated: true });
   }, [messages, typing]);
+
+  useEffect(() => {
+    return () => {
+      activeRef.current = false;
+    };
+  }, []);
 
   const trimmed = text.trim();
   const canSend =
     !sending && !typing && !ending && remaining > 0 && trimmed.length >= 1 && trimmed.length <= 500;
 
   const goToResult = async (): Promise<void> => {
+    if (ending) return;
     setEnding(true);
     setError(null);
     try {
       await endSession(sessionId);
+      if (!activeRef.current) return;
       router.replace({ pathname: '/result', params: { id: sessionId } });
     } catch (err) {
+      if (!activeRef.current) return;
       setError(err instanceof ApiError ? err.message : 'Could not end the session.');
       setEnding(false);
     }
@@ -70,10 +80,12 @@ export default function ChatScreen() {
     setMessages((prev) => [...prev, { role: 'user', content: userText }]);
     try {
       const res = await sendMessage(sessionId, userText);
+      if (!activeRef.current) return;
       setSending(false);
       // Simulate the character "typing" before revealing the reply.
       setTyping(true);
       await new Promise((resolve) => setTimeout(resolve, typingDelayMs(res.reply)));
+      if (!activeRef.current) return;
       setTyping(false);
       setMessages((prev) => [...prev, { role: 'character', content: res.reply }]);
       setRemaining(res.remaining);
@@ -81,8 +93,11 @@ export default function ChatScreen() {
         await goToResult();
       }
     } catch (err) {
+      if (!activeRef.current) return;
       setSending(false);
       setTyping(false);
+      setMessages((prev) => prev.slice(0, -1));
+      setText(userText);
       setError(err instanceof ApiError ? err.message : 'Could not send your message.');
     }
   };
@@ -96,7 +111,11 @@ export default function ChatScreen() {
         <Text style={styles.remaining} testID="remaining">
           {remaining} {remaining === 1 ? 'message' : 'messages'} left
         </Text>
-        <Pressable onPress={goToResult} disabled={ending} accessibilityRole="button">
+        <Pressable
+          onPress={goToResult}
+          disabled={ending || sending || typing}
+          accessibilityRole="button"
+        >
           <Text style={styles.doneLink}>I&apos;m done</Text>
         </Pressable>
       </View>

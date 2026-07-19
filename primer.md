@@ -7,39 +7,28 @@ Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator +
 cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI. `apps/mobile`
 (Expo/RN, P0-27) now scaffolded and green. `apps/web` not started (P2, not blocking).
 
-**Completed this session:** P0-27 Expo app. New `apps/mobile` package: `app/_layout.tsx`,
-`app/{index,chat,result,profile}.tsx` (Expo Router), `lib/api.ts` (typed client for all 5
-session endpoints + DELETE /v1/me/data), `lib/auth.ts`, `components/MessageBubble.tsx`,
-jest-expo tests (`test/api.test.ts`, `test/screens.test.tsx`, 20 tests). Deliberately skipped
-(P0-28 scope, not this task): `lib/share.ts`, `components/ScoreCard.tsx`, `eas.json`.
-**Important fix, verified against actual server code, not the stale plan doc:**
-`BUILD-EXECUTION-PLAN.md` says dev-fake-auth sends header `x-test-user` — that's wrong/stale.
-The real `apps/server/src/auth/AuthVerifier.ts` `FakeAuthVerifier` reads
-`Authorization: Bearer <externalId>` (confirmed via every integration test + e2e smoke).
-`lib/auth.ts` sends that; persists a stable per-install UUID via AsyncStorage, gated on
-`EXPO_PUBLIC_DEV_FAKE_AUTH`, falls back to dev-fake identity whenever
-`EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` is unset (Clerk not implemented server-side yet either —
-composition.ts throws on `AUTH_PROVIDER=clerk`). Clerk code path present but inert (dynamic
-import, never exercised without a key), per spec. Verified: `pnpm --filter @charisma/mobile
-typecheck` clean, `pnpm --filter @charisma/mobile test` 20/20, `pnpm -r typecheck` clean,
-`pnpm ci:local` exit 0 (core 3 files, server unit 7 files, server integration 7 files, e2e
-smoke PASSED score 100, mobile 2 suites/20 tests, all green).
-
-**OUTSTANDING FROM THIS SESSION (do first, before P0-28):** Dispatched an independent
-code-reviewer agent (opus) to audit `apps/mobile/lib/auth.ts`, `lib/api.ts`, `app/chat.tsx`,
-`app/profile.tsx`, `app/index.tsx`, `app/result.tsx`, `app/_layout.tsx` for correctness bugs,
-auth-header consistency, chat typing-delay race conditions, and delete-my-data/sign-out
-flow correctness. **It did not finish before this context cycle ended — no findings were
-collected.** Re-run this review before starting P0-28; do not assume the mobile auth/api
-code is clean. Also unaddressed: a jest `act()` console warning in `app/chat.tsx`'s
-typing-delay state update (test/screens.test.tsx passes regardless, cosmetic but unreviewed).
+**P0-27 CLOSED (Expo app).** `apps/mobile`: `app/_layout.tsx`, `app/{index,chat,result,
+profile}.tsx` (Expo Router), `lib/api.ts` (typed client, all 5 session endpoints + DELETE
+/v1/me/data), `lib/auth.ts`, `components/MessageBubble.tsx`, jest-expo tests (20 tests).
+Skipped on purpose (P0-28 scope): `lib/share.ts`, `components/ScoreCard.tsx`, `eas.json`.
+Auth header fix (see LOCKED DECISIONS) verified against actual server code, not the stale
+plan doc. Independent code-reviewer pass then found + fixed 4 real golden-path bugs:
+`profile.tsx` sign-out had no try/catch (could strand screen in `busy`); `chat.tsx`
+"I'm done" wasn't gated on `sending`/`typing` (double-`endSession` race), fixed with
+`ending||sending||typing` + an `activeRef` mounted-guard (mirrors `result.tsx`'s `active`
+flag) around post-await setState in `onSend`/`goToResult`; `chat.tsx` optimistic user
+message wasn't rolled back on send failure, now popped + text restored in the catch;
+`result.tsx` polling was unbounded, now `MAX_POLLS` (~3min) + `MAX_CONSECUTIVE_ERRORS` (3
+retries on transient errors before surfacing). Verified: `pnpm --filter @charisma/mobile
+typecheck && test` (20/20), `pnpm -r typecheck` clean, `pnpm ci:local` exit 0 (e2e smoke
+score 100). Cosmetic/unfixed: jest `act()` warning in `chat.tsx`'s typing-delay update
+(non-blocking, tests green).
 
 Flagged, unfixed (carried, need own cycle): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b) 409
 CAPPED spec wants a next-open-time, current impl/test omit it.
 
-**Next action (ONE task only):** Re-run the code-reviewer pass on `apps/mobile` (see above)
-and fix anything it finds. THEN P0-28 Share card (deps: P0-27, satisfied; AUTONOMOUS):
+**Next action (ONE task only):** P0-28 Share card (deps: P0-27, satisfied; AUTONOMOUS):
 `apps/mobile/lib/share.ts` (react-native-view-shot capture -> share sheet),
 `components/ScoreCard.tsx` (shareable WIN/FIX/MOMENT/SCORE render), wire a share button on
 `app/result.tsx`. Accept: `pnpm --filter @charisma/mobile typecheck && pnpm --filter

@@ -12,9 +12,14 @@ export default function ProfileScreen() {
 
   const onSignOut = async (): Promise<void> => {
     setBusy(true);
-    await signOut();
-    setBusy(false);
-    router.replace('/');
+    setError(null);
+    try {
+      await signOut();
+      router.replace('/');
+    } catch {
+      setError('Could not sign out.');
+      setBusy(false);
+    }
   };
 
   const onDelete = async (): Promise<void> => {

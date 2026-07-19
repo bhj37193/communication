@@ -4,6 +4,8 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import { ApiError, getResult, type ScoredResult } from '../lib/api';
 
 const POLL_INTERVAL_MS = 1500;
+const MAX_POLLS = 120; // ~3 minutes of scoring before giving up
+const MAX_CONSECUTIVE_ERRORS = 3; // transient network errors retry before aborting
 
 export default function ResultScreen() {
   const router = useRouter();
@@ -14,20 +16,34 @@ export default function ResultScreen() {
 
   useEffect(() => {
     let active = true;
+    let polls = 0;
+    let consecutiveErrors = 0;
 
     const poll = async (): Promise<void> => {
       try {
         const res = await getResult(id);
         if (!active) return;
+        consecutiveErrors = 0;
         if (res.status === 'scored') {
           setResult(res.result);
+          return;
+        }
+        polls += 1;
+        if (polls >= MAX_POLLS) {
+          setError('Scoring is taking longer than expected. Please try again later.');
           return;
         }
         // Still open/scoring (202) — retry.
         timer.current = setTimeout(poll, POLL_INTERVAL_MS);
       } catch (err) {
         if (!active) return;
-        setError(err instanceof ApiError ? err.message : 'Could not load your result.');
+        consecutiveErrors += 1;
+        if (consecutiveErrors >= MAX_CONSECUTIVE_ERRORS) {
+          setError(err instanceof ApiError ? err.message : 'Could not load your result.');
+          return;
+        }
+        // Transient error — retry rather than aborting on the first blip.
+        timer.current = setTimeout(poll, POLL_INTERVAL_MS);
       }
     };
 
