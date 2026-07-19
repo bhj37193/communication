@@ -10,19 +10,24 @@ Paddle/G-03 not needed yet).
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
 - **Task #6 IN PROGRESS (background agent a1a25387581a1450f)**: real Clerk
-  auth wiring, mobile + server. Its `advisor()` call took ~3.5 min,
-  returned 15:23:14; last observed action was reading
-  `AnthropicChatModel.test.ts` at 15:23:22, acting on advisor feedback — no
-  new output observed since across several polls. Self-reported before the
-  advisor call: mobile suite 24/24 pass, server suite 35/35 pass, typecheck
-  clean both sides, no debug leftovers, no leaked secrets. Mobile side
-  confirmed written: `apps/mobile/app/_layout.tsx` splits `DevAuthProvider`
-  vs `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
+  auth wiring, mobile + server. Still actively running (confirmed not
+  stalled) as of 15:28: post-advisor it fixed a small `ready` destructuring
+  bug it introduced in `app/index.tsx`, reran mobile typecheck (clean,
+  `tsc --noEmit`) and mobile jest (24/24 pass), and was starting a final
+  debug-code/secret-leak grep across touched files before reporting.
+  Mobile side confirmed written by direct Read (not just agent self-report):
+  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
+  `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
   `apps/mobile/lib/auth.ts` has real `getClerkToken()`
-  (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
-  **The diff has NOT been independently reviewed by me yet.** Note: polling
-  this agent's output via TaskOutput is expensive (large truncated JSONL
-  dump each call) — on resume, poll sparingly, not every turn.
+  (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`;
+  `apps/mobile/app/index.tsx` gates Sign-in link on `ready`. Server-side
+  files (env.ts, AuthVerifier.ts, composition.ts) NOT yet independently
+  reviewed by me — saw a ClerkAuthVerifier unit test fragment fly by in the
+  transcript (verify() reads Bearer token, calls injected verifyToken with
+  secretKey, returns {externalId} from `sub` claim) but haven't read the
+  real source file yet. Note: polling this agent's output via TaskOutput is
+  expensive (1.4MB+ truncated dump per call) — poll sparingly, prefer
+  waiting for the completion notification over re-polling.
 
 ## EXACT NEXT STEP
 1. `TaskOutput(a1a25387581a1450f, block=false)` ONCE to check current

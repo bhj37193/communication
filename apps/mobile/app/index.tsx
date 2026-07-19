@@ -12,7 +12,7 @@ const SCENARIO_SETUP =
 
 export default function EntryScreen() {
   const router = useRouter();
-  const { authenticated } = useAuth();
+  const { ready, authenticated } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -67,11 +67,14 @@ export default function EntryScreen() {
           <Pressable onPress={() => router.push('/profile')} accessibilityRole="button">
             <Text style={styles.link}>Profile</Text>
           </Pressable>
-        ) : (
+        ) : ready ? (
+          // ponytail: `ready` gate avoids a one-frame flash of "Sign in" while
+          // the dev-fake identity is still resolving (it would route to a
+          // screen that calls useSignIn() outside ClerkProvider in dev mode).
           <Pressable onPress={() => router.push('/sign-in')} accessibilityRole="button">
             <Text style={styles.link}>Sign in</Text>
           </Pressable>
-        )}
+        ) : null}
       </View>
     </ScrollView>
   );

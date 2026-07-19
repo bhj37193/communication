@@ -24,15 +24,21 @@ export class FakeAuthVerifier implements AuthVerifier {
 // Production: verifies a real Clerk session token. `sub` is the Clerk user id
 // (`user_xxx`), the same id the /v1/webhooks/clerk handler stores as
 // users.clerkId — so a signed-in user and their webhook-created row converge.
+// `verifyTokenFn` is injected (defaulting to the real @clerk/backend call) so
+// tests can fake it without network access, mirroring AnthropicChatModel's
+// injected-client pattern.
 export class ClerkAuthVerifier implements AuthVerifier {
-  constructor(private readonly secretKey: string) {}
+  constructor(
+    private readonly secretKey: string,
+    private readonly verifyTokenFn: typeof verifyToken = verifyToken,
+  ) {}
 
   async verify(authHeader: string | undefined): Promise<VerifiedIdentity | null> {
     if (!authHeader?.startsWith('Bearer ')) return null;
     const token = authHeader.slice('Bearer '.length).trim();
     if (!token) return null;
     try {
-      const payload = await verifyToken(token, { secretKey: this.secretKey });
+      const payload = await this.verifyTokenFn(token, { secretKey: this.secretKey });
       return { externalId: payload.sub };
     } catch {
       return null;
