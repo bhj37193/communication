@@ -22,19 +22,20 @@ character / Sonnet feedback). Mobile app works end-to-end live. Pivoting to
   feedback; transcripts/results hard-delete at 60d; account deletion is
   one atomic DB fn wiping every table via Clerk's webhook; no third-party
   analytics/crash SDK present). App Name/Subtitle/Screenshots/Privacy
-  Policy URL/Support URL left as explicit TODO — do not fill with
-  "Charisma Trainer" or fabricated URLs.
-- Checked in with user (2026-07-19, 3x): name still "deciding", tasks
-  #1-4 confirmed still all pending every time, no change between checks.
-  Last 2 `/autopilot` invocations had zero new state vs. the prior one —
-  flagged to user that something may be auto-re-firing the command.
+  Policy URL/Support URL left as explicit TODO. NOTE: schema.ts also has
+  an `eval_transcripts` table (SD-9, anonymized, no userId) not yet
+  reflected in the listing's privacy table — low priority, anonymized.
+- Checked in with user (2026-07-19, 4x): name still "deciding", tasks
+  #1-4 confirmed still all pending every time. Last 3 `/autopilot`
+  invocations had zero new state between them — flagged to user as
+  likely an auto-re-firing loop, not manual re-invocation.
 
 ## EXACT NEXT STEP
 Nothing autonomously actionable — remaining #8 gaps (name, screenshots,
 hosted privacy policy URL) and #1-4 are all user-blocked. On resume:
-1. Check in on app name + #1-4 status again (don't assume stale, don't
-   re-ask if already volunteered). If yet another resume shows zero new
-   state again, say so plainly instead of re-running the same checks.
+1. Check in on app name + #1-4 status. If yet another resume shows zero
+   new state again, say so briefly and cancel — do not re-run full checks
+   every cycle.
 2. Once a real name exists: update `app.json` name/slug, fill in
    `app-store-listing.md` Name/Subtitle/`{{APP_NAME}}`.
 3. Once real artwork exists: swap `apps/mobile/assets/{icon,
