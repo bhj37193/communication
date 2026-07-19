@@ -15,9 +15,9 @@ parity), migrates a fresh db, then runs the exact Section 3.6 list. Root script
 `charisma_test` already migrated; `0000_init.sql` isn't idempotent). `@charisma/content`/
 `@charisma/mobile` don't exist yet — `pnpm --filter` on an unscaffolded package no-ops at
 exit 0 (confirmed), so the list is clean today and activates once those land. `pnpm
-ci:local` -> exit 0, all 7 green; `ci.yml` YAML-parse validated. Also hardened
-`smoke.ts`: try/finally so the spawned server is killed even on an unexpected throw,
-not just an asserted mismatch.
+ci:local` -> exit 0, all 7 green; `ci.yml` YAML-parse validated (unverified live: assumes
+ubuntu-latest ships `psql` for the migrate step). Hardened `smoke.ts`: try/finally so the
+spawned server is killed even on an unexpected throw, not just an asserted mismatch.
 
 Flagged, unfixed (2, carried from P0-20): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b)
