@@ -3,10 +3,9 @@ _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
 Autopilot Phase 0 done. Phase 1 (planning) in progress: architect agent
-`phase1-planner` dispatched in background, not yet returned. A 1200s
-fallback wakeup is scheduled (~15:45) in case its notification is missed;
-its own completion notification is the primary wake signal. No code
-written yet.
+`phase1-planner` dispatched in background, not yet returned. A fallback
+wakeup is scheduled (~15:45); its own completion notification is the
+primary wake signal. No code written yet.
 
 ## COMPLETED THIS SESSION
 - Phase 0 spec written: `.omc/autopilot/spec.md`. Covers 3 deliverables:
@@ -20,21 +19,24 @@ written yet.
   be reached end-to-end in one day — must be tested as pure fn with
   synthetic events, user-tz dates via `caps.ts`'s pattern, not UTC); (3)
   mobile `index.tsx` fetching `GET /v1/challenge/today` instead of
-  hardcoded copy. Explicit Non-goals in spec.md: no review mechanics, no
-  real drill/explain serving, no `SkillPackSchema` widening, no content
+  hardcoded copy. Explicit Non-goals: no review mechanics, no real
+  drill/explain serving, no `SkillPackSchema` widening, no content
   loader.
-- Dispatched `oh-my-claudecode:architect` (agent name `phase1-planner`,
-  opus, background) to turn spec.md into `.omc/plans/autopilot-impl.md`.
+- Dispatched `oh-my-claudecode:architect` (agent `phase1-planner`, opus,
+  background) to turn spec.md into `.omc/plans/autopilot-impl.md`.
   Result not yet received.
+- Resolved open question: `prd.md` is a superseded older draft (working
+  title "Cadence", voice-first LiveKit/Deepgram/FastAPI stack).
+  PRD-CHARISMA-CHAT.md:3 explicitly supersedes it except for engine
+  logic/corpus already inherited. Ignore prd.md going forward.
 
 ## EXACT NEXT STEP
 Wait for `phase1-planner` completion notification (do not poll/resume it
-manually — notification arrives automatically, fallback wakeup covers
-the case it's missed). Once `.omc/plans/autopilot-impl.md` exists, run
-`oh-my-claudecode:critic` to validate the plan, then start Phase 2
-(execution via executor agents), Phase 3 (QA: existing server/core tests
-must pass unmodified — spec.md's regression bar), Phase 4 (validation:
-architect + security-reviewer + code-reviewer), Phase 5 (cleanup +
+manually). Once `.omc/plans/autopilot-impl.md` exists, run
+`oh-my-claudecode:critic` to validate the plan, then Phase 2 (execution
+via executor agents), Phase 3 (QA: existing server/core tests must pass
+unmodified — spec.md's regression bar), Phase 4 (validation: architect +
+security-reviewer + code-reviewer), Phase 5 (cleanup +
 `/oh-my-claudecode:cancel`).
 
 ## LOCKED DECISIONS (do not re-litigate)
@@ -45,12 +47,11 @@ architect + security-reviewer + code-reviewer), Phase 5 (cleanup +
   clarity never touches connection's locked code path.
 - Full scenario-unit serve-path scope chosen (2026-07-19) over narrow
   drill-only slice. Spec.md Non-goals (above) are locked scope cuts.
+- `prd.md` is obsolete; PRD-CHARISMA-CHAT.md is sole authoritative spec.
 
 ## OUTSTANDING OPS
 - App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) user-blocked.
 - FABLE-PROMPT-PROVEN-PROGRESS.md still deferred, unrelated.
-- Open question: unread `prd.md` at repo root, relation to
-  PRD-CHARISMA-CHAT.md unknown (dup/draft/other?). Not used for spec.md.
 
 ## DOC REFS
 PRD-CHARISMA-CHAT.md (authoritative: §3.2, §3.7/INV-7, §4, §4.7, §5) |
