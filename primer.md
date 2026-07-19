@@ -2,10 +2,21 @@
 _Last touched: 2026-07-19._
 
 ## STATUS
-Uncommitted change pending: CONTENT-ROADMAP-4-SKILLS.md §2.3 added (new
-section, not yet committed by this session; hook will commit/push).
+Working tree clean, all committed and pushed to origin/main.
 
-## COMPLETED THIS SESSION
+## COMPLETED THIS SESSION (privacy policy hosting)
+Hosted the drafted privacy policy: moved `legal/privacy-policy.html` ->
+`docs/index.html` (git mv, single source of truth, no duplication).
+GitHub Pages requires a paid plan for Pages on a private repo, so per
+user's explicit choice the repo `bhj37193/communication` was made
+**public** (user confirmed, aware source becomes visible). Enabled Pages
+via `gh api POST repos/bhj37193/communication/pages` (source: main
+branch, /docs path). Verified live: `https://bhj37193.github.io/communication/`
+returns 200 and serves the correct content. Filled the real URL into
+`apps/mobile/app-store-listing.md` (Privacy Policy URL line + blocker
+list item 3, now struck through as done).
+
+## COMPLETED PRIOR SESSION (concurrent, already on disk)
 Added §2.3 "The 0-10 mastery-level display" to CONTENT-ROADMAP-4-SKILLS.md
 per user request for a 0-10 mastery scale. Design: per-skill (not blended,
 matching §0.2's no-merge rule), purely computed at read time from existing
@@ -27,14 +38,14 @@ scope (says public speaking+sales via MCP; current locked scope is the
 5-skill app) but its mechanic-level analysis still holds.
 
 ## EXACT NEXT STEP
-Nothing in flight; ask the user what to work on next. Two live threads:
-(1) Behavior Science (and now all 5 skills') implementation in code
-(packages/core/schemas.ts, validator.ts, score.ts) is spec'd/grounded but
-NOT started — the natural next build step once picked up, would also need
-to implement the new §2.3 mastery_level read-time function. (2) App-store
-items 1 (name), 2 (icon/screenshots), 4 (Apple Developer enrollment) are
-still user-blocked; item 3 (privacy policy) is drafted, needs hosting
-(GitHub Pages/Cloudflare Pages, no VPS) and the URL filled in.
+Nothing in flight; ask the user what to work on next. One live thread:
+all-5-skills implementation in code (packages/core/schemas.ts,
+validator.ts, score.ts) is spec'd/grounded but NOT started — the natural
+next build step once picked up, would also need to implement the new
+§2.3 mastery_level read-time function. App-store item 3 (privacy policy)
+is now DONE (hosted + URL filled in, see COMPLETED THIS SESSION); items 1
+(name), 2 (icon/screenshots), 4 (Apple Developer enrollment) remain
+user-blocked.
 
 ## LOCKED DECISIONS (do not re-litigate)
 5-skill taxonomy (Communication, Problem-Solving, Critical Thinking,
@@ -48,12 +59,15 @@ truth. New: mastery_level (§2.3) is per-skill 0-10, computed not stored,
 caps at 6 until stage 7+ content exists.
 
 ## OUTSTANDING OPS
-App-store tasks #1-4 user-blocked (see EXACT NEXT STEP); privacy policy
-drafted but unhosted. FABLE-PROMPT-PROVEN-PROGRESS.md deferred, unrelated.
+App-store tasks #1, #2, #4 user-blocked (see EXACT NEXT STEP); #3 (privacy
+policy) done. Repo `bhj37193/communication` is now PUBLIC (was private;
+changed to enable GitHub Pages, user confirmed). FABLE-PROMPT-PROVEN-
+PROGRESS.md deferred, unrelated.
 
 ## DOC REFS
 PRD-CHARISMA-CHAT.md | CONTENT-ROADMAP-4-SKILLS.md §2.3 |
 ALPHA-MODEL-ANALYSIS.md | packages/core/schemas.ts | apps/server/src/
 routes/sessions.ts | apps/server/src/services/{fold,router,profile,
 caps}.ts | apps/mobile/app/index.tsx | RESEARCH-METHODOLOGY.md |
-legal/privacy-policy.html
+docs/index.html (privacy policy, live at
+https://bhj37193.github.io/communication/)
