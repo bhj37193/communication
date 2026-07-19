@@ -728,6 +728,41 @@ server contract, same clamp, same trace; only the persona text reinterprets it.
   hard; hold_under_pushback min 1 hard; format_complete min 1 hard;
   final_warmth min 2 soft. Mastery: 2 passes, distinct days.
 
+**Research grounding** (named source + access date, per
+RESEARCH-METHODOLOGY.md §4; drawn from `research/literature/
+behavior_science.json`, accessed 2026-07-19):
+
+- The premature_advice gate ("just use willpower" fails until CUE/ROUTINE/
+  REWARD are named) is not an arbitrary UX choice: Gardner & Rebar, "Habit
+  Formation and Behavior Change," Oxford Research Encyclopedia of Psychology
+  (2019), describe habitual behavior as context-cued and run by an impulsive
+  process "detached from motivational or volitional control" — i.e. the
+  academic case that willpower framing targets the wrong mechanism entirely,
+  which is exactly why the pack hard-fails it.
+- The closed five-term TECHNIQUE set descends from Michie, van Stralen &
+  West, "The Behaviour Change Wheel," Implementation Science (2011,
+  13,849 citations) — the standard taxonomy for naming a specific
+  intervention function instead of generic encouragement. This paper is the
+  strongest single justification in the corpus for scoring "named a specific
+  technique" as the pass condition.
+- The PLAN line's if/then requirement (implementation intentions) and
+  "environmental redesign" as a distinct technique both trace to Sheeran et
+  al., "Activation Versus Change as a Principle Underlying Intervention
+  Strategies to Promote Health Behaviors" (2023), which names cue-reminders
+  and if-then planning as empirically effective "target activation"
+  strategies — direct support for treating the if/then plan format itself as
+  the trained skill, not just a formatting rule.
+- One honest caution, not just support: Ma, Wang, Pei & Piao's meta-analysis
+  and meta-regression on habit-formation interventions, International Journal
+  of Behavioral Nutrition and Physical Activity (2023), found a
+  problem-solving component positively predicted effectiveness (β=0.36) while
+  a social-reward component predicted *reduced* effectiveness (β=-0.40).
+  That is evidence against treating "accountability check-in" as a
+  default-safe technique — it supports the roadmap's existing
+  `technique_matched` gate (Unit B restricts accountability check-in to
+  loops where the reward was specifically social, per Sam), rather than
+  letting any technique pass for any loop.
+
 ---
 
 ## SECTION 2: SHARED ENGINE, NOT 5 SEPARATE APPS

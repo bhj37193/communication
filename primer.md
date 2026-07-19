@@ -2,41 +2,38 @@
 _Last touched: 2026-07-19._
 
 ## STATUS
-Working tree DIRTY, not yet committed: .gitignore, CONTENT-ROADMAP-4-
-SKILLS.md, research/fetch_literature.py, research/literature/*.json,
-research/literature/INDEX.md (modified); research/README.md (new).
-Ask the user whether to commit before starting new work.
+Working tree DIRTY: CONTENT-ROADMAP-4-SKILLS.md (modified this session,
+not yet committed). Prior session's changes (.gitignore, research/*,
+research/README.md) were already committed via checkpoint commits before
+this session started; do not re-ask about those.
 
 ## COMPLETED THIS SESSION
-1. Research pipeline expanded: `research/fetch_literature.py` now fetches
-   from arXiv + Semantic Scholar + OpenAlex + Europe PMC (was 2 sources).
-   Fixed an OpenAlex crash (`.get()` default doesn't cover a present-but-
-   None value in venue parsing). Re-runs now merge additively instead of
-   overwriting. Corpus grew 106 -> 246 papers across the 5 topics
-   (communication 43, problem_solving 35, critical_thinking 60,
-   decision_making 54, behavior_science 54). Added `research/README.md`,
-   ICM-style, mirroring `content-library/README.md`.
-2. Behavior science unlocked as 5th skill, RE-LOCKED as a
-   transcript-scorable DRILL (user's explicit choice, asked directly via
-   AskUserQuestion, not defaulted). Full spec written into
-   CONTENT-ROADMAP-4-SKILLS.md v2: one-paragraph definition (0.1), all 4
-   new pairwise separations (0.2, now 10 pairs total), scorability
-   mechanism (0.3), full Section 1.5 with 2 worked units ("The 11pm
-   Scroll," "The Gym Membership That Never Gets Used"), schema/validator/
-   score additions (Section 2.2), build order updated (Section 3: PS ->
-   DM -> CT -> BS last, since BS recombines PS's premature-fix gate +
-   CT/DM's structured-close machinery rather than inventing anything new).
-   Mechanism: diagnose CUE/ROUTINE/REWARD before prescribing, close with
-   CUE/ROUTINE/REWARD/TECHNIQUE/PLAN/TRIPWIRE, all string-checked, zero
-   LLM judgment, stays inside the deterministic-scoring moat.
+Added a "Research grounding" subsection to CONTENT-ROADMAP-4-SKILLS.md
+§1.5 (Behavior Science), citing 4 papers from the 54-paper
+research/literature/behavior_science.json corpus against specific design
+claims (named source + access date, per RESEARCH-METHODOLOGY.md §4):
+- Gardner & Rebar 2019 (habit = context-cued, willpower-detached) grounds
+  the premature_advice hard-fail gate.
+- Michie et al. 2011 "Behaviour Change Wheel" grounds the closed 5-term
+  TECHNIQUE taxonomy.
+- Sheeran et al. 2023 "Activation Versus Change" grounds the if/then PLAN
+  format + environmental redesign as a technique.
+- Ma et al. 2023 meta-regression (social-reward beta=-0.40, problem-solving
+  beta=+0.36) grounds the technique_matched gate restricting accountability
+  check-in to social loops -- cited as an honest caution, not just support.
+Verified the Unit B claim (habit stacking + accountability check-in gated
+to Theo/Sam's social loop) against the actual doc before citing it -- matches.
+This closes the earlier finding that CONTENT-ROADMAP-4-SKILLS.md had zero
+citations back to the 246-paper research corpus despite the corpus existing.
 
 ## EXACT NEXT STEP
-Ask the user whether to commit the dirty tree. Roadmap spec for behavior
-science is DONE; NOT yet built in code (packages/core/schemas.ts,
-validator.ts, score.ts untouched). Before starting BS implementation,
-confirm actual build status of Problem-Solving/Decision-Making/Critical
-Thinking in code (the roadmap's sequencing assumes they already shipped;
-verify, don't assume).
+User was offered, not yet confirmed: run the same grounding-citation pass
+on the other 4 skills (Communication, Problem-Solving, Critical Thinking,
+Decision-Making), each citing its own topic's JSON in research/literature/
+against its own §1.x design claims in CONTENT-ROADMAP-4-SKILLS.md. Ask
+before starting if not already confirmed. Behavior Science implementation
+in code (packages/core/schemas.ts, validator.ts, score.ts) is still NOT
+started -- roadmap spec is grounded but unbuilt.
 
 ## LOCKED DECISIONS (do not re-litigate)
 5-skill taxonomy (Communication, Problem-Solving, Critical Thinking,
