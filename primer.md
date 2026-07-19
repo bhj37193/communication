@@ -9,22 +9,23 @@ cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI
 author-only half) CLOSED — docker-compose.yml/Caddyfile/deploy.yml/README.md at repo root +
 apps/server/Dockerfile.
 
-**Prior session:** closed 2 queued bugs in `apps/server`, both committed (`git log`: "checkpoint
-wire session/chat-turn/scoring..." → later checkpoints). (a) `warmthTrace` was missing the
-opener's implicit warmth-0 (root cause: the one `insert(sessions)` in `routes/sessions.ts` used
-the `warmth_trace` column's `[]` default instead of seeding `[0]`) — fixed at that single
-insert; regression test added in `loop.test.ts`. (b) 409 CAPPED now returns `next_open_at`
-(next tz-local midnight) via new `nextLocalMidnightUTC` in `services/caps.ts`; test updated.
-Full `apps/server` suite 34/34 green, both fixes stash-verified as real regressions.
+**Prior session:** closed 2 queued bugs in `apps/server`, both committed. (a) `warmthTrace`
+was missing the opener's implicit warmth-0 (root cause: the one `insert(sessions)` in
+`routes/sessions.ts` used the `warmth_trace` column's `[]` default instead of seeding `[0]`)
+— fixed at that single insert; regression test added in `loop.test.ts`. (b) 409 CAPPED now
+returns `next_open_at` (next tz-local midnight) via new `nextLocalMidnightUTC` in
+`services/caps.ts`; test updated. Full `apps/server` suite 34/34 green, both fixes
+stash-verified as real regressions.
 
-**This session:** re-invoked via automated checkpoint/clear loop with no new task attached.
-Verified working tree is clean (`git status` empty) and both fixes are committed — nothing
-pending, nothing broken. No code changes made. Reported idle status back to user and asked
-what to tackle next (offered: apps/web P2, Clerk/Paddle/deploy gates, or other).
+**This session:** re-invoked via automated checkpoint/clear loop, still no new task attached.
+Confirmed git tree clean and both fixes committed — nothing pending, nothing broken, no code
+changes made. A stale `autopilot` state (session was `awaiting_confirmation`, never ran any
+phase) was cleared via `/oh-my-claudecode:cancel` since there was no work for it to do.
+Reported idle status to user twice and asked what to tackle next; no answer yet.
 
 **Next action:** none queued. Await explicit next task from user before doing further work —
 do not invent scope. If this loop fires again with still nothing queued, just re-confirm clean
-state and stop; do not repeat full autopilot phases for an empty queue.
+state and stop; do not repeat full autopilot phases or re-cancel an already-cleared mode.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME. Payments: Merchant-of-Record (Paddle, web only).
