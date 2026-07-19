@@ -991,6 +991,38 @@ locked contracts in packages/core.
 Nothing above rewrites an existing export, changes an existing schema's parse
 behavior, or puts an LLM in any score path.
 
+### 2.3 The 0-10 mastery-level display (per skill, derived, not authored)
+
+User request 2026-07-19: express progress as a 0 to 10 "level of mastery." This
+is a read-time display number, not a sixth content axis, and it is per skill,
+never blended across skills, the same no-merge principle Section 0.2 already
+holds for scoring: `mastery_level(skill_id): 0 to 10`, computed from the
+existing Unit.mastery pass-counting (2.1), zero schema changes, zero new
+authored content.
+
+- **0 = zero knowledge.** No unit_state row for this skill_id yet: the user is
+  before the entry-point unit (Section 1's own header language for this state).
+- **1 through 6 = stage 1 through stage 6**, one level per already-authored
+  stage in that skill's 6-stage progression (Section 1.x), awarded the instant
+  that stage's mastery gate (passes_required, distinct_days) is satisfied
+  against its 8 drill reps plus AI capstone. Level N means "stage N mastered,"
+  nothing finer-grained inside a stage. Communication's tier 6 hard-mode
+  personas and each other skill's stage-6 pushback capstone (hold_under_pushback,
+  verdict_consistent, hold-or-fold) all land on level 6: today's ceiling for
+  every skill, by design (Section 3's locked build order still applies; a
+  skill not yet built shows mastery_level as unavailable, not 0).
+- **7 through 10 = declared headroom, not curriculum.** No stage 7 to 10
+  exists in Section 1 for any skill. These four levels are reserved so a
+  future skill-tree extension (harder persona packs, spaced-review streak
+  milestones) has room without renumbering 1-6 or re-authoring anything
+  shipped. Until such content exists, mastery_level caps at 6 and the UI
+  states "6/10, more coming," never invents filler stages to fill 7-10.
+
+Implementation note: mastery_level is a pure function over the existing
+progress_events / user_skill_state projection (highest stage whose gate is
+satisfied), read at display time. It needs no new column, no new event type,
+and does not touch UnitSchema, validator.ts, or score.ts.
+
 ---
 
 ## SECTION 3: SEQUENCING RECOMMENDATION
