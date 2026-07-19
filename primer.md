@@ -4,38 +4,40 @@ _Last touched: 2026-07-19 (checkpoint)._
 ## STATUS
 Autopilot Phase 2 done and verified (prior session). Phase 4 validation:
 architect APPROVE (x2), security-reviewer APPROVE Risk-LOW (x2).
-code-reviewer (agent id `ac9a7eb575e9ea495`) verdict still not landed as
+code-reviewer verdict (agent id `ac9a7eb575e9ea495`) still not landed as
 of last check - unresolved blocker, unrelated to this session's work.
 
-Separate, unrelated side task this session: built a literature-fetch
-script (arXiv API + Semantic Scholar API, stdlib-only, no scraping
-needed) at `research/fetch_literature.py` to ground the 4-skill
-curriculum + behavior science in academic sources. Script ran but
-returned 0 results for all 5 topics - root cause found: local Python
-3.10 (python.org build) has no CA cert bundle, so every HTTPS/HTTP
-request throws `SSLCertVerificationError: unable to get local issuer
-certificate`. Not a sandbox/network block - a known python.org-installer
-gap.
+Side task this session: literature-fetch script for the 4-skill
+curriculum + behavior science research, `research/fetch_literature.py`
+(arXiv API + Semantic Scholar API, stdlib-only, no scraping needed).
+First run returned 0 results for all 5 topics: root cause was this
+machine's python.org Python 3.10 having no CA cert bundle
+(SSLCertVerificationError on every request). Fixed by installing
+`certifi` (`uv pip install --system certifi`) and setting
+`SSL_CERT_FILE` to `certifi.where()` when invoking the script. Re-run
+launched with the fix; NOT YET VERIFIED - background job's output was
+still empty at last check, completion/results unconfirmed.
 
 ## EXACT NEXT STEP
-Autopilot thread (higher priority, pre-existing blocker):
-1. Collect code-reviewer's explicit verdict (do NOT `TaskOutput` it -
-   dumps full transcript). If still nothing after 1-2 more checks,
-   dispatch one fresh code-reviewer agent against the same diff (2/3
-   reviewers already clean APPROVE).
-2. On all-3 APPROVE: Phase 5 - delete `.omc/state/{autopilot,ralph,
-   ultrawork,ultraqa}-state.json`, run `/oh-my-claudecode:cancel`.
-3. On reject: fix file:line issues, re-run affected suite, re-validate
-   only that reviewer (max 3 rounds).
+Literature research (do this first, it's mid-flight):
+1. Check `research/literature/*.json` are non-empty and
+   `research/literature/INDEX.md` lists real papers per topic. If still
+   empty, rerun in foreground: `cd "communication" && SSL_CERT_FILE=$(python3
+   -c "import certifi; print(certifi.where())") python3
+   research/fetch_literature.py` and read actual stdout/errors (Semantic
+   Scholar 429s auto-retry 3x; arXiv has a built-in 3s/request delay so
+   full run takes ~30-60s for 5 topics).
+2. Report per-topic paper counts back to user.
 
-Literature research thread (side task, resume when convenient):
-1. Fix SSL certs: `/Applications/Python 3.10/Install Certificates.command`
-   (or `uv pip install --system certifi` + set `SSL_CERT_FILE` env var to
-   `certifi.where()`).
-2. Re-run `python3 research/fetch_literature.py` from repo root.
-3. Check `research/literature/INDEX.md` + per-topic `.json` files got
-   populated (non-empty); if Semantic Scholar 429s, the script already
-   retries 3x with backoff - just re-run if it still fails.
+Autopilot thread (pre-existing blocker, resume after above):
+3. Collect code-reviewer's explicit verdict (do NOT `TaskOutput` it -
+   dumps full transcript). If still nothing, dispatch one fresh
+   code-reviewer agent against the same diff (2/3 reviewers already
+   clean APPROVE).
+4. On all-3 APPROVE: Phase 5 - delete `.omc/state/{autopilot,ralph,
+   ultrawork,ultraqa}-state.json`, run `/oh-my-claudecode:cancel`.
+5. On reject: fix file:line issues, re-run affected suite, re-validate
+   only that reviewer (max 3 rounds).
 
 ## LOCKED DECISIONS (do not re-litigate)
 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
