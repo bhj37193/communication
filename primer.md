@@ -9,34 +9,36 @@ Paddle/G-03 not needed yet).
 ## COMPLETED THIS SESSION
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
-- **Task #6 NEARLY DONE (background agent a1a25387581a1450f, was still
-  `running` as of last check — do NOT duplicate, do NOT trust as final
-  yet)**: real Clerk auth wiring, mobile + server. Self-reported: mobile
+- **Task #6 NEARLY DONE (background agent a1a25387581a1450f, STILL
+  `running` across multiple checks — do NOT duplicate, do NOT trust as
+  final)**: real Clerk auth wiring, mobile + server. Self-reported: mobile
   suite 24/24 pass, server suite 35/35 pass, typecheck clean both sides, no
-  leaked secrets found in `.env.example` files, no debug leftovers. Agent
-  called its own advisor for a final self-check and had not yet reported
-  completion. Mobile side confirmed written: `apps/mobile/app/_layout.tsx`
-  splits `DevAuthProvider` vs `ClerkAuthBridge` behind
-  `USE_CLERK = !isAuthConfigured()`; `apps/mobile/lib/auth.ts` has real
-  `getClerkToken()` (`getClerkInstance().session?.getToken()`) +
-  AsyncStorage `tokenCache`. Server-side files not yet individually
-  re-confirmed post-edit by me. **I (main session) have NOT independently
-  reviewed the diff yet** — the above is the agent's own self-report only.
+  leaked secrets in `.env.example` files, no debug leftovers. Agent called
+  its own advisor for a final self-check and has been stuck there across
+  several polls with no new output — worth checking for a stall on next
+  resume, not just re-polling indefinitely. Mobile side confirmed written:
+  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
+  `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
+  `apps/mobile/lib/auth.ts` has real `getClerkToken()`
+  (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
+  **I (main session) have NOT independently reviewed the diff yet** — the
+  above is the agent's own self-report only.
 
 ## EXACT NEXT STEP
-1. Check status of `a1a25387581a1450f` (TaskOutput, block=false). If
-   `status: completed`, read the FULL diff (`git diff`) myself before
-   trusting anything — do not just accept its self-report.
+1. Check status of `a1a25387581a1450f` (TaskOutput, block=false). If still
+   `running` with no progress since this checkpoint, consider it possibly
+   stalled post-advisor-call — read its output file directly for the
+   advisor response before deciding whether to wait longer or intervene.
+   If `status: completed`, read the FULL diff (`git diff`) myself first.
 2. Independently rerun `pnpm --filter @charisma/server test` +
    `pnpm --filter @charisma/mobile test` + typecheck both. Confirm
    fake-auth path (`AUTH_PROVIDER=fake`, default) still passes untouched.
-   Clerk path is NOT verifiable yet (user has no Clerk account — task #4):
-   only claim it typechecks and matches Clerk's documented API, never that
-   it "works."
-3. Then resume task #7 (eas.json + app icons — needs user-supplied artwork,
-   don't fabricate branding) and #8 (App Store listing prep).
+   Clerk path is NOT verifiable yet (no Clerk account — task #4): only
+   claim it typechecks and matches Clerk's documented API, never "works."
+3. Then resume task #7 (eas.json + app icons — user artwork needed, don't
+   fabricate branding) and #8 (App Store listing prep).
 4. Tasks #1-4 (signups: Apple Developer, Expo/EAS, VPS, Clerk) are blocking
-   and on the user — check in on progress before assuming done.
+   and on the user — check in before assuming done.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME.
