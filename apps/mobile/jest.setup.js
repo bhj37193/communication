@@ -16,3 +16,13 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 
 // Deterministic id for the dev-fake auth path.
 jest.mock('expo-crypto', () => ({ randomUUID: () => 'test-uuid' }));
+
+// react-native-view-shot / expo-sharing are native modules with no JS impl in
+// the jest-expo environment; stub them so lib/share.ts is importable under test.
+jest.mock('react-native-view-shot', () => ({
+  captureRef: jest.fn(() => Promise.resolve('file:///mock.png')),
+}));
+jest.mock('expo-sharing', () => ({
+  isAvailableAsync: jest.fn(() => Promise.resolve(true)),
+  shareAsync: jest.fn(() => Promise.resolve()),
+}));

@@ -19,12 +19,15 @@ jest.mock('../lib/api', () => ({
   getResult: jest.fn(),
 }));
 
+jest.mock('../lib/share', () => ({ shareScoreCard: jest.fn(() => Promise.resolve()) }));
+
 let mockParams: Record<string, string> = {};
 
 import EntryScreen from '../app/index';
 import ChatScreen from '../app/chat';
 import ResultScreen from '../app/result';
 import { createSession, endSession, getResult, sendMessage } from '../lib/api';
+import { shareScoreCard } from '../lib/share';
 
 beforeEach(() => {
   mockPush.mockReset();
@@ -33,6 +36,7 @@ beforeEach(() => {
   (sendMessage as jest.Mock).mockReset();
   (endSession as jest.Mock).mockReset();
   (getResult as jest.Mock).mockReset();
+  (shareScoreCard as jest.Mock).mockClear(); // keep the resolved-promise impl
   mockParams = {};
 });
 
@@ -121,6 +125,28 @@ describe('ResultScreen', () => {
     expect(screen.getByText('WIN')).toBeTruthy();
     expect(screen.getByText('FIX')).toBeTruthy();
     expect(screen.getByText('THE MOMENT')).toBeTruthy();
+  });
+
+  it('shows a Share button once scored and pressing it shares the card', async () => {
+    mockParams = { id: 's1' };
+    (getResult as jest.Mock).mockResolvedValue({
+      status: 'scored',
+      result: {
+        score: 100,
+        passed: true,
+        win: { text: 'Great open question', quote: 'What brings you here?' },
+        fix: { text: 'Follow up sooner', anchor: 'message 3' },
+        moment: { text: 'Sam opened up', quote: 'Actually, yeah' },
+        signals: {},
+        template_fallback: false,
+      },
+    });
+
+    render(<ResultScreen />);
+    await waitFor(() => expect(screen.getByText('Share')).toBeTruthy());
+
+    fireEvent.press(screen.getByText('Share'));
+    expect(shareScoreCard).toHaveBeenCalledTimes(1);
   });
 
   it('shows a loading state while the result is still scoring (202)', async () => {

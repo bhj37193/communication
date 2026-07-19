@@ -5,33 +5,36 @@
 Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
 + `AnthropicChatModel` (real) / `FakeChatModel` (test) + `FakeAuthVerifier` + daily cap +
 cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI. `apps/mobile`
-(Expo/RN, P0-27) now scaffolded and green. `apps/web` not started (P2, not blocking).
+(Expo/RN) now has P0-27 (scaffold) and P0-28 (share card) both closed and green. `apps/web`
+not started (P2, not blocking).
 
-**P0-27 CLOSED (Expo app).** `apps/mobile`: `app/_layout.tsx`, `app/{index,chat,result,
-profile}.tsx` (Expo Router), `lib/api.ts` (typed client, all 5 session endpoints + DELETE
-/v1/me/data), `lib/auth.ts`, `components/MessageBubble.tsx`, jest-expo tests (20 tests).
-Skipped on purpose (P0-28 scope): `lib/share.ts`, `components/ScoreCard.tsx`, `eas.json`.
-Auth header fix (see LOCKED DECISIONS) verified against actual server code, not the stale
-plan doc. Independent code-reviewer pass then found + fixed 4 real golden-path bugs:
-`profile.tsx` sign-out had no try/catch (could strand screen in `busy`); `chat.tsx`
-"I'm done" wasn't gated on `sending`/`typing` (double-`endSession` race), fixed with
-`ending||sending||typing` + an `activeRef` mounted-guard (mirrors `result.tsx`'s `active`
-flag) around post-await setState in `onSend`/`goToResult`; `chat.tsx` optimistic user
-message wasn't rolled back on send failure, now popped + the input text restored in the catch;
-`result.tsx` polling was unbounded, now `MAX_POLLS` (~3min) + `MAX_CONSECUTIVE_ERRORS` (3
-retries on transient errors before surfacing). Verified: `pnpm --filter @charisma/mobile
-typecheck && test` (20/20), `pnpm -r typecheck` clean, `pnpm ci:local` exit 0 (e2e smoke
-score 100). Cosmetic/unfixed: jest `act()` warning in `chat.tsx`'s typing-delay update.
+**P0-28 CLOSED (Share card).** `apps/mobile/components/ScoreCard.tsx` (forwardRef<View>,
+renders SCORE + PASSED/KEEP PRACTICING + the exact POSITIONING.md paradox tagline — no
+win/fix/moment/quote text, ever), `lib/share.ts` (`captureRef` -> `Sharing.shareAsync` ->
+fire-and-forget `trackShareTapped()`, analytics failure never blocks/rejects the share),
+Share button wired into `app/result.tsx`. New server route `POST /v1/events/share-tapped`
+in `apps/server/src/routes/me.ts` (didn't exist before — needed so `share_tapped`, already
+in the analytics `EVENT_SCHEMAS` allowlist, could actually fire); `lib/api.ts` got
+`trackShareTapped()`. Deliberate scope cut: NO streak number on the card — no streak data
+source exists anywhere (no column, no field, no endpoint); fabricating one was out of
+scope, this is a documented gap not a bug. Deps added: `react-native-view-shot`,
+`expo-sharing` (via `expo install`). New jest mocks for both in `jest.setup.js`. Verified:
+`pnpm --filter @charisma/mobile typecheck` clean, mobile tests 24/24 (was 20/20),
+`pnpm --filter @charisma/server test` 33/33 incl. new `events.test.ts` (401 + 204 + row
+persisted), `pnpm -r typecheck` clean, full `pnpm ci:local` exit 0 (core 63/63, e2e smoke
+score 100, mobile 24/24).
 
 Flagged, unfixed (carried, need own cycle): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b) 409
 CAPPED spec wants a next-open-time, current impl/test omit it.
 
-**Next action (ONE task only):** P0-28 Share card (deps: P0-27, satisfied; AUTONOMOUS):
-`apps/mobile/lib/share.ts` (react-native-view-shot capture -> share sheet),
-`components/ScoreCard.tsx` (shareable WIN/FIX/MOMENT/SCORE render), wire a share button on
-`app/result.tsx`. Accept: `pnpm --filter @charisma/mobile typecheck && pnpm --filter
-@charisma/mobile test`.
+**Next action (ONE task only):** P0-29 Deploy artifacts, AUTONOMOUS-author portion only
+(deps: P0-25, satisfied; execute portion is GATED G-04/G-05/G-09, do NOT attempt that half):
+`Caddyfile`, prod profile in `docker-compose.yml`, `.github/workflows/deploy.yml`,
+`README.md` ops section (restic setup, Uptime Kuma, secret placement). Goal: complete
+deploy path that needs only real secrets to run; `deploy.yml` no-ops with a clear message
+when secrets are absent. Accept: `docker compose --profile prod config` validates, and
+`pnpm ci:local` still green.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
@@ -46,14 +49,14 @@ CAPPED spec wants a next-open-time, current impl/test omit it.
   this point; trust `apps/server/src/auth/AuthVerifier.ts` over the doc.
 
 ## OUTSTANDING OPS / ENV FACTS
-- Native Postgres 18, localhost:5432, NO Docker. DBs `charisma` (dev) + `charisma_test`
+- Native Postgres 18, localhost:5432, NO Docker locally. DBs `charisma` (dev) + `charisma_test`
   (test) exist; migration applied to `charisma_test` ONLY.
 - Don't `kill $(lsof -ti:3000)` — verify server boot via vitest `app.inject()`.
-- Open gates: G-01 Anthropic key, G-02 Clerk, G-03 Paddle, G-04 deploy.
+- Open gates: G-01 Anthropic key, G-02 Clerk, G-03 Paddle, G-04/G-05/G-09 deploy.
 - SOURCE-DO-NOT-SHIP/ deletion discrepancy still unreconciled before IP sign-off.
 
 ## DOC REFS
 BUILD-PLAN-MAP.md | BUILD-EXECUTION-PLAN.md (offset/limit only; auth section 3.3 is stale,
-see above) | FABLE-PROMPT-CHARISMA-CHAT.md | POSITIONING.md | PRICING-AND-ECONOMICS.md |
-AVATAR-TIER-PRICING.md | BUSINESS-MODEL-CONVERSION.md | COMPETITOR-REVIEW-MINING.md |
-HANDOFF.md (loop doctrine).
+see above; P0-29 spec at line ~1254) | FABLE-PROMPT-CHARISMA-CHAT.md | POSITIONING.md |
+PRICING-AND-ECONOMICS.md | AVATAR-TIER-PRICING.md | BUSINESS-MODEL-CONVERSION.md |
+COMPETITOR-REVIEW-MINING.md | HANDOFF.md (loop doctrine).

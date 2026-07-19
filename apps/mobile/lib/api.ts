@@ -157,3 +157,11 @@ export async function deleteMyData(): Promise<void> {
   const res = await request('/v1/me/data', { method: 'DELETE' });
   if (res.status !== 204) await throwApiError(res);
 }
+
+// Fire-and-forget analytics ping when the user shares their score card. Throws
+// on failure like every other call here; the share flow (lib/share.ts) wraps it
+// in try/catch so a dropped ping never blocks or errors the share sheet.
+export async function trackShareTapped(): Promise<void> {
+  const res = await request('/v1/events/share-tapped', { method: 'POST' });
+  if (res.status !== 204) await throwApiError(res);
+}

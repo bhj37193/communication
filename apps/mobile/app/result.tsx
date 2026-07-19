@@ -1,7 +1,9 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScoreCard } from '../components/ScoreCard';
 import { ApiError, getResult, type ScoredResult } from '../lib/api';
+import { shareScoreCard } from '../lib/share';
 
 const POLL_INTERVAL_MS = 1500;
 const MAX_POLLS = 120; // ~3 minutes of scoring before giving up
@@ -13,6 +15,7 @@ export default function ResultScreen() {
   const [result, setResult] = useState<ScoredResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cardRef = useRef<View>(null);
 
   useEffect(() => {
     let active = true;
@@ -76,11 +79,7 @@ export default function ResultScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={[styles.scoreCard, result.passed ? styles.pass : styles.fail]}>
-        <Text style={styles.scoreLabel}>SCORE</Text>
-        <Text style={styles.score}>{result.score}</Text>
-        <Text style={styles.verdict}>{result.passed ? 'PASSED' : 'KEEP PRACTICING'}</Text>
-      </View>
+      <ScoreCard ref={cardRef} score={result.score} passed={result.passed} />
 
       <Section label="WIN" text={result.win.text} detail={result.win.quote} detailLabel="Quote" />
       <Section label="FIX" text={result.fix.text} detail={result.fix.anchor} detailLabel="Anchor" />
@@ -90,6 +89,18 @@ export default function ResultScreen() {
         detail={result.moment.quote}
         detailLabel="Quote"
       />
+
+      <Pressable
+        style={[styles.button, styles.shareButton]}
+        onPress={() => {
+          // Share/capture can reject (e.g. user dismisses the OS sheet); don't
+          // crash the screen. Analytics failures are already swallowed inside.
+          void shareScoreCard(cardRef).catch(() => {});
+        }}
+        accessibilityRole="button"
+      >
+        <Text style={[styles.buttonText, styles.shareButtonText]}>Share</Text>
+      </Pressable>
 
       <Pressable style={styles.button} onPress={() => router.replace('/')} accessibilityRole="button">
         <Text style={styles.buttonText}>Done</Text>
@@ -127,12 +138,6 @@ const styles = StyleSheet.create({
   loadingText: { fontSize: 16, color: '#6b7280' },
   error: { color: '#b91c1c', fontSize: 16, textAlign: 'center' },
   container: { padding: 20, gap: 16 },
-  scoreCard: { borderRadius: 16, padding: 24, alignItems: 'center' },
-  pass: { backgroundColor: '#dcfce7' },
-  fail: { backgroundColor: '#fee2e2' },
-  scoreLabel: { fontSize: 14, fontWeight: '700', color: '#374151', letterSpacing: 1 },
-  score: { fontSize: 56, fontWeight: '800', color: '#111827' },
-  verdict: { fontSize: 16, fontWeight: '700', color: '#374151' },
   section: { borderRadius: 12, backgroundColor: '#f9fafb', padding: 16, gap: 6 },
   sectionLabel: { fontSize: 13, fontWeight: '700', color: '#2563eb', letterSpacing: 1 },
   sectionText: { fontSize: 16, lineHeight: 22, color: '#111827' },
@@ -145,4 +150,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   buttonText: { color: '#ffffff', fontSize: 18, fontWeight: '600' },
+  shareButton: { backgroundColor: '#ffffff', borderWidth: 2, borderColor: '#2563eb' },
+  shareButtonText: { color: '#2563eb' },
 });
