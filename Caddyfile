@@ -1,0 +1,16 @@
+{
+	# TLS cert email; set via DOMAIN below once a real domain exists (G-05).
+}
+
+api.{$DOMAIN:localhost} {
+	reverse_proxy api:3000
+}
+
+# apps/web hasn't shipped yet (P2). Once it does, add:
+#
+# {$DOMAIN:localhost} {
+# 	reverse_proxy web:3001
+# }
+{$DOMAIN:localhost} {
+	respond "web frontend not deployed yet" 501
+}

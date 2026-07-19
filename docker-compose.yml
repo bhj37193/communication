@@ -1,0 +1,77 @@
+# Dev has no docker profile: dev/CI use a native Postgres install directly
+# (see primer.md). This file only defines the prod profile, deployed to the
+# VPS by .github/workflows/deploy.yml.
+#
+# All secrets below default to empty/placeholder values so that
+# `docker compose --profile prod config` validates with no secrets present.
+# Real values are set in a .env on the VPS (see README.md's ops section) and
+# are never committed.
+
+services:
+  postgres:
+    image: postgres:18
+    profiles: ["prod"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-charisma}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-charisma}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-charisma}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    profiles: ["prod"]
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: ${DATABASE_URL:-postgres://charisma_app@postgres:5432/charisma}
+      DATABASE_URL_OWNER: ${DATABASE_URL_OWNER:-postgres://charisma@postgres:5432/charisma}
+      AUTH_PROVIDER: ${AUTH_PROVIDER:-clerk}
+      MODEL_PROVIDER: ${MODEL_PROVIDER:-anthropic}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      DAILY_MODEL_BUDGET_USD: ${DAILY_MODEL_BUDGET_USD:-50}
+      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-}
+      CLERK_WEBHOOK_SECRET: ${CLERK_WEBHOOK_SECRET:-}
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["prod"]
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    profiles: ["prod"]
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime_kuma_data:/app/data
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:
+  uptime_kuma_data:
