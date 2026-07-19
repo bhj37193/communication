@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Charisma Trainer",
+    "slug": "charisma-trainer",
+    "scheme": "charisma",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "plugins": ["expo-router"],
+    "ios": {
+      "bundleIdentifier": "com.charisma.trainer",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.charisma.trainer"
+    }
+  }
+}
