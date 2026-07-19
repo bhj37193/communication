@@ -263,3 +263,10 @@
 {"_e":"metro:client_log","_t":1784435282089,"level":"debug","data":["#2","80ms","Starting renderer for element at 20,84 with size 1400x195"]}
 {"_e":"metro:client_log","_t":1784435282089,"level":"debug","data":["#2","80ms","Canvas renderer initialized (1400x195) with scale 2"]}
 {"_e":"metro:client_log","_t":1784435282089,"level":"debug","data":["#2","83ms","Finished rendering"]}
+{"_e":"metro:bundling:started","_t":1784440063828,"id":"a","platform":"web","environment":null,"entry":"node_modules/.pnpm/expo-router@57.0.7_e663344ef4656920dfbd27fe7d3c91b8/node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1784440063828,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1784440063871,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1784440063994,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1784440064132,"id":"a","total":1,"ms":303.476}
+{"_e":"metro:client_log","_t":1784440064520,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1784440064520,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
