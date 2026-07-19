@@ -24,8 +24,9 @@ character / Sonnet feedback). Mobile app works end-to-end live. Pivoting to
   analytics/crash SDK present). App Name/Subtitle/Screenshots/Privacy
   Policy URL/Support URL left as explicit TODO — do not fill with
   "Charisma Trainer" or fabricated URLs.
-- Checked in with user (2026-07-19): name still "deciding", placeholder
-  icon confirmed wanted, tasks #1-4 confirmed still all pending.
+- Checked in with user (2026-07-19, twice): name still "deciding",
+  placeholder icon confirmed wanted, tasks #1-4 confirmed still all
+  pending both times — no change between checks.
 
 ## EXACT NEXT STEP
 Nothing autonomously actionable — remaining #8 gaps (name, screenshots,
