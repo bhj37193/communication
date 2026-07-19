@@ -6,30 +6,35 @@ Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator +
 + `AnthropicChatModel` (real) / `FakeChatModel` (test) + `FakeAuthVerifier` + daily cap +
 cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI. `apps/mobile`
 (Expo/RN): P0-27 (scaffold) and P0-28 (share card) both CLOSED, green. `apps/web` not
-started (P2, not blocking).
-
-**P0-28 CLOSED (Share card).** `components/ScoreCard.tsx` (forwardRef<View>, SCORE +
-PASSED/KEEP PRACTICING + exact POSITIONING.md paradox tagline — no win/fix/moment/quote
-text, ever), `lib/share.ts` (`captureRef` -> `Sharing.shareAsync` -> fire-and-forget
-`trackShareTapped()`), Share button on `app/result.tsx`. New server route `POST
-/v1/events/share-tapped` (`apps/server/src/routes/me.ts`, didn't exist before — needed so
-`share_tapped`, already in the analytics allowlist, could fire); `lib/api.ts` got
-`trackShareTapped()`. Deliberate cut: NO streak number, no data source exists (documented
-gap, not a bug). Deps added: `react-native-view-shot`, `expo-sharing`. Verified: mobile
-tests 24/24 (was 20/20), server 33/33 incl. new `events.test.ts`, `pnpm -r typecheck`
-clean, full `pnpm ci:local` exit 0 (core 63/63, e2e smoke 100).
+started (P2, not blocking). No code changed this session — scoping only, see below.
 
 Flagged, unfixed (carried, need own cycle): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b) 409
 CAPPED spec wants a next-open-time, current impl/test omit it.
 
+**P0-29 scoping done (no files written yet).** Confirmed repo has NONE of: `docker-compose.yml`,
+`Caddyfile`, root `README.md`, or any `Dockerfile` (apps/server never got one, despite
+BUILD-EXECUTION-PLAN P0-12 listing it — gap in earlier work, not this task's fault). Dev/CI
+use native Postgres directly (no dev docker profile exists or is needed). `apps/web` doesn't
+exist, so Caddyfile/compose should NOT reference a `web` service yet — api + caddy + postgres
++ uptime-kuma only, web routing left as a commented placeholder. Also noticed (pre-existing,
+OUT OF SCOPE): `ci.yml`/root `package.json` both run `pnpm --filter @charisma/content validate`
+but `packages/content` isn't a real pnpm package — `content/` and `fakes/` are plain data dirs
+INSIDE `packages/core`, not workspace members. Did not touch this; flagging for its own cycle.
+
 **Next action (ONE task only):** P0-29 Deploy artifacts, AUTONOMOUS-author portion only
-(deps: P0-25, satisfied; execute portion is GATED G-04/G-05/G-09, do NOT attempt that half):
-`Caddyfile`, prod profile in `docker-compose.yml`, `.github/workflows/deploy.yml`,
-`README.md` ops section (restic setup, Uptime Kuma, secret placement). Goal: complete
-deploy path that needs only real secrets to run; `deploy.yml` no-ops with a clear message
-when secrets are absent. Accept: `docker compose --profile prod config` validates, and
-`pnpm ci:local` still green.
+(deps: P0-25, satisfied; execute portion is GATED G-04/G-05/G-09, do NOT attempt that half).
+Write: `Caddyfile` (api.DOMAIN -> api:3000 only; web routing commented placeholder),
+`docker-compose.yml` (prod profile only — services: caddy, api build from apps/server, postgres,
+uptime-kuma; no dev profile), a minimal `apps/server/Dockerfile` (node:22-slim, pnpm workspace
+install, run via existing `tsx src/index.ts` — no build script exists, don't add one) so the
+compose file's `api` service has something real to build, `.github/workflows/deploy.yml`
+(push-to-main: ssh VPS, compose pull/up; no-ops with a clear message when SSH_HOST/SSH_USER/
+SSH_KEY secrets are absent), `README.md` ops section (restic setup w/ Hetzner Storage Box +
+RESTIC_PASSWORD, Uptime Kuma, secret placement matching G-04/G-05/G-09 names in
+BUILD-EXECUTION-PLAN.md's gates table ~line 1380). Accept: `docker compose --profile prod
+config` validates, and `pnpm ci:local` still green (unaffected by these changes but re-run to
+confirm no regression).
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
@@ -52,6 +57,7 @@ when secrets are absent. Accept: `docker compose --profile prod config` validate
 
 ## DOC REFS
 BUILD-PLAN-MAP.md | BUILD-EXECUTION-PLAN.md (offset/limit only; auth section 3.3 is stale,
-see above; P0-29 spec at line ~1254) | FABLE-PROMPT-CHARISMA-CHAT.md | POSITIONING.md |
-PRICING-AND-ECONOMICS.md | AVATAR-TIER-PRICING.md | BUSINESS-MODEL-CONVERSION.md |
-COMPETITOR-REVIEW-MINING.md | HANDOFF.md (loop doctrine).
+see above; P0-29 spec at line ~1254, gates table ~1370-1395, file tree ~95-120) |
+FABLE-PROMPT-CHARISMA-CHAT.md | POSITIONING.md | PRICING-AND-ECONOMICS.md |
+AVATAR-TIER-PRICING.md | BUSINESS-MODEL-CONVERSION.md | COMPETITOR-REVIEW-MINING.md |
+HANDOFF.md (loop doctrine).
