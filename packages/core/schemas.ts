@@ -70,11 +70,23 @@ export const SkillSchema = z.object({
 });
 export type Skill = z.infer<typeof SkillSchema>;
 
+// CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md Section 4: non-AI drill units.
+// Never scored, never seen by validator.ts/score.ts; a self-attested rep.
+export const DrillSchema = z.object({
+  prompt_text: z.string().min(1),
+  timer_seconds: z.number().int().positive(),
+  variants: z.array(z.string().min(1)).min(1),
+  self_check: z.array(z.string().min(1)).min(1),
+  recording_variant: z.boolean(),
+});
+export type Drill = z.infer<typeof DrillSchema>;
+
 export const UnitSchema = z.object({
   id: z.string().min(1),
   skill_id: z.string().min(1),
   principle: z.string().min(1),
   exemplar: z.string().min(1),
+  unit_type: z.literal('scenario').default('scenario'),
   scenario: z.object({
     title: z.string().min(1),
     setup_text: z.string().min(1),
@@ -105,6 +117,25 @@ export const UnitSchema = z.object({
   }),
 });
 export type Unit = z.infer<typeof UnitSchema>;
+
+// Drill units carry no persona/warmth_rules/behavior_by_warmth/rubric/
+// feedback_prompt: nothing is scored and no model is called for a rep.
+export const DrillUnitSchema = z.object({
+  id: z.string().min(1),
+  skill_id: z.string().min(1),
+  principle: z.string().min(1),
+  exemplar: z.string().min(1),
+  unit_type: z.literal('drill'),
+  drill: DrillSchema,
+  mastery: z.object({
+    passes_required: z.number().int().positive(),
+    distinct_days: z.boolean(),
+  }),
+});
+export type DrillUnit = z.infer<typeof DrillUnitSchema>;
+
+export const AnyUnitSchema = z.union([UnitSchema, DrillUnitSchema]);
+export type AnyUnit = z.infer<typeof AnyUnitSchema>;
 
 export const SkillPackSchema = z.object({
   pack_id: z.string().min(1),

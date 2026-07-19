@@ -385,10 +385,11 @@ corroboration sources. They are never a primary content source, never
 quoted or paraphrased into units, and no skill depends on any single one
 of them.
 
-**PENDING USER REVIEW:** every name below is a proposal awaiting the user's
-approval. Nothing else in this document blocks on that review.
+**APPROVED 2026-07-19:** all 12 anchors below approved as-is by the user,
+including the Van Edwards rigor caveat and Rosling as spare. Nothing else in
+this document blocked on that review; it is now closed.
 
-### 3.1 Communication (anchors, pending review)
+### 3.1 Communication (anchors, approved)
 
 1. **Charles Duhigg.** Pulitzer Prize-winning journalist; author of
    Supercommunicators (2024), a bestselling synthesis of published
@@ -408,7 +409,7 @@ questions, follow-ups on content, reciprocal self-disclosure) appear
 independently across all three canons and in academic conversation
 research, satisfying the no-single-guru rule.
 
-### 3.2 Problem-Solving (anchors, pending review)
+### 3.2 Problem-Solving (anchors, approved)
 
 1. **George Polya.** Mathematician; How to Solve It (1945) is the standard
    public text on structured problem solving (understand the problem
@@ -425,7 +426,7 @@ coincident change, isolate one variable) appears independently in Polya,
 in Five Whys practice, and in KT problem analysis, and in general
 quality-engineering literature (e.g. ASQ's public root-cause material).
 
-### 3.3 Critical Thinking (anchors, pending review)
+### 3.3 Critical Thinking (anchors, approved)
 
 1. **Carl Sagan.** The Demon-Haunted World (1995) and its "baloney
    detection kit" are the best-known public checklist for evaluating
@@ -443,7 +444,7 @@ and considering what is missing appear independently in all three canons
 (and in Hans Rosling's Factfulness, held as a spare anchor if any of the
 three is rejected in review).
 
-### 3.4 Decision-Making (anchors, pending review)
+### 3.4 Decision-Making (anchors, approved)
 
 1. **Annie Duke.** Former professional poker player with a cognitive
    psychology research background; Thinking in Bets (2018) and Quit (2022)

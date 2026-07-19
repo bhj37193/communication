@@ -3,8 +3,10 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 import {
+  AnyUnitSchema,
   CharacterOutputSchema,
   ChatMessageSchema,
+  DrillUnitSchema,
   FeedbackOutputSchema,
   RubricLineSchema,
   SignalDefSchema,
@@ -21,6 +23,30 @@ describe('content pack JSON', () => {
     expect(unit.skill_id).toBe('followups');
     expect(unit.scenario.message_budget).toBe(10);
     expect(unit.mastery).toEqual({ passes_required: 2, distinct_days: true });
+    expect(unit.unit_type).toBe('scenario');
+  });
+
+  it('a drill unit validates against DrillUnitSchema and AnyUnitSchema, and rejects a missing drill body', () => {
+    const drillUnit = {
+      id: 'communication.followup-ladder',
+      skill_id: 'communication',
+      principle: 'Ask a follow-up before you pivot.',
+      exemplar: 'Oh nice, what got you into that?',
+      unit_type: 'drill',
+      drill: {
+        prompt_text: 'Write three follow-up questions to: "I just got back from Peru."',
+        timer_seconds: 300,
+        variants: ['I just got back from Peru.', 'My kid started college this week.'],
+        self_check: ['Each question references specific detail from the line.', 'None are yes/no questions.'],
+        recording_variant: false,
+      },
+      mastery: { passes_required: 2, distinct_days: true },
+    };
+
+    expect(DrillUnitSchema.parse(drillUnit).unit_type).toBe('drill');
+    expect(AnyUnitSchema.parse(drillUnit).unit_type).toBe('drill');
+    expect(AnyUnitSchema.parse(pack.unit).unit_type).toBe('scenario');
+    expect(() => DrillUnitSchema.parse({ ...drillUnit, drill: undefined })).toThrow();
   });
 
   it('signal definitions validate and carry the PRD weights', () => {
