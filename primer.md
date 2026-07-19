@@ -4,39 +4,33 @@
 
 Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
 + `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker +
-retention/deletion sweep + Clerk webhook, plus `apps/server/src/db/client.ts`
-(`pg`, `DATABASE_URL`).
+retention/deletion sweep + Clerk webhook, plus `apps/server/src/db/client.ts`.
 
 **Completed this session:** P0-21 retention/deletion + Clerk webhook (`packages/core`
 untouched). New: `services/retention.ts` (hourly sweep: TTL hard-delete of expired
-transcripts/results; auto-ends stale-open sessions >60min -> `abandoned`/`scored` via
-`buildTemplateFeedback` directly, no model call; conditional `WHERE state='open'` on
-both transitions closes a `/end` race), `services/deletion.ts` (wraps pre-existing
-SECURITY DEFINER `delete_user_data(uuid)`), `routes/me.ts` (`DELETE /v1/me/data` ->
-204), `routes/webhooks.ts` (`POST /v1/webhooks/clerk`: `user.created` upserts,
-`user.deleted` hard-deletes, idempotent), `webhooks/verifyClerkWebhook.ts`
-(hand-rolled svix HMAC-SHA256, `node:crypto`, no new dep; unsigned bodies only when
-`CLERK_WEBHOOK_SECRET=''` — real Clerk unavailable under current gates, so signature
-path is tested against self-signed fixtures only, not live-verified), `jobs/
-scheduler.ts` (hourly, started from `index.ts` only). Tests: `routes/
-retention.test.ts`, 7 tests, real HTTP via `app.inject` against `charisma_test`.
-`pnpm --filter @charisma/server test` -> 18/18. `pnpm -r test` green: core 63/63,
-server 18/18. `pnpm -r typecheck` clean.
+transcripts/results; stale-open sessions >60min -> `abandoned`/`scored` via
+`buildTemplateFeedback` directly, no model call; `WHERE state='open'` guard on both
+transitions closes a `/end` race), `services/deletion.ts` (wraps SECURITY DEFINER
+`delete_user_data(uuid)`), `routes/me.ts` (`DELETE /v1/me/data` -> 204),
+`routes/webhooks.ts` (Clerk `user.created` upserts, `user.deleted` hard-deletes,
+idempotent), `webhooks/verifyClerkWebhook.ts` (hand-rolled svix HMAC-SHA256,
+`node:crypto`, no new dep; unsigned only when `CLERK_WEBHOOK_SECRET=''` — real Clerk
+unavailable under current gates, tested against self-signed fixtures only),
+`jobs/scheduler.ts` (hourly, started from `index.ts` only). Tests:
+`routes/retention.test.ts`, 7 tests. `pnpm --filter @charisma/server test` -> 18/18.
+`pnpm -r test` green: core 63/63, server 18/18. `pnpm -r typecheck` clean.
 
-Flagged, unfixed (2, carried from P0-20): (a) `routes/sessions.ts` `/end` passes
-`computeSignals` a `warmthTrace` missing the leading opener `0` ([1,2,3,3,3] vs
-contract [0,1,2,3,3,3]) — shifts `warmTwoIndex`/reciprocity, invisible on Sam scripts,
-latent for other content; (b) 409 CAPPED spec wants a next-open-time, current
-impl/test omit it (server gap, not test scope). Both need their own future cycle.
+Flagged, unfixed (2, carried from P0-20): (a) `/end` passes `computeSignals` a
+`warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b)
+409 CAPPED spec wants a next-open-time, current impl/test omit it. Both need own cycle.
 
 **Next action (ONE task only):** P0-22 analytics, content-free by construction (deps
-P0-15, satisfied). Build `services/analytics.ts`: insert function accepts only
-allowlisted event names (Section 4.3 CHECK list) + per-name Zod-closed props schema,
-enums/numbers only, no free-text; wire across routes; unit tests must prove a string
-prop fails compilation (type-level) AND throws at runtime; `d1_return` derived
-server-side on first event of a new local day. Do NOT touch `packages/core`
-score/validator logic. Refs: BUILD-EXECUTION-PLAN.md (search "P0-22"). Accept:
-`pnpm --filter @charisma/server test`.
+P0-15, satisfied). Build `services/analytics.ts`: insert fn accepts only allowlisted
+event names (Section 4.3 CHECK list) + per-name Zod-closed props schema, enums/numbers
+only, no free-text; wire across routes; unit tests prove a string prop fails
+compilation (type-level) AND throws at runtime; `d1_return` derived server-side on
+first event of a new local day. Do NOT touch `packages/core`. Refs:
+BUILD-EXECUTION-PLAN.md (search "P0-22"). Accept: `pnpm --filter @charisma/server test`.
 
 Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
 
