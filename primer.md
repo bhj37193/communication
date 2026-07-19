@@ -1,66 +1,63 @@
 # Primer: Charisma Trainer -> 4-skill Alpha-style platform pivot. Name TBD.
 
 ## STATUS
-2026-07-19: Full vision given (democratize top-class education in 4 locked
-skills, Alpha School model, no teachers/school, AI-minimized). Ran
-/deep-interview -> spec PASSED (17% ambiguity). Handed to /plan
---consensus --direct (RALPLAN-DR); that consensus loop's state was lost to
-session "checkpoint before clear" resets (`.omc/state/ralplan-state.json`
-and the Planner's output both confirmed absent on disk, not just missing
-from context). Rather than re-chase the flaky multi-agent loop, wrote the
-FABLE-PROMPT deliverable directly from the locked spec + existing house
-style (FABLE-PROMPT-EMPIRE.md / EXTRACTION-META-PROMPT.md conventions).
-**Done.** No production code changed this session; only .omc/specs/, this
-primer, and the new FABLE-PROMPT-CURRICULUM-V2.md touched.
+2026-07-19 (later session): FABLE-PROMPT-CURRICULUM-V2.md was executed in
+this session. All 7 required inputs read in full, expert-sourcing web
+research done (plain search + fetch, per RESEARCH-METHODOLOGY.md), and the
+deliverable written: `CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md` (repo root,
+verified zero em-dashes). **Done.** No production code changed; only that
+new doc and this primer touched. Earlier ralplan/consensus thread is
+superseded and closed: the deliverable it was chasing now exists.
 
 ## COMPLETED THIS SESSION
-- `.omc/specs/deep-interview-curriculum-sourcing-ai-minimization.md`:
-  locked spec (non-AI drill unit type, expert-sourcing methodology,
-  drills-then-capstone sequencing).
-- `FABLE-PROMPT-CURRICULUM-V2.md` (repo root): the paste-ready Fable
-  prompt implementing that spec. Covers per-skill non-AI drill designs,
-  drills-then-capstone sequencing, expert-sourcing methodology
-  generalizing EXTRACTION-META-PROMPT.md's two-pass clean-room pattern
-  across all 4 skills, a flagged (not implemented) UnitSchema extension,
-  and explicit scope confirmation (no pricing/business-model/all-ages
-  content).
+`CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md` contains:
+- Sec 1: worked non-AI drills per skill (timed written response +
+  self-check key, self-attested pass reusing passes_required +
+  distinct_days): Communication "Follow-Up Ladder" + recording variant
+  (5-min speech, random word, on-device only); Problem-Solving "Five
+  Questions Before Any Fix" (bread situation, two-changes hidden key);
+  Critical Thinking "Four Lines Against the Pitch" (LinguaLeap ad, 4
+  planted flaws, CLAIM/EVIDENCE/GAP/VERDICT); Decision-Making "Close It
+  in Five Lines" (car dilemma, OPTIONS/CHOICE/COST/UNKNOWN/TRIPWIRE).
+- Sec 2: 8 drill reps per stage (4 drill units x 2 passes) then ONE
+  AI-scored scenario capstone; ~89/11 split stated as emergent, no quota.
+- Sec 3: clean-room two-pass wall + hard corroboration rule generalized
+  to all 4 skills; 3 proposed anchors per skill (PENDING USER REVIEW):
+  Comm: Duhigg, Headlee, Van Edwards (rigor caveat flagged);
+  PS: Polya, Toyoda/Ohno, Kepner-Tregoe; CT: Sagan, Kahneman,
+  Paul & Elder (Rosling spare); DM: Duke, Heath brothers, Klein.
+- Sec 4: UnitSchema extension FLAGGED not built (unit_type discriminator,
+  drill{prompt_text,timer_seconds,variants,self_check,recording_variant},
+  attestation boolean; no persona/rubric/warmth_rules on drill units).
+- Sec 5: scope confirmed (no pricing, no cheat-resistance, no all-ages,
+  no AI-chat redesign).
 
 ## EXACT NEXT STEP
-Paste `FABLE-PROMPT-CURRICULUM-V2.md` into a fresh Fable session. It will
-write `CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md` as output. Once that
-lands: (1) user reviews the 1-3 proposed expert-sourcing figures per
-skill (prompt does not block on this), (2) the schema-extension it flags
-(new optional non-AI drill fields on `packages/core/schemas.ts`
-`UnitSchema`) becomes real follow-up engine work, not yet started.
+1. User reviews/approves the 12 proposed anchor figures in Sec 3 of
+   CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md (only open item on that doc).
+2. Then start the flagged engine work: extend packages/core/schemas.ts
+   UnitSchema per Sec 4 (additive, base schema untouched), plus serve
+   path for drill units. Not yet started.
 
 ## LOCKED DECISIONS (carry forward, do not re-litigate)
 - 4-skill taxonomy final: Communication, Problem-Solving, Critical
   Thinking, Decision-Making (CONTENT-ROADMAP-4-SKILLS.md).
-- Non-AI drill: self-attested pass, reuses existing mastery gate
-  (`passes_required` + `distinct_days`) unchanged.
-- Drill format: structured timed written response + self-check key,
-  standardized across all 4 skills; Communication also gets a recording
-  variant (5-min speech, random-word prompt).
-- Per mastery stage: several non-AI drills, then ONE AI-scored scenario
-  capstone before the gate opens (~90/10 split is emergent, not a quota).
-- Expert sourcing: Fable researches (web search, no scraper/API),
-  proposes 1-3 named public figures per skill as credibility anchors
-  only; content itself stays canon-based/clean-room. No single-guru
-  dependency.
-- No business-model content in the FABLE-PROMPT; no all-ages design
-  (deferred); no cheat-resistance for self-attested drills (v1 accepted).
-- Prior locks: repurpose existing app, keep engine/schemas as locked
-  contracts (extend never redesign), pricing anchors from
-  AVATAR-TIER-PRICING.md.
+- Non-AI drill: self-attested pass, existing mastery gate unchanged; no
+  new verification signal (v1 accepted).
+- Per stage: 8 drill reps (band 6-10) then one AI capstone; split is
+  emergent, never a quota mechanism.
+- Expert anchors are credibility-directional only, never primary content;
+  hard corroboration rule (2+ independent public sources per element).
+- No business-model/pricing content in curriculum docs; all-ages deferred.
+- Engine/schemas are locked contracts: extend, never redesign. AI stays
+  minimized to the scenario capstone call site.
 
 ## OUTSTANDING OPS
-- App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) still
-  user-blocked.
-- FABLE-PROMPT-PROVEN-PROGRESS.md still deferred, unrelated to this
-  thread.
+- App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) user-blocked.
+- FABLE-PROMPT-PROVEN-PROGRESS.md still deferred, unrelated.
 
 ## DOC REFS
+CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md | FABLE-PROMPT-CURRICULUM-V2.md |
 .omc/specs/deep-interview-curriculum-sourcing-ai-minimization.md |
-FABLE-PROMPT-CURRICULUM-V2.md | CONTENT-ROADMAP-4-SKILLS.md |
-EXTRACTION-META-PROMPT.md | RESEARCH-METHODOLOGY.md |
-ALPHA-MODEL-ANALYSIS.md | packages/core/{schemas,validator,score}.ts
+CONTENT-ROADMAP-4-SKILLS.md | EXTRACTION-META-PROMPT.md |
+RESEARCH-METHODOLOGY.md | packages/core/{schemas,validator,score}.ts
