@@ -17,7 +17,7 @@ plan doc. Independent code-reviewer pass then found + fixed 4 real golden-path b
 "I'm done" wasn't gated on `sending`/`typing` (double-`endSession` race), fixed with
 `ending||sending||typing` + an `activeRef` mounted-guard (mirrors `result.tsx`'s `active`
 flag) around post-await setState in `onSend`/`goToResult`; `chat.tsx` optimistic user
-message wasn't rolled back on send failure, now popped + input text restored in the catch;
+message wasn't rolled back on send failure, now popped + the input text restored in the catch;
 `result.tsx` polling was unbounded, now `MAX_POLLS` (~3min) + `MAX_CONSECUTIVE_ERRORS` (3
 retries on transient errors before surfacing). Verified: `pnpm --filter @charisma/mobile
 typecheck && test` (20/20), `pnpm -r typecheck` clean, `pnpm ci:local` exit 0 (e2e smoke
