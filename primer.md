@@ -2,51 +2,60 @@
 _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
-`CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md` is complete and fully approved
-(all 5 sections final, Sec 3's 12 anchors user-approved). Communication
-now has two independent, parallel north stars in the engine: connection
-(locked, untouched) and clarity (new, engine-only). Core+server
-`tsc --noEmit` clean, 95 core tests pass. No serve path exists yet for
-ANY unit type in this phase-0 app (no unit-serving route, no
-mastery-fold write from `progress_events` into `user_skill_state`, no
-mobile screen reads unit fields).
+Autopilot resumed from prior primer. User picked scope for the parked
+serve-path decision: **full scenario-unit path** (unit-serving route +
+mastery-fold write from `progress_events` into `user_skill_state` +
+mobile screen reading unit fields), not the narrow drill-only slice.
+Mid-recon (Phase 0 expansion, pre-spec). No code written yet.
 
 ## COMPLETED THIS SESSION
-- Sec 4 engine (prior work): `DrillSchema`, `unit_type` discriminator on
-  `UnitSchema`, `DrillUnitSchema`, `AnyUnitSchema` union.
-- Clarity north star, parallel dimension (user-confirmed: parallel
-  schema, deterministic proxies, new scenario family): `ExplainUnitSchema`
-  + `ClaritySignalsSchema` (schemas.ts); `computeClaritySignals` /
-  `claritySignalValue` / `passesClarity` (validator.ts); `clarityScore`
-  (score.ts); new `content-library/constraints/clarity-northstar.md`;
-  pointer updates in `content-library/README.md` + curriculum doc.
-  Fixed a substring-matching bug in filler/hedge counting (word-boundary
-  regex now, was false-firing 'er'/'um' inside ordinary words).
-  Zero edits to `connection-northstar.md`, `ReasonCodeSchema`,
-  `SignalsSchema`, `computeSignals`, `score()`.
-- Gave user a full status readout of the curriculum doc vs. engine state
-  (no code changed this turn).
+- User decision captured: full scenario-unit path chosen over narrow
+  drill-only attestation endpoint.
+- Dispatched an Explore agent (id a92f95229f122eec1) for full recon:
+  packages/core exports, apps/ structure, backend routes, persistence
+  layer, mobile screen structure, content-library unit instances. First
+  pass completed but content wasn't relayed in full; re-sent asking it
+  to repost the structured report. Second completion notification just
+  arrived, not yet read.
+- Own direct greps/reads confirmed (trust this, don't re-derive):
+  - `apps/server/src/db/schema.ts` already defines `progressEvents`
+    (append-only, line 53), `userSkillState` (fold table, line 61), and
+    `units` (id/skillId/spec jsonb, line 47). Schema pre-provisioned,
+    unused by any service.
+  - No writer exists for either table anywhere in apps/server/src.
+    `userSkillState` is only ever *read* (services/profile.ts:39-41, to
+    list mastered skillIds). `progressEvents` has zero references
+    outside schema.ts.
+  - `apps/server/src/content.ts` loads exactly one hardcoded pack
+    (`SAM_PACK`/`SAM_UNIT_ID`) via `UnitSchema` (not the newer
+    `AnyUnitSchema`/`unit_type` union) at import time. No generic
+    multi-unit serve path exists.
+  - `apps/server/src/routes/` only has `me.ts`, `sessions.ts`,
+    `webhooks.ts` — sessions.ts drives the connection-scenario chat
+    flow, nothing unit-type-generic.
+  - Confirms prior primer claim ("no serve path for any unit type").
 
 ## EXACT NEXT STEP
-User must decide before any serve-path code is written: (a) build the
-scenario-unit serve path first, drill/explain units ride along, or (b)
-scope a narrow drill-only path (e.g. attestation endpoint appending to
-`progress_events` only). Not started either way. Parked, still open.
-Separately: curriculum doc is final and ready to author real
-content-library files from (drills, expert-anchor material) whenever
-user wants to start, independent of the serve-path decision.
+Read the recon agent's reposted report (output file path:
+/private/tmp/claude-501/-Users-main-Desktop-Active-Projects-communication/c920db20-5f83-45b2-a3be-a44fa6a69921/tasks/a92f95229f122eec1.output
+— do NOT cat/Read this JSONL directly, resume via SendMessage or check
+notification text). Need: mobile app screen/nav structure + data-fetch
+pattern, content-library unit-instance files, exact packages/core
+exported names (AnyUnitSchema/DrillUnitSchema/ExplainUnitSchema/
+computeSignals/computeClaritySignals/score/clarityScore). Then run
+Phase 0 (analyst+architect spec) + Phase 1 (plan) for: (1) generic
+unit-serving route keyed on unit_type, (2) mastery-fold service writing
+progress_events -> user_skill_state, (3) mobile screen consuming unit
+fields. Then Phase 2 execution, Phase 3 QA, Phase 4 validation.
 
 ## LOCKED DECISIONS (do not re-litigate)
-- 4-skill taxonomy final: Communication, Problem-Solving, Critical
-  Thinking, Decision-Making (CONTENT-ROADMAP-4-SKILLS.md).
-- Non-AI drill: self-attested pass, existing mastery gate unchanged.
-- Per stage: 8 drill reps then one AI capstone; split is emergent.
-- Expert anchors credibility-directional only, never primary content;
-  hard corroboration rule (2+ independent public sources).
-- No business-model/pricing content in curriculum docs; all-ages
-  deferred. Engine/schemas: extend, never redesign.
-- Communication's two north stars (connection, clarity) are parallel and
-  independent; clarity must never touch connection's locked code path.
+- 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps
+  + 1 AI capstone per stage; expert anchors credibility-only w/
+  corroboration rule; no pricing content in curriculum docs; engine
+  extends, never redesigns; connection/clarity north stars parallel,
+  clarity never touches connection's locked code path.
+- NEW: full scenario-unit serve-path scope chosen (2026-07-19) over
+  narrow drill-only slice.
 
 ## OUTSTANDING OPS
 - App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) user-blocked.
@@ -55,4 +64,6 @@ user wants to start, independent of the serve-path decision.
 ## DOC REFS
 CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md | CONTENT-ROADMAP-4-SKILLS.md |
 packages/core/{schemas,validator,score}.ts |
-content-library/constraints/{connection,clarity}-northstar.md
+content-library/constraints/{connection,clarity}-northstar.md |
+apps/server/src/db/schema.ts | apps/server/src/content.ts |
+apps/server/src/routes/sessions.ts | apps/server/src/services/profile.ts
