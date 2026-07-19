@@ -1,0 +1,8 @@
+# Install: copy to /etc/caddy/Caddyfile, then `sudo systemctl reload caddy`.
+# Caddy handles TLS automatically (Let's Encrypt) for a real domain - no
+# certbot, no manual cert management.
+#
+# Replace api.YOURDOMAIN.com with the real subdomain before deploying.
+api.YOURDOMAIN.com {
+	reverse_proxy localhost:3000
+}

@@ -40,13 +40,14 @@ describe('AnthropicChatModel', () => {
     expect(params.messages).toEqual([{ role: 'user', content: 'hi' }]);
   });
 
-  it('uses temperature 0.2 for feedback tag', async () => {
+  it('omits temperature and uses Sonnet for the feedback tag (Sonnet deprecated temperature)', async () => {
     const create = vi.fn().mockResolvedValue(textResult('plain reply'));
     const model = new AnthropicChatModel(fakeClient(create));
 
     await model.complete({ system: 's', messages: [], maxTokens: 300, tag: 'feedback' });
 
-    expect(create.mock.calls[0]![0].temperature).toBe(0.2);
+    expect(create.mock.calls[0]![0].temperature).toBeUndefined();
+    expect(create.mock.calls[0]![0].model).toBe('claude-sonnet-5');
   });
 
   it('maps usage fields including cache_read_input_tokens', async () => {

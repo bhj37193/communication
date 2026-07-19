@@ -1,0 +1,29 @@
+# Install: copy to /etc/systemd/system/charisma-server.service, then
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now charisma-server
+#
+# Runs the server the same way dev does (tsx, no build step - this repo has
+# no `build` script, only `typecheck`). If a compiled build is added later,
+# change ExecStart to `node dist/index.js` and drop the tsx dependency note
+# in deploy/README.md.
+
+[Unit]
+Description=Charisma server (Fastify API)
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=charisma
+Group=charisma
+WorkingDirectory=/opt/charisma/apps/server
+EnvironmentFile=/opt/charisma/apps/server/.env
+# tsx's shebang invokes `node` by name - point PATH at a system-wide Node
+# install (NodeSource/apt), not an nvm path only visible to interactive shells.
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/opt/charisma/apps/server/node_modules/.bin/tsx src/index.ts
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

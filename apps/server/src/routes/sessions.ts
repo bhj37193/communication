@@ -1,4 +1,5 @@
 import { assembleCharacterTurn, assembleFeedback } from '@charisma/core/assemble';
+import { getUserProfile } from '../services/profile.js';
 import { clamp, score } from '@charisma/core/score';
 import type { ChatMessage } from '@charisma/core/schemas';
 import { CharacterOutputSchema, FeedbackOutputSchema } from '@charisma/core/schemas';
@@ -240,7 +241,8 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     let feedbackCalls = session.feedbackCalls;
     let feedback: ReturnType<typeof buildTemplateFeedback> | undefined;
     let templateFallback = false;
-    const feedbackCall = assembleFeedback({ unit: SAM_PACK.unit, transcript });
+    const userProfile = await getUserProfile(deps, user.id, id);
+    const feedbackCall = assembleFeedback({ unit: SAM_PACK.unit, transcript, userProfile });
     for (let attempt = 0; attempt < 2 && !feedback; attempt += 1) {
       const completion = await chatModel.complete({
         system: feedbackCall.system,

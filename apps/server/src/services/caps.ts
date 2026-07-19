@@ -46,24 +46,26 @@ export async function incrementDailyUsage(
     });
 }
 
-// ponytail: approximate Claude Haiku spot pricing (USD/token). Confirm against
-// the live pricing page before this gates real spend; good enough as a
-// breaker ceiling until then.
-const HAIKU_INPUT_USD_PER_TOKEN = 1 / 1_000_000;
-const HAIKU_OUTPUT_USD_PER_TOKEN = 5 / 1_000_000;
+// ponytail: approximate spot pricing (USD/token) per touchpoint. character = Haiku,
+// feedback = Sonnet (the one sharper judgment call per session). Confirm against the
+// live pricing page before this gates real spend; good enough as a breaker ceiling.
+const RATES = {
+  character: { in: 1 / 1_000_000, out: 5 / 1_000_000 }, // claude-haiku-4-5
+  feedback: { in: 3 / 1_000_000, out: 15 / 1_000_000 }, // claude-sonnet-5
+} as const;
 
-export function computeSpendUsd(rows: { tokensIn: number; tokensOut: number }[]): number {
-  return rows.reduce(
-    (sum, r) => sum + r.tokensIn * HAIKU_INPUT_USD_PER_TOKEN + r.tokensOut * HAIKU_OUTPUT_USD_PER_TOKEN,
-    0,
-  );
+export function computeSpendUsd(rows: { tag?: string; tokensIn: number; tokensOut: number }[]): number {
+  return rows.reduce((sum, r) => {
+    const rate = r.tag === 'feedback' ? RATES.feedback : RATES.character;
+    return sum + r.tokensIn * rate.in + r.tokensOut * rate.out;
+  }, 0);
 }
 
 export async function todaySpendUsd(db: Db, now: Date): Promise<number> {
   const dayStart = new Date(now);
   dayStart.setUTCHours(0, 0, 0, 0);
   const rows = await db
-    .select({ tokensIn: modelUsage.tokensIn, tokensOut: modelUsage.tokensOut })
+    .select({ tag: modelUsage.tag, tokensIn: modelUsage.tokensIn, tokensOut: modelUsage.tokensOut })
     .from(modelUsage)
     .where(gte(modelUsage.createdAt, dayStart));
   return computeSpendUsd(rows);

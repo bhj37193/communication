@@ -7,7 +7,11 @@ import type { ZodTypeAny } from 'zod';
 import type { ChatModel, TokenUsage } from '@charisma/core/model';
 import type { ChatMessage } from '@charisma/core/schemas';
 
-export const ANTHROPIC_MODEL_ID = 'claude-haiku-4-5';
+export const ANTHROPIC_MODEL_ID = 'claude-haiku-4-5'; // character turns: fast, per-turn
+export const ANTHROPIC_FEEDBACK_MODEL_ID = 'claude-sonnet-5'; // feedback: one sharper judgment call per session
+// Per-touchpoint model: Haiku is the real-time character; the once-per-session
+// feedback (the aha, no latency pressure) gets Sonnet for a sharper judgment call.
+const MODEL_BY_TAG = { character: ANTHROPIC_MODEL_ID, feedback: ANTHROPIC_FEEDBACK_MODEL_ID } as const;
 const TEMPERATURE_BY_TAG = { character: 0.7, feedback: 0.2 } as const;
 const RETRY_INSTRUCTION =
   'Your previous response was not valid JSON matching the required schema. Reply with ONLY the corrected JSON object, nothing else.';
@@ -26,7 +30,7 @@ export interface AnthropicSystemBlock {
 export interface AnthropicCreateParams {
   model: string;
   max_tokens: number;
-  temperature: number;
+  temperature?: number; // optional: Sonnet 5 (feedback) deprecated it; Haiku (character) sets it
   system: AnthropicSystemBlock[];
   messages: AnthropicMessageParam[];
 }
@@ -59,9 +63,10 @@ export class AnthropicChatModel implements ChatModel {
 
   async complete(req: Parameters<ChatModel['complete']>[0]): ReturnType<ChatModel['complete']> {
     const params: AnthropicCreateParams = {
-      model: ANTHROPIC_MODEL_ID,
+      model: MODEL_BY_TAG[req.tag],
       max_tokens: req.maxTokens,
-      temperature: TEMPERATURE_BY_TAG[req.tag],
+      // Sonnet 5 (feedback) deprecated the temperature param; only Haiku (character) takes it.
+      ...(req.tag === 'character' ? { temperature: TEMPERATURE_BY_TAG.character } : {}),
       system: [{ type: 'text', text: req.system, cache_control: { type: 'ephemeral' } }],
       messages: req.messages.map((m) => ({ role: toAnthropicRole(m.role), content: m.content })),
     };
