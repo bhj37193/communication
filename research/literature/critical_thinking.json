@@ -1,5 +1,217 @@
 [
   {
+    "source": "arxiv",
+    "title": "Overview of CheckThat! 2020: Automatic Identification and Verification of Claims in Social Media",
+    "abstract": "We present an overview of the third edition of the CheckThat! Lab at CLEF 2020. The lab featured five tasks in two different languages: English and Arabic. The first four tasks compose the full pipeline of claim verification in social media: Task 1 on check-worthiness estimation, Task 2 on retrieving previously fact-checked claims, Task 3 on evidence retrieval, and Task 4 on claim verification. The lab is completed with Task 5 on check-worthiness estimation in political debates and speeches. A total of 67 teams registered to participate in the lab (up from 47 at CLEF 2019), and 23 of them actually submitted runs (compared to 14 at CLEF 2019). Most teams used deep neural networks based on BERT, LSTMs, or CNNs, and achieved sizable improvements over the baselines on all tasks. Here we describe the tasks setup, the evaluation results, and a summary of the approaches used by the participants, and we discuss some lessons learned. Last but not least, we release to the research community all datasets from the lab as well as the evaluation scripts, which should enable further research in the important tasks of check-worthiness estimation and automatic claim verification.",
+    "authors": [
+      "Alberto Barron-Cedeno",
+      "Tamer Elsayed",
+      "Preslav Nakov",
+      "Giovanni Da San Martino",
+      "Maram Hasanain",
+      "Reem Suwaileh",
+      "Fatima Haouari",
+      "Nikolay Babulkov",
+      "Bayan Hamdan",
+      "Alex Nikolov",
+      "Shaden Shaar",
+      "Zien Sheikh Ali"
+    ],
+    "year": "2020",
+    "url": "http://arxiv.org/abs/2007.07997v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "SynClaimEval: A Framework for Evaluating the Utility of Synthetic Data in Long-Context Claim Verification",
+    "abstract": "Large Language Models (LLMs) with extended context windows promise direct reasoning over long documents, reducing the need for chunking or retrieval. Constructing annotated resources for training and evaluation, however, remains costly. Synthetic data offers a scalable alternative, and we introduce SynClaimEval, a framework for evaluating synthetic data utility in long-context claim verification -- a task central to hallucination detection and fact-checking. Our framework examines three dimensions: (i) input characteristics, by varying context length and testing generalization to out-of-domain benchmarks; (ii) synthesis logic, by controlling claim complexity and error type variation; and (iii) explanation quality, measuring the degree to which model explanations provide evidence consistent with predictions. Experiments across benchmarks show that long-context synthesis can improve verification in base instruction-tuned models, particularly when augmenting existing human-written datasets. Moreover, synthesis enhances explanation quality, even when verification scores do not improve, underscoring its potential to strengthen both performance and explainability.",
+    "authors": [
+      "Mohamed Elaraby",
+      "Jyoti Prakash Maheswari"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2511.09539v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "MArgE: Meshing Argumentative Evidence from Multiple Large Language Models for Justifiable Claim Verification",
+    "abstract": "Leveraging outputs from multiple large language models (LLMs) is emerging as a method for harnessing their power across a wide range of tasks while mitigating their capacity for making errors, e.g., hallucinations. However, current approaches to combining insights from multiple LLMs often involve unstructured interactions (e.g., free debate), resulting in model generations that are not faithfully justifiable. In this work, we introduce MArgE, a novel framework to provide formal structure to the evidence from each LLM, in the form of a tree of extracted arguments, for the task of claim verification. We use a variant of Argumentative LLMs (ArgLLMs), i.e. LLMs driven by frameworks and semantics from the field of computational argumentation, to construct structured argument trees for given claims. This process creates an inspectable pathway from the initial arguments to the final claim verification decisions, providing a faithful justification thereof. We show experimentally that MArgE can significantly outperform single LLMs, including three open-source models (4B to 8B parameters), GPT-4o-mini and existing ArgLLMs, as well as prior methods for unstructured multi-LLM debates. We thus demonstrate the advantages of incorporating formal, argumentative reasoning mechanisms when combining multiple LLM outputs.",
+    "authors": [
+      "Ming Pok Ng",
+      "Junqi Jiang",
+      "Gabriel Freedman",
+      "Antonio Rago",
+      "Francesca Toni"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2508.02584v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Minimal Evidence Group Identification for Claim Verification",
+    "abstract": "Claim verification in real-world settings (e.g. against a large collection of candidate evidences retrieved from the web) typically requires identifying and aggregating a complete set of evidence pieces that collectively provide full support to the claim. The problem becomes particularly challenging when there exists distinct sets of evidence that could be used to verify the claim from different perspectives. In this paper, we formally define and study the problem of identifying such minimal evidence groups (MEGs) for claim verification. We show that MEG identification can be reduced from Set Cover problem, based on entailment inference of whether a given evidence group provides full/partial support to a claim. Our proposed approach achieves 18.4% and 34.8% absolute improvements on the WiCE and SciFact datasets over LLM prompting. Finally, we demonstrate the benefits of MEGs in downstream applications such as claim generation.",
+    "authors": [
+      "Xiangci Li",
+      "Sihao Chen",
+      "Rajvi Kapadia",
+      "Jessica Ouyang",
+      "Fan Zhang"
+    ],
+    "year": "2024",
+    "url": "http://arxiv.org/abs/2404.15588v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "BERT for Evidence Retrieval and Claim Verification",
+    "abstract": "Motivated by the promising performance of pre-trained language models, we investigate BERT in an evidence retrieval and claim verification pipeline for the FEVER fact extraction and verification challenge. To this end, we propose to use two BERT models, one for retrieving potential evidence sentences supporting or rejecting claims, and another for verifying claims based on the predicted evidence sets. To train the BERT retrieval system, we use pointwise and pairwise loss functions, and examine the effect of hard negative mining. A second BERT model is trained to classify the samples as supported, refuted, and not enough information. Our system achieves a new state of the art recall of 87.1 for retrieving top five sentences out of the FEVER documents consisting of 50K Wikipedia pages, and scores second in the official leaderboard with the FEVER score of 69.7.",
+    "authors": [
+      "Amir Soleimani",
+      "Christof Monz",
+      "Marcel Worring"
+    ],
+    "year": "2019",
+    "url": "http://arxiv.org/abs/1910.02655v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "MEVER: Multi-Modal and Explainable Claim Verification with Graph-based Evidence Retrieval",
+    "abstract": "Verifying the truthfulness of claims usually requires joint multi-modal reasoning over both textual and visual evidence, such as analyzing both textual caption and chart image for claim verification. In addition, to make the reasoning process transparent, a textual explanation is necessary to justify the verification result. However, most claim verification works mainly focus on the reasoning over textual evidence only or ignore the explainability, resulting in inaccurate and unconvincing verification. To address this problem, we propose a novel model that jointly achieves evidence retrieval, multi-modal claim verification, and explanation generation. For evidence retrieval, we construct a two-layer multi-modal graph for claims and evidence, where we design image-to-text and text-to-image reasoning for multi-modal retrieval. For claim verification, we propose token- and evidence-level fusion to integrate claim and evidence embeddings for multi-modal verification. For explanation generation, we introduce multi-modal Fusion-in-Decoder for explainability. Finally, since almost all the datasets are in general domain, we create a scientific dataset, AIChartClaim, in AI domain to complement claim verification community. Experiments show the strength of our model.",
+    "authors": [
+      "Delvin Ce Zhang",
+      "Suhan Cui",
+      "Zhelin Chu",
+      "Xianren Zhang",
+      "Dongwon Lee"
+    ],
+    "year": "2026",
+    "url": "http://arxiv.org/abs/2602.10023v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Annotating Implicit Reasoning in Arguments with Causal Links",
+    "abstract": "Most of the existing work that focus on the identification of implicit knowledge in arguments generally represent implicit knowledge in the form of commonsense or factual knowledge. However, such knowledge is not sufficient to understand the implicit reasoning link between individual argumentative components (i.e., claim and premise). In this work, we focus on identifying the implicit knowledge in the form of argumentation knowledge which can help in understanding the reasoning link in arguments. Being inspired by the Argument from Consequences scheme, we propose a semi-structured template to represent such argumentation knowledge that explicates the implicit reasoning in arguments via causality. We create a novel two-phase annotation process with simplified guidelines and show how to collect and filter high-quality implicit reasonings via crowdsourcing. We find substantial inter-annotator agreement for quality evaluation between experts, but find evidence that casts a few questions on the feasibility of collecting high-quality semi-structured implicit reasoning through our crowdsourcing process. We release our materials(i.e., crowdsourcing guidelines and collected implicit reasonings) to facilitate further research towards the structured representation of argumentation knowledge.",
+    "authors": [
+      "Keshav Singh",
+      "Naoya Inoue",
+      "Farjana Sultana Mim",
+      "Shoichi Naitoh",
+      "Kentaro Inui"
+    ],
+    "year": "2021",
+    "url": "http://arxiv.org/abs/2110.13692v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "AVerImaTeC: A Dataset for Automatic Verification of Image-Text Claims with Evidence from the Web",
+    "abstract": "Textual claims are often accompanied by images to enhance their credibility and spread on social media, but this also raises concerns about the spread of misinformation. Existing datasets for automated verification of image-text claims remain limited, as they often consist of synthetic claims and lack evidence annotations to capture the reasoning behind the verdict. In this work, we introduce AVerImaTeC, a dataset consisting of 1,297 real-world image-text claims. Each claim is annotated with question-answer (QA) pairs containing evidence from the web, reflecting a decomposed reasoning regarding the verdict. We mitigate common challenges in fact-checking datasets such as contextual dependence, temporal leakage, and evidence insufficiency, via claim normalization, temporally constrained evidence annotation, and a two-stage sufficiency check. We assess the consistency of the annotation in AVerImaTeC via inter-annotator studies, achieving a $\u03ba=0.742$ on verdicts and $74.7\\%$ consistency on QA pairs. We also propose a novel evaluation method for evidence retrieval and conduct extensive experiments to establish baselines for verifying image-text claims using open-web evidence.",
+    "authors": [
+      "Rui Cao",
+      "Zifeng Ding",
+      "Zhijiang Guo",
+      "Michael Schlichtkrull",
+      "Andreas Vlachos"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2505.17978v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "Overview of the CLEF-2019 CheckThat!: Automatic Identification and Verification of Claims",
+    "abstract": "We present an overview of the second edition of the CheckThat! Lab at CLEF 2019. The lab featured two tasks in two different languages: English and Arabic. Task 1 (English) challenged the participating systems to predict which claims in a political debate or speech should be prioritized for fact-checking. Task 2 (Arabic) asked to (A) rank a given set of Web pages with respect to a check-worthy claim based on their usefulness for fact-checking that claim, (B) classify these same Web pages according to their degree of usefulness for fact-checking the target claim, (C) identify useful passages from these pages, and (D) use the useful pages to predict the claim's factuality. CheckThat! provided a full evaluation framework, consisting of data in English (derived from fact-checking sources) and Arabic (gathered and annotated from scratch) and evaluation based on mean average precision (MAP) and normalized discounted cumulative gain (nDCG) for ranking, and F1 for classification. A total of 47 teams registered to participate in this lab, and fourteen of them actually submitted runs (compared to nine last year). The evaluation results show that the most successful approaches to Task 1 used various neural networks and logistic regression. As for Task 2, learning-to-rank was used by the highest scoring runs for subtask A, while different classifiers were used in the other subtasks. We release to the research community all datasets from the lab as well as the evaluation scripts, which should enable further research in the important tasks of check-worthiness estimation and automatic claim verification.",
+    "authors": [
+      "Tamer Elsayed",
+      "Preslav Nakov",
+      "Alberto Barr\u00f3n-Cede\u00f1o",
+      "Maram Hasanain",
+      "Reem Suwaileh",
+      "Giovanni Da San Martino",
+      "Pepa Atanasova"
+    ],
+    "year": "2021",
+    "url": "http://arxiv.org/abs/2109.15118v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Combating Misinformation in the Arab World: Challenges & Opportunities",
+    "abstract": "Misinformation and disinformation pose significant risks globally, with the Arab region facing unique vulnerabilities due to geopolitical instabilities, linguistic diversity, and cultural nuances. We explore these challenges through the key facets of combating misinformation: detection, tracking, mitigation and community-engagement. We shed light on how connecting with grass-roots fact-checking organizations, understanding cultural norms, promoting social correction, and creating strong collaborative information networks can create opportunities for a more resilient information ecosystem in the Arab world.",
+    "authors": [
+      "Azza Abouzied",
+      "Firoj Alam",
+      "Raian Ali",
+      "Paolo Papotti"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2506.05582v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "RerrFact: Reduced Evidence Retrieval Representations for Scientific Claim Verification",
+    "abstract": "Exponential growth in digital information outlets and the race to publish has made scientific misinformation more prevalent than ever. However, the task to fact-verify a given scientific claim is not straightforward even for researchers. Scientific claim verification requires in-depth knowledge and great labor from domain experts to substantiate supporting and refuting evidence from credible scientific sources. The SciFact dataset and corresponding task provide a benchmarking leaderboard to the community to develop automatic scientific claim verification systems via extracting and assimilating relevant evidence rationales from source abstracts. In this work, we propose a modular approach that sequentially carries out binary classification for every prediction subtask as in the SciFact leaderboard. Our simple classifier-based approach uses reduced abstract representations to retrieve relevant abstracts. These are further used to train the relevant rationale-selection model. Finally, we carry out two-step stance predictions that first differentiate non-relevant rationales and then identify supporting or refuting rationales for a given claim. Experimentally, our system RerrFact with no fine-tuning, simple design, and a fraction of model parameters fairs competitively on the leaderboard against large-scale, modular, and joint modeling approaches. We make our codebase available at https://github.com/ashishrana160796/RerrFact.",
+    "authors": [
+      "Ashish Rana",
+      "Deepanshu Khanna",
+      "Tirthankar Ghosal",
+      "Muskaan Singh",
+      "Harpreet Singh",
+      "Prashant Singh Rana"
+    ],
+    "year": "2022",
+    "url": "http://arxiv.org/abs/2202.02646v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "Combating Misinformation in the Age of LLMs: Opportunities and Challenges",
+    "abstract": "Misinformation such as fake news and rumors is a serious threat on information ecosystems and public trust. The emergence of Large Language Models (LLMs) has great potential to reshape the landscape of combating misinformation. Generally, LLMs can be a double-edged sword in the fight. On the one hand, LLMs bring promising opportunities for combating misinformation due to their profound world knowledge and strong reasoning abilities. Thus, one emergent question is: how to utilize LLMs to combat misinformation? On the other hand, the critical challenge is that LLMs can be easily leveraged to generate deceptive misinformation at scale. Then, another important question is: how to combat LLM-generated misinformation? In this paper, we first systematically review the history of combating misinformation before the advent of LLMs. Then we illustrate the current efforts and present an outlook for these two fundamental questions respectively. The goal of this survey paper is to facilitate the progress of utilizing LLMs for fighting misinformation and call for interdisciplinary efforts from different stakeholders for combating LLM-generated misinformation.",
+    "authors": [
+      "Canyu Chen",
+      "Kai Shu"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2311.05656v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "SciClaimHunt: A Large Dataset for Evidence-based Scientific Claim Verification",
+    "abstract": "Verifying scientific claims presents a significantly greater challenge than verifying political or news-related claims. Unlike the relatively broad audience for political claims, the users of scientific claim verification systems can vary widely, ranging from researchers testing specific hypotheses to everyday users seeking information on a medication. Additionally, the evidence for scientific claims is often highly complex, involving technical terminology and intricate domain-specific concepts that require specialized models for accurate verification. Despite considerable interest from the research community, there is a noticeable lack of large-scale scientific claim verification datasets to benchmark and train effective models. To bridge this gap, we introduce two large-scale datasets, SciClaimHunt and SciClaimHunt_Num, derived from scientific research papers. We propose several baseline models tailored for scientific claim verification to assess the effectiveness of these datasets. Additionally, we evaluate models trained on SciClaimHunt and SciClaimHunt_Num against existing scientific claim verification datasets to gauge their quality and reliability. Furthermore, we conduct human evaluations of the claims in proposed datasets and perform error analysis to assess the effectiveness of the proposed baseline models. Our findings indicate that SciClaimHunt and SciClaimHunt_Num serve as highly reliable resources for training models in scientific claim verification.",
+    "authors": [
+      "Sujit Kumar",
+      "Anshul Sharma",
+      "Siddharth Hemant Khincha",
+      "Gargi Shroff",
+      "Sanasam Ranbir Singh",
+      "Rahul Mishra"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2502.10003v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Combating Biomedical Misinformation through Multi-modal Claim Detection and Evidence-based Verification",
+    "abstract": "Misinformation in healthcare, from vaccine hesitancy to unproven treatments, poses risks to public health and trust in medical systems. While machine learning and natural language processing have advanced automated fact-checking, validating biomedical claims remains uniquely challenging due to complex terminology, the need for domain expertise, and the critical importance of grounding in scientific evidence. We introduce CER (Combining Evidence and Reasoning), a novel framework for biomedical fact-checking that integrates scientific evidence retrieval, reasoning via large language models, and supervised veracity prediction. By integrating the text-generation capabilities of large language models with advanced retrieval techniques for high-quality biomedical scientific evidence, CER effectively mitigates the risk of hallucinations, ensuring that generated outputs are grounded in verifiable, evidence-based sources. Evaluations on expert-annotated datasets (HealthFC, BioASQ-7b, SciFact) demonstrate state-of-the-art performance and promising cross-dataset generalization. Code and data are released for transparency and reproducibility: https://github.com/PRAISELab-PicusLab/CER",
+    "authors": [
+      "Mariano Barone",
+      "Antonio Romano",
+      "Giuseppe Riccio",
+      "Marco Postiglione",
+      "Vincenzo Moscato"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2509.13888v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "PHEMEPlus: Enriching Social Media Rumour Verification with External Evidence",
+    "abstract": "Work on social media rumour verification utilises signals from posts, their propagation and users involved. Other lines of work target identifying and fact-checking claims based on information from Wikipedia, or trustworthy news articles without considering social media context. However works combining the information from social media with external evidence from the wider web are lacking. To facilitate research in this direction, we release a novel dataset, PHEMEPlus, an extension of the PHEME benchmark, which contains social media conversations as well as relevant external evidence for each rumour. We demonstrate the effectiveness of incorporating such evidence in improving rumour verification models. Additionally, as part of the evidence collection, we evaluate various ways of query formulation to identify the most effective method.",
+    "authors": [
+      "John Dougrez-Lewis",
+      "Elena Kochkina",
+      "M. Arana-Catania",
+      "Maria Liakata",
+      "Yulan He"
+    ],
+    "year": "2022",
+    "url": "http://arxiv.org/abs/2207.13970v1"
+  },
+  {
     "source": "semantic_scholar",
     "title": "Evaluating the Integration of Critical Thinking Skills in Biology Instruction: A Qualitative Content Analysis of the Grade IX Pakistani Textbook",
     "abstract": "This study aimed to evaluate critical thinking in the Grade IX biology textbook. Qualitative content analysis was employed to explore the elements fostering critical thinking skills development in the textbook. Textbooks were selected using a purposive sampling technique. Qualitative content analysis was used for the textbook analysis with the facilitation of NVivo 15. The different strengths include the organization of learning objectives, visual presentation, and contextual application of biological concepts. Moreover, significant limitations were found, including lower-order skills assessment questions, linear scientific methodology, prescriptive real-world application, content-privileged memorization, and minimal epistemological discussion of competing scientific perspectives. This suggests that, as the textbook provides foundational knowledge for biology, there is insufficient scaffolding for critical thinking skills development through evidence-based evaluation, scientific argumentation, and independent enquiry. These findings contribute to curriculum development by highlighting the need for biology educational material to balance content acquisition with authentic opportunities for critical thinking skills development through higher cognitive engagement and enquiry-based learning methods.",

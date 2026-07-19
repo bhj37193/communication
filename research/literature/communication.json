@@ -1,1 +1,226 @@
-[]
+[
+  {
+    "source": "arxiv",
+    "title": "Dependency Dialogue Acts -- Annotation Scheme and Case Study",
+    "abstract": "In this paper, we introduce Dependency Dialogue Acts (DDA), a novel framework for capturing the structure of speaker-intentions in multi-party dialogues. DDA combines and adapts features from existing dialogue annotation frameworks, and emphasizes the multi-relational response structure of dialogues in addition to the dialogue acts and rhetorical relations. It represents the functional, discourse, and response structure in multi-party multi-threaded conversations. A few key features distinguish DDA from existing dialogue annotation frameworks such as SWBD-DAMSL and the ISO 24617-2 standard. First, DDA prioritizes the relational structure of the dialogue units and the dialog context, annotating both dialog acts and rhetorical relations as response relations to particular utterances. Second, DDA embraces overloading in dialogues, encouraging annotators to specify multiple response relations and dialog acts for each dialog unit. Lastly, DDA places an emphasis on adequately capturing how a speaker is using the full dialog context to plan and organize their speech. With these features, DDA is highly expressive and recall-oriented with regard to conversation dynamics between multiple speakers. In what follows, we present the DDA annotation framework and case studies annotating DDA structures in multi-party, multi-threaded conversations.",
+    "authors": [
+      "Jon Z. Cai",
+      "Brendan King",
+      "Margaret Perkoff",
+      "Shiran Dudy",
+      "Jie Cao",
+      "Marie Grace",
+      "Natalia Wojarnik",
+      "Ananya Ganesh",
+      "James H. Martin",
+      "Martha Palmer",
+      "Marilyn Walker",
+      "Jeffrey Flanigan"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2302.12944v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "The Impact of a Chatbot's Ephemerality-Framing on Self-Disclosure Perceptions",
+    "abstract": "Self-disclosure, the sharing of one's thoughts and feelings, is affected by the perceived relationship between individuals. While chatbots are increasingly used for self-disclosure, the impact of a chatbot's framing on users' self-disclosure remains under-explored. We investigated how a chatbot's description of its relationship with users, particularly in terms of ephemerality, affects self-disclosure. Specifically, we compared a Familiar chatbot, presenting itself as a companion remembering past interactions, with a Stranger chatbot, presenting itself as a new, unacquainted entity in each conversation. In a mixed factorial design, participants engaged with either the Familiar or Stranger chatbot in two sessions across two days, with one conversation focusing on Emotional- and another Factual-disclosure. When Emotional-disclosure was sought in the first chatting session, Stranger-condition participants felt more comfortable self-disclosing. However, when Factual-disclosure was sought first, these differences were replaced by more enjoyment among Familiar-condition participants. Qualitative findings showed Stranger afforded anonymity and reduced judgement, whereas Familiar sometimes felt intrusive unless rapport was built via low-risk Factual-disclosure.",
+    "authors": [
+      "Samuel Rhys Cox",
+      "Rune M\u00f8berg Jacobsen",
+      "Niels van Berkel"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2505.20464v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Category Aware Explainable Conversational Recommendation",
+    "abstract": "Most conversational recommendation approaches are either not explainable, or they require external user's knowledge for explaining or their explanations cannot be applied in real time due to computational limitations. In this work, we present a real time category based conversational recommendation approach, which can provide concise explanations without prior user knowledge being required. We first perform an explainable user model in the form of preferences over the items' categories, and then use the category preferences to recommend items. The user model is performed by applying a BERT-based neural architecture on the conversation. Then, we translate the user model into item recommendation scores using a Feed Forward Network. User preferences during the conversation in our approach are represented by category vectors which are directly interpretable. The experimental results on the real conversational recommendation dataset ReDial demonstrate comparable performance to the state-of-the-art, while our approach is explainable. We also show the potential power of our framework by involving an oracle setting of category preference prediction.",
+    "authors": [
+      "Nikolaos Kondylidis",
+      "Jie Zou",
+      "Evangelos Kanoulas"
+    ],
+    "year": "2021",
+    "url": "http://arxiv.org/abs/2103.08733v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Follow-up Question Generation For Enhanced Patient-Provider Conversations",
+    "abstract": "Follow-up question generation is an essential feature of dialogue systems as it can reduce conversational ambiguity and enhance modeling complex interactions. Conversational contexts often pose core NLP challenges such as (i) extracting relevant information buried in fragmented data sources, and (ii) modeling parallel thought processes. These two challenges occur frequently in medical dialogue as a doctor asks questions based not only on patient utterances but also their prior EHR data and current diagnostic hypotheses. Asking medical questions in asynchronous conversations compounds these issues as doctors can only rely on static EHR information to motivate follow-up questions.\n  To address these challenges, we introduce FollowupQ, a novel framework for enhancing asynchronous medical conversation. FollowupQ is a multi-agent framework that processes patient messages and EHR data to generate personalized follow-up questions, clarifying patient-reported medical conditions. FollowupQ reduces requisite provider follow-up communications by 34%. It also improves performance by 17% and 5% on real and synthetic data, respectively. We also release the first public dataset of asynchronous medical messages with linked EHR data alongside 2,300 follow-up questions written by clinical experts for the wider NLP research community.",
+    "authors": [
+      "Joseph Gatto",
+      "Parker Seegmiller",
+      "Timothy Burdick",
+      "Inas S. Khayal",
+      "Sarah DeLozier",
+      "Sarah M. Preum"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2503.17509v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "A Study on Dialogue Reward Prediction for Open-Ended Conversational Agents",
+    "abstract": "The amount of dialogue history to include in a conversational agent is often underestimated and/or set in an empirical and thus possibly naive way. This suggests that principled investigations into optimal context windows are urgently needed given that the amount of dialogue history and corresponding representations can play an important role in the overall performance of a conversational system. This paper studies the amount of history required by conversational agents for reliably predicting dialogue rewards. The task of dialogue reward prediction is chosen for investigating the effects of varying amounts of dialogue history and their impact on system performance. Experimental results using a dataset of 18K human-human dialogues report that lengthy dialogue histories of at least 10 sentences are preferred (25 sentences being the best in our experiments) over short ones, and that lengthy histories are useful for training dialogue reward predictors with strong positive correlations between target dialogue rewards and predicted ones.",
+    "authors": [
+      "Heriberto Cuay\u00e1huitl",
+      "Seonghan Ryu",
+      "Donghyeon Lee",
+      "Jihie Kim"
+    ],
+    "year": "2018",
+    "url": "http://arxiv.org/abs/1812.00350v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Dialoging Resonance: How Users Perceive, Reciprocate and React to Chatbot's Self-Disclosure in Conversational Recommendations",
+    "abstract": "Using chatbots to deliver recommendations is increasingly popular. The design of recommendation chatbots has primarily been taking an information-centric approach by focusing on the recommended content per se. Limited attention is on how social connection and relational strategies, such as self-disclosure from a chatbot, may influence users' perception and acceptance of the recommendation. In this work, we designed, implemented, and evaluated a social chatbot capable of performing three different levels of self-disclosure: factual information (low), cognitive opinions (medium), and emotions (high). In the evaluation, we recruited 372 participants to converse with the chatbot on two topics: movies and COVID-19 experiences. In each topic, the chatbot performed small talks and made recommendations relevant to the topic. Participants were randomly assigned to four experimental conditions where the chatbot used factual, cognitive, emotional, and adaptive strategies to perform self-disclosures. By training a text classifier to identify users' level of self-disclosure in real-time, the adaptive chatbot can dynamically match its self-disclosure to the level of disclosure exhibited by the users. Our results show that users reciprocate with higher-level self-disclosure when a recommendation chatbot consistently displays emotions throughout the conversation. Chatbot's emotional disclosure also led to increased interactional enjoyment and more positive interpersonal perception towards the bot, fostering a stronger human-chatbot relationship and thus leading to increased recommendation effectiveness, including a higher tendency to accept the recommendation. We discuss the understandings obtained and implications to future design.",
+    "authors": [
+      "Kai-Hui Liang",
+      "Weiyan Shi",
+      "Yoojung Oh",
+      "Hao-Chuan Wang",
+      "Jingwen Zhang",
+      "Zhou Yu"
+    ],
+    "year": "2021",
+    "url": "http://arxiv.org/abs/2106.01666v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "What should I Ask: A Knowledge-driven Approach for Follow-up Questions Generation in Conversational Surveys",
+    "abstract": "Generating follow-up questions on the fly could significantly improve conversational survey quality and user experiences by enabling a more dynamic and personalized survey structure. In this paper, we proposed a novel task for knowledge-driven follow-up question generation in conversational surveys. We constructed a new human-annotated dataset of human-written follow-up questions with dialogue history and labeled knowledge in the context of conversational surveys. Along with the dataset, we designed and validated a set of reference-free Gricean-inspired evaluation metrics to systematically evaluate the quality of generated follow-up questions. We then propose a two-staged knowledge-driven model for the task, which generates informative and coherent follow-up questions by using knowledge to steer the generation process. The experiments demonstrate that compared to GPT-based baseline models, our two-staged model generates more informative, coherent, and clear follow-up questions.",
+    "authors": [
+      "Yubin Ge",
+      "Ziang Xiao",
+      "Jana Diesner",
+      "Heng Ji",
+      "Karrie Karahalios",
+      "Hari Sundaram"
+    ],
+    "year": "2022",
+    "url": "http://arxiv.org/abs/2205.10977v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "A Multimodal Dialogue System for Conversational Image Editing",
+    "abstract": "In this paper, we present a multimodal dialogue system for Conversational Image Editing. We formulate our multimodal dialogue system as a Partially Observed Markov Decision Process (POMDP) and trained it with Deep Q-Network (DQN) and a user simulator. Our evaluation shows that the DQN policy outperforms a rule-based baseline policy, achieving 90\\% success rate under high error rates. We also conducted a real user study and analyzed real user behavior.",
+    "authors": [
+      "Tzu-Hsiang Lin",
+      "Trung Bui",
+      "Doo Soon Kim",
+      "Jean Oh"
+    ],
+    "year": "2020",
+    "url": "http://arxiv.org/abs/2002.06484v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Explanations as Dialogues: Toward Human-Centered Conversational Explainable AI",
+    "abstract": "As AI systems become increasingly conversational, a gap emerges wherein explanations are studied as static artifacts, yet in practice, are experienced as dialogue. In this provocation, we argue that the conversational layer around an explanation is not incidental to its effectiveness, but a critical constituent. Drawing on three illustrative scenarios, we invite the CUI community to study explanations as interactive, conversational exchanges shaped by timing, tone, persona and conversational history, and introduce our vision for Human-Centered Conversational XAI (HC2XAI).",
+    "authors": [
+      "Niharika Mathur",
+      "Smit Desai"
+    ],
+    "year": "2026",
+    "url": "http://arxiv.org/abs/2605.27666v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "FCC: Fusing Conversation History and Candidate Provenance for Contextual Response Ranking in Dialogue Systems",
+    "abstract": "Response ranking in dialogues plays a crucial role in retrieval-based conversational systems. In a multi-turn dialogue, to capture the gist of a conversation, contextual information serves as essential knowledge to achieve this goal. In this paper, we present a flexible neural framework that can integrate contextual information from multiple channels. Specifically for the current task, our approach is to provide two information channels in parallel, Fusing Conversation history and domain knowledge extracted from Candidate provenance (FCC), where candidate responses are curated, as contextual information to improve the performance of multi-turn dialogue response ranking. The proposed approach can be generalized as a module to incorporate miscellaneous contextual features for other context-oriented tasks. We evaluate our model on the MSDialog dataset widely used for evaluating conversational response ranking tasks. Our experimental results show that our framework significantly outperforms the previous state-of-the-art models, improving Recall@1 by 7% and MAP by 4%. Furthermore, we conduct ablation studies to evaluate the contributions of each information channel, and of the framework components, to the overall ranking performance, providing additional insights and directions for further improvements.",
+    "authors": [
+      "Zihao Wang",
+      "Eugene Agichtein",
+      "Jinho Choi"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2304.00180v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Theory of Mind and Self-Disclosure to CUIs",
+    "abstract": "Self-disclosure is important to help us feel better, yet is often difficult. This difficulty can arise from how we think people are going to react to our self-disclosure. In this workshop paper, we briefly discuss self-disclosure to conversational user interfaces (CUIs) in relation to various social cues. We then, discuss how expressions of uncertainty or representation of a CUI's reasoning could help encourage self-disclosure, by making a CUI's intended \"theory of mind\" more transparent to users.",
+    "authors": [
+      "Samuel Rhys Cox"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2507.10773v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Neural Response Ranking for Social Conversation: A Data-Efficient Approach",
+    "abstract": "The overall objective of 'social' dialogue systems is to support engaging, entertaining, and lengthy conversations on a wide variety of topics, including social chit-chat. Apart from raw dialogue data, user-provided ratings are the most common signal used to train such systems to produce engaging responses. In this paper we show that social dialogue systems can be trained effectively from raw unannotated data. Using a dataset of real conversations collected in the 2017 Alexa Prize challenge, we developed a neural ranker for selecting 'good' system responses to user utterances, i.e. responses which are likely to lead to long and engaging conversations. We show that (1) our neural ranker consistently outperforms several strong baselines when trained to optimise for user ratings; (2) when trained on larger amounts of data and only using conversation length as the objective, the ranker performs better than the one trained using ratings -- ultimately reaching a Precision@1 of 0.87. This advance will make data collection for social conversational agents simpler and less expensive in the future.",
+    "authors": [
+      "Igor Shalyminov",
+      "Ond\u0159ej Du\u0161ek",
+      "Oliver Lemon"
+    ],
+    "year": "2018",
+    "url": "http://arxiv.org/abs/1811.00967v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Different Games in Dialogue: Combining character and conversational types in strategic choice",
+    "abstract": "In this paper, we show that investigating the interaction of conversational type (often known as language game or speech genre) with the character types of the interlocutors is worthwhile. We present a method of calculating the decision making process for selecting dialogue moves that combines character type and conversational type. We also present a mathematical model that illustrate these factors' interactions in a quantitative way.",
+    "authors": [
+      "Alafate Abulimiti"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2307.02087v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Towards Learning Transferable Conversational Skills using Multi-dimensional Dialogue Modelling",
+    "abstract": "Recent statistical approaches have improved the robustness and scalability of spoken dialogue systems. However, despite recent progress in domain adaptation, their reliance on in-domain data still limits their cross-domain scalability. In this paper, we argue that this problem can be addressed by extending current models to reflect and exploit the multi-dimensional nature of human dialogue. We present our multi-dimensional, statistical dialogue management framework, in which transferable conversational skills can be learnt by separating out domain-independent dimensions of communication and using multi-agent reinforcement learning. Our initial experiments with a simulated user show that we can speed up the learning process by transferring learnt policies.",
+    "authors": [
+      "Simon Keizer",
+      "Verena Rieser"
+    ],
+    "year": "2018",
+    "url": "http://arxiv.org/abs/1804.00146v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Beyond Words: Infusing Conversational Agents with Human-like Typing Behaviors",
+    "abstract": "Recently, large language models have facilitated the emergence of highly intelligent conversational AI capable of engaging in human-like dialogues. However, a notable distinction lies in the fact that these AI models predominantly generate responses rapidly, often producing extensive content without emulating the thoughtful process characteristic of human cognition and typing. This paper presents a design aimed at simulating human-like typing behaviors, including patterns such as hesitation and self-editing, as well as a preliminary user experiment to understand whether and to what extent the agent with human-like typing behaviors could potentially affect conversational engagement and its trustworthiness. We've constructed an interactive platform featuring user-adjustable parameters, allowing users to personalize the AI's communication style and thus cultivate a more enriching and immersive conversational experience. Our user experiment, involving interactions with three types of agents - a baseline agent, one simulating hesitation, and another integrating both hesitation and self-editing behaviors - reveals a preference for the agent that incorporates both behaviors, suggesting an improvement in perceived naturalness and trustworthiness. Through the insights from our design process and both quantitative and qualitative feedback from user experiments, this paper contributes to the multimodal interaction design and user experience for conversational AI, advocating for a more human-like, engaging, and trustworthy communication paradigm.",
+    "authors": [
+      "Jijie Zhou",
+      "Yuhan Hu"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2510.08912v1"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "High-quality listening behaviors linked to social connection between strangers",
+    "abstract": "Despite the urgent need to improve social connection, practical evidence-based recommendations on how to do so during daily interactions are lacking. One key behavior theorized to facilitate social connection is high-quality listening, yet behavioral evidence is limited. Across two pre-registered studies, we tested whether observed high-quality listening behaviors during conversations between strangers are associated with behavioral and subjective markers of social connection, and whether listening behaviors account for the effectiveness of simple interventions aimed at increasing social connection. Pairs of strangers conversed in either a 10-minute semi-structured conversation (\u201cdeep talk\u201d; Study 1) or a brief, \u201csmall talk\u201d opportunity (Study 2) following a randomized social connectedness intervention (total N\u2009=\u2009646). In Study 1, we found that the frequency of verbal listening behaviors (i.e., verbal validation, follow-up questions) predicted faster conversational response times and other markers of social connection (i.e., 3rd party observers and self- and partner-reports). Additionally, people randomized to a social connectedness intervention (vs. active control) asked their partner more follow-up questions (i.e., displayed high-quality listening behavior), which in turn, predicted increased social connection. We replicated and extended Study 1 to small talk conversations and found global listening behaviors also predicted behavioral and partner-reported social connection. Verbal listening indicators, however, were less consistently linked to markers of social connection and no evidence emerged that the intervention increased listening behaviors during small talk. Findings suggest observable high-quality listening behaviors may be a promising route to fostering social connection and may enhance the effectiveness of interventions aimed at improving social connection. High-quality listening behaviors (e.g., follow-up questions) are linked to behavioral and self-reported markers of social connection in conversations between strangers and may account for the effectiveness of a social connectedness intervention.",
+    "authors": [
+      "Taylor N. West",
+      "Sara Huston",
+      "Kylie R. Chandler",
+      "Jieni Zhou",
+      "Barbara L. Fredrickson"
+    ],
+    "year": "2025",
+    "venue": "Communications Psychology",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/f19ba6303cb3d7eaff6cc8fc37969b3a2f824944"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "A novel approach to the implementation of Making Every Contact Count.",
+    "abstract": "BACKGROUND\nMaking Every Contact Count (MECC) is an approach to behaviour change introduced by Public Health England in 2008. Derbyshire have implemented MECC using the Quality Conversation (QC) programme which is based around health coaching and psychology skills and delivered remotely by qualified coaches. This study is an initial evaluation of the QC programme.\n\n\nMETHODS\nParticipants from Derbyshire health, social care, and voluntary organisations were invited to enrol on the QC programme. Before and after analysis of qualitative responses to example patient scenarios using an exact McNemar's test was done. A Wilcoxon signed-rank test was used to measure significant differences in quality conversation skills before and after the training programme. Participant data was analysed using SPSS software (version 28\u00b70\u00b70\u00b70). Written consent for was provided by participants on completion of the feedback form.\n\n\nFINDINGS\nBetween July 1, 2020, and March 31, 2022, there were 1277 participants on the core QC training. There were significant differences in knowledge and confidence in using QC skills following training (eg, confidence in active listening, Z\u2008=\u2008-189\u00b709; p\u2008<0\u00b70001). There was a significant difference in the proportion of QC-consistent responses (eg, skills such as validation and open questions, p<0\u00b70001). Further, there was a significant difference in self-rated confidence with responding to example patient scenarios pre and post-training (Z\u2008=\u2008-118\u00b781; p\u2008<0\u00b70001). At 2-month follow-up, 91% of follow-up respondents (N\u2008=225) strongly agreed or agreed that the learning from the QC programme had been relevant to their role.\n\n\nINTERPRETATION\nQC is a novel approach to the implementation of MECC, through reframing the focus to supporting changes in staff communication behaviours. Findings presented suggests QC might represent a scalable approach to the effective implementation of MECC. This is an important finding given the potential of MECC to support health and social care systems to address health inequalities and support the personalisation agenda.\n\n\nFUNDING\nJoined Up Care Derbyshire Integrated Care System.",
+    "authors": [
+      "Sandra Hicken",
+      "Jayne Needham",
+      "Rose Martin",
+      "John Hall"
+    ],
+    "year": "2022",
+    "venue": "The Lancet",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/83da1c93c52c56d93adfa77f290907c5abd20b1a"
+  }
+]

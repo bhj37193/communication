@@ -1,1 +1,427 @@
-[]
+[
+  {
+    "source": "arxiv",
+    "title": "Digital interventions and habit formation in educational technology",
+    "abstract": "As online educational technology products have become increasingly prevalent, rich evidence indicates that learners often find it challenging to establish regular learning habits and complete their programs. Concurrently, online products geared towards entertainment and social interactions are sometimes so effective in increasing user engagement and creating frequent usage habits that they inadvertently lead to digital addiction, especially among youth. In this project, we carry out a contest-based intervention, common in the entertainment context, on an educational app for Indian children learning English. Approximately ten thousand randomly selected learners entered a 100-day reading contest. They would win a set of physical books if they ranked sufficiently high on a leaderboard based on the amount of educational content consumed. Twelve weeks after the end of the contest, when the treatment group had no additional incentives to use the app, they continued their engagement with it at a rate 75\\% higher than the control group, indicating a successful formation of a reading habit. In addition, we observed a 6\\% increase in retention within the treatment group. These results underscore the potential of digital interventions in fostering positive engagement habits with educational technology products, ultimately enhancing users' long-term learning outcomes.",
+    "authors": [
+      "Keshav Agrawal",
+      "Susan Athey",
+      "Ayush Kanodia",
+      "Emil Palikot"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2310.10850v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "Neural Demand Estimation with Habit Formation and Rationality Constraints",
+    "abstract": "We develop a flexible neural demand system for continuous budget allocation that estimates budget shares on the simplex by minimizing KL divergence. Shares are produced via a softmax of a state-dependent preference scorer and disciplined with regularity penalties (monotonicity, Slutsky symmetry) to support coherent comparative statics and welfare without imposing a parametric utility form. State dependence enters through a habit stock defined as an exponentially weighted moving average of past consumption. Simulations recover elasticities and welfare accurately and show sizable gains when habit formation is present. In our empirical application using Dominick's analgesics data, adding habit reduces out-of-sample error by c.33%, reshapes substitution patterns, and increases CV losses from a 10% ibuprofen price rise by about 15-16% relative to a static model. The code is available at https://github.com/martagrz/neural_demand_habit .",
+    "authors": [
+      "Marta Grzeskiewicz"
+    ],
+    "year": "2026",
+    "url": "http://arxiv.org/abs/2603.02331v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Targeting Behavior or Intention? Intervention Strategies in Expressed-Private Opinion Dynamics",
+    "abstract": "Exogenous interventions, including economic incentives, can be used to promote behavioral change and the adoption of new products or practices. They may act on different levels, either directly affecting customers' behavior (expressed level) or changing intentions (private level). The key question is which intervention strategy is more effective: targeting the expressed or the private level. Although expressed-private opinion (EPO) models are especially suitable for addressing this problem, they have not yet been used in this context. To fill this gap, we extend previous agent-based EPO models by incorporating exogenous interventions and compare different intervention strategies. We analyze the resulting model using a mean-field approximation, complemented by Monte Carlo simulations on a complete graph. Our results show that there is no universal answer to whether an intervention should target the expressed or the private opinion. The effectiveness of an intervention depends on the adoption level at the moment of its introduction. Interventions acting on the expressed level are more effective when adoption is still low, whereas interventions acting on the private level are more effective when adoption is already high and the goal is to support internal acceptance and reduce dissonance. Moreover, the model shows that high adoption is accompanied by low dissonance between expressed and private opinions, which is consistent with self-congruity theory. This agreement provides theoretical support for the model and strengthens its policy implications.",
+    "authors": [
+      "Barbara Kami\u0144ska",
+      "Arkadiusz J\u0119drzejewski",
+      "Katarzyna Sznajd-Weron"
+    ],
+    "year": "2026",
+    "url": "http://arxiv.org/abs/2606.16645v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "The Role of Reciprocity and Directionality of Friendship Ties in Promoting Behavioral Change",
+    "abstract": "Friendship is a fundamental characteristic of human beings and usually assumed to be reciprocal in nature. Despite this common expectation, in reality, not all friendships by default are reciprocal nor created equal. Here, we show that reciprocated friendships are more intimate and they are substantially different from those that are not. We examine the role of reciprocal ties in inducing more effective peer pressure in a cooperative arrangements setting and find that the directionality of friendship ties can significantly limit the ability to persuade others to act. Specifically, we observe a higher behavioral change and more effective peer-influence when subjects shared reciprocal ties with their peers compared to sharing unilateral ones. Moreover, through spreading process simulation, we find that although unilateral ties diffuse behaviors across communities, reciprocal ties play more important role at the early stages of the diffusion process.",
+    "authors": [
+      "Abdullah Almaatouq",
+      "Laura Radaelli",
+      "Alex Pentland",
+      "Erez Shmueli"
+    ],
+    "year": "2016",
+    "url": "http://arxiv.org/abs/1610.03901v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Communication as a driver of change",
+    "abstract": "Communication plays a pivotal role in driving change, influencing human behavior, and solving problems. Chapter 2 explores the pragmatic power of communication, drawing examples and research to illustrate its impact on people's perceptions and actions. The chapter examines how varied perceptions of reality impact responses and highlights the importance of understanding others' viewpoints to foster effective change. Key topics covered in this chapter include goal setting, dysfunctional solutions, and clouded perceptions. It also illustrates unconventional logics, such as paradoxes and contradictions, which can help break through emotional barriers. Practical tools and exercises are provided within a structured framework for guiding both personal and organizational change, offering insights on managing emotional and rational aspects to unlock potential and drive meaningful transformation. Chapter 3 explores the psychological and emotional barriers to change, highlighting emotions' critical role in overcoming resistance. It introduces different behavioral profiles encountered during change processes, from cooperative individuals to those resistant due to fear, anger, pain, or rigid beliefs. Additionally, it discusses twelve characteristics of influential change leaders, such as systemic thinking, courage, and wisdom, which are crucial for guiding teams through challenging transitions. The chapter emphasizes the need for tailored interventions, such as creating corrective emotional experiences, and offers strategic communication techniques to restructure perceptions. Through real-life examples and paradoxical approaches, it outlines practical methods to manage opposition and foster collaboration, ensuring sustainable change by addressing emotional dynamics alongside rational problem-solving.",
+    "authors": [
+      "A. Fronzetti Colladon.",
+      "F. Grippa"
+    ],
+    "year": "2024",
+    "url": "http://arxiv.org/abs/2402.15863v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "When Incentives and Nudges Meet: Promoting Budget Allocations for Undervalued Policies",
+    "abstract": "Budget officers often assess public project proposals based on available financial support and expected outcomes. However, behavioral factors such as time discounting and psychological hesitation may lead to underinvestment in programs with delayed but significant benefits. This study investigates whether financial incentives and non-financial nudges can influence budgetary decisions in local governments. We conducted a nationwide mail-based survey experiment targeting budget officers in Japanese municipalities and received 490 valid responses. Using a 2*2 randomized design, we tested the independent and combined effects of a financial incentive (a 50% national subsidy) and a non-financial nudge (loss framing and peer information). All three treatments significantly increased assessed budget amounts compared to the control group. The largest effect appeared in the combination group (approximately 1.1 million JPY higher, p < .01). Both the financial incentive and the nudge independently increased assessments by approximately 650,000-670,000 JPY (p < .01). Notably, only the nudge raised the self-financed portion of the budget. These findings demonstrate how low-cost behavioral interventions can improve budget assessments for undervalued projects. As an application, we embedded the experiment in a case involving HPV vaccine promotion in Japan, but the approach can be broadly relevant to other public policy domains requiring forward-looking budget decisions.",
+    "authors": [
+      "Makoto Kuroki",
+      "Shusaku Sasaki"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2505.08323v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "When do Default Nudges Work?",
+    "abstract": "Nudging is a burgeoning topic in science and in policy, but evidence on the effectiveness of nudges among differentially-incentivized groups is lacking. This paper exploits regional variations in the roll-out of the Covid-19 vaccine in Sweden to examine the effect of a nudge on groups whose intrinsic incentives are different: 16-17-year-olds, for whom Covid-19 is not dangerous, and 50-59-year-olds, who face a substantial risk of death or severe dis-ease. We find a significantly stronger response in the younger group, consistent with the theory that nudges are more effective for choices that are not meaningful to the individual.",
+    "authors": [
+      "Carl Bonander",
+      "Mats Ekman",
+      "Niklas Jakobsson"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2301.08797v4"
+  },
+  {
+    "source": "arxiv",
+    "title": "Depolarization of opinions on social networks through random nudges",
+    "abstract": "Polarization of opinions has been empirically noted in many online social network platforms. Traditional models of opinion dynamics, based on statistical physics principles, do not account for the emergence of polarization and echo chambers in online network platforms. A recently introduced opinion dynamics model that incorporates the homophily factor -- the tendency of agents to connect with those holding similar opinions as their own -- captures polarization and echo chamber effects. In this work, we provide a non-intrusive framework for mildly nudging agents in an online community to form random connections. This is shown to lead to significant depolarization of opinions and decrease the echo chamber effects. Remarkably, even a mild nudge is seen to be effective in avoiding polarization, though a large nudge leads to another undesirable effect, namely, radicalization. Further, we obtain the optimal nudge factor to avoid the extremes of polarization and radicalization outcomes.",
+    "authors": [
+      "Ritam Pal",
+      "Aanjaneya Kumar",
+      "M. S. Santhanam"
+    ],
+    "year": "2022",
+    "url": "http://arxiv.org/abs/2212.06920v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "Embodied robots driven by self-organized environmental feedback",
+    "abstract": "Which kind of complex behavior may arise from self-organizing principles? We investigate this question for the case of snake-like robots composed of passively coupled segments, with every segment containing two wheels actuated separately by a single neuron. The robot is self organized both on the level of the individual wheels and with respect to inter-wheel coordination, which arises exclusively from the mechanical coupling of the individual wheels and segments. For the individual wheel, the generating principle proposed results in locomotive states that correspond to self-organized limit cycles of the sensorimotor loop.\n  Our robot interacts with the environment by monitoring the state of its actuators, that is via propriosensation. External sensors are absent. In a structured environment the robot shows complex emergent behavior that includes pushing movable blocks around, reversing direction when hitting a wall and turning when climbing a slope. On flat grounds the robot wiggles in a snake-like manner, when moving at higher velocities. We also investigate the emergence of motor primitives, viz the route to locomotion, which is characterized by a series of local and global bifurcations in terms of dynamical system theory.",
+    "authors": [
+      "Frederike Kubandt",
+      "Michael Nowak",
+      "Tim Koglin",
+      "Claudius Gros",
+      "Bulcsu Sandor"
+    ],
+    "year": "2019",
+    "url": "http://arxiv.org/abs/1905.07153v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Habit learning is associated with efficiently controlled network dynamics in naive macaque monkeys",
+    "abstract": "Primates utilize distributed neural circuits to learn habits in uncertain environments, but the underlying mechanisms remain poorly understood. We propose a formal theory of network energetics explaining how brain states influence sequential behavior. We test our theory on multi-unit recordings from the caudate nucleus and cortical regions of macaques performing a motor habit task. The theory predicts the energy required to transition between brain states represented by trial-specific firing rates across channels, assuming activity spreads through effective connections. We hypothesized that habit formation would correlate with lower control energy. Consistent with this, we observed smaller energy requirements for transitions between similar saccade patterns and those of intermediate complexity, and sessions exploiting fewer patterns. Simulations ruled out confounds from neurons' directional tuning. Finally, virtual lesioning demonstrated robustness of observed relationships between control energy and behavior. This work paves the way for examining how behavior arises from changing activity in distributed circuitry.",
+    "authors": [
+      "Julia K. Brynildsen",
+      "Panagiotis Fotiadis",
+      "Karol P. Szymula",
+      "Jason Z. Kim",
+      "Fabio Pasqualetti",
+      "Ann M. Graybiel",
+      "Theresa M. Desrochers",
+      "Dani S. Bassett"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2511.10757v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "The World's Colonisation and Trade Routes Formation as Imitated by Slime Mould",
+    "abstract": "The plasmodium of Physarum polycephalum is renowned for spanning sources of nutrients with networks of protoplasmic tubes. The networks transport nutrients and metabolites across the plasmodium's body. To imitate a hypothetical colonisation of the world and formation of major transportation routes we cut continents from agar plates arranged in Petri dishes or on the surface of a three-dimensional globe, represent positions of selected metropolitan areas with oat flakes and inoculate the plasmodium in one of the metropolitan areas. The plasmodium propagates towards the sources of nutrients, spans them with its network of protoplasmic tubes and even crosses bare substrate between the continents. From the laboratory experiments we derive weighted Physarum graphs, analyse their structure, compare them with the basic proximity graphs and generalised graphs derived from the Silk Road and the Asia Highway networks.",
+    "authors": [
+      "Andrew Adamatzky"
+    ],
+    "year": "2012",
+    "url": "http://arxiv.org/abs/1209.3958v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Habit learning supported by efficiently controlled network dynamics in naive macaque monkeys",
+    "abstract": "Primates display a marked ability to learn habits in uncertain and dynamic environments. The associated perceptions and actions of such habits engage distributed neural circuits. Yet, precisely how such circuits support the computations necessary for habit learning remain far from understood. Here we construct a formal theory of network energetics to account for how changes in brain state produce changes in sequential behavior. We exercise the theory in the context of multi-unit recordings spanning the caudate nucleus, prefrontal cortex, and frontal eyefields of female macaque monkeys engaged in 60-180 sessions of a free scan task that induces motor habits. The theory relies on the determination of effective connectivity between recording channels, and on the stipulation that a brain state is taken to be the trial-specific firing rate across those channels. The theory then predicts how much energy will be required to transition from one state into another, given the constraint that activity can spread solely through effective connections. Consistent with the theory's predictions, we observed smaller energy requirements for transitions between more similar and more complex trial saccade patterns, and for sessions characterized by less entropic selection of saccade patterns. Using a virtual lesioning approach, we demonstrate the resilience of the observed relationships between minimum control energy and behavior to significant disruptions in the inferred effective connectivity. Our theoretically principled approach to the study of habit learning paves the way for future efforts examining how behavior arises from changing patterns of activity in distributed neural circuitry.",
+    "authors": [
+      "Karol P. Szymula",
+      "Fabio Pasqualetti",
+      "Ann M. Graybiel",
+      "Theresa M. Desrochers",
+      "Danielle S. Bassett"
+    ],
+    "year": "2020",
+    "url": "http://arxiv.org/abs/2006.14565v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Mechanical problem solving in Goffin's cockatoos -- Towards modeling complex behavior",
+    "abstract": "Research continues to accumulate evidence that Goffin's cockatoos (Cacatua goffiniana) can solve wide sets of mechanical problems, such as tool use, tool manufacture, and solving mechanical puzzles. However, the proximate mechanisms underlying this adaptive behavior are largely unknown. In this study, we analyze how three Goffin's cockatoos learn to solve a specific mechanical puzzle, a lockbox. The observed behavior results from the interaction between a complex environment (the lockbox) and different processes that jointly govern the animals' behavior. We thus jointly analyze the parrots' (1) engagement, (2) sensorimotor skill learning, and (3) action selection. We find that neither of these aspects could solely explain the animals' behavioral adaptation and that a plausible model of proximate mechanisms (including adaptation) should thus also jointly address these aspects. We accompany this analysis with a discussion of methods that may be used to identify such mechanisms. A major point we want to make is, that it is implausible to reliably identify a detailed model from the limited data of one or a few studies. Instead, we advocate for a more coarse approach that first establishes constraints on proximate mechanisms before specific, detailed models are formulated. We exercise this idea on the data we present in this study.",
+    "authors": [
+      "Manuel Baum",
+      "Theresa Roessler",
+      "Antonio J. Osuna-Mascar\u00f3",
+      "Alice Auersperg",
+      "Oliver Brock"
+    ],
+    "year": "2024",
+    "url": "http://arxiv.org/abs/2408.05967v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Measuring Online Behavior Change with Observational Studies: a Review",
+    "abstract": "Exploring online behavior change is imperative for societal progress in the context of 21st-century challenges. We analyze 148 articles (2000-2023) focusing on behavior change in the digital space and build a map that categorizes behaviors, behavior change detection methodologies, platforms of reference, and theoretical frameworks that characterize the analysis of online behavior change. Our findings reveal a focus on sentiment shifts, an emphasis on API-restricted platforms, and limited integration of theory. We call for methodologies able to capture a wider range of behavior types, diverse data sources, and stronger theory-practice alignment in the study of online behavior and its change.",
+    "authors": [
+      "Arianna Pera",
+      "Gianmarco de Francisci Morales",
+      "Luca Maria Aiello"
+    ],
+    "year": "2023",
+    "url": "http://arxiv.org/abs/2310.19951v3"
+  },
+  {
+    "source": "arxiv",
+    "title": "Fragility Modeling of Power Grid Infrastructure for Addressing Climate Change Risks and Adaptation",
+    "abstract": "The resilience of electric power grids is threatened by natural hazards. Climate-related hazards are becoming more frequent and intense due to climate change. Statistical analyses clearly demonstrate a rise in the number of incidents (power failures) and their consequences in recent years. Therefore, it is of utmost importance to understand and quantify the resilience of the infrastructure to external stressors, which is essential for developing efficient climate change adaptation strategies. To accomplish this, robust fragility and other vulnerability models are necessary. These models are employed to assess the level of asset damage and to quantify losses for given hazard intensity measures. In this context, a comprehensive literature review is carried out to shed light on existing fragility models specific to the transmission network, distribution network, and substations. The review is organized into three main sections: damage assessment, fragility curves, and recommendations for climate change adaptation. The first section provides a comprehensive review of past incidents, their causes, and failure modes. The second section reviews analytical and empirical fragility models, emphasizing the need for further research on compound and non-compound hazards, especially windstorms, floods, lightning, and wildfires. Finally, the third section examines risk mitigation and adaptation strategies in the context of climate change. This review aims to improve the understanding of approaches to enhance the resilience of power grid assets in the face of climate change. These insights are valuable to various stakeholders, including risk analysts and policymakers, who are involved in risk modeling and developing adaptation strategies.",
+    "authors": [
+      "George Karagiannakis",
+      "Mathaios Panteli",
+      "Sotirios Argyroudis"
+    ],
+    "year": "2025",
+    "url": "http://arxiv.org/abs/2504.20056v1"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Digital Behavior Change Intervention Designs for Habit Formation: Systematic Review",
+    "abstract": "Background With the development of emerging technologies, digital behavior change interventions (DBCIs) help to maintain regular physical activity in daily life. Objective To comprehensively understand the design implementations of habit formation techniques in current DBCIs, a systematic review was conducted to investigate the implementations of behavior change techniques, types of habit formation techniques, and design strategies in current DBCIs. Methods The process of this review followed the PRISMA (Preferred Reporting Item for Systematic Reviews and Meta-Analyses) guidelines. A total of 4 databases were systematically searched from 2012 to 2022, which included Web of Science, Scopus, ACM Digital Library, and PubMed. The inclusion criteria encompassed studies that used digital tools for physical activity, examined behavior change intervention techniques, and were written in English. Results A total of 41 identi\ufb01ed research articles were included in this review. The results show that the most applied behavior change techniques were the self-monitoring of behavior, goal setting, and prompts and cues. Moreover, habit formation techniques were identified and developed based on intentions, cues, and positive reinforcement. Commonly used methods included automatic monitoring, descriptive feedback, general guidelines, self-set goals, time-based cues, and virtual rewards. Conclusions A total of 32 commonly design strategies of habit formation techniques were summarized and mapped to the proposed conceptual framework, which was categorized into target-mediated (generalization and personalization) and technology-mediated interactions (explicitness and implicitness). Most of the existing studies use the explicit interaction, aligning with the personalized habit formation techniques in the design strategies of DBCIs. However, implicit interaction design strategies are lacking in the reviewed studies. The proposed conceptual framework and potential solutions can serve as guidelines for designing strategies aimed at habit formation within DBCIs.",
+    "authors": [
+      "Yujie Zhu",
+      "Yonghao Long",
+      "Hailiang Wang",
+      "K. Lee",
+      "Lie Zhang",
+      "S. Wang"
+    ],
+    "year": "2024",
+    "venue": "Journal of Medical Internet Research",
+    "citation_count": 56,
+    "url": "https://www.semanticscholar.org/paper/31fd298628af87ecfa1cfe1b9e952ff62cf38450"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Protocol for a single-arm, multi-component behavior change technique (BCT) intervention to develop a walking habit among caregivers for persons with Alzheimer disease and related dementias (ADRD)",
+    "abstract": "Even low to moderate physical activity is critical in improving and maintaining physical health and well-being. Caregivers of people living with Alzheimer disease and related dementias (ADRD) are a burdened population and, as such, can experience challenges with managing even modest increases in physical activity while caring for others. While some interventions have been proposed to increase physical activity, many fail to consider the unique needs of caregivers of people with ADRD. The purpose of this 12-week decentralized behavioral trial is to test the efficacy of a multi-component, personalized text-message delivered BCT intervention to encourage the formation of a daily walking habit among caregivers of persons with ADRD assessed by Fitbit activity trackers via the key mechanism of behavior change (MoBC) of behavioral automaticity. Formation of a daily walking habit will be defined as attainment of walking 1000 or more additional steps during the same one-hour period on 7 consecutive days as set up in a personalized walking plan. We will also evaluate the association of habit formation attainment with changes in behavioral automaticity, association between longitudinal behavioral automaticity and habit formation attainment over time, and the heterogeneity of treatment effects between participants. Results will advance science about behavioral habit formation among caregivers for persons with ADRD and determine whether behavioral automaticity acts as the primary MoBC for the effect on this BCT intervention on daily habitual walking. This trial is registered on www.ClinicalTrials.gov (https://clinicaltrials.gov/study/NCT06803797); NCT #: NCT06803797.",
+    "authors": [
+      "Danielle Miller",
+      "L. Jordan",
+      "Sherene Lambert",
+      "Ashley M. Goodwin",
+      "L. Sinvani",
+      "Alexandra Perrin",
+      "Y. Cheung",
+      "Karina W. Davidson",
+      "Mark J. Butler"
+    ],
+    "year": "2026",
+    "venue": "Contemporary Clinical Trials",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/d5007b9dbe888ebdcfed03a8bce83923d2283657"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Multicomponent Behavior Change Technique Intervention for Caregivers of People With Alzheimer Disease and Related Dementias: Protocol for a Single-Arm, Personalized Behavioral Trial to Disrupt Sedentary Time",
+    "abstract": "Abstract Background Sedentary behavior is associated with negative health outcomes. High levels of sedentary behavior are common among Alzheimer disease and related dementias (ADRD) caregivers already at risk of other adverse health effects, yet few interventions target sedentary behavior within this population. There is a need for trials intended to reduce time spent sedentary, which may be achievable by increasing the frequency of disruptions to sedentary time. Remotely delivered behavior change techniques (BCTs) may be effective for disrupting sedentary behavior in this population through short bursts of walking, although it is unclear how BCTs promote this behavior and potentially act via the hypothesized mechanism of behavioral automaticity. Objective The goal of the trial is to examine whether a significant proportion of ADRD caregivers (\u226550%) receiving an SMS text message\u2013delivered BCT intervention form a habit to engage in hourly walking 4 times per day, with the broader objective of disrupting sedentary time in this population. Methods This trial is a 12-week, decentralized, single-arm, National Institutes of Health Stage II behavioral trial. The trial will deliver a personalized, multicomponent BCT intervention to disrupt time spent sedentary by encouraging forming a habit of hourly walking among caregivers of persons with ADRD via the key mechanism of behavior change behavioral automaticity. The intervention includes 4 daily SMS text message\u2013delivered BCT components previously used in interventions to disrupt sedentary behavior\u2014Goal setting, Action planning, Prompts/cues, and Self-monitoring. Formation of an hourly walking habit is the primary outcome and will be defined as walking an additional 250 steps or more per hour for the same 4 consecutive hours as set up in a personalized walking plan on 7 consecutive days. Secondary outcomes include evaluating associations between habit formation and behavioral automaticity, and between longitudinal behavioral automaticity and habitual hourly walking over time. Additionally, heterogeneity of treatment effects will be evaluated. Exploratory analyses will examine potential moderating variables that may influence the intervention effect. The trial uses digital enrollment strategies, SMS text message intervention delivery, passive data collection via Fitbit (Google) devices, and online survey assessments to collect data remotely. Results This study was funded by the National Institute on Aging in June 2024. Recruitment and data collection began in March 2025. As of August 2025, 40% (n=40) of the planned sample has been enrolled. Data collection is expected to be complete by June 2026. Data analysis and publication of results are expected by Fall and Winter 2026, respectively. Conclusions Results will have the potential to advance knowledge about the effectiveness of BCTs to form a habit of hourly walking and may provide opportunities for future public health impact to promote physical activity in caregivers of those living with ADRD.",
+    "authors": [
+      "Danielle Miller",
+      "Sherene Lambert",
+      "L. Jordan",
+      "Mark J. Butler",
+      "L. Sinvani",
+      "Alexandra Perrin",
+      "Y. Cheung",
+      "Karina W. Davidson",
+      "Ashley M. Goodwin"
+    ],
+    "year": "2026",
+    "venue": "JMIR Research Protocols",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/5290cbefd07869f10f1a2e33ee9372af6474ff51"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Development and evaluation of an large language model-integrated chatbot intervention for physical activity habit formation in adults with prehypertension",
+    "abstract": "Background Individuals with prehypertension are at risk of developing hypertension, which affects many adults globally. Sustained physical activity (PA) can lower blood pressure, but maintaining long-term behavior change remains difficult. While PA habit formation interventions are promising, they face issues with scalability and accessibility. At the same time, behavior change chatbots have appeared, but their development often lacks systematic methods. Additionally, optimizing large language models (LLMs) to improve chatbot efficiency and reduce costs still needs more research. Objective This study introduces HabitBot, an LLM-integrated chatbot designed to foster PA habits in prehypertensive adults. HabitBot leverages LLMs for seamless interactions and integrates multidisciplinary insights, theoretical frameworks, and evidence to enhance the behavior change process. Methods HabitBot was developed through a systematic five-phase process: Phase 1, needs assessment via multidisciplinary discussions; Phase 2, literature review to identify relevant behavior change theories; Phase 3, selection of effective behavior change techniques (BCTs); Phase 4, intervention mapping for prototype design; and Phase 5, usability testing and focus group interviews for refinement. Results The process led to eight identified user needs and synthesized the Health Action Process Approach with Habit Formation Theory. Twelve effective BCTs were selected. The prototype was developed and refined across six dimensions based on user feedback. Evaluations indicated high usability, with a mean chatbot usability score of 3.84 (SD 0.82). Conclusion HabitBot integrates behavior change strategies with advanced LLM technology, representing a novel approach in chronic disease prevention. Future research should assess its long-term impact and generalizability.",
+    "authors": [
+      "Haoming Ma",
+      "Hongzhen Cui",
+      "Hongyu Yu",
+      "Runyuan Pei",
+      "Sijia Li",
+      "Aoqi Wang",
+      "Xingyi Tang",
+      "Guangnan Liu",
+      "Meihua Piao"
+    ],
+    "year": "2026",
+    "venue": "Digital Health",
+    "citation_count": 1,
+    "url": "https://www.semanticscholar.org/paper/26c77d3da33bbd3f876f7e857fcdffce39cee3c9"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Behavior Change Techniques in Digital Interventions for Health Behavior Change: A Taxonomy of Popular Mobile Applications",
+    "abstract": "Health behavior change interventions can support individuals in establishing habits bene\ufb01cial to their health. Hence, they can help to prevent diseases and reduce mortality caused by unhealthy behaviors. The delivery of such interventions through mobile phones is promising. We developed a taxonomy of popular mobile applications for health behavior change, identifying the intervention\u2019s aim and applied behavior change techniques. We classi\ufb01ed 63 popular mobile applications according to our taxonomy. Thereby identifying the most prevalent behavior change techniques and combinations of the application\u2019s aim and applied behavior change techniques. This result can be used to inform the design of future applications.",
+    "authors": [
+      "Sophia Meywirth",
+      "Matthias S\u00f6llner"
+    ],
+    "year": "2024",
+    "venue": "Hawaii International Conference on System Sciences",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/4e025c2335ee732e8675713e22d348067809f1d7"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Theory-Based Mobile Self-Management Interventions and Behavior Change Techniques for Type 2 Diabetes Patients: A Scoping Review",
+    "abstract": "Purpose: This review aimed to analyze the use of behavior change techniques (BCTs) and the degree of theory implementation using a theory coding scheme (TCS) in mobile self-management interventions for type 2 diabetes mellitus (T2DM). Methods: In this scoping review, four electronic databases (PubMed, EMBASE, CINAHL, and CENTRAL) and gray literature sources were searched. Studies were independently screened according to predefined criteria. The BCT taxonomy was used to categorize techniques, and the TCS was applied to evaluate the quality of theory implementation. Results: Seventeen randomized controlled trials were included. Twenty-five unique BCTs were identified (mean, 8.1 per study). Commonly used BCTs included social support (unspecified) (n=14), instructions on how to perform a behavior (n=14), feedback on behavior (n=11), and prompts/cues (n=11). Techniques related to capability, such as habit formation, rewards, framing/reframing, and verbal persuasion, were rare (n=1 study each). TCS scores ranged from 5 to 15 (mean, 10.3). All included studies cited a theory, used it to select intervention techniques, and employed randomization. However, no study used the findings to refine the theory, and only one conducted a mediational analysis of theoretical constructs. Conclusion: Mobile T2DM self-management interventions commonly rely on a limited range of BCTs and show restricted theoretical application beyond basic implementation. Future interventions should employ a broader array of BCTs and apply theories more rigorously, including tailoring interventions, empirically testing theoretical mechanisms, and refining theories based on results to increase their effectiveness.",
+    "authors": [
+      "Hee-Jin Moon",
+      "Sun-Kyung Hwang"
+    ],
+    "year": "2025",
+    "venue": "Korean Journal of Adult Nursing",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/a885c3508f6f15c48ed9098e4a5010cb78ccfa3b"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Development of a Digital Intervention Incorporating Habit Formation Techniques for Medication Adherence",
+    "abstract": "Effective medication management is essential for preventing complications and improving quality of life in individuals with chronic diseases. A comprehensive approach is required to support patients in improving their medication adherence. This study aimed to develop and validate personalized interventions, using technological tools, designed to support medication habit formation in patients with diabetes. The development process was guided by the Medical Research Council\u2019s framework, which includes phases of development, intervention design, feasibility testing, and recommendations for future research. Twenty-five experts in healthcare and psychology were invited and participated in the evaluation. To illustrate the intervention, a 5-min video was produced, showcasing a patient\u2019s experience through screen captures of individual components. The evaluation encompassed content validation, usability and usefulness assessments, and qualitative feedback. Expert evaluation identified key challenges and effective features relevant to digital interventions in diabetes care. The intervention, MediHabit, was designed based on digital behavior change principles and habit formation theories. It begins with personalized sessions aimed at establishing a consistent medication-taking routine. Direct and indirect cues are subsequently delivered via a mobile app and a smart medication dispenser, synchronized to ensure accurate and timely medication administration. Patients can self-monitor their adherence and receive motivational messages as rewards. Expert validation emphasized the strengths of customizability and individualization, affirming the content\u2019s relevance and the app\u2019s usability. However, experts also noted the need for improved accessibility across age groups and more meaningful use of patient-generated data. The findings indicate that the MediHabit intervention holds promising potential for improving medication adherence among diabetic patients. Further research is needed to evaluate its real-world effectiveness, long-term impact, and scalability across diverse populations.",
+    "authors": [
+      "Sun Kyung Kim",
+      "Hye Ri Hwang",
+      "Kyung-Seok Byun",
+      "Su Yeon Park",
+      "S. H. Moon",
+      "Huiseok Lee"
+    ],
+    "year": "2025",
+    "venue": "Inquiry : a journal of medical care organization, provision and financing",
+    "citation_count": 5,
+    "url": "https://www.semanticscholar.org/paper/627026fcd466257a0b708a074f3bc254a40e97e6"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Behavior Change Techniques in Digital Health Interventions for Promoting Adolescent Health Behaviors: Systematic Umbrella Review",
+    "abstract": "Abstract Background Digital health interventions (DHIs) using behavior change techniques (BCTs) show promise in addressing adolescent health behaviors, but evidence of their effectiveness across health behavior domains remains fragmented and poorly summarized. Objective This systematic umbrella review synthesized evidence from existing systematic reviews on the effectiveness of BCTs within DHI targeting key adolescent health behavior domains: alcohol consumption, tobacco use, physical activity, dietary habits, and obesity management. Methods We systematically searched PubMed, PsycInfo, Embase, and CINAHL in April 2024 for reviews of DHI for adolescents (10\u201019 years old). We coded all identified BCTs using the Behavior Change Technique Taxonomy version 1 (BCTTv1). Data on BCT effectiveness, intervention characteristics, and review quality were extracted and narratively synthesized using AMSTAR-2 (A Measurement Tool to Assess Systematic Reviews 2). Results A total of 20 reviews, comprising 224,135 participants, were included. These examined DHIs targeting physical activity (7 reviews), dietary habits (3 reviews), alcohol consumption (2 reviews), combined alcohol and nicotine use (1 review), and obesity management (1 review), with an additional 6 reviews covering multiple health behaviors. Across reviews, 65% (13/20) reported statistically significant positive effects on at least one health behavior outcome. \u201cSocial support (unspecified)\u201d was the most consistently adopted and effective BCT, especially with parental/peer involvement. The combination of \u201cself-monitoring,\u201d \u201cgoal setting,\u201d and \u201cfeedback\u201d also commonly appeared in successful interventions. Intervention effectiveness appeared linked to strategic BCT selection and individualization rather than the total number of techniques. The methodological quality of included reviews was predominantly low, with only 2 rated high. Conclusions This umbrella review identified \u201csocial support (unspecified)\u201d as a consistently effective BCT across multiple adolescent health behavior domains, particularly with parental/peer involvement. Intervention success appears linked to targeted and individualized BCT use. Future research should prioritize clarifying the specific components and delivery methods of effective social support, rigorously evaluating BCT configurations in underexplored areas such as adolescent smoking cessation, and examining their long-term impact on behavior change.",
+    "authors": [
+      "Nikolaos Boumparis",
+      "Philippe de Riedmatten",
+      "K. Champion",
+      "Gloria Cea",
+      "Teresa de Pablo-Pardo",
+      "K. Koutra",
+      "K. Rizvi",
+      "Hayley Pearce",
+      "A. Triantafyllidis",
+      "A. Molina-Barcel\u00f3",
+      "M. Schaub",
+      "S. Haug"
+    ],
+    "year": "2025",
+    "venue": "JMIR Mental Health",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/f4c7e71b852c1196731a3506a36ba6f7c433a290"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Habit Formation and Behavior Change",
+    "abstract": "Within psychology, the term habit refers to a process whereby contexts prompt action automatically, through activation of mental context\u2013action associations learned through prior performances. Habitual behavior is regulated by an impulsive process, and so can be elicited with minimal cognitive effort, awareness, control, or intention. When an initially goal-directed behavior becomes habitual, action initiation transfers from conscious motivational processes to context-cued impulse-driven mechanisms. Regulation of action becomes detached from motivational or volitional control. Upon encountering the associated context, the urge to enact the habitual behavior is spontaneously triggered and alternative behavioral responses become less cognitively accessible.\n By virtue of its cue-dependent automatic nature, theory proposes that habit strength will predict the likelihood of enactment of habitual behavior, and that strong habitual tendencies will tend to dominate over motivational tendencies. Support for these effects has been found for many health-related behaviors, such as healthy eating, physical activity, and medication adherence. This has stimulated interest in habit formation as a behavior change mechanism: It has been argued that adding habit formation components into behavior change interventions should shield new behaviors against motivational lapses, making them more sustainable in the long-term. Interventions based on the habit-formation model differ from non-habit-based interventions in that they include elements that promote reliable context-dependent repetition of the target behavior, with the aim of establishing learned context\u2013action associations that manifest in automatically cued behavioral responses. Interventions may also seek to harness these processes to displace an existing \u201cbad\u201d habit with a \u201cgood\u201d habit.\n Research around the application of habit formation to health behavior change interventions is reviewed, drawn from two sources: extant theory and evidence regarding how habit forms, and previous interventions that have used habit formation principles and techniques to change behavior. Behavior change techniques that may facilitate movement through discrete phases in the habit formation trajectory are highlighted, and techniques that have been used in previous interventions are explored based on a habit formation framework. Although these interventions have mostly shown promising effects on behavior, the unique impact on behavior of habit-focused components and the longevity of such effects are not yet known. As an intervention strategy, habit formation has been shown to be acceptable to intervention recipients, who report that through repetition, behaviors gradually become routinized. Whether habit formation interventions truly offer a route to long-lasting behavior change, however, remains unclear.",
+    "authors": [
+      "B. Gardner",
+      "A. Rebar"
+    ],
+    "year": "2019",
+    "venue": "Oxford Research Encyclopedia of Psychology",
+    "citation_count": 232,
+    "url": "https://www.semanticscholar.org/paper/e3cb4b22fb0e06f11e1ba7b37f3a1962b1c5499c"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Systematic Development of an AI Chatbot for Physical Activity Habit Formation in Prehypertension Individual Integrating Needs, Theories, and Evidence",
+    "abstract": "Prehypertension, an early stage in the development of hypertension, impacts a substantial segment of the adult population worldwide. Addressing this issue, our study introduces HabitBot, an AI-driven chatbot tailored to encourage physical activity (PA) habits among individuals with prehypertension. HabitBot combines natural language processing with multidisciplinary approaches, drawing from both theoretical frameworks and empirical studies. The chatbot development followed a systematic, five-phase process: comprehensive needs assessment, literature review on behavior change theories, analysis for selecting effective behavior change techniques (BCTs), prototype design through intervention mapping, and refining the intervention based on user feedback. The outcome includes a prototype that integrates the Health Action Process Approach and Habit Formation Theory, utilizing twelve identified BCTs effective in fostering PA habits. User feedback further refined the chatbot across multiple dimensions such as user interface, content accessibility, and privacy. HabitBot exemplifies an innovative integration of behavior change strategies with advanced language model technology, paving the way for digital health interventions in chronic disease prevention. Future studies should assess its long-term efficacy in habit formation and explore its applicability to various demographic groups.",
+    "authors": [
+      "Haoming Ma",
+      "Runyuan Pei",
+      "Sijia Li",
+      "Aoqi Wang",
+      "Xingyi Tang",
+      "Meihua Piao"
+    ],
+    "year": "2024",
+    "venue": "Nursing Informatics",
+    "citation_count": 2,
+    "url": "https://www.semanticscholar.org/paper/7fd6ee5edf2b17c0aafc2d81fd11551bda057d7e"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Effects of habit formation interventions on physical activity habit strength: meta-analysis and meta-regression",
+    "abstract": "Background Interventions aimed at promoting physical activity (PA) behavior through habit formation pathways are gaining popularity, as they differ from conventional interventions that rely on intention pathways. Past research has established a positive correlation between PA habits and behavior. However, the efficacy of current interventions designed to form PA habits and improve PA automaticity is not yet fully ascertained. Additionally, the intervention components that significantly impact the effectiveness of these interventions are yet to be determined. Methods This systematic review was conducted in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. We conducted a search of three databases (PubMed, Embase, and Cochrane Library) from January 2000 to December 2022, with a focus on interventions for developing PA habits. Two independent authors conducted paper selection, quality assessment, data extraction, and coding of behavior change techniques (BCTs). The effect size of interventions was calculated using standardized mean difference. Subgroup analyses were carried out based on follow-up duration, delivery method, sample characteristics, and theory. Furthermore, we employed meta-regression to investigate the association between BCTs and PA habits. Results Ten eligible studies with relatively high quality were included in the final data set. Characteristics of studies varied in intervention sample and delivery way. The habit formation interventions significantly increased PA habit (SMD\u2009=\u20090.31, 95% CI 0.14\u20140.48, P \u2009<\u2009.001) compared to the control groups. Subgroup analysis demonstrated that the duration of follow-up\u2009\u2264\u200912\u00a0weeks have a higher effect size on PA habit than the duration\u2009>\u200912\u00a0weeks. Meta-regression revealed that problem solving has a significant positive association with effectiveness improvement (\u03b2\u2009=\u20090.36, 95% CI 0.17\u20130.55), while social reward is linked with a reduction in effectiveness (\u03b2\u2009=\u2009-0.40, 95% CI -0.74\u20130.06). Conclusions Our findings reveal that habit formation interventions are effective in fostering PA habit. Future studies could leverage the insights form this study to optimize the intervention design and achieve better effectiveness.",
+    "authors": [
+      "Haoming Ma",
+      "Aoqi Wang",
+      "Runyuan Pei",
+      "Meihua Piao"
+    ],
+    "year": "2023",
+    "venue": "International Journal of Behavioral Nutrition and Physical Activity",
+    "citation_count": 54,
+    "url": "https://www.semanticscholar.org/paper/68eadd93a1c124dd3bc92bff66d2d638de8f94c6"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Digital personalized trials of a multicomponent behavioral change intervention for increasing habitual low-intensity physical activity in middle-aged and older healthcare workers: results of a feasibility study.",
+    "abstract": "BACKGROUND\nPrior research has shown that multi-component behavior change technique (BCT) interventions can potentially increase physical activity (PA) in middle-aged and older adults and thereby reduce risk of cardiovascular disease (CVD) and mortality. However, habit formation theory suggests that the PA is most likely to be sustained when the behavior involves high levels of automaticity for walking. Therefore, PA behavior such as walking must be automatic to be sustainable. The current National Institutes of Health (NIH) Stage Model of Behavioral Intervention Stage 1B trial examines the feasibility of a digital, personalized, multi-component BCT intervention to increase the automaticity with which participants execute a walking routine to ultimately reduce likelihood of future CVD and mortality.\n\n\nMETHODS\nA personalized, single-arm, in 44 participants involving digital recruitment and intervention delivery was delivered to adults ages 45 to 75 who worked in Northwell Health system. Participants continuously wore a Fitbit activity tracker during a 2-week baseline and a 10-week intervention. During intervention, participants received five daily BCT associated with habit formation (i.e., goal-setting, action-planning, self-monitoring of behavior, behavioral practice/rehearsal, and behavioral repetition) to follow to execute a walking plan. Participants rated their satisfaction with personalized trial components at the conclusion of the intervention and made ratings of the walking plan's hypothesized mechanism of action-automaticity-over the course of the intervention phase. Step counts, adherence to the walking plan, adherence to step-count monitoring of step count, and attitudes about personalized trial implementation were also collected.\n\n\nRESULTS\nHalf of the participants acquired automaticity of their daily walking routine in this virtual trial, but there was considerable heterogeneity across participants. Satisfaction with personalized trial elements was consistently high (rated as \"satisfied\" to \"very satisfied\" for most items). Adherence to the walking routine and self-monitoring of steps was moderate to good, with participants adhering to their walking plan for 55% of days. Eight of 34 participants achieved an increase of 2000 steps from baseline.\n\n\nCONCLUSIONS\nThis stage 1b study found that patients were satisfied with personalized trial components and implementation. Furthermore, half of the participants in the trial reached the hypothesized automaticity criterion over the course of intervention (albeit at different rates). This preliminary evidence suggests that personalized BCT interventions to initiate a walking habit among middle-aged and older adults are both feasible and acceptable.",
+    "authors": [
+      "Mark J. Butler",
+      "Jerry Suls",
+      "Ciar\u00e1n P. Friel",
+      "Joan Duer-Hefele",
+      "Patrick L. Robles",
+      "Frank Vicari",
+      "Thevaa Chandereng",
+      "Y. Cheung",
+      "Karina W. Davidson"
+    ],
+    "year": "2026",
+    "venue": "Pilot and Feasibility Studies",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/211d1700ea2ec37f63ad00b7f54090fe2faa73bb"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "O.4.2-11\u2003Effects of habit formation interventions on physical activity habit strength: meta-analysis and meta-regression",
+    "abstract": "Abstract Background Interventions aimed at promoting physical activity (PA) behavior through habit formation pathways are gaining popularity, as they differ from conventional interventions that rely on intention pathways. Past research has established a positive correlation between PA habits and behavior. However, the efficacy of current interventions designed to form PA habits and improve PA automaticity is not yet fully ascertained. Additionally, the intervention components that significantly impact the effectiveness of these interventions are yet to be determined. Methods We conducted a search of three databases (PubMed, Embase, and Cochrane Library) from January 2000 to December 2022, with a focus on interventions for developing PA habits. Two independent authors conducted paper selection, quality assessment, data extraction, and coding of behavior change techniques (BCTs). The effect size of interventions was calculated using standardized mean difference. Subgroup analyses were carried out based on follow-up duration, delivery method, sample characteristics, and theory. Furthermore, we employed meta-regression to investigate the association between BCTs and PA habits. Results Ten eligible studies with relatively high quality were included in the final data set. Characteristics of studies varied in intervention sample and delivery way. The habit formation interventions significantly increased PA habit (SMD=0.31, 95% CI 0.14 - 0.48, P<.001) compared to the control groups. Subgroup analysis demonstrated that the duration of follow-up\u226412 weeks have a higher effect size on PA habit than the duration > 12 weeks. Meta-regression revealed that problem solving has a significant positive association with effectiveness improvement (\u03b2\u2009=\u20090.36, 95% CI 0.17\u20130.55), while social reward is linked with a reduction in effectiveness (\u03b2 = -0.40, 95% CI -0.74\u20130.06). Conclusions Our findings reveal that habit formation interventions are effective in fostering PA habit. Future studies could leverage the insights form this study to optimize the intervention design and achieve better effectiveness.",
+    "authors": [
+      "Haoming Ma",
+      "Aoqi Wang",
+      "Runyuan Pei",
+      "Meihua Piao"
+    ],
+    "year": "2023",
+    "venue": "European Journal of Public Health",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/3e7720d0c8a5f8e872ab400707f658d9baf74231"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Use of Behavior Change Techniques in Digital HIV Prevention Programs for Adolescents and Young People: Systematic Review",
+    "abstract": "Background HIV infections have caused severe public health and economic burdens to the world. Adolescents and young people continue to constitute a large proportion of newly diagnosed HIV cases. Digital health interventions have been increasingly used to prevent the rising HIV epidemic. Behavior change techniques (BCTs) are intervention components designed to modify the underlying processes that regulate behavior. The BCT taxonomy offers a systematic approach to identifying, extracting, and coding these components, providing valuable insights into effective intervention strategies. However, few reviews have comprehensively identified the use of BCTs in digital HIV interventions among adolescents and young people. Objective This study aimed to synthesize existing evidence on the commonly used BCTs in effective digital HIV prevention programs targeting adolescents and young people. Methods In total, 4 databases (PubMed, Embase, Cochrane Library, and APA PsycINFO) were searched, and studies from January 2008 to November 2024 were screened. Reference lists of relevant review studies were reviewed to identify any additional sources. Eligible randomized controlled trials with 1 of 3 HIV prevention outcomes (ie, HIV knowledge, condom-use self-efficacy, and condom use) were included. Basic study characteristics, intervention strategies, and study results were extracted and compared for data analysis. For the included interventions, BCTs were identified according to the BCT taxonomy proposed by Abraham and Michie in 2008, and the frequencies of BCTs used in these interventions were counted. Results Searches yielded 383 studies after duplicates were removed, with 34 (8.9%) publications finally included in this review. The most frequently used BCTs included prompting intention formation (34/34, 100%), providing information about behavior-health link (33/34, 97%), providing information on consequences (33/34, 97%), and providing instruction (33/34, 97%). Interventions with significant improvements in HIV knowledge (11/34, 32%) more frequently used BCTs with a provision nature, such as providing information about behavior-health link (11/11, 100%), information on consequences (11/11, 100%), encouragement (10/11, 91%), and instruction (10/11, 91%). Those with significant increases in condom-use self-efficacy (7/34, 20%) used BCTs toward initiating actions, such as prompts for intention formation (7/7, 100%), barrier identification (7/7, 100%), and practice (5/7, 71%). In addition, studies showing significant improvements in condom use (14/34, 41%) included BCTs focused not only on provision and initiation but also on behavioral management and maintenance, such as use follow-up prompts (5/14, 36%), relapse prevention (4/14, 29%), prompt self-monitoring of behavior (3/14, 21%), and prompt review of behavioral goals (3/14, 21%). Conclusions This is the first systematic review that examined the use of BCTs in digital HIV prevention interventions for adolescents and young adults. The identified BCTs offer important reference for developing more effective digital interventions, with implications for enhancing their HIV knowledge, condom-use self-efficacy, and condom use in youth.",
+    "authors": [
+      "P. Mo",
+      "Luyao Xie",
+      "Tsz Ching Lee",
+      "A. Li"
+    ],
+    "year": "2024",
+    "venue": "JMIR Public Health and Surveillance",
+    "citation_count": 6,
+    "url": "https://www.semanticscholar.org/paper/996673d7dcc350dd4b18eb1a7889d74f0174c384"
+  }
+]

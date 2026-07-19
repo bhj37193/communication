@@ -54,7 +54,7 @@ MAX_RESULTS = 15
 
 
 def fetch_arxiv(query, category_filter):
-    q = f'({urllib.parse.quote(query)}) AND ({category_filter})'
+    q = urllib.parse.quote(f'({query}) AND ({category_filter})')
     url = (
         "http://export.arxiv.org/api/query"
         f"?search_query=all:{q}&start=0&max_results={MAX_RESULTS}"
@@ -146,8 +146,12 @@ def main():
 
         papers = dedupe(arxiv_papers + s2_papers)
         out_path = OUT_DIR / f"{topic}.json"
-        out_path.write_text(json.dumps(papers, indent=2))
-        print(f"  -> {len(papers)} papers -> {out_path}")
+        if not papers and out_path.exists() and out_path.read_text().strip() not in ("", "[]"):
+            print(f"  -> 0 papers this run, keeping existing non-empty {out_path}")
+            papers = json.loads(out_path.read_text())
+        else:
+            out_path.write_text(json.dumps(papers, indent=2))
+            print(f"  -> {len(papers)} papers -> {out_path}")
 
         index_lines.append(f"## {topic} ({len(papers)} papers)")
         for p in papers[:8]:

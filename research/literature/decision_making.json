@@ -1,1 +1,192 @@
-[]
+[
+  {
+    "source": "arxiv",
+    "title": "Quantum decision making by social agents",
+    "abstract": "The influence of additional information on the decision making of agents, who are interacting members of a society, is analyzed within the mathematical framework based on the use of quantum probabilities. The introduction of social interactions, which influence the decisions of individual agents, leads to a generalization of the quantum decision theory developed earlier by the authors for separate individuals. The generalized approach is free of the standard paradoxes of classical decision theory. This approach also explains the error-attenuation effects observed for the paradoxes occurring when decision makers, who are members of a society, consult with each other, increasing in this way the available mutual information. A precise correspondence between quantum decision theory and classical utility theory is formulated via the introduction of an intermediate probabilistic version of utility theory of a novel form, which obeys the requirement that zero-utility prospects should have zero probability weights.",
+    "authors": [
+      "V. I. Yukalov",
+      "D. Sornette"
+    ],
+    "year": "2012",
+    "url": "http://arxiv.org/abs/1202.4918v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "Risk-aware Meta-level Decision Making for Exploration Under Uncertainty",
+    "abstract": "Robotic exploration of unknown environments is fundamentally a problem of decision making under uncertainty where the robot must account for uncertainty in sensor measurements, localization, action execution, as well as many other factors. For large-scale exploration applications, autonomous systems must overcome the challenges of sequentially deciding which areas of the environment are valuable to explore while safely evaluating the risks associated with obstacles and hazardous terrain. In this work, we propose a risk-aware meta-level decision making framework to balance the tradeoffs associated with local and global exploration. Meta-level decision making builds upon classical hierarchical coverage planners by switching between local and global policies with the overall objective of selecting the policy that is most likely to maximize reward in a stochastic environment. We use information about the environment history, traversability risk, and kinodynamic constraints to reason about the probability of successful policy execution to switch between local and global policies. We have validated our solution in both simulation and on a variety of large-scale real world hardware tests. Our results show that by balancing local and global exploration we are able to significantly explore large-scale environments more efficiently.",
+    "authors": [
+      "Joshua Ott",
+      "Sung-Kyun Kim",
+      "Amanda Bouman",
+      "Oriana Peltzer",
+      "Mamoru Sobue",
+      "Harrison Delecki",
+      "Mykel J. Kochenderfer",
+      "Joel Burdick",
+      "Ali-akbar Agha-mohammadi"
+    ],
+    "year": "2022",
+    "url": "http://arxiv.org/abs/2209.05580v3"
+  },
+  {
+    "source": "arxiv",
+    "title": "Modeling of Mixed Decision Making Process",
+    "abstract": "Decision making whenever and wherever it is happened is key to organizations success. In order to make correct decision, individuals, teams and organizations need both knowledge management (to manage content) and collaboration (to manage group processes) to make that more effective and efficient. In this paper, we explain the knowledge management and collaboration convergence. Then, we propose a formal description of mixed and multimodal decision making (MDM) process where decision may be made by three possible modes: individual, collective or hybrid. Finally, we explicit the MDM process based on UML-G profile.",
+    "authors": [
+      "Nesrine Ben Yahia",
+      "Narj\u00e8s Bellamine",
+      "Henda Ben Ghezala"
+    ],
+    "year": "2012",
+    "url": "http://arxiv.org/abs/1203.5452v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Cognitive Bias in Decision-Making with LLMs",
+    "abstract": "Large language models (LLMs) offer significant potential as tools to support an expanding range of decision-making tasks. Given their training on human (created) data, LLMs have been shown to inherit societal biases against protected groups, as well as be subject to bias functionally resembling cognitive bias. Human-like bias can impede fair and explainable decisions made with LLM assistance. Our work introduces BiasBuster, a framework designed to uncover, evaluate, and mitigate cognitive bias in LLMs, particularly in high-stakes decision-making tasks. Inspired by prior research in psychology and cognitive science, we develop a dataset containing 13,465 prompts to evaluate LLM decisions on different cognitive biases (e.g., prompt-induced, sequential, inherent). We test various bias mitigation strategies, while proposing a novel method utilizing LLMs to debias their own human-like cognitive bias within prompts. Our analysis provides a comprehensive picture of the presence and effects of cognitive bias across commercial and open-source models. We demonstrate that our selfhelp debiasing effectively mitigates model answers that display patterns akin to human cognitive bias without having to manually craft examples for each bias.",
+    "authors": [
+      "Jessica Echterhoff",
+      "Yao Liu",
+      "Abeer Alessa",
+      "Julian McAuley",
+      "Zexue He"
+    ],
+    "year": "2024",
+    "url": "http://arxiv.org/abs/2403.00811v3"
+  },
+  {
+    "source": "arxiv",
+    "title": "Artificial Decision Making Under Uncertainty in Intelligent Buildings",
+    "abstract": "Our hypothesis is that by equipping certain agents in a multi-agent system controlling an intelligent building with automated decision support, two important factors will be increased. The first is energy saving in the building. The second is customer value---how the people in the building experience the effects of the actions of the agents. We give evidence for the truth of this hypothesis through experimental findings related to tools for artificial decision making. A number of assumptions related to agent control, through monitoring and delegation of tasks to other kinds of agents, of rooms at a test site are relaxed. Each assumption controls at least one uncertainty that complicates considerably the procedures for selecting actions part of each such agent. We show that in realistic decision situations, room-controlling agents can make bounded rational decisions even under dynamic real-time constraints. This result can be, and has been, generalized to other domains with even harsher time constraints.",
+    "authors": [
+      "Magnus Boman",
+      "Paul Davidsson",
+      "Hakan L. Younes"
+    ],
+    "year": "2013",
+    "url": "http://arxiv.org/abs/1301.6680v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Decision-making Under Ordinal Preferences and Comparative Uncertainty",
+    "abstract": "This paper investigates the problem of finding a preference relation on a set of acts from the knowledge of an ordering on events (subsets of states of the world) describing the decision-maker (DM)s uncertainty and an ordering of consequences of acts, describing the DMs preferences.  However, contrary to classical approaches to decision theory, we try to do it without resorting to any numerical representation of utility nor uncertainty, and without even using any qualitative scale on which both uncertainty and preference could be mapped.  It is shown that although many axioms of Savage theory can be preserved and despite the intuitive appeal of the method for constructing a preference over acts, the approach is inconsistent with a probabilistic representation of uncertainty, but leads to the kind of uncertainty theory encountered in non-monotonic reasoning (especially preferential and rational inference), closely related to possibility theory.  Moreover the method turns out to be either very little decisive or to lead to very risky decisions, although its basic principles look sound.  This paper raises the question of the very possibility of purely symbolic approaches to Savage-like decision-making under uncertainty and obtains preliminary negative results.",
+    "authors": [
+      "Didier Dubois",
+      "Helene Fargier",
+      "Henri Prade"
+    ],
+    "year": "2013",
+    "url": "http://arxiv.org/abs/1302.1537v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Gender Bias of LLM in Economics: An Existentialism Perspective",
+    "abstract": "Large Language Models (LLMs), such as GPT-4 and BERT, have rapidly gained traction in natural language processing (NLP) and are now integral to financial decision-making. However, their deployment introduces critical challenges, particularly in perpetuating gender biases that can distort decision-making outcomes in high-stakes economic environments. This paper investigates gender bias in LLMs through both mathematical proofs and empirical experiments using the Word Embedding Association Test (WEAT), demonstrating that LLMs inherently reinforce gender stereotypes even without explicit gender markers. By comparing the decision-making processes of humans and LLMs, we reveal fundamental differences: while humans can override biases through ethical reasoning and individualized understanding, LLMs maintain bias as a rational outcome of their mathematical optimization on biased data. Our analysis proves that bias in LLMs is not an unintended flaw but a systematic result of their rational processing, which tends to preserve and amplify existing societal biases encoded in training data. Drawing on existentialist theory, we argue that LLM-generated bias reflects entrenched societal structures and highlights the limitations of purely technical debiasing methods. This research underscores the need for new theoretical frameworks and interdisciplinary methodologies that address the ethical implications of integrating LLMs into economic and financial decision-making. We advocate for a reconceptualization of how LLMs influence economic decisions, emphasizing the importance of incorporating human-like ethical considerations into AI governance to ensure fairness and equity in AI-driven financial systems.",
+    "authors": [
+      "Hui Zhong",
+      "Songsheng Chen",
+      "Mian Liang"
+    ],
+    "year": "2024",
+    "url": "http://arxiv.org/abs/2410.19775v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "A Constraint Satisfaction Approach to Decision under Uncertainty",
+    "abstract": "The Constraint Satisfaction Problem (CSP) framework offers a simple and sound basis for representing and solving simple decision problems, without uncertainty.  This paper is devoted to an extension of the CSP framework enabling us to deal with some decisions problems under uncertainty.  This extension relies on a differentiation between the agent-controllable decision variables and the uncontrollable parameters whose values depend on the occurrence of uncertain events. The uncertainty on the values of the parameters is assumed to be given under the form of a probability distribution. Two algorithms are given, for computing respectively decisions solving the problem with a maximal probability, and conditional decisions mapping the largest possible amount of possible cases to actual decisions.",
+    "authors": [
+      "Helene Fargier",
+      "Jerome Lang",
+      "Roger Martin-Clouaire",
+      "Thomas Schiex"
+    ],
+    "year": "2013",
+    "url": "http://arxiv.org/abs/1302.4946v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Decision making in dynamic and interactive environments based on cognitive hierarchy theory, Bayesian inference, and predictive control",
+    "abstract": "In this paper, we describe an integrated framework for autonomous decision making in a dynamic and interactive environment. We model the interactions between the ego agent and its operating environment as a two-player dynamic game, and integrate cognitive behavioral models, Bayesian inference, and receding-horizon optimal control to define a dynamically-evolving decision strategy for the ego agent. Simulation examples representing autonomous vehicle control in three traffic scenarios where the autonomous ego vehicle interacts with a human-driven vehicle are reported.",
+    "authors": [
+      "Sisi Li",
+      "Nan Li",
+      "Anouck Girard",
+      "Ilya Kolmanovsky"
+    ],
+    "year": "2019",
+    "url": "http://arxiv.org/abs/1908.04005v3"
+  },
+  {
+    "source": "arxiv",
+    "title": "Qualitative Models for Decision Under Uncertainty without the Commensurability Assumption",
+    "abstract": "This paper investigates a purely qualitative version of Savage's theory for decision making under uncertainty. Until now, most representation theorems for preference over acts rely on a numerical representation of utility and uncertainty where utility and uncertainty are commensurate. Disrupting the tradition, we relax this assumption and introduce a purely ordinal axiom requiring that the Decision Maker (DM) preference between two acts only depends on the relative position of their consequences for each state. Within this qualitative framework, we determine the only possible form of the decision rule and investigate some instances compatible with the transitivity of the strict preference. Finally we propose a mild relaxation of our ordinality axiom, leaving room for a new family of qualitative decision rules compatible with transitivity.",
+    "authors": [
+      "Helene Fargier",
+      "Patrice Perny"
+    ],
+    "year": "2013",
+    "url": "http://arxiv.org/abs/1301.6694v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Discretizing Logged Interaction Data Biases Learning for Decision-Making",
+    "abstract": "Time series data that are not measured at regular intervals are commonly discretized as a preprocessing step. For example, data about customer arrival times might be simplified by summing the number of arrivals within hourly intervals, which produces a discrete-time time series that is easier to model. In this abstract, we show that discretization introduces a bias that affects models trained for decision-making. We refer to this phenomenon as discretization bias, and show that we can avoid it by using continuous-time models instead.",
+    "authors": [
+      "Peter Schulam",
+      "Suchi Saria"
+    ],
+    "year": "2018",
+    "url": "http://arxiv.org/abs/1810.03025v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Decision under Uncertainty",
+    "abstract": "We derive axiomatically the probability function that should be used to make decisions given any form of underlying uncertainty.",
+    "authors": [
+      "Philippe Smets"
+    ],
+    "year": "2013",
+    "url": "http://arxiv.org/abs/1304.1527v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "Symbol Emergence in Cognitive Developmental Systems: a Survey",
+    "abstract": "Humans use signs, e.g., sentences in a spoken language, for communication and thought. Hence, symbol systems like language are crucial for our communication with other agents and adaptation to our real-world environment. The symbol systems we use in our human society adaptively and dynamically change over time. In the context of artificial intelligence (AI) and cognitive systems, the symbol grounding problem has been regarded as one of the central problems related to {\\it symbols}. However, the symbol grounding problem was originally posed to connect symbolic AI and sensorimotor information and did not consider many interdisciplinary phenomena in human communication and dynamic symbol systems in our society, which semiotics considered. In this paper, we focus on the symbol emergence problem, addressing not only cognitive dynamics but also the dynamics of symbol systems in society, rather than the symbol grounding problem. We first introduce the notion of a symbol in semiotics from the humanities, to leave the very narrow idea of symbols in symbolic AI. Furthermore, over the years, it became more and more clear that symbol emergence has to be regarded as a multifaceted problem. Therefore, secondly, we review the history of the symbol emergence problem in different fields, including both biological and artificial systems, showing their mutual relations. We summarize the discussion and provide an integrative viewpoint and comprehensive overview of symbol emergence in cognitive systems. Additionally, we describe the challenges facing the creation of cognitive systems that can be part of symbol emergence systems.",
+    "authors": [
+      "Tadahiro Taniguchi",
+      "Emre Ugur",
+      "Matej Hoffmann",
+      "Lorenzo Jamone",
+      "Takayuki Nagai",
+      "Benjamin Rosman",
+      "Toshihiko Matsuka",
+      "Naoto Iwahashi",
+      "Erhan Oztop",
+      "Justus Piater",
+      "Florentin W\u00f6rg\u00f6tter"
+    ],
+    "year": "2018",
+    "url": "http://arxiv.org/abs/1801.08829v2"
+  },
+  {
+    "source": "arxiv",
+    "title": "An Explainable Agentic AI Framework for Uncertainty-Aware and Abstention-Enabled Acute Ischemic Stroke Imaging Decisions",
+    "abstract": "Artificial intelligence models have shown strong potential in acute ischemic stroke imaging, particularly for lesion detection and segmentation using computed tomography and magnetic resonance imaging. However, most existing approaches operate as black box predictors, producing deterministic outputs without explicit uncertainty awareness or structured mechanisms to abstain under ambiguous conditions. This limitation raises serious safety and trust concerns in high risk emergency radiology settings. In this paper, we propose an explainable agentic AI framework for uncertainty aware and abstention enabled decision support in acute ischemic stroke imaging. The framework follows a modular agentic pipeline in which a perception agent performs lesion aware image analysis, an uncertainty estimation agent computes slice level predictive reliability, and a decision agent determines whether to issue a prediction or abstain based on predefined uncertainty thresholds. Unlike prior stroke imaging systems that primarily focus on improving segmentation or classification accuracy, the proposed framework explicitly prioritizes clinical safety, transparency, and clinician aligned decision behavior. Qualitative and case based analyses across representative stroke imaging scenarios demonstrate that uncertainty driven abstention naturally emerges in diagnostically ambiguous regions and low information slices. The framework further integrates visual explanation mechanisms to support both predictive and abstention decisions, addressing a key limitation of existing uncertainty aware medical imaging systems. Rather than introducing a new performance benchmark, this work presents agentic control, uncertainty awareness, and selective abstention as essential design principles for developing safe and trustworthy medical imaging AI systems.",
+    "authors": [
+      "Md Rashadul Islam"
+    ],
+    "year": "2026",
+    "url": "http://arxiv.org/abs/2601.01008v1"
+  },
+  {
+    "source": "arxiv",
+    "title": "A cognitive diversity framework for radar target classification",
+    "abstract": "Classification of targets by radar has proved to be notoriously difficult with the best systems still yet to attain sufficiently high levels of performance and reliability. In the current contribution we explore a new design of radar based target recognition, where angular diversity is used in a cognitive manner to attain better performance. Performance is bench- marked against conventional classification schemes. The proposed scheme can easily be extended to cognitive target recognition based on multiple diversity strategies.",
+    "authors": [
+      "Amit K. Mishra",
+      "Chris Baker"
+    ],
+    "year": "2011",
+    "url": "http://arxiv.org/abs/1110.6589v1"
+  }
+]
