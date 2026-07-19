@@ -9,27 +9,31 @@ Paddle/G-03 not needed yet).
 ## COMPLETED THIS SESSION
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
-- **Task #6 IN PROGRESS (background agent a1a25387581a1450f, still running,
-  do NOT duplicate)**: real Clerk auth wiring. Mobile side is substantially
-  written: `apps/mobile/app/_layout.tsx` now splits `DevAuthProvider` vs
+- **Task #6 NEARLY DONE (background agent a1a25387581a1450f, still
+  `running` as of last check — do NOT duplicate, do NOT trust as final
+  yet)**: real Clerk auth wiring, mobile + server. Self-reported: mobile
+  suite 24/24 pass, server suite 35/35 pass, typecheck clean both sides, no
+  leaked secrets found in `.env.example` files, no debug leftovers. Agent
+  just called its own advisor for a final self-check and had not yet
+  reported completion. Mobile side confirmed written:
+  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
   `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
-  `apps/mobile/lib/auth.ts` has a real `getClerkToken()`
-  (`getClerkInstance().session?.getToken()`) and an AsyncStorage-backed
-  `tokenCache`. Agent was last seen self-repairing test breakage it caused
-  (mocking `useAuth` from `_layout` in `test/screens.test.tsx`) and about to
-  rerun the full mobile suite. Server-side (`env.ts` CLERK_SECRET_KEY,
-  `AuthVerifier.ts` ClerkAuthVerifier, `composition.ts` wiring) NOT yet
-  confirmed written — check on resume. NOTHING here has been reviewed yet.
-  As of this checkpoint the agent is STILL running; no new report to review.
+  `apps/mobile/lib/auth.ts` has real `getClerkToken()`
+  (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
+  Server-side files not yet individually re-confirmed post-edit by me.
+  **I (main session) have NOT independently reviewed the diff yet** — the
+  above is the agent's own self-report only.
 
 ## EXACT NEXT STEP
-1. Check status of `a1a25387581a1450f` (TaskOutput, block=false first). If
-   done, read its full diff (`git diff`) before trusting anything.
-2. Review: run `pnpm --filter @charisma/server test` + typecheck on
-   server+mobile; confirm fake-auth path (`AUTH_PROVIDER=fake`, default)
-   still passes untouched. Clerk path itself is NOT verifiable yet (user has
-   no Clerk account — task #4) — do not claim it "works," only that it
-   typechecks and matches Clerk's documented API.
+1. Check status of `a1a25387581a1450f` (TaskOutput, block=false). If
+   `status: completed`, read the FULL diff (`git diff`) myself before
+   trusting anything — do not just accept its self-report.
+2. Independently rerun `pnpm --filter @charisma/server test` +
+   `pnpm --filter @charisma/mobile test` + typecheck both. Confirm
+   fake-auth path (`AUTH_PROVIDER=fake`, default) still passes untouched.
+   Clerk path is NOT verifiable yet (user has no Clerk account — task #4):
+   only claim it typechecks and matches Clerk's documented API, never that
+   it "works."
 3. Then resume task #7 (eas.json + app icons — needs user-supplied artwork,
    don't fabricate branding) and #8 (App Store listing prep).
 4. Tasks #1-4 (signups: Apple Developer, Expo/EAS, VPS, Clerk) are blocking
@@ -45,8 +49,7 @@ Paddle/G-03 not needed yet).
 - Model per touchpoint: character = Haiku (`claude-haiku-4-5`), feedback =
   Sonnet (`claude-sonnet-5`), routed by call `tag` in AnthropicChatModel.
 - Mobile-only public App Store release is the target; hosting = user's own
-  plain Ubuntu VPS, no Docker, no PaaS; real Clerk auth required (fake
-  bearer token cannot ship to App Store review).
+  plain Ubuntu VPS, no Docker, no PaaS; real Clerk auth required.
 
 ## OUTSTANDING OPS / ENV FACTS
 - Native Postgres 18, localhost:5432, no Docker locally. apps/server/.env
