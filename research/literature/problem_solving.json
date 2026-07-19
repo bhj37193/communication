@@ -208,5 +208,405 @@
     ],
     "year": "2025",
     "url": "http://arxiv.org/abs/2510.13850v1"
+  },
+  {
+    "source": "europepmc",
+    "title": "Psychosocial interventions indicate prolonged survival in cancer patients in a systematic review, meta-analysis, and multiverse meta-analysis of randomized controlled trials.",
+    "abstract": "Whether psychosocial interventions containing active psychological components prolong survival in cancer patients has been studied for decades, yet findings from primary (RCTs) and secondary research (meta-analyses) remain inconclusive. Our preregistered systematic review, meta-analysis, and multiverse meta-analysis aimed to clarify this research question using contemporary methods of research synthesis. We searched Web of Science, Scopus, MEDLINE, PsycINFO, Embase, and Google Scholar for RCTs of structured psychosocial interventions for cancer patients published until October 17, 2025. We calculated the overall effect; assessed its robustness; estimated a median survival benefit, characterized the psychological components included in the interventions; examined risk of bias, study quality, meta-analytic post\u00a0hoc power, and sponsorship bias; explored 25 substantive and methodological moderators; and considered publication bias as well as p-hacking. Using multiverse meta-analysis, we calculated multiple overall effects based on reasonable specifications employed in prior meta-analyses (descriptive analysis) and compared them with the 95% CI band of 1000 simulated overall effects assuming no true effect (inferential analysis). Psychosocial interventions, provided alongside medical treatment, demonstrated a small, positive and robust overall effect on survival in cancer patients, with an HR of 0.80, 95% CI [0.71, 0.90] across 32 RCTs comprising 5704 participants. Heterogeneity was moderate to substantial with an I\u00b2 = 48% and a wide 95% PI (HR 0.49-1.29). Median survival time benefit was estimated at 3.9 months, 95% CI [\u2009-\u20090.7, 8.5], based on data from 16 trials. The psychological components most frequently applied were educational, cognitive-behavioral, emotionally expressive, and group-based social support. Low average meta-analytic post\u00a0hoc power (17%) likely contributed to inconsistent findings among trials. Multiverse meta-analysis confirmed the presence of a general overall survival effect and indicated that previously conflicting meta-analytic conclusions primarily stemmed from differences in effect size metrics and analytic decisions. Psychosocial (psychological) interventions appear to improve survival in cancer patients, with effect sizes comparable in magnitude to effects previously reported in the literature for medical cancer treatments such as chemo-, radio-, and hormone therapy. The certainty of evidence was rated moderate, primarily due to statistical heterogeneity, hence effects might not generalize equally to all populations. Considering survival impact, established psychological benefits, favorable safety profile, and comparatively low cost, the findings support a paradigm shift toward establishing psychosocial interventions alongside medical therapy as a standard component of comprehensive cancer care; potentially guiding future research and clinical practice.",
+    "authors": [
+      "Asakawa-Haas KD",
+      "Spiegel D",
+      "Bossert L",
+      "Garic A",
+      "Schwartz K",
+      "Voracek M",
+      "Tran US."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1038/s44271-026-00414-x"
+  },
+  {
+    "source": "europepmc",
+    "title": "Omega-3 Polyunsaturated Fatty Acid Supplementation in Children With Attention-Deficit Hyperactivity Disorder (ADHD).",
+    "abstract": "Omega-3 polyunsaturated fatty acids (PUFAs) have gained attention as a potential adjunctive treatment for attention-deficit hyperactivity disorder (ADHD) due to their roles in cognitive and neurobiological functions such as attention and focus, impulse control, executive function, working memory and neurotransmitter regulation, as well as brain\u00a0development, mainly prefrontal cortex. ADHD, characterized by cognitive and behavioral challenges, has limited therapeutic options, which has prompted interest in alternative treatments. This narrative review\u00a0evaluates six primary studies on omega-3 PUFA supplementation in children with ADHD, identified through a search of the PubMed database using outlined MeSH and text-word terms, and filtered for randomized controlled trials. The outcomes varied across studies, with some reporting significant improvements in cognition and behavior, while others found no omega-3 superiority over placebo. One study identified a potential association between increased erythrocyte omega-3 PUFA levels and improved literacy and attention, while others found that eicosapentaenoic acid and DHA supplementation significantly improved working memory function among children diagnosed with ADHD. Collectively, the studies suggest omega-3 PUFA supplementation as a potentially valuable adjunctive treatment for specific ADHD domains. However, methodological variations, inconsistent outcomes, and sample size limitations necessitate caution in drawing definitive conclusions. Further research with standardized protocols, larger samples, and extended intervention durations is imperative to elucidate the impact of omega-3 PUFA supplementation on ADHD symptoms in pediatric populations.",
+    "authors": [
+      "Hassanzadeh Mobini M",
+      "Boileau AJ."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.7759/cureus.93175"
+  },
+  {
+    "source": "europepmc",
+    "title": "The association between child maltreatment, cognitive reappraisal, negative coping styles, and non-suicidal self-injury in adolescents with major depressive disorder.",
+    "abstract": "<h4>Background</h4>Non-suicidal self-injury (NSSI) is a significant public health concern among adolescents with major depressive disorders (MDD). Although previous research has linked child maltreatment (CM) to NSSI, the precise mechanisms remain unclear. This study aims to investigate the association between CM, cognitive reappraisal (CR), negative coping styles (NC) and NSSI in adolescents with MDD, from the perspectives of both Latent Variable Theory and the Network Theory of Mental Disorder.<h4>Methods</h4>A sample of 651 adolescents with MDD was recruited from January to December 2023. Data on CM, CR, NC, and NSSI were collected through paper-based self-reported questionnaires.\u00a0Data analysis\u00a0primarily involved structural equation modeling and network analysis.<h4>Results</h4>The reporting rate of NSSI among adolescents with MDD was 48.2%. CM showed a significant positive correlation with NSSI. NSSI was affected by CM through three paths: the mediating role of CR, the mediating role of NC, and the chain mediating role of both CR and NC. Emotional abuse (EA) was the central node, while NSSI, EA, and \"The urge to cry quietly when faced with troubles\"(NC10) were the key bridge nodes.<h4>Conclusions</h4>This study is the first to use both structural equation modeling and network analysis to explore the explore the relationship between CM, CR, NC, and NSSI in adolescents with MDD, providing a theoretical basis for future early prevention and targeted interventions for adolescents with MDD.",
+    "authors": [
+      "Li Y",
+      "Wan Z",
+      "Gong X",
+      "Wen L",
+      "Sun T",
+      "Liu J",
+      "Xie X",
+      "Zhang C",
+      "Cai Z."
+    ],
+    "year": "2024",
+    "venue": "",
+    "url": "https://doi.org/10.1186/s12888-024-06041-2"
+  },
+  {
+    "source": "europepmc",
+    "title": "Artificial Intelligence for the Diagnosis and Management of Cancers: Potentials and Challenges.",
+    "abstract": "Cancer continues to be one of the primary causes of death worldwide. Although there has been substantial progress in clinical cancer care, the outcomes for cancer patients still remain poor. The rapid advancements of artificial intelligence (AI) will revolutionize cancer management by addressing current obstacles in oncology research and practice, ultimately enhancing healthcare accuracy and patient outcomes. Increasing evidence demonstrates that AI-based models can improve the accuracy and efficiency of cancer diagnosis and treatment by leveraging multilayer data. Cancer patients could greatly benefit from AI's promising prospects, yet few AI models have been authorized for clinical use. A comprehensive understanding of AI's basic principles, applications, and potential impacts is essential to foster its clinical translation. In this review, we provide an overview of fundamental AI techniques, encompassing machine learning and deep learning. Moreover, we summarize recent studies on AI's transformative role in cancer diagnosis, classification, and personalized treatment planning. Furthermore, we discuss the current challenges that hinder the widespread use of AI, propose potential solutions, and outline future directions. Overall, through systematic analysis of existing preclinical and clinical evidence, this review highlights the substantial potential of AI technology and provides valuable guidance for future research in AI-driven oncology.",
+    "authors": [
+      "Wang M",
+      "Chang W",
+      "Zhang Y."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1002/mco2.70460"
+  },
+  {
+    "source": "europepmc",
+    "title": "Addressing the autism mental health crisis: the potential of phenomenology in neurodiversity-affirming clinical practices.",
+    "abstract": "The neurodiversity movement has introduced a new era for autism research. Yet, the neurodiversity paradigm and the autism clinic remain largely unconnected. With the present work, we aim to contribute to filling this lacuna by putting forward phenomenology as a foundation for developing neurodiversity-affirming clinical interventions for autism. In the first part of this paper, we highlight that autistic people face a severe mental health crisis. We argue that approaches focused on reducing autistic 'symptoms' are unlikely to solve the problem, as autistic mental health is positively correlated with autism acceptance and perceived quality of support provided, not necessarily with lack of 'symptomatologic severity'. Therefore, the development and dissemination of neurodiversity-affirming clinical interventions is key for addressing the autism mental health crisis. However, therapists and researchers exploring such neurodiversity-affirming practices are faced with two significant challenges. First, they lack concrete methodological principles regarding the incorporation of neurodiversity into clinical work. Second, they need to find ways to acknowledge rightful calls to respect the 'autistic self' within the clinic, while also challenging certain beliefs and behaviors of autistic clients in a manner that is <i>sine qua non</i> for therapy, irrespective of neurotype. In the second part of the paper, we introduce phenomenological psychology as a potential resource for engaging with these challenges in neurodiversity-affirming approaches to psychotherapy. In this vein, we put forward specific directions for adapting cognitive behavioral and interpersonal psychotherapy for autism.",
+    "authors": [
+      "Pantazakos T",
+      "Vanaken GJ."
+    ],
+    "year": "2023",
+    "venue": "",
+    "url": "https://doi.org/10.3389/fpsyg.2023.1225152"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Sex Differences in Cardiovascular Disease and Cognitive Impairment: Another Health Disparity for Women?",
+    "abstract": "Although the number of Americans dying of cardiovascular disease (CVD) continues to increase since 2010 after decades of decrease, advances in the management of CVD have led to increased longevity among both women and men, with more people, mostly women, now surviving into their 80s and beyond.1 Paralleling this increased longevity, however, is an increasing prevalence of, and mortality from, neurodegenerative cognitive disorders.1 These cognitive disorders include dementia, a syndrome that has a multitude of causes and symptoms that ultimately have substantial impact on social and occupational activities and aspects of daily living.2 Typical symptoms of dementia include changes in memory, problem solving, language, and executive functioning.2 Although there are often distinct patterns, symptoms, and specific brain pathology associated with different dementias, multiple autopsy studies are now demonstrating that people with symptoms of a dementia will often have multiple brain pathologies noted at autopsy that were associated with the dementia.3, 4 Multiple reports document that approximately two thirds of those clinically diagnosed with Alzheimer dementia are women.5 Furthermore, it is estimated that by 2040 the number of Americans with some form of cognitive impairment (CI), including dementia, will be \u22488.3\u00a0million women and \u22483.3\u00a0million men.5 This sex\u2010related CI disparity is concerning and raises important questions about its possible relation to CVD and CVD\u2010related risk factor conditions. \n \nAlthough there are multiple types of dementia syndromes with different cognitive, behavioral, and pathological characteristics, the most common types are Alzheimer dementia and vascular cognitive impairment.6 Alzheimer dementia is characterized by an irreversible, progressive disorder that slowly destroys memory and thinking skills, and eventually the ability to perform simple tasks.7 Vascular cognitive impairment, a term that encompasses all levels of CI from its mildest form to vascular dementia, is characterized by progressive changes in behavior, function, and cognition caused by vascular injury (eg, strokes [infarcts], microbleeds [cerebral amyloid angiopathy and microhemmorhages]) or disease within the brain and includes deficits in executive functioning, attention, and language. This is in contrast to episodic memory deficits, which are more prominent in Alzheimer dementia. Increasingly, the term \u201cmixed dementia\u201d is used to describe the coexistence of both Alzheimer disease (AD) and vascular neuropathology in people experiencing dementia symptoms.8 \n \nIn 2018, new criteria for AD were established by the National Institute on Aging and Alzheimer's Association to recognize that the disease occurs across a continuum of pathologic changes that precede its clinical manifestations and culminates with Alzheimer dementia.9 The clinical syndrome is noted as Alzheimer dementia, and the term dementia caused by AD is used when neuroimaging biomarkers or biofluid markers or autopsy confirm the diagnosis. This distinction continues to highlight the ongoing research that shows that AD begins many years before the symptoms of Alzheimer dementia are present.10 The term mild cognitive impairment (MCI) is used in people with demonstrable CI who have not crossed the threshold to dementia. MCI can refer to either a predominantly memory (amnestic) or nonmemory (nonamnestic) cognitive deficit and can be the initial symptom of a dementia syndrome, but it may also be secondary to other conditions or disease processes.11 A meta\u2010analysis revealed that women have a higher prevalence of nonamnestic MCI but suggested no sex\u2010related differences in the incidence or prevalence of amnestic MCI.12 \n \nAt age 45\u00a0years, the lifetime risk for developing Alzheimer dementia is estimated at 1 in 5 for women versus only 1 in 10 for men.13 Possible reasons for this sex disparity, alone or more likely in combination, include greater longevity of women; their higher incidence of chronic diseases (particularly those CVD linked with CI), genetic predispositions, differences in cognitive testing performance (women outperform men on tests of verbal ability)14 (thereby potentially \u201cmasking\u201d any underlying cognitive deficits, resulting in a later presentation to the healthcare provider for complaints of change in cognitive function), socioeconomic, psychosocial, and biological factors.15 Education level and occupational attainment (eg employment) can impact cognitive resilience and explain some of the sex disparities noted in dementia.16, 17 Traditionally, older women may not have had as many opportunities for attaining a higher level of education nor an equal period of time in the workforce compared with men, thus possibly putting them at an increased risk for developing cognitive decline and dementia. However, results from studies continue to be mixed, as methodological issues, study design, and comparability across studies remain difficult. Lastly, among the psychosocial factors, caregiving has emerged as a potential risk factor for developing dementia. Sex differences in spousal care are highly prevalent for patients with dementia, with women delivering the majority of the care and spending more time devoted to care.18 The increased stress of caregiving, coupled with lower levels of social support and poor physical health, are increasingly being examined as strong risk factors for cognitive decline and dementia in female caregivers. \n \nIn addition to the aforementioned contributing factors of sex\u2010related differences in the dementia syndromes, this review examines sex differences in CVD and a broad range of CVD risk factors that may contribute to CI to explain, at least in part, the higher prevalence of dementias in women versus men. Potential implications of these sex differences are addressed in context for practitioners, our healthcare system, and related resource consumption. Important knowledge gaps are identified to direct the focus of future research. \n \nThe American College of Cardiology CVD in Women Committee identified this topic and invited experts in the fields of CVD and/or CI to contribute sections in their respective fields. They did their own literature searches and submitted their sections to the chair of the writing committee (ASV), who compiled and summarized the sections to create a cohesive document. Over 300 selected publications were reviewed, and those addressing sex differences or new information were included in this document. \n \nThis document is a summary of the topics that include stroke, microvascular or small\u2010vessel disease, and sex\u2010specific issues about differences in CVD that may help explain the increased prevalence of CI and dementia in women.",
+    "authors": [
+      "A. S. Volgman",
+      "C. B. Bairey Merz",
+      "N. T. Aggarwal",
+      "V. Bittner",
+      "T. J. Bunch",
+      "P. Gorelick",
+      "P. Maki",
+      "Hena Patel",
+      "A. Poppas",
+      "J. Ruskin",
+      "Andrea M. Russo",
+      "Shari R. Waldstein",
+      "N. Wenger",
+      "K. Yaffe",
+      "C. Pepine"
+    ],
+    "year": "2019",
+    "venue": "Journal of the American Heart Association : Cardiovascular and Cerebrovascular Disease",
+    "citation_count": 68,
+    "url": "https://www.semanticscholar.org/paper/194e8ecb0ec986c1da8a84fba120562e18116c54"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Now is the Right Time to Establish a New Strategy for Managing Chronic Cough as a Neuropathic Disorder",
+    "abstract": "No clinician would disagree with the fact that chronic cough is a very common and annoying clinical condition and is not so easy to treat as anticipated. Chronic cough is considerably heterogeneous in terms of clinical features and many possible underlying causative disorders. Indeed, managing chronic cough patients can be very tricky at times, especially when they show neither symptoms suggestive of certain disorders nor definite abnormalities in physical examination or chest X-rays. In consideration of its high prevalence and heterogeneity, several algorithmic approaches have been proposed for the diagnosis and management of chronic cough,1 though there have been no widely accepted guidelines, such as GINA for asthma.2 The proposed algorithms mostly focus on diagnosing underlying causative diseases, such as asthma, rhinosinusitis, gastroesophageal reflux disease (GERD), and laryngopharyneal reflux, which are the common causes of chronic cough. The question is: Do most coughing patients get better when clinicians mainly focus on identification of culprit disorders with the guidelines? Unfortunately, the answer would not be affirmative. A substantial proportion of patients continue to suffer from chronic cough despite proper treatment of underlying diseases, and a significant number of patients are regarded as so-called idiopathic chronic cough.3 Although chronic cough is an umbrella term encompassing various underlying diseases and the importance of searching for the specific diagnosis for each patient should not be ignored, diagnosing the underlying disease is definitely not sufficient to solve this bothersome problem. \n \nWhat is interesting in the article on this issue by Song et al.4. is that almost all chronic cough patients show symptoms strongly suggestive of neuropathy, namely hypertussivity to capsaicin and allotussivity to cold air regardless of underlying diseases, which are consistent with those of other previous studies.5,6 Those observations lead to a reasonable assumption that the same pathophysiologic mechanism may function to generate the symptom 'chronic cough' in a variety of underlying disorders. Moreover, it would be further speculated that the level of contribution of enhanced cough sensitivity to the development of chronic cough can be even greater than that of the causative disease itself. In fact, only a small proportion of patients with each of the representative diseases, such as asthma, postnasal drip, and GERD, suffer from chronic cough symptom.7 The socalled cough hypersensitivity syndrome is not a new concept anymore, and the results of the article on this issue support current understanding of the pathogenesis of chronic cough. A series of recent research has strongly indicated that increased cough sensitivity is closely linked to neuropathy of the cough reflex.8,9,10 The concept that chronic cough should be considered as a neuropathic disorder just like neuropathic chronic pain begins to be widely accepted. \n \nBoth pain and cough are primarily initiated by exciting specialized peripheral sensory fibers, named 'nociceptors.'9 Various irritating or potentially noxious stimuli are detected by these nociceptors and then induce cough or pain responses as a principal protective action through modulation of signals in the central nerve system.9 Neuropathy related to peripheral or central sensitization of the cough or pain reflex is expected to cause abnormally enhanced responses, which can result in both neuropathic chronic cough and pain.11,12 Presumably, sensory hypersensitivity induced by damage to the afferent nerve fibers in the airway or the esophagus may underlie mechanisms of cough, and peripheral nerve injury can be associated with airway inflammation or refluxed acidic gastric contents. Interestingly, peripheral sensitization in the cough reflex circuit has been strongly suggested to be linked to central sensitization, which also contributes to the development of chronic cough.13 Recently, a few clinical studies have been published, supporting the idea that neuropathy of the cough reflex critically leads to the development of chronic cough through generating exaggerated cough responses to low-level tussigenic or nontussigenic stimuli. In line with these ideas, amitriptyline and gabapentin, which are frequently used to treat chronic pain with neuropathy, successfully reduce cough symptoms in chronic cough patients.14,15 These results not only prove the efficacy of such drugs as antitussives but also demonstrate involvement of central neural pathway sensitization in refractory chronic cough. \n \nNow, many investigators are curious about molecular mechanisms involved in the induction of cough hypersensitivity. The expression of transient receptor potential vanilloid 1 (TRPVI), which is a capsaicin-sensitive sensor on nerves, has been reported to be significantly increased in chronic cough patients.16 Currently, TRPV1 is known to play an important role in the regulation of afferent nerve excitability to various chemical stimuli and is also considered a potential target molecule for modulating cough sensitivity. Several other molecules, such as N-methyl-D-aspartate receptors on second neurons,17 nerve growth factor,18 substance P,19 and calcitonin gene-related peptide,20 have been shown to have increased expression in neuronal cells and airway epithelium of chronic cough patients and to be critically related to increased cough sensitivity. The precise molecular mechanism underlying cough hypersensitivity, however, has not yet been clearly elucidated, so there is an urgent need to clarify the mechanism through further studies. \n \nAcknowledging chronic cough as a neuropathic disorder would greatly affect future strategies for the diagnosis and management of chronic cough. Specific treatment to correct altered cough sensitivity will become an independent therapeutic approach, while current practice mainly focuses on treating underlying disorders. In order to correct enhanced cough sensitivity, treatment of the neuropathy in the cough neural reflex pathway would be essential. Accordingly, research into precise pathogenetic mechanisms underlying increased cough sensitivity will be actively carried out. Given that much research into neuropathic chronic pain has already been performed, studies on chronic neuropathic cough seem to be rather too late. Also, standardization of methods of assessing the level of cough sensitivity will be necessary. For instance, the capsaicin inhalation test has most frequently been used to determine if the cough reflex response is altered. However, interpretation of test results is often difficult because there is neither the reliable reference range of tussive response nor the standardized operating protocol. Still, experts have not agreed upon the ideal method to determine the level of cough hypersensitivity: for instance counting the total number of induced coughs versus determining the provocation concentration of capsaicin that induces a certain number of coughs. Moreover, there are neither solid diagnostic tests nor biomarkers to detect neuropathic status in chronic cough patients. Another problem that we are faced with is that there is no standardized questionnaire to evaluate symptoms or signs suggestive of enhanced cough sensitivity. Above all, standardization of tests to diagnose neuropathy and enhanced cough sensitivity is an urgent problem to solve. \n \nMeanwhile, what should be ready in the clinical area to prepare for future strategic changes in the management of chronic cough? The study on this issue has suggested some answers.4 In that study, clinical features related to responses to the capsaicin cough provocation test were presented and summarized in chronic cough patients. They also tried to evaluate the value in questionnaires to detect allotussivity or hypertussivity. Clinical characteristics of chronic cough patients as a whole should be defined and analyzed by using various clinical data obtained from a large number of patients because chronic cough, as a neuropathic disorder, has not been considered one disease entity. With a more precise definition of clinical characteristics of chronic cough patients, we will be able to come up with better designed clinical studies to prove the efficacy of novel therapeutics and to investigate useful biomarkers in the future. Taken together, in order to improve the management of chronic cough, it is fundamental to standardize various diagnostic tests for measuring cough sensitivity and to characterize clinical features of chronic neuropathic cough patients regardless of underlying causative diseases. \n \nApproaches to chronic cough are now focusing on one common critical pathophysiology, namely cough reflex neuropathy despite the diversity of underlying disorders. Thus, antitussive agents specifically targeting enhanced nociceptor responsiveness are expected to be ideal drugs for treating chronic cough patients besides treatment of underlying diseases. Interestingly enough, it contrasts with recent changes in asthma, which has long been treated as one disease entity, but is now recognized as a heterogeneous disease syndrome2 and many attempts to classify the disease into various pheno-endotypes are under process in pursuit of personalized medicine. Hopefully, all of the chronic cough patients can return to their normal daily lives with novel antitussive agents that can effectively correct abnormal cough responses by modulating the cough reflex neuronal circuit in the near future.",
+    "authors": [
+      "Y. Cho"
+    ],
+    "year": "2014",
+    "venue": "Allergy Asthma and Immunology Research",
+    "citation_count": 1,
+    "url": "https://www.semanticscholar.org/paper/523cfbc82d4b257cab01cb1fb9f57a400951abd9"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "7. Militants and Martyrs: Evolutionary Perspectives on Religion and Terrorism",
+    "abstract": "Recent theoretical developments in the evolutionary study of religion focus on four crossculturally recurrent features of religion: communal participation in costly ritual, belief in supernatural agents and counterintuitive concepts, separation of the sacred and the profane, and adolescence as the critical life phase for the transmission of religious beliefs and values. These four characteristics constitute an adaptive complex that evolved to solve problems of group cooperation and commitment, problems faced by all terrorist organizations. In this chapter we examine how terrorists employ these features of religion to achieve their goals and argue that evolutionary analyses of religion are essential for understanding current trends in terrorist activity. Terrorists utilize costly rituals to conditionally associate emotions with sanctified symbols and signal group commitments. These sanctified symbols are emotionally evocative and motivationally powerful, fostering in-group solidarity, trust, and cooperation. Religious beliefs, including promised rewards in the afterlife, further serve to facilitate cooperation by altering the perceived payoffs of costly actions, including suicide terrorism. Patterns of brain development unique to adolescence render this the ideal developmental stage to attract recruits, expose them to sacred beliefs, and enlist them in high-risk behaviors. We conclude by offering areas for future research and policy recommendations based on our evolutionary analysis. For Natural Security: A Darwinian Approach to a Dangerous World, eds. Rafe Sagarin & Terrence Taylor, University of California Press. Militants and Martyrs / Sosis and Alcorta 2 The main argument of this chapter is that evolutionary studies of religion are vital for understanding the proliferation, patterns, and logic of current trends in terrorist activity. The importance of this message is becoming increasingly evident. As Simon and Benjamin (2000:59) prophetically warned before 9/11, the threat of terrorism will \u201cintensify, because the old paradigm of predominantly state-sponsored terrorism has been joined by a new, religiously motivated terrorism...\u201d Indeed, in recent years there has been a rise in the proportion of terrorists motivated by religious concerns and there is a significant correlation between religious motivation and lethality (Hoffman 1998). Simon and Benjamin argue that state-sponsored terrorism is somewhat constrained since states do not want to undercut their claims of legitimacy and alienate potential supporters who would revile indiscriminate violence against civilians. In contrast, the new religiously motivated terrorists \u201cwant a lot of people watching and a lot of people dead\u201d (Simon and Benjamin 2000:71). Why is religiously motivated terrorism becoming more common? And why is it more deadly? What governmental policies can stem religiously motivated violence? We believe evolutionary research on religion can provide novel insights and timely answers to these pressing questions. In this chapter we first examine the relationship between religion and terrorist activity and clarify religion\u2019s role in causing, motivating, and facilitating terror. Next we present recent work on the evolution of religion and show how this research can help us understand current patterns of terrorism. The chapter concludes with future research questions and policy implications derived from our evolutionary approach. What is the Relationship between Religion and Terrorism? While the literature on terrorism offers widely divergent opinions on almost every topic, one matter is clear; not all terrorists are religious fanatics, or even religious. Nonetheless, it is also apparent that religiously motivated terrorism is on the rise and it is alarmingly more lethal than other forms of terrorism. One possible explanation for the lethality of religious terrorism is that it is more closely linked to suicide terrorism, which accounts for only 3% of all terrorist activity from 1980 through 2003, but 48% of the fatalities (Pape 2005:6). Some researchers have indeed argued that religious motivations are more commonly associated with suicide terrorism (Berman and Laitin 2005; Hoffman 2003), although others have rejected this connection (Bloom Militants and Martyrs / Sosis and Alcorta 3 2005; Pape 2005). In support of the latter position, it has been widely observed that the Liberation Tigers of Tamil Eelam (LTTE), a Marxist-Leninist group demanding independence from Sri Lanka, were the world leaders in suicide terrorism prior to the current insurgency in Iraq. Furthermore, Pape\u2019s (2005:210) analysis of data on suicide terrorism from 1980 to 2003 found that less than half of the suicide bombings documented during this period were religiously motivated. However, even if religiously motivated suicide bombers are not more common than their secular counterparts, they may be more successful in causing fatalities, as Berman and Laitin\u2019s (2005) data suggest. Below we argue that religion can institutionally and individually facilitate suicide attacks and other forms of terrorism, and that specific evolved elements of religion differentially contribute to these effects. We also contend that these evolved elements of religion are employed by both secular and religious terrorists alike in order to achieve their goals and create a committed and cohesive following. The media may be responsible for the popular belief that religion and terror are strongly associated. Terrorists, especially suicide terrorists, are often depicted in the media as delusional religious fundamentalists, hopelessly brainwashed and out of touch with reality. The picture that is emerging from recent research, however, is far different. For example, Berrebi (2003) has shown that Palestinian suicide bombers have above average education and are economically better off than the general population. Krueger and Maleckova (2002) also demonstrate that poverty is not a predictor of participation in political violence or support for terrorism. Moreover, Sageman (2004) found no evidence of psychopathology in an international sample of Muslim terrorists. Leaders of terrorist organizations are clear that recruits may not be depressed or suicidal. As one spokesman for the Palestinian Islamic Jihad explains, \u201cto be a martyr bomber you have to want to live\u201d (Richardson 2006:117). Terrorists themselves point out that even suicide bombers have plenty of hope, otherwise there would be no point in killing themselves (Atran 2003). If terrorists in general, and suicide bombers in particular, are not crazed religious zealots, what then is the relationship between religion and terrorism? Various researchers have argued that terrorists have political, not religious goals (Bloom 2005; Juergensmeyer 2003; Pape 2005). Religion is not the root cause of conflicts, but is rather a tool used by terrorists to achieve their goals. Recast in evolutionary terms, religious beliefs, rituals, and institutions are proximate Militants and Martyrs / Sosis and Alcorta 4 mechanisms that facilitate otherwise improbable behavioral outcomes. Here we review four main reasons why religion serves as an effective mechanism for terrorists. Framing the conflict. Juergensmeyer (2003) argues that while religion is not the cause of most conflicts involving terror, religion is the means by which terrorists translate a local political struggle into a cosmic war. In other words, terrorists often frame their disputes in religious rather than political terms. This has various advantages, most significantly in motivating others to sacrifice themselves for the cause. This transformation from political to religious struggle encourages actors to perceive that they are participating in something of divine significance that transcends individual self-interest. Among Sikh militants in the Punjab, Juergensmeyer describes joining the struggle as \u201cmotivated by the heady sense of spiritual fulfillment and the passion of holy war\u201d (2004a:2). It is remarkable how successful contemporary terrorists have been in shaping world views so that they are consistent with their own views. Bin Laden, for instance, has been particularly successful in transforming his local grievance (getting U.S. troops off \u201cMuslim\u201d soil) into a cosmic clash between civilizations. The use of religion to transform local power struggles into cosmic conflicts benefits terrorist groups who may otherwise be viewed as economically and politically self-serving. In an age of instantaneous electronic communications, such religious framing of essentially local conflicts serves to broaden both the ideological and geographic base of terrorism. A second consequence of the religious framing of political conflicts is the extension of the horizon for victory. Terrorists perceive that they are fighting a cosmic war in divine time, thus eliminating incentives to \u201cwin\u201d within one\u2019s own lifetime. Commenting on an interview with Hamas leader Abdul Aziz Rantisi, Juergensmeyer observes that \u201c[i]n his calculation, the struggles of God can endure for eons\u201d (2004b:35). Moral justification. Religion also facilitates terrorists\u2019 goals by providing moral legitimacy to their cause (Juergensmeyer 2004c). All contemporary world religions impose a moral framework upon their adherents, thereby enabling terrorists to present their conflicts in morally absolute dichotomies, such as good versus bad or righteous versus evil. While legitimizing ones\u2019 own cause, religions are particularly effective at demonizing those with opposing views. The history of religion is replete with examples in which in-group passions are aroused and out-group hatreds are dangerously ignited. Indeed, one consistent predictor of suicide terrorism is a Militants and Martyrs / Sosis and Alcorta 5 religious difference between the perpetrator and victim (Pape 2005). This occurs even when the terrorist group appears to have secular motivations, such as the ",
+    "authors": [
+      "R. Sosis",
+      "C. Alcorta"
+    ],
+    "year": "2019",
+    "venue": "",
+    "citation_count": 10,
+    "url": "https://www.semanticscholar.org/paper/4986249c6c94663b65188d70f4ea63987535f1b1"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Would You Recommend Prostate-Specific Antigen Screening for This Patient?",
+    "abstract": "About Beyond the Guidelines Beyond the Guidelines is a multimedia feature based on selected clinical conferences at Beth Israel Deaconess Medical Center (BIDMC). Each educational feature focuses on the care of a patient who falls between the cracks in available evidence and for whom the optimal clinical management is unclear. Such situations include those in which a guideline finds evidence insufficient to make a recommendation, a patient does not fit criteria mapped out in recommendations, or different organizations provide conflicting recommendations. Clinical experts provide opinions and comment on how they would approach the patient's care. Videos of the patient and conference, the slide presentation, and a CME/ MOC activity accompany each article. For more information, visit www.annals.org/GrandRounds. Series Editor, Annals: Deborah Cotton, MD, MPH Series Editor, BIDMC: Risa B. Burns, MD, MPH Series Assistant Editors: Eileen E. Reynolds, MD; Gerald W. Smetana, MD; Anjala Tess, MD, Howard Libman, MD This article is based on the Department of Medicine Grand Rounds conference held on 24 January 2019. Mr. W is a 64-year-old man who had normal results (range, 2.5 to 3.4 g/L) on a series of prostate-specific antigen (PSA) tests between 2009 and 2013. In 2008, he had an elevated PSA level on a single test after a prolonged bicycle ride, but on repeated testing 6 months later, his PSA value was normal. In August 2018, he established care with a new primary care provider, who suggested repeated PSA testing. This time, his level was 7.8 g/L and was still elevated (6.2 g/L) 1 month later. Mr. W was referred to a urologist, who noted an enlarged, 30- to 40-g prostate on digital rectal examination. His percentage of free PSA was 11%, with an estimated probability of cancer of 28% (1). The urologist suggested a biopsy, but Mr. W opted to wait 6 months and repeat the PSA evaluation. Mr. W has a history of left ventricular outflow tract obstruction, gastroesophageal reflux disease, hyperlipidemia, chronic sinusitis, prediabetes, and anxiety. His current medications include citalopram, diltiazem, pantoprazole, rosuvastatin, and zolpidem as needed for sleep. He has no known drug allergies. He is retired and lives with his wife. Mr. W's Story I had my first PSA back in the 1990s. My understanding is that it was standard procedure. Subsequently, in 2008, I had a high PSA. I saw a urologist, and it was still high. I had participated in a 100-mile bicycle ride and was experiencing pain, so I figured that was the problem. I didn't take the doctor's advice and did not get a biopsy. Six months later, I had another PSA and it was normal, so I think I definitely made the right decision. After having several PSAs, I was advised that it was no longer considered necessary, because the diagnosis of prostate cancer often led to unnecessary treatment and the gain from early detection wasn't that great. So I went along and didn't have any done for a while. This summer, I got a new doctor, and she recommended I get a PSA. So I did, and I found out it was elevated. I was getting my blood drawn anywayzero cost, why not? I just didn't think to object. She called me and recommended I see a urologist. I went and had another blood test done, which also showed an elevated PSA. They looked at the free PSA, and my probability of having cancer is 28%, as I understand it. I have decided, after much hemming and hawing, to wait 6 months and have another PSA. I actually constructed a decision model. I drew out a decision chart, looking at the 2 options of getting a biopsy now versus waiting 6 months, and then calculated as best as I could what the change in probability of 10-year survival would be, depending on how I made that choice. So, that was how I arrived at what I think is a reasonable ballpark estimate: that there's probably only about 1% to 2% of prostate cancers that I would have to worry about a 6-month delay in diagnosis. The biggest cost that I am paying from screening would be anxiety related to it. I recognize that there has been a little bit of anxiety, but for the most part I just go on with my life and I deal with it when I have to deal with it. At this point, I have made the decision to wait until my next appointment to get another PSA. So, I am fairly comfortable with that. See the Patient Video to view the patient telling his story. Context, Evidence, and Guidelines Prostate cancer is the third most common cancer type in the United States overall, accounting for 9.5% of new cancer cases and 5% of cancer deaths. Approximately 11% of men will receive a diagnosis of prostate cancer during their lifetime, with 98% surviving 5 years or longer. Prostate cancer is more common in older than younger men, in men with a family history of prostate cancer, and in men of African American descent, all of whom also have higher mortality rates (2). The goal of PSA-based prostate cancer screening is to identify early-stage disease that can be treated successfully. The U.S. Preventive Services Task Force (USPSTF) reviewed evidence on the benefits and harms of PSA-based screening and treatment of screen-detected prostate cancer (3). The evidence review found that PSA-based screening programs in men aged 55 to 69 years may prevent 1.3 deaths from prostate cancer over 13 years per 1000 men screened (4, 5) and 3 cases of metastatic prostate cancer per 1000 men screened (4), with no reduction in all-cause mortality. Data were inadequate to determine whether the benefits for men at highest risk differed from those at average risk, or whether those at highest risk should begin screening before age 55. Finally, the review found adequate evidence that men aged 70 years and older receive no benefit from PSA-based screening. Harms of PSA testing include those resulting from the screening test itself as well as from subsequent diagnosis and treatment. Harms from screening include false-positive results and psychological effects. False-positive results are common; 1 study showed that among men screened every 2 to 4 years for 10 years, more than 15% have 1 false-positive result (6). Harms from diagnostic procedures (transrectal ultrasound-guided core needle prostate biopsy) include pain, hematospermia, bleeding, infection, and hospitalization. Other harms include overdiagnosis (the diagnosis of prostate cancer in men whose cancer would never have become symptomatic during their lifetime and for whom treatment would provide no benefit) and overtreatment. Data from randomized controlled trials suggest that 20% to 50% of prostate cancer cases diagnosed through screening may be overdiagnosed (4). Treatment with surgery or radiation may result in major adverse effects, including death, urinary incontinence, erectile dysfunction, and rectal and fecal incontinence (3). For men with low-risk prostate cancer, active surveillance and watchful waiting offer the option to forgo treatment in favor of ongoing monitoring. With active surveillance, the patient is followed closely according to a defined protocol with the intention of receiving active treatment if deemed necessary. In contrast, watchful waiting does not include the intention of active treatment unless symptoms develop. The USPSTF considered whether certain screening and follow-up procedures could reduce overdiagnosis by lowering the age at which to stop screening or extending the interval between screenings, or by using a higher PSA threshold for biopsy. Although no strategy completely eliminated overdiagnosis, PSA-based screening every 2 to 4 years instead of annually seemed to reduce overdiagnosis, with a small reduction in mortality benefit (7). The USPSTF concluded that the decision for men aged 55 to 69 years to have PSA-based screening should be an individual one and should include a discussion of the potential benefits and harms, as shown in the Figure (8). The American Urological Association (AUA) offers similar guidance (9). Furthermore, the AUA concurs that a routine screening interval of 2 years or longer may be preferred over annual screening. Figure. Potential outcomes for men who choose to be screened for prostate cancer. Men who are considering prostate cancer screening should talk with a health care professional and become informed about the potential benefits and harms of prostate-specific antigenbased screening. (Reproduced from U.S. Preventive Services Task Force [8]; a color PDF version of the figure is available at www.uspreventiveservicestaskforce.org/Home/GetFileByID/3795.). ERSPC = European Randomized Study of Screening for Prostate Cancer; PIVOT = Prostate Cancer Intervention Versus Observation Trial; ProtecT = Prostate Testing for Cancer and Treatment; PSA = prostate-specific antigen; SPCG-4 = Scandinavian Prostate Cancer Group Study Number 4. Clinical Questions To structure a debate between our 2 discussants, we mutually agreed on the following key questions to consider when applying this guideline to clinical practice and to Mr. W in particular. 1. What are the key points of a shared decision-making conversation about the potential benefits and harms of PSA-based screening? 2. What PSA-based screening strategy optimizes benefit and minimizes harm? 3. At what PSA threshold would you recommend further diagnostic testing, and what would you recommend for Mr. W? Discussion An Internist's Viewpoint (Dr. Douglas K. Owens) Question 1: What are the key points of a shared decision-making conversation about the potential benefits and harms of PSA-based screening? A decision regarding screening for prostate cancer is one of the most challenging in cancer screening. Although a few men with aggressive prostate cancer may benefit, many more are likely to be harmed from overdiagnosis, overtreatment, and adverse effects of treatment. Thus, the goal of shared decision making is to help men understand the potential benefits and harms of screening and to clarify their preferences (1012). How a man weighs t",
+    "authors": [
+      "R. Burns",
+      "A. Olumi",
+      "D. Owens",
+      "G. Smetana"
+    ],
+    "year": "2019",
+    "venue": "Annals of Internal Medicine",
+    "citation_count": 2,
+    "url": "https://www.semanticscholar.org/paper/9ddfb1fb36b8658edad23931190abb7dac972f71"
+  },
+  {
+    "source": "openalex",
+    "title": "Problem-Solving Appraisal and Human Adjustment",
+    "abstract": "This article reviews and synthesizes more than 120 studies from 20 years (1982-2002) of research that has examined problem-solving appraisal as measured by the Problem Solving Inventory (PSI). The goals of the article are fourfold: (a) introduce the construct of problem-solving appraisal and the PSI within the applied problem-solving literature, (b) summarize and integrate existing findings using the PSI within and across four major content areas (psychological adjustment, physical health, coping, and educational and vocational issues), (c) identify promising research directions that might stimulate future research and promote theory development, and (d) identify implications for practitioners in the helping professions. We conclude that problem-solving appraisal as measured by the PSI is a useful psychological construct with implications for theory and many applications to build on peoples' strengths to enhance their life satisfaction and well-being.",
+    "authors": [
+      "P. Paul Heppner",
+      "Thomas E. Witty",
+      "Wayne A. Dixon"
+    ],
+    "year": "2004",
+    "venue": "The Counseling Psychologist",
+    "citation_count": 220,
+    "url": "https://doi.org/10.1177/0011000003262793"
+  },
+  {
+    "source": "openalex",
+    "title": "Mechanisms of low back pain: a guide for diagnosis and therapy",
+    "abstract": "Chronic low back pain (CLBP) is a chronic pain syndrome in the lower back region, lasting for at least 3 months. CLBP represents the second leading cause of disability worldwide being a major welfare and economic problem. The prevalence of CLBP in adults has increased more than 100% in the last decade and continues to increase dramatically in the aging population, affecting both men and women in all ethnic groups, with a significant impact on functional capacity and occupational activities. It can also be influenced by psychological factors, such as stress, depression and/or anxiety. Given this complexity, the diagnostic evaluation of patients with CLBP can be very challenging and requires complex clinical decision-making. Answering the question \"what is the pain generator\" among the several structures potentially involved in CLBP is a key factor in the management of these patients, since a mis-diagnosis can generate therapeutical mistakes. Traditionally, the notion that the etiology of 80% to 90% of LBP cases is unknown has been mistaken perpetuated across decades. In most cases, low back pain can be attributed to specific pain generator, with its own characteristics and with different therapeutical opportunity. Here we discuss about radicular pain, facet Joint pain, sacro-iliac pain, pain related to lumbar stenosis, discogenic pain. Our article aims to offer to the clinicians a simple guidance to identify pain generators in a safer and faster way, relying a correct diagnosis and further therapeutical approach.",
+    "authors": [
+      "Massimo Allegri",
+      "Silvana Montella",
+      "Fabiana Salici",
+      "Adriana Maria Silva Lima Valente",
+      "Maurizio Marchesini",
+      "Christian Compagnone",
+      "Marco Baciarello",
+      "Maria Elena Manferdini",
+      "Gregory C. Fanelli"
+    ],
+    "year": "2016",
+    "venue": "F1000Research",
+    "citation_count": 303,
+    "url": "https://doi.org/10.12688/f1000research.8105.2"
+  },
+  {
+    "source": "openalex",
+    "title": "Problems in Argument Analysis and Evaluation",
+    "abstract": "We are pleased to publish this WSIA edition of Trudy\u2019s Govier\u2019s seminal volume, Problems in Argument Analysis and Evaluation. Originally published in 1987 by Foris Publications, this was a pioneering work that played a major role in establishing argumentation theory as a discipline. Today, it is as relevant to the field as when it first appeared, with discussions of questions and issues that remain central to the study of argument. It has defined the main approaches to many of those issues and guided the ways in which we might respond to them. From this foundation, it sets the stage for further investigations and emerging research. This is a second edition of the book that is corrected and updated by the author, with new prefaces to each chapter.",
+    "authors": [
+      "Trudy Govier"
+    ],
+    "year": "1987",
+    "venue": "",
+    "citation_count": 327,
+    "url": "https://doi.org/10.1515/9783110859249"
+  },
+  {
+    "source": "openalex",
+    "title": "Cognitive Impairment and Dementia in Parkinson\u2019s Disease: Clinical Features, Diagnosis, and Management",
+    "abstract": "Parkinson's disease (PD) is a common, disabling, neurodegenerative disorder. In addition to classical motor symptoms, non-motor features are now widely accepted as part of the clinical picture, and cognitive decline is a very important aspect of the disease, as it brings an additional significant burden for the patient and caregivers. The diagnosis of cognitive decline in PD, namely mild cognitive impairment (MCI) and dementia, can be extremely challenging, remaining largely based on clinical and cognitive assessments. Diagnostic criteria and methods for PD dementia and MCI have been recently issued by expert work groups. This manuscript has synthesized relevant data in order to obtain a pragmatic and updated review regarding cognitive decline in PD, from milder stages to dementia. This text will summarize clinical features, diagnostic methodology, and therapeutic issues of clinical decline in PD. Relevant clinical genetic issues, including recent advances, will also be approached.",
+    "authors": [
+      "Joana Meireles",
+      "Jo\u00e3o Massano"
+    ],
+    "year": "2012",
+    "venue": "Frontiers in Neurology",
+    "citation_count": 173,
+    "url": "https://doi.org/10.3389/fneur.2012.00088"
+  },
+  {
+    "source": "openalex",
+    "title": "Integration of oncology and palliative care: a Lancet Oncology Commission",
+    "abstract": "Full integration of oncology and palliative care relies on the specific knowledge and skills of two modes of care: the tumour-directed approach, the main focus of which is on treating the disease; and the host-directed approach, which focuses on the patient with the disease. This Commission addresses how to combine these two paradigms to achieve the best outcome of patient care. Randomised clinical trials on integration of oncology and palliative care point to health gains: improved survival and symptom control, less anxiety and depression, reduced use of futile chemotherapy at the end of life, improved family satisfaction and quality of life, and improved use of health-care resources. Early delivery of patient-directed care by specialist palliative care teams alongside tumour-directed treatment promotes patient-centred care. Systematic assessment and use of patient-reported outcomes and active patient involvement in the decisions about cancer care result in better symptom control, improved physical and mental health, and better use of health-care resources. The absence of international agreements on the content and standards of the organisation, education, and research of palliative care in oncology are major barriers to successful integration. Other barriers include the common misconception that palliative care is end-of-life care only, stigmatisation of death and dying, and insufficient infrastructure and funding. The absence of established priorities might also hinder integration more widely. This Commission proposes the use of standardised care pathways and multidisciplinary teams to promote integration of oncology and palliative care, and calls for changes at the system level to coordinate the activities of professionals, and for the development and implementation of new and improved education programmes, with the overall goal of improving patient care. Integration raises new research questions, all of which contribute to improved clinical care. When and how should palliative care be delivered? What is the optimal model for integrated care? What is the biological and clinical effect of living with advanced cancer for years after diagnosis? Successful integration must challenge the dualistic perspective of either the tumour or the host, and instead focus on a merged approach that places the patient's perspective at the centre. To succeed, integration must be anchored by management and policy makers at all levels of health care, followed by adequate resource allocation, a willingness to prioritise goals and needs, and sustained enthusiasm to help generate support for better integration. This integrated model must be reflected in international and national cancer plans, and be followed by developments of new care models, education and research programmes, all of which should be adapted to the specific cultural contexts within which they are situated. Patient-centred care should be an integrated part of oncology care independent of patient prognosis and treatment intention. To achieve this goal it must be based on changes in professional cultures and priorities in health care.",
+    "authors": [
+      "Stein Kaasa",
+      "Jon H\u00e5vard Loge",
+      "Matti Aapro",
+      "Tit Albreht",
+      "Rebecca Anderson",
+      "\u00c9duardo Bruera",
+      "Cinzia Brunelli",
+      "Augusto Caraceni",
+      "Andr\u00e9s Cervantes",
+      "David C. Currow",
+      "Luc Deli\u00ebns",
+      "Marie Fallon",
+      "Xavier G\u00f3mez\u2010Batiste",
+      "Kjersti St\u00f8en Grotmol",
+      "Breffni Hannon",
+      "Dagny Faksv\u00e5g Haugen",
+      "Irene J Higginson",
+      "Marianne Jensen Hjermstad",
+      "David Hui",
+      "Karin Jordan",
+      "Geana Paula Kurita",
+      "Philip Larkin",
+      "Guido Miccinesi",
+      "Friedemann Nauck",
+      "Rade Pribakovic",
+      "Gary Rodin",
+      "Per Sj\u00f8gren",
+      "Patrick Stone",
+      "Camilla Zimmermann",
+      "Tonje Lundeby"
+    ],
+    "year": "2018",
+    "venue": "The Lancet Oncology",
+    "citation_count": 843,
+    "url": "https://doi.org/10.1016/s1470-2045(18)30415-7"
+  },
+  {
+    "source": "openalex",
+    "title": "Expert consensus on irrigation and intracanal medication in root canal therapy",
+    "abstract": "Chemical cleaning and disinfection are crucial steps for eliminating infection in root canal treatment. However, irrigant selection or irrigation procedures are far from clear. The vapor lock effect in the apical region has yet to be solved, impeding irrigation efficacy and resulting in residual infections and compromised treatment outcomes. Additionally, ambiguous clinical indications for root canal medication and non-standardized dressing protocols must be clarified. Inappropriate intracanal medication may present side effects and jeopardize the therapeutic outcomes. Indeed, clinicians have been aware of these concerns for years. Based on the current evidence of studies, this article reviews the properties of various irrigants and intracanal medicaments and elucidates their effectiveness and interactions. The evolution of different kinetic irrigation methods, their effects, limitations, the paradigm shift, current indications, and effective operational procedures regarding intracanal medication are also discussed. This expert consensus aims to establish the clinical operation guidelines for root canal irrigation and a position statement on intracanal medication, thus facilitating a better understanding of infection control, standardizing clinical practice, and ultimately improving the success of endodontic therapy.",
+    "authors": [
+      "Xiaoying Zou",
+      "Xin Zheng",
+      "Yu-Hong Liang",
+      "Chengfei Zhang",
+      "Bing Fan",
+      "Jingping Liang",
+      "Junqi Ling",
+      "Zhuan Bian",
+      "Qing Yu",
+      "Benxiang Hou",
+      "Zhi Chen",
+      "Xi Wei",
+      "Lihong Qiu",
+      "Wenxia Chen",
+      "Wenxi He",
+      "Xin Xu",
+      "Liuyan Meng",
+      "Chen Zhang",
+      "Liming Chen",
+      "Shuli Deng",
+      "Yayan Lei",
+      "Xiaoli Xie",
+      "Xiaoyan Wang",
+      "Jinhua Yu",
+      "Jin Zhao",
+      "Shen Song",
+      "Xuedong Zhou",
+      "Lin Yue"
+    ],
+    "year": "2024",
+    "venue": "International Journal of Oral Science",
+    "citation_count": 120,
+    "url": "https://doi.org/10.1038/s41368-024-00280-5"
+  },
+  {
+    "source": "openalex",
+    "title": "The Coping Circumplex Model: An Integrative Model of the Structure of Coping With Stress",
+    "abstract": "It seems obvious that the identification of coping structure is necessary to understand how stress affects human health and functioning. Despite numerous coping conceptualization proposals, there is no agreement as to the core coping categories. This article presents the Coping Circumplex Model (CCM), which is designed to integrate various coping distinctions, drawing inspiration from the tradition of circumplex models in psychology. The model is based on the assumption that individuals in stressful situations face two tasks: they need to solve the problem and regulate their emotions, which are reflected in two corresponding dimensions, that is, the problem coping dimension and emotion coping dimension. Problem coping and emotion coping are interpreted as bipolar dimensions. Importantly, these dimensions define a space for other coping categories. The model contains a total of eight coping styles forming a circumplex: positive emotional coping, efficiency, problem solving, preoccupation with the problem, negative emotional coping, helplessness, problem avoidance, and hedonic disengagement. The paper discusses the potential of the CCM to overcome some of the problems of stress psychology by: (a) supplementing the set of coping categories (i.e., process, strategy, style) with coping mode; (b) providing a foundation for the integration of numerous coping constructs; (c) enabling the interpretation of results obtained by means of different coping measures, thus facilitating knowledge consolidation; (d) explaining relationships between coping and adjustment after trauma, as well as explaining the mechanisms of psychological interventions (e.g., cognitive therapy, exposure therapy); (e) clarifying linkages between the effectiveness of coping strategies and situation controllability. Moreover, the CCM may elucidate the relationship between coping and emotion regulation (e.g., cognitive reappraisal and expressive suppression).",
+    "authors": [
+      "Krzysztof Stanis\u0142awski"
+    ],
+    "year": "2019",
+    "venue": "Frontiers in Psychology",
+    "citation_count": 397,
+    "url": "https://doi.org/10.3389/fpsyg.2019.00694"
+  },
+  {
+    "source": "openalex",
+    "title": "Intelligent Diagnosis Systems",
+    "abstract": "This paper examines and compares several different approaches to the design of intelligent systems for diagnosis applications. These include expert systems (or knowledge-based systems), truth (or reason) maintenance systems, case-based reasoning systems, and inductive approaches like decision trees, artificial neural networks (or connectionist systems), and statistical pattern classification systems. Each of these approaches is demonstrated through the design of a system for a simple automobile fault diagnosis task. The paper also discusses the domain characteristics and design and performance requirements that influence the choice of a specific technique (or a combination of techniques) for a given application.",
+    "authors": [
+      "Karthik Balakrishnan",
+      "Vasant Honavar"
+    ],
+    "year": "1998",
+    "venue": "Journal of Intelligent Systems",
+    "citation_count": 60,
+    "url": "https://doi.org/10.1515/jisys.1998.8.3-4.239"
+  },
+  {
+    "source": "openalex",
+    "title": "The neuropsychology of autism",
+    "abstract": "In this review, we aim to bring together major trends in autism research at three levels: biology, behaviour and cognition. We propose that cognitive theories are vital in neuropsychology, which seeks to make connections between brain abnormality and behavioural symptoms. Research at each of the three levels is incomplete, but important advances have been made. At the biological level, there is strong evidence for genetic factors, although the mechanism is, as yet, unknown. At the behavioural level, diagnosis and education are becoming more coherent and less controversial, although the possibility of autism subtypes has provoked new debate. At the cognitive level, three major theories are proving fruitful (mentalizing impairment, executive dysfunction and weak central coherence), although the relation and overlap between these is uncertain. Rapidly advancing technology and methodology (e.g. brain imaging, gene mapping), as tools of cognitive theory, may help to make autism one of the first developmental disorders to be understood at the neuropsychological level.",
+    "authors": [
+      "Francesca Happ\u00e9",
+      "Uta Frith"
+    ],
+    "year": "1996",
+    "venue": "Brain",
+    "citation_count": 461,
+    "url": "https://doi.org/10.1093/brain/119.4.1377"
+  },
+  {
+    "source": "openalex",
+    "title": "Psychosis and autism as diametrical disorders of the social brain",
+    "abstract": "Autistic-spectrum conditions and psychotic-spectrum conditions (mainly schizophrenia, bipolar disorder, and major depression) represent two major suites of disorders of human cognition, affect, and behavior that involve altered development and function of the social brain. We describe evidence that a large set of phenotypic traits exhibit diametrically opposite phenotypes in autistic-spectrum versus psychotic-spectrum conditions, with a focus on schizophrenia. This suite of traits is inter-correlated, in that autism involves a general pattern of constrained overgrowth, whereas schizophrenia involves undergrowth. These disorders also exhibit diametric patterns for traits related to social brain development, including aspects of gaze, agency, social cognition, local versus global processing, language, and behavior. Social cognition is thus underdeveloped in autistic-spectrum conditions and hyper-developed on the psychotic spectrum.;>We propose and evaluate a novel hypothesis that may help to explain these diametric phenotypes: that the development of these two sets of conditions is mediated in part by alterations of genomic imprinting. Evidence regarding the genetic, physiological, neurological, and psychological underpinnings of psychotic-spectrum conditions supports the hypothesis that the etiologies of these conditions involve biases towards increased relative effects from imprinted genes with maternal expression, which engender a general pattern of undergrowth. By contrast, autistic-spectrum conditions appear to involve increased relative bias towards effects of paternally expressed genes, which mediate overgrowth. This hypothesis provides a simple yet comprehensive theory, grounded in evolutionary biology and genetics, for understanding the causes and phenotypes of autistic-spectrum and psychotic-spectrum conditions.",
+    "authors": [
+      "Bernard J. Crespi",
+      "Christopher Badcock"
+    ],
+    "year": "2008",
+    "venue": "Behavioral and Brain Sciences",
+    "citation_count": 616,
+    "url": "https://doi.org/10.1017/s0140525x08004214"
+  },
+  {
+    "source": "openalex",
+    "title": "2017 HRS/EHRA/ECAS/APHRS/SOLAECE expert consensus statement on catheter and surgical ablation of atrial fibrillation",
+    "abstract": "Publicado tamb\u00e9m em: https://repositorio.unifesp.br/handle/11600/53933",
+    "authors": [
+      "Hugh Calkins",
+      "Gerhard Hindricks",
+      "Riccardo Cappato",
+      "Young\u2010Hoon Kim",
+      "Eduardo Saad",
+      "Luis Aguinaga",
+      "Joseph G. Akar",
+      "Vinay Badhwar",
+      "Jos\u00e9p Brugada",
+      "A. John Camm",
+      "Peng\u2010Sheng Chen",
+      "Shih-Ann Chen",
+      "Mina K. Chung",
+      "Jens Cosedis Nielsen",
+      "Anne B. Curtis",
+      "D. Wyn Davies",
+      "John Day",
+      "Andr\u00e9 d\u2019\u00c1vila",
+      "Natasja M.S. de Groot",
+      "Luigi Di Biase",
+      "Mattias Duytschaever",
+      "James R. Edgerton",
+      "Kenneth A. Ellenbogen",
+      "Patrick T. Ellinor",
+      "Sabine Ernst",
+      "Guilherme Fenelon",
+      "Edward P. Gerstenfeld",
+      "David E. Haines",
+      "Michel Ha\u00efssaguerre",
+      "Robert Helm",
+      "Elaine M. Hylek",
+      "Warren M. Jackman",
+      "Jos\u00e9 Jalife",
+      "Jonathan M. Kalman",
+      "Josef Kautzner",
+      "Hans Kottkamp",
+      "Karl Heinz Kuck",
+      "Koichiro Kumagai",
+      "Richard Lee",
+      "Thorsten Lewalter",
+      "Bruce D. Lindsay",
+      "Laurent Macle",
+      "Moussa Mansour",
+      "Francis E. Marchlinski",
+      "Gregory F. Michaud",
+      "Hiroshi Nakagawa",
+      "Andrea Natale",
+      "Stanley Nattel",
+      "Ken Okumura",
+      "Douglas L. Packer",
+      "Evgeny Pokushalov",
+      "Matthew R. Reynolds",
+      "Prashanthan Sanders",
+      "Maur\u00edcio Scanavacca",
+      "Richard J. Schilling",
+      "Claudio Tondo",
+      "Hsuan-Ming Tsao",
+      "Atul Verma",
+      "David J. Wilber",
+      "Teiichi Yamane"
+    ],
+    "year": "2017",
+    "venue": "Heart Rhythm",
+    "citation_count": 2734,
+    "url": "https://doi.org/10.1016/j.hrthm.2017.05.012"
   }
 ]

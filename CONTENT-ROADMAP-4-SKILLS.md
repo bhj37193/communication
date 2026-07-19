@@ -1,4 +1,4 @@
-# CONTENT-ROADMAP-4-SKILLS (v1, 2026-07-19)
+# CONTENT-ROADMAP-4-SKILLS (v2, 2026-07-19)
 
 Produced by Fable 5 against FABLE-PROMPT-EMPIRE.md Part 2. Locked inputs read in
 full: PRD-CHARISMA-CHAT.md, POSITIONING.md, ALPHA-MODEL-ANALYSIS.md,
@@ -6,15 +6,28 @@ content-library/README.md, content-library/CONTEXT.md, and the locked contracts
 packages/core/schemas.ts, validator.ts, score.ts. Every decision below is made, not
 proposed. No em-dashes anywhere.
 
+**Filename flag, stated plainly:** this file is still named
+CONTENT-ROADMAP-4-SKILLS.md (unchanged, to avoid breaking existing cross-refs in
+primer.md and elsewhere), but as of v2 it specs 5 skills, not 4. The user
+explicitly unlocked the prior "4-skill taxonomy final" locked decision on
+2026-07-19 and added Behavior Science as the 5th, framed as applied and technical
+(the user's own words: "into technical terms to actually transform our
+behavior"), not as a credibility-anchor. See 0.1, 0.2, 0.3, and Section 1.5 for
+the full spec.
+
 ## THE FINAL SKILL LIST (read this first)
 
 The working assumption was: Communication, Problem-Solving, Cognitive [training],
-Decision-Making. The final list this document uses is:
+Decision-Making. The v1 list was:
 
 1. **Communication** (unchanged, already built)
 2. **Problem-Solving** (name kept, scope sharpened to diagnosis-first)
 3. **Critical Thinking** (RENAMED from "Cognitive [training]", see the flag below)
 4. **Decision-Making** (name kept, scope sharpened to commitment under tradeoffs)
+
+v2 adds a 5th:
+
+5. **Behavior Science** (NEW, see the filename flag above and Section 1.5)
 
 **Rename flag, stated plainly:** "Cognitive [training]" is replaced by "Critical
 Thinking." The two are not the same thing and the substitution is deliberate, not
@@ -29,6 +42,18 @@ engine is evaluating claims and arguments: what is being asserted, what evidence
 supports it, what is missing, and what verdict follows. That skill is named
 Critical Thinking here. If the business later insists on the "Cognitive" label for
 marketing, the curriculum below still stands; only the display name changes.
+
+**Behavior Science addition flag, stated plainly:** the same brain-training trap
+applies here and was checked first. "Learn about behavior science" (concepts,
+theory, the Behavior Change Wheel as trivia) would fail the same two tests as
+Cognitive training: not transcript-scorable, and it teaches ABOUT behavior change
+rather than training the ability to DO it, which is the user's explicit ask. The
+skill specced below is not that. It is: diagnose another person's actual
+cue-routine-reward loop before prescribing anything, then close with a named,
+specific behavior-change technique and a testable plan. That is an action a user
+performs in a transcript, checkable the same deterministic way Problem-Solving,
+Critical Thinking, and Decision-Making already are. See 0.3 for the exact
+mechanism.
 
 ---
 
@@ -70,7 +95,20 @@ mind. The character holds the stakes and constraints; the deliverable is a short
 structured decision closing the chat. What is scored is the shape of the decision
 process, not whether hindsight proves the choice right.
 
-### 0.2 Pairwise separation (all six pairs, explicitly)
+**Behavior Science.** The behavior: when someone close to you is stuck in a
+recurring habit they want to change ("I have no willpower, I just keep
+scrolling till 1am"), resist generic advice and instead reverse-engineer the
+actual cue that triggers it, the routine it plays out, and the reward that
+keeps it alive; only then prescribe one named, specific behavior-change
+technique (not "try harder") and close with a testable if-then plan and a
+tripwire to check whether it worked. The character is living an unexamined
+habit loop; the cue and the reward are usually hidden behind a "bad
+willpower" story the same way Maya's drainage holes are hidden behind "I'm
+cursed." What is scored is whether the user diagnosed the loop before
+prescribing and closed with a specific, technique-named, testable plan, not
+whether the habit actually changes in real life.
+
+### 0.2 Pairwise separation (all ten pairs, explicitly)
 
 - **Communication vs Problem-Solving.** Communication scores how the user treats
   the PERSON (did they connect); Problem-Solving scores how the user treats the
@@ -101,9 +139,43 @@ process, not whether hindsight proves the choice right.
   options are defensible, and the score attaches to process quality (options
   enumerated, tradeoff priced, commitment made, tripwire set) under uncertainty
   that cannot be probed away. CT resolves uncertainty; DM acts despite it.
+- **Behavior Science vs Communication.** Communication scores whether the user
+  connected with the person; Behavior Science scores whether the user correctly
+  diagnosed a cue-routine-reward loop and prescribed a named, specific
+  technique. A user can be warm and fully connected with a friend while
+  completely missing that their phone charges on the nightstand (the actual
+  cue), and vice versa: a cold, businesslike diagnosis that nails the loop
+  still passes BS.
+- **Behavior Science vs Problem-Solving.** Problem-Solving diagnoses a one-time
+  SITUATIONAL cause (a fact about the world: bad pots, a dropped follow-up
+  email) and its job ends once that cause is verified; it never prescribes an
+  ongoing personal intervention. Behavior Science diagnoses a recurring
+  BEHAVIORAL loop inside a person and must end in a forward-looking
+  intervention: a named technique, an if-then plan, and a tripwire, not a
+  verified explanation. PS's deliverable is "this is what's actually wrong";
+  BS's deliverable is "here is the mechanism that changes what happens
+  tomorrow." PS's rubric never checks for a named technique or a plan; BS's
+  always does.
+- **Behavior Science vs Critical Thinking.** Critical Thinking audits an
+  argument someone else is actively making right now (a claim plus its
+  offered evidence, closing in a truth verdict). Behavior Science is not
+  adjudicating whether a claim is true; there is no claim being pitched, no
+  evidence to weigh, no verdict. It is reverse-engineering why a behavior
+  persists and designing a change for it. CT's CLAIM/EVIDENCE/GAP/VERDICT
+  block has no analogue in BS's CUE/ROUTINE/REWARD/TECHNIQUE/PLAN/TRIPWIRE
+  block; the two never share a signal.
+- **Behavior Science vs Decision-Making.** Decision-Making is a one-time,
+  single-instance commitment between known competing options where the cost
+  is paid once (sign the lease or do not). Behavior Science targets a
+  repeating behavior loop with no options menu to enumerate; the deliverable
+  is a mechanism that changes what happens on THIS trigger and every
+  recurrence after it, via cue and reward redesign, not a single named choice
+  between two paths. DM's rubric checks options_listed and waffle; BS has
+  neither, and checks for a cue, a routine, and a reward instead.
 
-No pair collapses, so no merge is needed; the only change from the working
-assumption is the Cognitive-to-Critical-Thinking rename flagged above.
+No pair collapses, so no merge is needed. The only change from the v1 working
+assumption is the Cognitive-to-Critical-Thinking rename flagged above, plus the
+v2 addition of Behavior Science as a 5th skill (see the top-of-document flag).
 
 ### 0.3 Scorability confirmation (the moat-preservation check)
 
@@ -137,6 +209,24 @@ path. Each skill preserves that, with this honesty note per skill:
   the tradeoff is a COST line sharing content words (the existing contentWords
   helper, reused) with the not-chosen option's keyword list; the tripwire must
   contain a digit or a calendar word. All string checks.
+- **Behavior Science:** same structured-close adaptation (CUE: / ROUTINE: /
+  REWARD: / TECHNIQUE: / PLAN: / TRIPWIRE:), plus a PS-style diagnostic gate
+  before it. CUE, ROUTINE, and REWARD are each matched against per-unit
+  keyword lists, the same root_cause_named pattern PS already uses. Premature
+  generic advice ("just use willpower", "try harder", "more discipline", "just
+  don't", "stop being lazy") is caught by a pack-level marker list reusing PS's
+  premature_fix mechanic exactly, hard-capped at 0 before CUE/ROUTINE/REWARD
+  are all named. TECHNIQUE must contain exactly one term from a closed set of
+  five named behavior-change techniques (habit stacking, implementation
+  intention, environmental redesign, self-monitoring, accountability
+  check-in), the same closed-word-set check CT's VERDICT line already uses.
+  PLAN is checked for implementation-intention shape: the message must contain
+  both an "if"/"when" token and a "then" token (the if-then format IS the
+  technique made visible, same logic as CT's structured close being the skill
+  made visible). TRIPWIRE reuses DM's digit-or-calendar-word check byte for
+  byte. All string checks, zero LLM judgment, zero new mechanisms invented:
+  every piece of this skill is a recombination of PS's diagnostic gate plus
+  CT/DM's structured close.
 
 No skill gets an LLM-vibes scorer. The feedback model keeps its existing role
 only: propose WIN/FIX/MOMENT prose whose quotes the validator verifies, never a
@@ -146,7 +236,7 @@ score.
 
 ## SECTION 1: PER-SKILL CURRICULUM, ZERO KNOWLEDGE TO MASTERY
 
-All four curricula use only the app: one served chat challenge at a time, mastery
+All five curricula use only the app: one served chat challenge at a time, mastery
 gates of the existing Unit.mastery shape (passes_required, distinct_days), spaced
 review boxes, no external content, no video, no materials.
 
@@ -514,9 +604,133 @@ surfaced. Asking what matters and to whom earns it; rushing to a verdict burns i
   tripwire_set min 1 hard; options_listed min 2 hard; final_warmth min 2
   soft. Mastery: 2 passes, distinct days.
 
+### 1.5 BEHAVIOR SCIENCE
+
+**North star (one sentence):** DID THEY DESIGN THE INTERVENTION, NOT PRESCRIBE
+WILLPOWER: did the user diagnose the actual cue-routine-reward loop before
+prescribing anything, then close with a named, specific technique and a
+testable plan?
+
+**Entry point (true beginner):** first unit "The 11pm Scroll" (below). Setup
+carries the structure: "Find the actual trigger and payoff behind it before you
+suggest anything. Then close with six short lines: CUE, ROUTINE, REWARD,
+TECHNIQUE, PLAN, TRIPWIRE." A beginner who blurts "just charge your phone in
+another room" before the loop is named watches the same premature-fix penalty
+Problem-Solving already teaches, and the FIX line on the result card states the
+principle plainly: you cannot redesign a loop you have not diagnosed.
+
+**Mastery-gated progression (6 stages):**
+1. **Diagnose before prescribing.** Pass: cue_named, routine_named, and
+   reward_named all >= 1 (per-unit keyword lists) with premature_advice max 0
+   hard, twice on distinct days.
+2. **Name the loop completely.** Pass: format_complete true (all six labeled
+   lines present) with stage-1 bands held.
+3. **Pick the right technique.** Pass: technique_named true (TECHNIQUE line
+   contains exactly one term from the closed five-term set: habit stacking,
+   implementation intention, environmental redesign, self-monitoring,
+   accountability check-in) AND technique_matched true (the named technique is
+   one of the unit's planted valid-technique set for that loop; a
+   self-monitoring prescription for a purely social-reward loop fails), plus
+   prior bands.
+4. **Make the plan specific.** Pass: plan_specific true (the PLAN line
+   contains both an "if"/"when" token and a "then" token) plus prior bands.
+5. **Set a real tripwire.** Pass: tripwire_set true (TRIPWIRE line contains a
+   digit or a calendar word, the exact DM check reused) plus prior bands.
+6. **Hold under a willpower-relapse pushback.** Pass: after the closing block,
+   the character retreats to self-blame ("maybe I should just have more
+   discipline about it"); hold_under_pushback true if no second CUE/ROUTINE/
+   REWARD/TECHNIQUE block abandons the diagnosed loop for willpower language,
+   or any restatement re-cites the original loop's keywords instead of
+   discarding them.
+
+**Warmth reinterpretation for this pack:** warmth 0 to 3 is OPENNESS: how
+honestly the friend has surfaced the real trigger and payoff behind the habit,
+instead of staying inside the flattened "I just have no willpower" story. Same
+server contract, same clamp, same trace; only the persona text reinterprets it.
+
+**Worked unit A: "The 11pm Scroll"** (stages 1 to 2)
+- Scenario: your friend Priya keeps meaning to sleep earlier and cannot.
+  Setup: "Priya says she has zero willpower. Find the actual trigger and
+  payoff behind the scrolling before you suggest anything. 10 messages. Close
+  with CUE, ROUTINE, REWARD, TECHNIQUE, PLAN, TRIPWIRE."
+- Persona brief: Priya, self-deprecating, has already tried "just deleting the
+  app" and it did not stick, flattens everything to "I have no discipline."
+  Never a coach, never breaks character, never volunteers the loop unasked.
+- Hidden depth (the real loop): her phone charges on the nightstand, so it is
+  the last thing in reach after she finishes her wind-down routine; the
+  scrolling is not boredom, it is a nightly stress-dump from a new, demanding
+  job, and it is the only thing that "turns her brain off."
+- Opener: "I don't know what's wrong with me. I set an alarm to put the phone
+  away and I just... don't. Zero willpower, apparently."
+- Diagnostic (openness) rules: +1 asking exactly where the phone physically is
+  at night; +1 asking what happens in the minutes right before she picks it
+  up; +1 asking what scrolling actually gives her, not just what it costs her.
+  -1 any premature-advice marker before all three of cue, routine, and reward
+  are named; -1 willpower-framed lecturing ("you just need more discipline").
+  Neutral: sympathy alone ("ugh, phones are the worst") with no follow-up.
+- Behavior by warmth: 0 "I just have no discipline, it's embarrassing"; 1
+  admits the phone charges right on the nightstand; 2 mentions there is "just
+  this dead time" right after she finishes getting ready for bed; 3 admits the
+  new job has her wound up and scrolling is "the only thing that turns my
+  brain off," unprompted honesty.
+- Per-unit keyword lists (authored with the unit, exactly like PS's
+  root_cause_keywords): cue_keywords: nightstand, charges next to my bed,
+  right before bed, dead time. routine_keywords: scrolling, scroll, phone,
+  instagram, tiktok. reward_keywords: numbs, turns my brain off, stress dump,
+  calms down, escape. valid_technique_set (this unit): environmental
+  redesign, implementation intention. Premature-advice marker list
+  (pack-level, curated): "just use willpower", "try harder", "more
+  discipline", "just don't", "stop being lazy", "you need more discipline".
+- Rubric signals (new BehaviorSignalsSchema, Section 2): cue_named min 1 hard;
+  routine_named min 1 hard; reward_named min 1 hard; premature_advice max 0
+  hard; format_complete min 1 soft; followups min 2 soft (reused classifier);
+  final_warmth min 2 soft. Mastery: 2 passes, distinct days.
+
+**Worked unit B: "The Gym Membership That Never Gets Used"** (stages 3 to 6)
+- Scenario: your friend Theo has not been to the gym in two months but still
+  pays for it. Setup: "Theo calls himself lazy. Find out what actually
+  changed before you suggest anything. Then close with CUE, ROUTINE, REWARD,
+  TECHNIQUE, PLAN, TRIPWIRE. 10 messages."
+- Persona brief: Theo, upbeat but self-critical, defaults to "I've just gotten
+  lazy" as the explanation. Never breaks character, never connects the dots
+  himself unless asked the right questions.
+- Hidden depth: the gym used to sit directly on his old commute route, and he
+  always went with his coworker Sam, a standing Tuesday/Thursday ritual. Since
+  going remote, both the geographic cue and the social reward disappeared at
+  the same time; the habit was never really about discipline.
+- Opener: "I'm basically paying eighty bucks a month to feel guilty. Used to
+  go all the time. Now I just... don't. Guess I've gotten lazy."
+- Diagnostic (openness) rules: +1 asking when it actually stopped and what
+  else changed then; +1 asking who else was involved in the old routine; +1
+  asking what going with Sam actually gave him, beyond the workout itself. -1
+  any premature-advice marker before the loop is named; -1 accepting "lazy"
+  as the explanation and moving on. Neutral: generic encouragement ("you got
+  this!") with no question.
+- Behavior by warmth: 0 "I've just gotten lazy, simple as that"; 1 mentions
+  the gym "used to be right on the way to the old office"; 2 mentions going
+  remote and the timing lining up; 3 admits it was really the standing
+  Tuesday/Thursday sessions with Sam that made it stick, and going alone
+  "just isn't the same."
+- Pushback (stage 6, mirrors DM's hold-or-fold exactly): after the closing
+  block, Theo retreats with a scripted line, "Yeah, maybe I should just try
+  to have more discipline about it." A restatement that adopts willpower
+  language (drops CUE/ROUTINE/REWARD) fails hold_under_pushback; a restatement
+  that re-cites the commute/Sam keywords, or simply does not re-open the
+  closing block, passes.
+- Per-unit keyword lists: cue_keywords: on the way to, old office, commute,
+  used to pass. routine_keywords: went to the gym, lifting, workout, gym
+  session. reward_keywords: sam, lifting partner, seeing him, tuesday,
+  thursday, social. valid_technique_set (this unit): habit stacking,
+  accountability check-in.
+- Rubric: cue_named min 1 hard; routine_named min 1 hard; reward_named min 1
+  hard; premature_advice max 0 hard; technique_named min 1 hard;
+  technique_matched min 1 hard; plan_specific min 1 hard; tripwire_set min 1
+  hard; hold_under_pushback min 1 hard; format_complete min 1 hard;
+  final_warmth min 2 soft. Mastery: 2 passes, distinct days.
+
 ---
 
-## SECTION 2: SHARED ENGINE, NOT 4 SEPARATE APPS
+## SECTION 2: SHARED ENGINE, NOT 5 SEPARATE APPS
 
 Per ALPHA-MODEL-ANALYSIS.md's one-engine-many-packs framing, and honoring the
 locked contracts in packages/core.
@@ -527,7 +741,7 @@ locked contracts in packages/core.
   10-message budget, server-owned transitions). Every new skill is just a unit
   the router serves.
 - **Mastery gate logic**: Unit.mastery.passes_required and distinct_days, the
-  pass-counting fold, spaced review boxes (2, 7, 21 days). All four curricula
+  pass-counting fold, spaced review boxes (2, 7, 21 days). All five curricula
   above express their gates in exactly this shape.
 - **Event-sourced progress**: progress_events append-only log and the
   user_skill_state projection. New skills add rows, never schema changes.
@@ -553,51 +767,64 @@ locked contracts in packages/core.
 ### 2.2 Genuinely new per skill (all additive, all as NEW exports)
 
 - **content-library files**: per pack, a skills/ file per skill node, a
-  personas/ file per character (the 8 worked units above are drafts of exactly
-  these files), reusing the existing constraints/ and prompts/ layers. Each
-  non-Communication pack adds one constraints file for its north star
-  (problem-northstar.md, evidence-northstar.md, commitment-northstar.md)
-  alongside connection-northstar.md, composed into the prompts the same way.
+  personas/ file per character (the 10 worked units above are drafts of
+  exactly these files), reusing the existing constraints/ and prompts/
+  layers. Each non-Communication pack adds one constraints file for its north
+  star (problem-northstar.md, evidence-northstar.md, commitment-northstar.md,
+  behavior-northstar.md) alongside connection-northstar.md, composed into the
+  prompts the same way.
 - **Per-skill Signals shapes** (schemas.ts, additive): SignalsSchema stays
   untouched as Communication's shape. Add ProblemSignalsSchema
   (clarifying_questions, premature_fix, hypothesis_stated, restated_problem,
   test_proposed, root_cause_named, followups, final_warmth),
   CriticalSignalsSchema (evidence_requests, base_rate_probe, format_complete,
   claim_quoted, gap_named, steelman_present, verdict_given,
-  verdict_consistent, open_questions, final_warmth), and
+  verdict_consistent, open_questions, final_warmth),
   DecisionSignalsSchema (stake_questions, options_listed, choice_committed,
   waffle, tradeoff_priced, unknown_named, tripwire_set, format_complete,
+  final_warmth), and BehaviorSignalsSchema (cue_named, routine_named,
+  reward_named, premature_advice, technique_named, technique_matched,
+  plan_specific, tripwire_set, hold_under_pushback, format_complete,
   final_warmth) as new named exports.
 - **Per-skill unit extensions** (schemas.ts, additive): new exports built with
   UnitSchema.extend() adding the per-unit keyword blocks each pack needs
   (root_cause_keywords, change_keywords for PS; planted_flaw_keywords,
-  new_info_keywords for CT; option_keywords, new_info_keywords for DM). The
-  base UnitSchema is not modified; existing Communication content validates
-  exactly as before.
+  new_info_keywords for CT; option_keywords, new_info_keywords for DM;
+  cue_keywords, routine_keywords, reward_keywords, valid_technique_set for
+  BS). The base UnitSchema is not modified; existing Communication content
+  validates exactly as before.
 - **Per-skill validators** (new files beside validator.ts:
-  validator-problem.ts, validator-critical.ts, validator-decision.ts): each
-  exports its own computeSignals and signalValue plus its pack's curated
-  marker lists (fix markers, evidence markers, hedge phrases, stake markers),
-  following the OPEN_STARTERS pattern: shipped constants, mirrored in pack
-  JSON, test-asserted identical. Each reuses isQuestion, isFollowup,
-  contentWords, normalizeWhitespace from validator.ts. The existing passes()
-  stays untouched; each new file exports its own passes wired to its own
+  validator-problem.ts, validator-critical.ts, validator-decision.ts,
+  validator-behavior.ts): each exports its own computeSignals and
+  signalValue plus its pack's curated marker lists (fix markers, evidence
+  markers, hedge phrases, stake markers, premature-advice markers, the closed
+  five-term technique set), following the OPEN_STARTERS pattern: shipped
+  constants, mirrored in pack JSON, test-asserted identical. Each reuses
+  isQuestion, isFollowup, contentWords, normalizeWhitespace from
+  validator.ts; validator-behavior.ts additionally reuses PS's
+  premature_fix band logic (renamed premature_advice, same shape) and DM's
+  tripwire digit-or-calendar-word check verbatim. The existing passes() stays
+  untouched; each new file exports its own passes wired to its own
   signalValue (the band logic is ten lines and duplicating it per pack is
   cheaper than generalizing a locked contract).
 - **Per-skill score weights** (score.ts, additive): new named exports
-  PROBLEM_WEIGHTS, CRITICAL_WEIGHTS, DECISION_WEIGHTS plus scoreProblem,
-  scoreCritical, scoreDecision functions. DEFAULT_WEIGHTS and score() are not
-  touched; Communication scores are bit-identical before and after.
+  PROBLEM_WEIGHTS, CRITICAL_WEIGHTS, DECISION_WEIGHTS, BEHAVIOR_WEIGHTS plus
+  scoreProblem, scoreCritical, scoreDecision, scoreBehavior functions.
+  DEFAULT_WEIGHTS and score() are not touched; Communication scores are
+  bit-identical before and after.
 - **Per-skill reason-code enums** (schemas.ts, additive): ReasonCodeSchema is
   Communication's closed enum and stays locked. Each pack exports its own
   closed enum (e.g. ProblemReasonCodeSchema: specific_question, followup,
-  restated, premature_fix, generic_advice, ignored_content, neutral) and a
+  restated, premature_fix, generic_advice, ignored_content, neutral;
+  BehaviorReasonCodeSchema: cue_question, routine_question, reward_question,
+  premature_advice, technique_named, willpower_relapse, neutral) and a
   pack-level CharacterOutput variant built by extension, same
   {reply, warmth_delta, reason_code} shape.
 - **Per-skill feedback prompts**: same FeedbackOutputSchema, new prompt text
   per pack framing WIN/FIX/MOMENT around the pack's north star (THE MOMENT
   becomes "where the cause surfaced or stayed buried," "where the front
-  dropped," "where the decision got real").
+  dropped," "where the decision got real," "where the loop got named instead
+  of blamed on willpower").
 
 Nothing above rewrites an existing export, changes an existing schema's parse
 behavior, or puts an LLM in any score path.
@@ -607,7 +834,7 @@ behavior, or puts an LLM in any score path.
 ## SECTION 3: SEQUENCING RECOMMENDATION
 
 **Build order: Communication (exists) -> Problem-Solving -> Decision-Making ->
-Critical Thinking.** Do not build any two simultaneously.
+Critical Thinking -> Behavior Science.** Do not build any two simultaneously.
 
 **Problem-Solving first**, for all three stated criteria at once:
 - **Validator reuse**: it is the only new skill needing NO structured-close
@@ -617,7 +844,7 @@ Critical Thinking.** Do not build any two simultaneously.
   smallest possible step from shipped code.
 - **Market demand signal from this repo**: ALPHA-MODEL-ANALYSIS.md's demand
   argument for sales rests on workplace ROI and reachable professional
-  audiences; of the three new skills, Problem-Solving is the one with the same
+  audiences; of the four new skills, Problem-Solving is the one with the same
   workplace-ROI shape (diagnosis is the daily job of managers, engineers,
   support, and freelancers), so the prior research points here first.
 - **Implementation risk**: lowest. No new user-facing behavior to teach; a
@@ -628,18 +855,34 @@ Critical Thinking.** Do not build any two simultaneously.
 the one genuinely new UX behavior, and it is the better pilot for it than
 Critical Thinking because its payoff is visceral (users bring real pending
 decisions) and its structure is shorter (five labels, one of everything).
-**Critical Thinking last**: it depends most heavily on the structured format
+**Critical Thinking third**: it depends most heavily on the structured format
 (two units above use five and six labels), it is the most at risk of feeling
-like homework (POSITIONING.md trap 3), and by building it last it inherits a
-user base already fluent in labeled closes from Decision-Making.
+like homework (POSITIONING.md trap 3), and by building it after Decision-Making
+it inherits a user base already fluent in labeled closes.
+
+**Behavior Science last**, and deliberately so: it is a recombination, not a
+new mechanism. It needs Problem-Solving's diagnostic-gate pattern
+(premature_advice reuses premature_fix's exact shape) AND Decision-Making's
+and Critical Thinking's structured-close and closed-word-set machinery
+(TECHNIQUE reuses CT's closed-set check, TRIPWIRE reuses DM's check verbatim)
+proven in production first. Building it earlier would mean inventing two
+mechanisms simultaneously instead of composing two already-shipped ones; that
+is the same "smallest possible step from shipped code" logic that put
+Problem-Solving first, applied to the skill most able to benefit from it.
 
 ---
 
 ## SECTION 4: EXPLICIT SCOPE NOTE
 
-This 4-skill expansion is deliberately broader than the product's current
+This 5-skill expansion is deliberately broader than the product's current
 positioning: POSITIONING.md's locked year-one discipline is to hold the single
 narrow charisma identity and explicitly warns against going broad early ("better
 communicator is oatmeal," trap 5), so whoever builds this roadmap is consciously
 trading that positioning discipline for surface area now, not discovering the
-tradeoff later.
+tradeoff later. Behavior Science widens that trade further than the original
+4-skill version: it was added on 2026-07-19 by explicit user request, over the
+prior locked "4-skill taxonomy final" decision, specifically framed as applied
+and technical rather than a credibility-anchor (see the top-of-document flag).
+That framing is what keeps it inside the deterministic-scoring moat this whole
+document protects; a "learn about behavior science" version would not have
+cleared this section.

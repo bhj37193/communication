@@ -188,5 +188,575 @@
     ],
     "year": "2011",
     "url": "http://arxiv.org/abs/1110.6589v1"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Modeling value integration during decision making under uncertainty with the Florida and Georgia gambling task",
+    "abstract": "Humans frequently make decisions that involve repeated interactions under uncertainty in everyday life. A constellation of cognitive biases drive such decisions. To investigate the extent to which these biases influence decision making by altering how values are integrated in choices, we developed a novel paradigm\u2014the Florida-And-Georgia (FLAG) gambling task. In the FLAG task, participants chose between a deck, which yields variable outcomes, and a sure-thing offer. This approach allows us to model value integration as influenced by both learning processes (e.g., primacy-recency bias) and key factors drawn from Prospect Theory, including sensitivity to outliers and loss aversion. Our findings on 170 young adults revealed that individuals underweight outliers for both gains and losses in their decision making and were biased by recent outcomes; but there was no evidence of loss aversion. The FLAG task strives to strike a balance between experimental control and ecological validity, providing insights into the cognitive processes involved in decision making. In closing, we discuss future directions for the FLAG task and its potential societal and clinical applications.",
+    "authors": [
+      "Shensheng Wang",
+      "Robert C. Wilson",
+      "Natalie C. Ebner",
+      "N. Lighthall"
+    ],
+    "year": "2025",
+    "venue": "Scientific Reports",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/a167444d1f96901ebb2a6b89c89a9dbe90ee5be1"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "A study of heuristics and cognitive biases affecting the decision-making of inventory management for drugstores",
+    "abstract": "Heuristics have a significant impact on many entrepreneurs' decisions since they typically make decisions under uncertain conditions, time constraints, and little information. Inventory management is one task that necessitates several judgments. Overstock or inadequate supply to meet demand can result from an imbalance in selling and ordering. In inventory management, heuristic decisions are unavoidable, which can lead to cognitive biases in decision-making. The purpose of this study is to investigate and identify eight heuristics and cognitive biases that may occur in the decision-making process of a drugstore entrepreneur regarding inventory management. Overconfidence bias, planning fallacy, representativeness heuristic, regret and counterfactual thinking, escalation of commitment, illusion of control, anchoring heuristic, and the affect heuristic are all typical cognitive biases in entrepreneurial decision-making. The experiments were carried out through face-to-face interviews with 60 participants who have been running the firm for more than a year. The findings revealed that entrepreneurs occasionally make decisions based on heuristics and cognitive biases. The affect heuristic, the planning fallacy, and overconfidence all emerge more frequently than others. Because entrepreneurs have greater knowledge and experience, regret and counterfactual reasoning, as well as the escalation of commitment, rarely influence their inventory management decision-making. These findings show that some heuristics may be addressed as knowledge and experience grow. However, it is not required to avoid them because they may occasionally be advantageous in certain conditions, such as responding to client needs on time even if the aim exceeds the plans.",
+    "authors": [
+      "Narucha Tanaiutchawoot"
+    ],
+    "year": "2022",
+    "venue": "2022 International Conference on Decision Aid Sciences and Applications (DASA)",
+    "citation_count": 1,
+    "url": "https://www.semanticscholar.org/paper/6720e16f7ce5707647ac8f9828fa52f4a44c5224"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Physical activity moderates the relationship between PTSD symptom severity and approach-avoidance conflict decision-making.",
+    "abstract": "Avoidance of potentially dangerous contexts is beneficial for survival (i.e., adaptive avoidance), but the generalization of avoidance behavior to other generally safe contexts (i.e., maladaptive avoidance) can lead to detrimental mental health consequences, including diminished potential for reward. Decisions around pursuing reward in the presence of threat or avoiding threat at the cost of obtaining greater reward presents an approach-avoidance conflict (AAC). Although AAC is expected to be biased among trauma-exposed adults, especially those with posttraumatic stress disorder (PTSD), there have only been two prior behavioral investigations of AAC among adults with PTSD or experiencing PTSD symptoms. While greater levels of physical activity (PA) contribute to enhanced cognitive performance during reward-based decision-making tasks, it remains unknown whether greater PA also offers a protective effect or rather dampens the potential for greater AAC and sacrifice of reward in the presence of threat. The current study administered a trauma-related AAC behavioral task to trauma-exposed adults with varying PTSD symptom severity (N\u202f=\u202f93), to examine potential interactive relationships between PTSD symptom severity, PA, and AAC decision-making under threat. The task involved a total of 150 trials and was divided into two phases: congruent (the option with the highest probability of a positive point outcome was also the option that was least likely to result in the presentation of a trauma-related image), and conflict (the option with the highest probability of a positive point outcome was also the option that was most likely to result in the presentation of a threat-related image). Results from linear mixed effects models revealed that PA moderated the relationship between PTSD symptom severity and AAC, as we observed a positive relationship between PTSD symptom severity and AAC for lower PA volume (i.e., greater conflict), and a more negative relationship between PTSD symptom severity and AAC as PA volume increased (i.e., less conflict). These results suggest that greater PA may promote a greater propensity to engage in goal-directed behavior and seek reward in the presence of threat in those with greater PTSD symptom severity.",
+    "authors": [
+      "Kevin M. Crombie",
+      "Motoki Sato",
+      "Samantha A Chatham",
+      "John Leri",
+      "Mark T. Richardson",
+      "Josh M. Cisler"
+    ],
+    "year": "2025",
+    "venue": "Journal of Anxiety Disorders",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/f3c8dd7273a405c4b3e912f27f847895803e69bc"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Illness severity assessment of older adults in critical illness using machine learning (ELDER-ICU): an international multicentre study with subgroup bias evaluation",
+    "abstract": "Summary Background Comorbidity, frailty, and decreased cognitive function lead to a higher risk of death in elderly patients (more than 65 years of age) during acute medical events. Early and accurate illness severity assessment can support appropriate decision making for clinicians caring for these patients. We aimed to develop ELDER-ICU, a machine learning model to assess the illness severity of older adults admitted to the intensive care unit (ICU) with cohort-specific calibration and evaluation for potential model bias. Methods In this retrospective, international multicentre study, the ELDER-ICU model was developed using data from 14 US hospitals, and validated in 171 hospitals from the USA and Netherlands. Data were extracted from the Medical Information Mart for Intensive Care database, electronic ICU Collaborative Research Database, and Amsterdam University Medical Centers Database. We used six categories of data as predictors, including demographics and comorbidities, physical frailty, laboratory tests, vital signs, treatments, and urine output. Patient data from the first day of ICU stay were used to predict in-hospital mortality. We used the eXtreme Gradient Boosting algorithm (XGBoost) to develop models and the SHapley Additive exPlanations method to explain model prediction. The trained model was calibrated before internal, external, and temporal validation. The final XGBoost model was compared against three other machine learning algorithms and five clinical scores. We performed subgroup analysis based on age, sex, and race. We assessed the discrimination and calibration of models using the area under receiver operating characteristic (AUROC) and standardised mortality ratio (SMR) with 95% CIs. Findings Using the development dataset (n=50 366) and predictive model building process, the XGBoost algorithm performed the best in all types of validations compared with other machine learning algorithms and clinical scores (internal validation with 5037 patients from 14 US hospitals, AUROC=0\u00b7866 [95% CI 0\u00b7851\u20130\u00b7880]; external validation in the US population with 20 541 patients from 169 hospitals, AUROC=0\u00b7838 [0\u00b7829\u20130\u00b7847]; external validation in European population with 2411 patients from one hospital, AUROC=0\u00b7833 [0\u00b7812\u20130\u00b7853]; temporal validation with 4311 patients from one hospital, AUROC=0\u00b7884 [0\u00b7869\u20130\u00b7897]). In the external validation set (US population), the median AUROCs of bias evaluations covering eight subgroups were above 0\u00b781, and the overall SMR was 0\u00b799 (0\u00b796\u20131\u00b703). The top ten risk predictors were the minimum Glasgow Coma Scale score, total urine output, average respiratory rate, mechanical ventilation use, best state of activity, Charlson Comorbidity Index score, geriatric nutritional risk index, code status, age, and maximum blood urea nitrogen. A simplified model containing only the top 20 features (ELDER-ICU-20) had similar predictive performance to the full model. Interpretation The ELDER-ICU model reliably predicts the risk of in-hospital mortality using routinely collected clinical features. The predictions could inform clinicians about patients who are at elevated risk of deterioration. Prospective validation of this model in clinical practice and a process for continuous performance monitoring and model recalibration are needed. Funding National Institutes of Health, National Natural Science Foundation of China, National Special Health Science Program, Health Science and Technology Plan of Zhejiang Province, Fundamental Research Funds for the Central Universities, Drug Clinical Evaluate Research of Chinese Pharmaceutical Association, and National Key R&D Program of China.",
+    "authors": [
+      "Xiaoli Liu",
+      "P. Hu",
+      "Wesley Yeung",
+      "Wentao Bao",
+      "Vanda W T Ho",
+      "Chao Liu",
+      "C. Dumontier",
+      "P. Thoral",
+      "Z. Mao",
+      "Desen Cao",
+      "R. G. Mark",
+      "Zhengbo Zhang",
+      "M. Feng",
+      "Deyu Li",
+      "L. Celi"
+    ],
+    "year": "2023",
+    "venue": "The Lancet Digital Health",
+    "citation_count": 50,
+    "url": "https://www.semanticscholar.org/paper/9e2f8f4e0b81606dab0183fb0376f78ae08703bf"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Changes in cognitive function and latent processes of decision-making during incremental ascent to high altitude.",
+    "abstract": "High altitude sojourn is broadly associated with impaired cognitive function, although there are inconsistencies within the literature. Incorporation of mathematical modeling to gain insight into latent aspects of decision-making may strengthen the ability to characterize changes in cognitive function during high altitude sojourn. This study sought to examine the effects of high altitude on cognitive function and underlying constructs of decision-making during an 11-d incremental ascent to 5160\u202fm in 18 healthy adults (26\u202f\u00b1\u202f12\u202fyrs). Participants underwent cognitive testing at 116\u202fm, 3440\u202fm, 4240\u202fm, and 5160\u202fm. Cognitive function was assessed using standard metrics of accuracy and reaction time (RT) during working memory (2-back) and attention (Flanker) tasks. Behavioral data were additionally analyzed using drift-diffusion modeling to interrogate latent neural (strength of evidence, non-decision time) and behavioral (caution, bias) processes of decision-making. Flanker accuracy was unaltered during incremental ascent to high altitude, while 2-back accuracy decreased at 5160\u202fm (p\u202f<\u202f0.01). RT was faster at 4240\u202fm for the Flanker, and faster at all altitudes compared to 116\u202fm for the 2-back (p\u202f<\u202f0.01). Incremental ascent to high altitude elicited modest reductions in caution and non-decision time, increases in bias and strength of evidence for non-match items during the 2-back (0.04\u202f\u2265\u202fp\u202f>\u202f0.01). These data indicate that while RT may appear to improve during incremental ascent to high altitude, increases in speed may be driven by participants 1) accumulating less evidence before initiating a response (i.e., less cautious) and 2) preferentially attending to (more biased), and extracting more evidence from, frequent/easier stimuli, rather than improved processing per se. Taken together, changes in cognitive function during incremental ascent to high altitude may reflect subtle changes in neural and behavioral components of decision-making intended to reduce cognitive load and conserve brain resources under challenging environmental conditions.",
+    "authors": [
+      "W. Lefferts",
+      "J. DeBlois",
+      "C. White",
+      "T. Day",
+      "K. Heffernan",
+      "T. Brutsaert"
+    ],
+    "year": "2019",
+    "venue": "Physiology and Behavior",
+    "citation_count": 29,
+    "url": "https://www.semanticscholar.org/paper/59b69967af2f90f9e5297784681e65fa0dd7dbf5"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Cognitive Mechanisms of Anxiety: The role of biases in Decision-Making Processes",
+    "abstract": "Anxiety Disorders are associated with systematic distortions in cognitive processing that significantly influence behavioural outcomes, mainly decision-making. Cognitive biases such as attentional, interpretational, and memory biases etc play a central role in shaping how individuals perceive, evaluate, and respond to environmental stimuli. The current narrative review synthesises contemporary literature of the past 5 years to examine the interaction between cognitive biases and decision-making under anxiety, with a focus on young adult populations.\nA structured literature search was conducted using Scopus, Google Scholar, PubMed, and PsycINFO Database, focusing on publications between 2020 and 2026 using the keywords of Anxiety, Cognitive Biases, Decision-Making, and Computational Models of Anxiety. This literature review synthesizes empirical findings across cognitive neuroscience, addiction research and clinical psychology to examine how these concepts contribute towards decision making and the empirical findings to propose a conceptual framework linking anxiety, biased cognition and maladaptive decision-making.\nThe synthesis highlights that cognitive biases interact dynamically across multiple stages of information processing, leading to altered risk perception, heightened threat sensitivity, and maladaptive decision-making patterns such as avoidance, indecisiveness and risk aversion. The review also proposes a conceptual framework linking anxiety, biased cognition and behavioural outcomes, emphasising the mediating role of distorted risk evaluation.",
+    "authors": [
+      "P. Subramanian",
+      "Deloitte Deloitte"
+    ],
+    "year": "2026",
+    "venue": "Acta Social Science &amp; Humanities: An International Journal",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/3a422b52525c3e16d4636dbde5f36b2891a733e8"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Why executives decide poorly: a neurobusiness perspective on executive decision-making, contaminated inputs, cognitive biases, and deliberative limits",
+    "abstract": "Objectives: This study aims to examine why executives tend to make poor decisions in formally sophisticated organizational environments, arguing that executive decision-making is structurally vulnerable rather than naturally superior. More specifically, the article discusses how contaminated informational inputs, cognitive biases, asymmetrical repertoires, and deliberative limits interact to compromise executive decision quality in formally sophisticated organizational environments, especially in boards, C-level settings, and governance contexts. Theoretical Framework: The study integrates contributions from bounded rationality, especially Herbert Simon\u2019s critique of fully rational decision-making; dual-process theory and the distinction between automatic and deliberative systems in Daniel Kahneman; the literature on overconfidence, particularly Moore and Healy\u2019s formulation of overestimation, overplacement, and overprecision; Prospect Theory, developed by Kahneman and Tversky, especially regarding loss aversion and decision distortion under risk; studies on working memory, cognitive effort, and information overload, including Miller, Westbrook and Braver, Kurzban, Shenhav, Inzlicht, and Arnold et al.; behavioral corporate governance and collective decision-making in boards; and methodological criticism of self-report and traditional research methods, as discussed by Tabajara. These approaches are articulated to support the argument that executive judgment is distorted from the quality of the inputs to the interpretation of the final outcome. Method: This article adopts a qualitative, exploratory, and analytical theoretical essay design, based on an integrative bibliographic approach. Rather than pursuing an exhaustive taxonomy of all biases and heuristics described in the literature, the study uses a problem-oriented analytical cut. The selected mechanisms were prioritized according to four criteria: relevance to executive and governance environments, robustness in the scientific literature, explanatory power regarding different stages of the decision flow, and adherence to the central hypothesis of the article. Based on these criteria, the study focuses on overconfidence, confirmation bias, status quo bias, loss aversion, anchoring, sunk cost effect, escalation of commitment, and the role of heuristics as inevitable simplification mechanisms under complexity. Results and Discussion: The article proposes a processual model of contaminated executive decision-making composed of six layers: informational inputs, distortions at the origin of the input, neurocognitive processing, modulation by biases and repertoire, decisional output with an appearance of rationality, and post-decisional illusion of correctness. The discussion suggests that executive error should not be understood as an episodic or merely individual failure, but as the predictable result of a structurally distorted flow in which fragile data are processed by limited cognitive systems and subsequently reinforced by symbolic, political, and organizational dynamics. The findings indicate that sophisticated formal settings do not neutralize decisional vulnerability; they often conceal it. Research Implications: The study suggests that improving executive decision-making requires more than additional information or more experienced decision-makers. It requires revising the epistemic quality of informational inputs, redesigning decision environments, reducing cognitive noise, strengthening review protocols, and institutionalizing mechanisms that increase epistemic caution in governance. The article also offers a theoretical basis for future empirical studies on boards, executive committees, strategic meetings, and organizational assessment systems. Originality/Value: The originality of the study lies in shifting the analysis of executive decision-making away from a fragmented view centered only on isolated biases and toward an integrated processual perspective. By combining NeuroBusiness, decision science, behavioral governance, and methodological critique, the article explains why hierarchical environments that are formally designed to decide well remain systematically vulnerable to error. Its value lies in offering both a stronger explanatory framework for executive decision distortion and a conceptual basis for redesigning decision processes in organizational contexts.",
+    "authors": [
+      "Tiago Cavalcanti de Albuquerque Tabajara"
+    ],
+    "year": "2026",
+    "venue": "Aposta: Revista de Ciencias Sociales",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/107c6443d1dec957c097d56f368ad798556efadf"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "The impact of speed and bias on the cognitive processes of experts and novices in medical image decision-making",
+    "abstract": "Training individuals to make accurate decisions from medical images is a critical component of education in diagnostic pathology. We describe a joint experimental and computational modeling approach to examine the similarities and differences in the cognitive processes of novice participants and experienced participants (pathology residents and pathology faculty) in cancer cell image identification. For this study we collected a bank of hundreds of digital images that were identified by cell type and classified by difficulty by a panel of expert hematopathologists. The key manipulations in our study included examining the speed-accuracy tradeoff as well as the impact of prior expectations on decisions. In addition, our study examined individual differences in decision-making by comparing task performance to domain general visual ability (as measured using the Novel Object Memory Test (NOMT) (Richler et al. Cognition 166:42\u201355, 2017). Using signal detection theory and the diffusion decision model (DDM), we found many similarities between experts and novices in our task. While experts tended to have better discriminability, the two groups responded similarly to time pressure (i.e., reduced caution under speed instructions in the DDM) and to the introduction of a probabilistic cue (i.e., increased response bias in the DDM). These results have important implications for training in this area as well as using novice participants in research on medical image perception and decision-making.",
+    "authors": [
+      "J. Trueblood",
+      "W. Holmes",
+      "Adam C. Seegmiller",
+      "Jonathan J Douds",
+      "Margaret L. Compton",
+      "E. Szentirmai",
+      "Megan Woodruff",
+      "Wenrui Huang",
+      "Charles Stratton",
+      "Q. Eichbaum"
+    ],
+    "year": "2017",
+    "venue": "Cognitive Research",
+    "citation_count": 41,
+    "url": "https://www.semanticscholar.org/paper/f49f443d1ea70d3a50ca37a373d79ed089a449ce"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Letter to the Editor - Search assurance and human decision-making in SAR: Do current frameworks measure the right thing?",
+    "abstract": "Search & Rescue (SAR) has evolved through advances in technology, coordination and doctrine, alongside more formal approaches to search planning and assurance. Within that progress, an ongoing discussion is how assurance practice should balance evidence of process completion and analytic outputs with the quality of the human judgements that generate, interpret and adapt them. This letter therefore invites sector-wide reflection on a question: to what extent do search assurance frameworks account for human decision-making under uncertainty, particularly cognitive load, bias and the maintenance of shared situational awareness across distributed teams? \nOne way to advance this discussion is to outline an author-proposed assurance concept that foregrounds human factors; for convenience it is labelled here human factor search assurance. It is offered as a discussion aid rather than as a definitive standard, a proprietary method, or a replacement for established doctrine. In brief, the concept treats the reasoning that links information to decisions (e.g., assumptions, uncertainties, confidence judgements, and thresholds for adaptation) as assurance-relevant artefacts alongside traditional measures of planning and execution, with particular attention to cognitive workload, bias and the development of shared situational awareness. \nOver recent decades, search assurance in SAR has developed alongside planning doctrine and analytic methods, including more explicit documentation of intent, the use of coverage and probability-of-detection concepts, and structured debriefing to support learning and accountability. These developments have improved transparency in what was planned and what was done; a continuing question is how well assurance practices also represent the human judgements that connect evolving information to operational choices during timepressured incidents. \nCognitive vulnerability in SAR decision making \nHere, \u201ccognitive vulnerability\u201d refers to predictable vulnerabilities in human performance under uncertainty, time pressure and high cognitive load, rather than individual negligence or lack of commitment. Operational learning literature, including reporting associated with the International Search and Rescue Incident Database (ISRID), indicates that while formal training is essential, cognitive factors can remain a challenge in improving non-find cases, i.e., cases where organised search activity does not locate the subject. Published case analyses and research have highlighted situations in which cognitive factors contributed to missed opportunities. These accounts help illustrate why a human-factors lens may be relevant to assurance, alongside planning and coverage analytics. \nSuch examples are not confined to high-profile cases. Operational accounts also describe occasions where searches have focused on the wrong area, teams have been in the right place but searched ineffectively, or plans have been executed without access to basic information. These outcomes are not necessarily attributable to poor intent or lack of effort, but may reflect predictable cognitive challenges inherent in complex, time-pressured environments. The central premise is therefore straightforward but intentionally challenging: if assurance is intended to increase confidence in search decisions, it may need to make decision quality more visible, not just task completion. \nSAR practice has benefited substantially from improving tools and processes, including more developed approaches to planning, resource deployment and coverage modelling. However, the field is arguably less consistent in making the quality of the judgements that underpin these activities explicit. In particular, this includes how information is interpreted, how uncertainty is handled, and how decisions are adapted as conditions change. This is not a critique of intent or professionalism, but an observation that decision quality is often assumed, rather than deliberately supported and assessed, within search assurance practice. Concepts such as situational awareness (Endsley, 1995), recognition-primed decision-making (Klein, 1993) and cognitive load are well established across aviation, healthcare, and military domains. \nSimilarly, research into high-reliability organisations highlights the importance of collective mindfulness, sensitivity to operations and disciplined reflection in maintaining performance under uncertainty (Weick and Sutcliffe, 2007). SAR shares many of these same characteristics, including dynamic conditions, incomplete information, distributed teams and high-consequence outcomes; however, the explicit integration of these principles into everyday search practice varies across organisations and contexts. This raises a key question: to what extent is search assurance currently a measure of process compliance rather than a reflection of decision quality? A recurring limitation in assurance practice is that what can be easily counted or audited (e.g., task completion, documented plans, coverage summaries, or adherence to agreed processes) is not always a reliable proxy for decision quality. In complex incidents, the most consequential cognitive demands often concentrate at specific SAR decision points. \nThese decision points include framing the initial working hypothesis and search objectives; delineating and prioritising search areas and segments; allocating resources and selecting tactics under time and capability constraints; evaluating ambiguous clues and deciding whether to widen, narrow, or re-orient the search; managing re-tasking and mid-mission plan changes as new information arrives; deciding on suspension, continuation, or escalation; and executing handovers between shifts or agencies without loss of context. At each of these points, cognitive workload, judgement bias and breakdowns in shared situational awareness can shape what is searched, how well it is searched and how quickly the plan adapts. The practical challenge, therefore, is not simply to \u201cdo the plan well\u201d, but to ensure assurance frameworks can also make the reasoning behind these decisions\u2014and the conditions under which they should change\u2014visible and reviewable, including attention to established judgement biases (Tversky and Kahneman, 1974) and team-level shared mental models (Mathieu et al., 2000). Against this background, the next section briefly sketches one illustrative example of how a human-factors-oriented assurance approach might be expressed in practice, without implying that any single framework is sufficient or universally applicable. \nAn example of a human-factors-oriented assurance approach \nOne response to these issues is to treat certain elements of team cognition as assurancerelevant artefacts, such as explicit assumptions, uncertainty statements, confidence judgements, alternative hypotheses, and agreed triggers for adaptation, captured in a way that is feasible during live incidents. In practice, these may be recorded briefly in existing briefing notes, decision logs, map annotations, or debrief prompts, so they can be reviewed alongside coverage and execution data. The framework referenced here is offered as one example of human-factors-oriented assurance for discussion; at a high level, it combines (i) brief training and shared language for common cognitive risks, (ii) structured prompts at key decision points, and (iii) mechanisms to record decision rationale.\nTo link prompts and documentation to operational rhythm, it may be useful to organise assurance supports around the search mission lifecycle: pre-search alignment (shared intent and thresholds), in-search cognition (maintaining situational awareness and adaptive replanning under load), and post-search assurance (review of decision rationale and learning). This framing provides a natural bridge from established assurance practices to a discussion of how human judgement might be represented within them. \nDiscussion: potential contribution and implications \nThe potential contribution of an approach of this kind can be considered in three areas. First, it may support calibrated confidence by encouraging transparent articulation of assumptions, uncertainty and decision thresholds, rather than relying on implicit judgement. In principle, making reasoning explicit can help teams coordinate under uncertainty and identify where additional information or challenge is needed. \nSecond, it provides one possible way to broaden what is meant by search assurance. If assurance is intended to be more than procedural verification, it may need to include at least some account of the reasoning that informed key operational choices, particularly when plans are adapted in response to new information. A process-compliant search can still be undermined by unexamined assumptions or cognitive bias; documenting decision rationale and uncertainty may therefore help make assurance claims more interpretable and support post-incident review. \nThird, this approach could be put into practice with little extra effort if it is incorporated into current briefings, decision reviews, information displays, and debriefings, instead of relying on new technology or significant resources. Whether this can be achieved without adding undue burden is an empirical question, but it is a relevant design requirement in resource-constrained SAR environments. The next section notes preliminary observations from an exercise context and highlights what would be needed to evaluate such supports more rigorously. \nPreliminary observations from an exercise \nA preliminary trial of elements associated with the illustrative concept described above was undertaken during a Search & Rescue exercise in May 2025, following familiarisation and iterative refinement with experienced search management practitioners. Feedback gathered during and after the exercise suggested that structured prompts may help some teams externalise assumptions, articulate uncertaintie",
+    "authors": [
+      "M. Kelly"
+    ],
+    "year": "2026",
+    "venue": "Journal of search & rescue",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/e65a8e3f38983709c6c276d0a8f816ac07637f22"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Choices under manipulation: Cognitive processes and behavioral biases of older adults under perceived exposure to dark patterns in online shopping.",
+    "abstract": "With the convergence of population aging and digitalization, more older adults are engaged in online shopping. However, the prevalence of dark patterns on digital platforms is associated with unintended consumption behaviors. Guided by the Extended Stimulus-Organism-Response (E-S-O-R) model, this study developed an integrative framework incorporating three mediators-cognitive overload, decision fatigue, and trust bias-and examined the moderating role of digital literacy. A cross-sectional self-report survey of 408 older adults aged 60 and above with exposure to online shopping environments was conducted, and structural equation modeling (SEM) was applied for path and mediation analyses; dark patterns were operationalized as perceived exposure to selected transaction-related manipulative interface tactics. The results show that perceived exposure to dark patterns was significantly and positively associated with cognitive overload, decision fatigue, and trust bias, all of which positively predicted unintended consumption behavior, with decision fatigue exerting the strongest effect. Moreover, digital literacy negatively moderated the path from trust bias to unintended consumption, reducing the impact of biased trust. These findings highlight the mechanisms through which dark patterns impair older adults' decision-making and suggest practical implications for platform design optimization, targeted consumer protection policies, and tiered digital literacy education to mitigate irrational consumption risks in digital contexts.",
+    "authors": [
+      "Ying Zhang",
+      "Chun-Fu Chen",
+      "Hui-Ling Hu"
+    ],
+    "year": "2026",
+    "venue": "Acta Psychologica",
+    "citation_count": 0,
+    "url": "https://www.semanticscholar.org/paper/698b619e334e229d223b6c3927e14c4dadcf0aa4"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Cognitive and neural architecture of decision making competence",
+    "abstract": "Although cognitive neuroscience has made remarkable progress in understanding the neural foundations of goal-directed behavior and decision making, neuroscience research on decision making competence, the capacity to resist biases in human judgment and decision making, remain to be established. Here, we investigated the cognitive and neural mechanisms of decision making competence in 283 healthy young adults. We administered the Adult Decision Making Competence battery to assess the respondent's capacity to resist standard biases in decision making, including: (1) resistance to framing, (2) recognizing social norms, (3) over/under confidence, (4) applying decision rules, (5) consistency in risk perception, and (6) resistance to sunk costs. Decision making competence was assessed in relation to core facets of intelligence, including measures of crystallized intelligence (Shipley Vocabulary), fluid intelligence (Figure\u00a0Series), and logical reasoning (LSAT). Structural equation modeling was applied to examine the relationship(s) between each cognitive domain, followed by an investigation of their association with individual differences in cortical thickness, cortical surface area, and cortical gray matter volume as measured by high-resolution structural MRI. The results suggest that: (i) decision making competence is associated with cognitive operations for logical reasoning, and (ii) these convergent processes are associated with individual differences within cortical regions that are widely implicated in cognitive control (left dACC) and social decision making (right superior temporal sulcus; STS). Our findings motivate an integrative framework for understanding the neural mechanisms of decision making competence, suggesting that individual differences in the cortical surface area of left dACC and right STS are associated with the capacity to overcome decision biases and exhibit competence in decision making.",
+    "authors": [
+      "Francisco J. Rom\u00e1n",
+      "R. Colom",
+      "C. Hillman",
+      "A. Kramer",
+      "N. Cohen",
+      "A. Barbey"
+    ],
+    "year": "2019",
+    "venue": "NeuroImage",
+    "citation_count": 15,
+    "url": "https://www.semanticscholar.org/paper/b9b5c29a89b83e2428f6923c89f290ab6ffaa701"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "The Influence of Cognitive Biases and Decision Making Styles on Older Adults\u2019 E-Commerce Decisions",
+    "abstract": "Older adults are particularly susceptible to cognitive biases that could potentially impact the quality of their decisions in e-commerce environments. This may negatively affect their online experience, depriving them from reaping the full benefits of e-commerce. It is thus important to explore this domain with the objective of assisting older adults in making higher quality decisions in e-commerce contexts. This research-in-progress paper takes on this challenging inquiry through a two-stage study to (i) understand how the decision making styles of older adults interact with cognitive biases affecting their decisions\u2019 quality in e-commerce and how these interactions vary by product type; and (ii) understand the influence of decision aids in de-biasing older adults with different decision making styles under the stimuli of cognitive biases and how this varies by product type. We outline a detailed exploratory experimental methodology for this proposed research as well as potential contributions to theory and practice.",
+    "authors": [
+      "Nour El Shamy",
+      "K. Hassanein"
+    ],
+    "year": "2015",
+    "venue": "",
+    "citation_count": 1,
+    "url": "https://www.semanticscholar.org/paper/d4c7cda1ee34c54bc3657f6e1bfe76458c415b71"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Transcranial Direct Current Stimulation above the Medial Prefrontal Cortex Facilitates Decision-Making following Periods of Low Outcome Controllability",
+    "abstract": "Visual Abstract Recent studies suggest that choice behavior in reinforcement learning tasks is shaped by the level of outcome controllability. In particular, Pavlovian bias (PB) seems to be enhanced under low levels of control, manifesting in approach tendencies toward rewards and response inhibition when facing potential losses. The medial prefrontal cortex (mPFC) has been implicated both in evaluating outcome controllability and in the recruitment of cognitive control (CC) to suppress maladaptive PB during reinforcement learning. The current study tested whether high-definition transcranial direct current stimulation (HD-tDCS) above the mPFC of healthy humans can influence PB, and counteract the previously documented, deleterious behavioral effects of low outcome controllability on decision-making. In a preregistered, between-group, double-blind study (N\u2009=\u2009103 adults, both sexes), we tested the interaction between controllability and HD-tDCS on parameters of choice behavior in a Go/NoGo task. Relative to sham stimulation, HD-tDCS resulted in more robust performance improvement following reduced control, an effect that was more pronounced in appetitive trials. In addition, we found evidence for weaker PB when HD-tDCS was administered during low controllability over outcomes. Computational modeling revealed that parameter estimates of learning rate and choice randomness were modulated by controllability, HD-tDCS and their interaction. Overall, these results highlight the potential of our HD-tDCS protocol for interfering with choice arbitration under low levels of control, resulting in more adaptive behavior.",
+    "authors": [
+      "G. Csifcs\u00e1k",
+      "Jorunn Bj\u00f8rk\u00f8y",
+      "S. Kuyateh",
+      "H. Reithe",
+      "M. Mittner"
+    ],
+    "year": "2020",
+    "venue": "eNeuro",
+    "citation_count": 8,
+    "url": "https://www.semanticscholar.org/paper/e1b26b12d43615a318b36f983eed14b665b1d315"
+  },
+  {
+    "source": "semantic_scholar",
+    "title": "Developmental differences in description-based versus experience-based decision making under risk in children.",
+    "abstract": "The willingness to take a risk is shaped by temperaments and cognitive abilities, both of which develop rapidly during childhood. In the adult developmental literature, a distinction is drawn between description-based tasks, which provide explicit choice-reward information, and experience-based tasks, which require decisions from past experience, each emphasizing different cognitive demands. Although developmental trends have been investigated for both types of decisions, few studies have compared description-based and experience-based decision making in the same sample of children. In the current study, children (N\u00a0=\u00a0112; 5-9\u00a0years of age) completed both description-based and experience-based decision tasks tailored for use with young children. Child temperament was reported by the children's primary teacher. Behavioral measures suggested that the willingness to take a risk in a description-based task increased with age, whereas it decreased in an experience-based task. However, computational modeling alongside further inspection of the behavioral data suggested that these opposite developmental trends across the two types of tasks both were associated with related capacities: older (vs. younger) children's higher sensitivity to experienced losses and higher outcome sensitivity to described rewards and losses. From the temperamental characteristics, higher attentional focusing was linked with a higher learning rate on the experience-based task and a bias to accept gambles in the gain domain on the description-based task. Our findings demonstrate the importance of comparing children's behavior across qualitatively different tasks rather than studying a single behavior in isolation.",
+    "authors": [
+      "Jonathan J. Rolison",
+      "Thorsten Pachur",
+      "T. McCormack",
+      "A. Feeney"
+    ],
+    "year": "2022",
+    "venue": "Journal of Experimental Child Psychology",
+    "citation_count": 6,
+    "url": "https://www.semanticscholar.org/paper/a6008976197ee4869338ed033dd567d386931d5a"
+  },
+  {
+    "source": "openalex",
+    "title": "The speed-accuracy tradeoff: history, physiology, methodology, and behavior",
+    "abstract": "There are few behavioral effects as ubiquitous as the speed-accuracy tradeoff (SAT). From insects to rodents to primates, the tendency for decision speed to covary with decision accuracy seems an inescapable property of choice behavior. Recently, the SAT has received renewed interest, as neuroscience approaches begin to uncover its neural underpinnings and computational models are compelled to incorporate it as a necessary benchmark. The present work provides a comprehensive overview of SAT. First, I trace its history as a tractable behavioral phenomenon and the role it has played in shaping mathematical descriptions of the decision process. Second, I present a \"users guide\" of SAT methodology, including a critical review of common experimental manipulations and analysis techniques and a treatment of the typical behavioral patterns that emerge when SAT is manipulated directly. Finally, I review applications of this methodology in several domains.",
+    "authors": [
+      "Richard P. Heitz"
+    ],
+    "year": "2014",
+    "venue": "Frontiers in Neuroscience",
+    "citation_count": 959,
+    "url": "https://doi.org/10.3389/fnins.2014.00150"
+  },
+  {
+    "source": "openalex",
+    "title": "Ideology, motivated reasoning, and cognitive reflection",
+    "abstract": "Abstract Decision scientists have identified various plausible sources of ideological polarization over climate change, gun violence, national security, and like issues that turn on empirical evidence. This paper describes a study of three of them: the predominance of heuristic-driven information processing by members of the public; ideologically motivated reasoning; and the cognitive-style correlates of political conservativism. The study generated both observational and experimental data inconsistent with the hypothesis that political conservatism is distinctively associated with either unreflective thinking or motivated reasoning. Conservatives did no better or worse than liberals on the Cognitive Reflection Test (Frederick, 2005), an objective measure of information-processing dispositions associated with cognitive biases. In addition, the study found that ideologically motivated reasoning is not a consequence of over-reliance on heuristic or intuitive forms of reasoning generally. On the contrary, subjects who scored highest in cognitive reflection were the most likely to display ideologically motivated cognition. These findings corroborated an alternative hypothesis, which identifies ideologically motivated cognition as a form of information processing that promotes individuals\u2019 interests in forming and maintaining beliefs that signify their loyalty to important affinity groups. The paper discusses the practical significance of these findings, including the need to develop science communication strategies that shield policy-relevant facts from the influences that turn them into divisive symbols of political identity.",
+    "authors": [
+      "Dan M. Kahan"
+    ],
+    "year": "2013",
+    "venue": "Judgment and Decision Making",
+    "citation_count": 1264,
+    "url": "https://doi.org/10.1017/s1930297500005271"
+  },
+  {
+    "source": "openalex",
+    "title": "Sequential Sampling Models in Cognitive Neuroscience: Advantages, Applications, and Extensions",
+    "abstract": "Sequential sampling models assume that people make speeded decisions by gradually accumulating noisy information until a threshold of evidence is reached. In cognitive science, one such model--the diffusion decision model--is now regularly used to decompose task performance into underlying processes such as the quality of information processing, response caution, and a priori bias. In the cognitive neurosciences, the diffusion decision model has recently been adopted as a quantitative tool to study the neural basis of decision making under time pressure. We present a selective overview of several recent applications and extensions of the diffusion decision model in the cognitive neurosciences.",
+    "authors": [
+      "Birte U. Forstmann",
+      "Roger Ratcliff",
+      "Eric\u2010Jan Wagenmakers"
+    ],
+    "year": "2015",
+    "venue": "Annual Review of Psychology",
+    "citation_count": 676,
+    "url": "https://doi.org/10.1146/annurev-psych-122414-033645"
+  },
+  {
+    "source": "openalex",
+    "title": "Motivation and Cognitive Control: From Behavior to Neural Mechanism",
+    "abstract": "Research on cognitive control and executive function has long recognized the relevance of motivational factors. Recently, however, the topic has come increasingly to center stage, with a surge of new studies examining the interface of motivation and cognitive control. In the present article we survey research situated at this interface, considering work from cognitive and social psychology and behavioral economics, but with a particular focus on neuroscience research. We organize existing findings into three core areas, considering them in the light of currently vying theoretical perspectives. Based on the accumulated evidence, we advocate for a view of control function that treats it as a domain of reward-based decision making. More broadly, we argue that neuroscientific evidence plays a critical role in understanding the mechanisms by which motivation and cognitive control interact. Opportunities for further cross-fertilization between behavioral and neuroscientific research are highlighted.",
+    "authors": [
+      "Matthew Botvinick",
+      "Todd S. Braver"
+    ],
+    "year": "2014",
+    "venue": "Annual Review of Psychology",
+    "citation_count": 948,
+    "url": "https://doi.org/10.1146/annurev-psych-010814-015044"
+  },
+  {
+    "source": "openalex",
+    "title": "Envisioning the Future of Behavioral Decision-Making: A Systematic Literature Review of Behavioral Reasoning Theory",
+    "abstract": "Behavioral theories have been extensively referred to in consumer behavior literature to understand the factors influencing user intentions and behavior. Behavioral reasoning theory (BRT) is a relatively new theory that determines the linkage between beliefs, reasons, motives, intentions, and behavior. This study conducts a systematic literature review (SLR) to synthesize the existing body of knowledge around BRT. The present SLR critically examines the origin of this theory and its linkages with other behavioral theories, thus providing insightful knowledge on its foundations. Further, it presents the state-of-the-art research knowledge, research themes, implications, and future directions related to BRT literature. Our analysis shows that the reasons for and reasons against construct plays an important role in predicting consumer behavior. This study also finds that research related to BRT is growing rapidly and needs methodological advancements. These findings will enable scholars and practitioners to better understand how BRT works, what its strengths and potential are, the contexts in which it has been utilized, its existing limitations, and the sort of methodological advancements needed in future studies on marketing.",
+    "authors": [
+      "Aditya Kumar Sahu",
+      "Ramakrushna Padhy",
+      "Amandeep Dhir"
+    ],
+    "year": "2020",
+    "venue": "Australasian Marketing Journal (AMJ)",
+    "citation_count": 363,
+    "url": "https://doi.org/10.1016/j.ausmj.2020.05.001"
+  },
+  {
+    "source": "openalex",
+    "title": "Differences in negativity bias underlie variations in political ideology",
+    "abstract": "Disputes between those holding differing political views are ubiquitous and deep-seated, and they often follow common, recognizable lines. The supporters of tradition and stability, sometimes referred to as conservatives, do battle with the supporters of innovation and reform, sometimes referred to as liberals. Understanding the correlates of those distinct political orientations is probably a prerequisite for managing political disputes, which are a source of social conflict that can lead to frustration and even bloodshed. A rapidly growing body of empirical evidence documents a multitude of ways in which liberals and conservatives differ from each other in purviews of life with little direct connection to politics, from tastes in art to desire for closure and from disgust sensitivity to the tendency to pursue new information, but the central theme of the differences is a matter of debate. In this article, we argue that one organizing element of the many differences between liberals and conservatives is the nature of their physiological and psychological responses to features of the environment that are negative. Compared with liberals, conservatives tend to register greater physiological responses to such stimuli and also to devote more psychological resources to them. Operating from this point of departure, we suggest approaches for refining understanding of the broad relationship between political views and response to the negative. We conclude with a discussion of normative implications, stressing that identifying differences across ideological groups is not tantamount to declaring one ideology superior to another.",
+    "authors": [
+      "John R. Hibbing",
+      "Kevin B. Smith",
+      "John R. Alford"
+    ],
+    "year": "2014",
+    "venue": "Behavioral and Brain Sciences",
+    "citation_count": 618,
+    "url": "https://doi.org/10.1017/s0140525x13001192"
+  },
+  {
+    "source": "openalex",
+    "title": "Animal affect and decision-making",
+    "abstract": "The scientific study of animal affect (emotion) is an area of growing interest. Whilst research on mechanism and causation has predominated, the study of function is less advanced. This is not due to a lack of hypotheses; in both humans and animals, affective states are frequently proposed to play a pivotal role in coordinating adaptive responses and decisions. However, exactly how they might do this (what processes might implement this function) is often left rather vague. Here we propose a framework for integrating animal affect and decision-making that is couched in modern decision theory and employs an operational definition that aligns with dimensional concepts of core affect and renders animal affect empirically tractable. We develop a model of how core affect, including short-term (emotion-like) and longer-term (mood-like) states, influence decision-making via processes that we label affective options, affective predictions, and affective outcomes and which correspond to similar concepts in schema of the links between human emotion and decision-making. Our framework is generalisable across species and generates questions for future research.",
+    "authors": [
+      "Michael Mendl",
+      "Elizabeth S. Paul"
+    ],
+    "year": "2020",
+    "venue": "Neuroscience & Biobehavioral Reviews",
+    "citation_count": 159,
+    "url": "https://doi.org/10.1016/j.neubiorev.2020.01.025"
+  },
+  {
+    "source": "openalex",
+    "title": "Caudate Encodes Multiple Computations for Perceptual Decisions",
+    "abstract": "Perceptual decision making is a complex process that requires multiple computations, including the accumulation of sensory evidence and an ongoing evaluation of the accumulation process to use for prediction and adjustment. Implementing these computations likely involves interactions among many brain regions. For perceptual decisions linked to oculomotor actions, neural correlates of sensory evidence accumulation have been identified in several cortical areas, including the frontal eye field and lateral intraparietal area, and one of their direct, subcortical targets, the superior colliculus. These structures are also connected indirectly, via the basal ganglia. The basal ganglia pathway has been theorized to contribute to perceptual decision making, but the nature of this contribution has yet to be examined directly. Here we show that in monkeys performing a reaction-time visual motion direction-discrimination task, neurons in a primary input structure of the basal ganglia, the caudate nucleus, encode three aspects of decision making: evidence accumulation, evaluation, and choice biases. These results indicate that the basal ganglia pathway can provide important signals to influence and assess perceptual decisions that guide oculomotor behavior.",
+    "authors": [
+      "Long Ding",
+      "Joshua I. Gold"
+    ],
+    "year": "2010",
+    "venue": "Journal of Neuroscience",
+    "citation_count": 327,
+    "url": "https://doi.org/10.1523/jneurosci.2894-10.2010"
+  },
+  {
+    "source": "openalex",
+    "title": "Neurophysiology of Human Perceptual Decision-Making",
+    "abstract": "The discovery of neural signals that reflect the dynamics of perceptual decision formation has had a considerable impact. Not only do such signals enable detailed investigations of the neural implementation of the decision-making process but they also can expose key elements of the brain's decision algorithms. For a long time, such signals were only accessible through direct animal brain recordings, and progress in human neuroscience was hampered by the limitations of noninvasive recording techniques. However, recent methodological advances are increasingly enabling the study of human brain signals that finely trace the dynamics of the unfolding decision process. In this review, we highlight how human neurophysiological data are now being leveraged to furnish new insights into the multiple processing levels involved in forming decisions, to inform the construction and evaluation of mathematical models that can explain intra- and interindividual differences, and to examine how key ancillary processes interact with core decision circuits.",
+    "authors": [
+      "Redmond G O\u2019Connell",
+      "Simon P. Kelly"
+    ],
+    "year": "2021",
+    "venue": "Annual Review of Neuroscience",
+    "citation_count": 124,
+    "url": "https://doi.org/10.1146/annurev-neuro-092019-100200"
+  },
+  {
+    "source": "openalex",
+    "title": "Goal Commitments and the content of thoughts and dreams: basic principles",
+    "abstract": "A few empirically supported principles can account for much of the thematic content of waking thought, including rumination, and dreams. (1) An individual's commitments to particular goals sensitize the individual to respond to cues associated with those goals. The cues may be external or internal in the person's own mental activity. The responses may take the form of noticing the cues, storing them in memory, having thoughts or dream segments related to them, and/or taking action. Noticing may be conscious or not. Goals may be any desired endpoint of a behavioral sequence, including finding out more about something, i.e., exploring possible goals, such as job possibilities or personal relationships. (2) Such responses are accompanied and perhaps preceded by protoemotional activity or full emotional arousal, the amplitude of which determines the likelihood of response and is related to the value placed on the goal. (3) When the individual is in a situation conducive to making progress toward attaining the goal, the response to goal cues takes the form of actions or operant mental acts that advance the goal pursuit. (4) When circumstances are unfavorable for goal-directed operant behavior, the response remains purely mental, as in mind-wandering and dreaming, but still reflects the content of the goal pursuit or associated content. (5) Respondent responses such as mind-wandering are more likely when the individual is mentally unoccupied with ongoing tasks and less likely the more that is at stake in the ongoing task. The probability of respondent thought is highest during relaxed periods, when the brain's default-mode network dominates, or during sleep. The article briefly summarizes neurocognitive findings that relate to mind-wandering and evidence regarding adverse effects of mind-wandering on task performance as well as evidence suggesting adaptive functions in regard to creative problem-solving, planning, resisting delay discounting, and memory consolidation.",
+    "authors": [
+      "Eric Klinger"
+    ],
+    "year": "2013",
+    "venue": "Frontiers in Psychology",
+    "citation_count": 186,
+    "url": "https://doi.org/10.3389/fpsyg.2013.00415"
+  },
+  {
+    "source": "openalex",
+    "title": "Demographic Bias in Biometrics: A Survey on an Emerging Challenge",
+    "abstract": "Systems incorporating biometric technologies have become ubiquitous in personal, commercial, and governmental identity management applications. Both cooperative (e.g., access control) and noncooperative (e.g., surveillance and forensics) systems have benefited from biometrics. Such systems rely on the uniqueness of certain biological or behavioral characteristics of human beings, which enable for individuals to be reliably recognized using automated algorithms. Recently, however, there has been a wave of public and academic concerns regarding the existence of systemic bias in automated decision systems (including biometrics). Most prominently, face recognition algorithms have often been labeled as \u201cracist\u201d or \u201cbiased\u201d by the media, nongovernmental organizations, and researchers alike. The main contributions of this article are: 1) an overview of the topic of algorithmic bias in the context of biometrics; 2) a comprehensive survey of the existing literature on biometric bias estimation and mitigation; 3) a discussion of the pertinent technical and social matters; and 4) an outline of the remaining challenges and future work items, both from technological and social points of view.",
+    "authors": [
+      "Pawel Drozdowski",
+      "Christian Rathgeb",
+      "Antitza Dantcheva",
+      "Naser Damer",
+      "Christoph Busch"
+    ],
+    "year": "2020",
+    "venue": "IEEE Transactions on Technology and Society",
+    "citation_count": 204,
+    "url": "https://doi.org/10.1109/tts.2020.2992344"
+  },
+  {
+    "source": "openalex",
+    "title": "The Bias That Divides Us",
+    "abstract": "Why we don't live in a post-truth society but rather a myside society: what science tells us about the bias that poisons our politics. In The Bias That Divides Us, psychologist Keith Stanovich argues provocatively that we don't live in a post-truth society, as has been claimed, but rather a myside society. Our problem is not that we are unable to value and respect truth and facts, but that we are unable to agree on commonly accepted truth and facts. We believe that our side knows the truth. Post-truth? That describes the other side. The inevitable result is political polarization. Stanovich shows what science can tell us about myside bias: how common it is, how to avoid it, and what purposes it serves. Stanovich explains that although myside bias is ubiquitous, it is an outlier among cognitive biases. It is unpredictable. Intelligence does not inoculate against it, and myside bias in one domain is not a good indicator of bias shown in any other domain. Stanovich argues that because of its outlier status, myside bias creates a true blind spot among the cognitive elite\u2014those who are high in intelligence, executive functioning, or other valued psychological dispositions. They may consider themselves unbiased and purely rational in their thinking, but in fact they are just as biased as everyone else. Stanovich investigates how this bias blind spot contributes to our current ideologically polarized politics, connecting it to another recent trend: the decline of trust in university research as a disinterested arbiter.",
+    "authors": [
+      "Keith E. Stanovich"
+    ],
+    "year": "2021",
+    "venue": "The MIT Press eBooks",
+    "citation_count": 130,
+    "url": "https://doi.org/10.7551/mitpress/13367.001.0001"
+  },
+  {
+    "source": "openalex",
+    "title": "Anomalies: Intertemporal Choice",
+    "abstract": "We examine a number of situations in which people do not appear to discount money flows at the market rate of interest or any other single discount rate. Discount rates observed in both laboratory and field decision-making environments are shown to depend on the magnitude and sign of what is being discounted, on the time delay, on whether the choice is cast in terms of speed-up or delay, on the way in which a choice is framed, and on whether future benefits or costs induce savoring or dread.",
+    "authors": [
+      "George Loewenstein",
+      "Richard H. Thaler"
+    ],
+    "year": "1989",
+    "venue": "The Journal of Economic Perspectives",
+    "citation_count": 874,
+    "url": "https://doi.org/10.1257/jep.3.4.181"
+  },
+  {
+    "source": "europepmc",
+    "title": "Reasoning and empathy are not competing but complementary features of altruism.",
+    "abstract": "Humans can care about distant strangers, an adaptive advantage that enables our species to cooperate in increasingly large-scale groups. Theoretical frameworks accounting for an expansive moral circle and altruistic behavior are often framed as a dichotomy between competing pathways of emotion-driven empathy versus logic-driven reasoning. Here, in a pre-registered investigation comparing variations in empathy and reasoning capacities across different exceptionally altruistic populations-effective altruists (EAs) who aim to maximize welfare gains with their charitable contributions (<i>N</i> = 119) and extraordinary altruists (XAs) who have donated organs to strangers (<i>N</i> = 65)-alongside a third sample of demographically similar general population controls (<i>N</i> = 176), we assess how both capacities associate with altruistic behaviors that transcend conventional parochial boundaries. We find that, while EAs generally manifest heightened reasoning ability and XAs heightened empathic ability, both empathy and reasoning independently predict greater engagement in equitable and effective altruism on laboratory measures and behavioral tasks. Interaction effects suggest empathy and reasoning, when combined, often predict the strongest willingness to prioritize welfare impartially and maximize impact. These results suggest complementary candidate roles for empathy and reasoning in overcoming biases that constrain altruism, supporting a unified framework for expansive altruism and challenging the empathy-reasoning dichotomy in existing theory.",
+    "authors": [
+      "Law KF",
+      "Syropoulos S",
+      "Amormino P",
+      "Marsh A",
+      "Young L",
+      "O'Connor BB."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1093/pnasnexus/pgag015"
+  },
+  {
+    "source": "europepmc",
+    "title": "A Hybrid Mixed Methods Design for Understanding Decision Making, Social Structure, and Network Dynamics of Life Course Transitions.",
+    "abstract": "Longitudinal research consistently finds life course transitions associated with changes in individual-level egonetworks, but the interplay of agency and structure underlying these network dynamics largely remains elusive. In this study, we present a hybrid mixed methods research design that brings to the forefront decision making within the structural opportunities and constraints associated with life course transitions and network change. We combine longitudinal data on existing, added, dissolved, and anticipated social network ties collected using Network Canvas with open-ended interview questions asking why specific relationships changed over time. We gather this data at more rapid intervals than typical to document and understand heightened network turnover seen during life course transitions. As an illustration, we present longitudinal egonetwork and interview data from two participants in a novel prison reentry program, demonstrating how our method elucidates the structural and cognitive processes accompanying network change during an important life course transition.",
+    "authors": [
+      "Kreager DA",
+      "Schaefer DR",
+      "Brant K",
+      "Bardele N",
+      "Henry BF."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1016/j.socnet.2026.02.005"
+  },
+  {
+    "source": "europepmc",
+    "title": "Influencing factors of initiation and maintenance of multidomain interventions in patients with mild cognitive impairment: a qualitative study.",
+    "abstract": "<h4>Background</h4>Mild cognitive impairment (MCI) is a critical period for the prevention of dementia, and multidomain interventions can effectively delay and improve patients' cognitive decline. However, it remains a great challenge concerning the initiation and maintenance of interventions for MCI patients currently.<h4>Objective</h4>To explore influencing factors of the initiation and maintenance of multidomain interventions in patients with MCI.<h4>Methods</h4>This study was conducted with the recruitment of patients with MCI admitting to the Department of Neurology, Cognitive Center, and Cognitive Training Nursing Clinic of a Grade A Tertiary Hospital in Nanjing, as well as those identified through community screening, between September 2024 and February 2025 via purposive sampling. Data were collected via face-to-face semi-structured interviews. Meanwhile, data analysis for theme extraction in the study was performed through a deductive-inductive approach under the guidance of the multi-theory model (MTM).<h4>Results</h4>This study extracted two themes and eleven subthemes: Behavior initiation (perceived disease threat triggering service seeking and participation; disease cognitive biases and cognitive anosognosia hindering intervention initiation; perceived benefits of interventions; cognitive expectations of rehabilitation outcomes; barriers to accessing and utilizing intervention resources; economic cost-benefit tradeoffs). Behavior maintenance (positive experiences during interventions; self-regulation during interventions; diverse external support; high time preference during interventions; impact of frailty and comorbidities).<h4>Conclusion</h4>Multidomain interventions for patients with MCI are affected by complex and multiple factors. These factors should be considered in the clinical setting, with the formulation of targeted intervention strategies to improve patients' participation in and adherence to multidomain interventions. Furthermore, it may contribute to the transformation of the interventions from effective to practical implementation and delay the progression of the disease.",
+    "authors": [
+      "Han Y",
+      "Wang Q",
+      "Shao J",
+      "Zhang J",
+      "Zhang X",
+      "Sheng S."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.3389/fneur.2025.1734487"
+  },
+  {
+    "source": "europepmc",
+    "title": "Treatment Preference Archetypes in Eosinophilic Esophagitis and Their Implications for Therapy.",
+    "abstract": "<h4>Introduction</h4>Little is known about how patients make decisions about and prioritize therapies and disease management in eosinophilic esophagitis (EoE). We aimed to systematically identify and characterize patient perspectives and attitudes that influence decision making for EoE management.<h4>Methods</h4>To understand the diverse attitudes and values of patients with EoE, we designed a study using the Q-method. We iteratively developed 31 statements related to EoE disease management. Participants sorted statements by ranking from +4 (most agree) to -4 (most disagree). By-person factor analysis, using 2-factor and 3-factor rotation, revealed distinct preference archetypes.<h4>Results</h4>Thirty-four adults with EoE (mean age 40.9 years, 51.4% male, 82.9% White) were recruited from gastroenterology and allergy clinics from a single center. We identified 2 treatment-centered archetypes: Medication preference, driven by symptoms and the desire to minimize risk of complications and Natural treatment preference , focusing on identifying trigger foods and diet adherence. Three-factor analysis revealed an additional archetype: Treatment ambivalent, a view of EoE as a mild and episodic (not chronic) disease with low priority to treat. Comparison by factor revealed 54% of those in the natural preference archetype were recategorized as treatment ambivalent , suggesting that they see natural treatment as a less complicated or milder strategy and may be at risk of nonadherence and reduced treatment uptake.<h4>Discussion</h4>We identified 3 distinct treatment preference archetypes among individuals with EoE, underscoring the need for personalized treatment strategies, especially for those favoring natural approaches but masking ambivalence, and may be at risk of nonadherence or loss to follow-up.",
+    "authors": [
+      "Chang JW",
+      "Brophy K",
+      "Ryan KA",
+      "Rubenstein JH",
+      "Dellon ES",
+      "Wallner LP",
+      "Kim HM",
+      "De Vries AR."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.14309/ajg.0000000000003133"
+  },
+  {
+    "source": "europepmc",
+    "title": "Ethics From the Outset: Incorporating Ethical Considerations into the Artificial Intelligence and Technology Collaboratories for Aging Research Pilot Projects.",
+    "abstract": "There is an urgent need to develop tools to enable older adults to live healthy, independent lives for as long as possible. To address this need, the National Institute on Aging (NIA) Artificial Intelligence and Technology Collaboratories (AITCs) for Aging Research were created to identify, develop, evaluate, commercialize, and disseminate innovative technologies and artificial intelligence (AI) methods to promote healthy aging and to support persons with Alzheimer's disease and Alzheimer's disease-related dementias (AD/ADRD). In 2023, AITC pilot grant applicants were required to answer questions about how, if at all, they would safeguard older adults' data privacy and confidentiality, advance health equity, address bias, and protect vulnerable participants. Our team analyzed applicants' answers to these ethics-focused questions using a constructivist grounded theory approach. In this article, we present what we learned and discuss modifications to our approach moving forward.",
+    "authors": [
+      "Largent EA",
+      "Kim Y",
+      "Karlawish J",
+      "Wexler A."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1093/gerona/glaf035"
+  },
+  {
+    "source": "europepmc",
+    "title": "A Justice-First Approach to Ambient Intelligence in Healthcare.",
+    "abstract": "Ambient intelligence systems (AIS) are increasingly deployed to provide persistent, artificially intelligent, monitoring and documentation of healthcare. AIS pose many ethical issues, including risks to the privacy of third parties, pernicious biases in predictive analytics, and intractable conflicts between the interests of patients, family members and care providers. In this paper we argue that these risks cannot be effectively navigated by applying a traditional bioethical framework. The traditional bioethical framework focuses heavily on protecting the autonomy and interests of a patient within the context of a single decision. An AIS, on the other hand, occupies a physical space and thus implicates multiple stakeholders, with interests that may conflict, in a setting where individually opting out of the interaction may be impractical or infeasible. Hence, we argue that, like many questions arising in the context of public health ethics, they should be dealt with through a \"justice-first\" approach to ethical theorizing.",
+    "authors": [
+      "Herington J",
+      "K Cho M."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1080/15265161.2025.2497972"
+  },
+  {
+    "source": "europepmc",
+    "title": "Digital Twin Cognition: AI-Biomarker Integration in Biomimetic Neuropsychology.",
+    "abstract": "(1) Background: The convergence of digital twin technology, artificial intelligence, and multimodal biomarkers heralds a transformative era in neuropsychological assessment and intervention. Digital twin cognition represents an emerging paradigm that creates dynamic, personalized virtual models of individual cognitive systems, enabling continuous monitoring, predictive modeling, and precision interventions. This systematic review comprehensively examines the integration of AI-driven biomarkers within biomimetic neuropsychological frameworks to advance personalized cognitive health. (2) Methods: Following PRISMA 2020 guidelines, we conducted a systematic search across six major databases spanning medical, neuroscience, and computer science disciplines for literature published between 2014 and 2024. The review synthesized evidence addressing five research questions examining framework integration, predictive accuracy, clinical translation, algorithm effectiveness, and neuropsychological validity. (3) Results: Analysis revealed that multimodal integration approaches combining neuroimaging, physiological, behavioral, and digital phenotyping data substantially outperformed single-modality assessments. Deep learning architectures demonstrated superior pattern recognition capabilities, while traditional machine learning maintained advantages in interpretability and clinical implementation. Successful frameworks, particularly for neurodegenerative diseases and multiple sclerosis, achieved earlier detection, improved treatment personalization, and enhanced patient outcomes. However, significant challenges persist in algorithm interpretability, population generalizability, and the integration of healthcare systems. Critical analysis reveals that high-accuracy claims (85-95%) predominantly derive from small, homogeneous cohorts with limited external validation. Real-world performance in diverse clinical settings likely ranges 10-15% lower, emphasizing the need for large-scale, multi-site validation studies before clinical deployment. (4) Conclusions: Digital twin cognition establishes a new frontier in personalized neuropsychology, offering unprecedented opportunities for early detection, continuous monitoring, and adaptive interventions while requiring continued advancement in standardization, validation, and ethical frameworks.",
+    "authors": [
+      "Gkintoni E",
+      "Halkiopoulos C."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.3390/biomimetics10100640"
+  },
+  {
+    "source": "europepmc",
+    "title": "Navigating Time-Inconsistent Behavior: The Influence of Financial Knowledge, Behavior, and Attitude on Hyperbolic Discounting.",
+    "abstract": "Hyperbolic discounting is a psychological phenomenon in which individuals prioritize smaller immediate rewards over larger future rewards. Time-inconsistent behavior is deemed irrational as it negatively impacts savings and investment, investment in financial knowledge, and long-term financial and personal well-being. This study hypothesizes that improving financial knowledge, promoting positive financial behavior, and fostering a future-oriented financial attitude can mitigate hyperbolic discounting bias and that these three components of financial literacy enable investors to make long-term economic decisions maximizing utility. We analyzed the responses of 114,170 active investors in Japan to examine the interactions between financial knowledge, behavior, and attitude. Our findings reveal a strong negative relationship between these dimensions and hyperbolic discounting, underscoring their crucial role in shaping individuals' intertemporal preferences. For researchers, our results highlight the need to integrate multidimensional aspects of financial literacy into investigations of intertemporal discounting behaviors. Policymakers should implement holistic financial education programs that improve knowledge, transform behavior, and shape attitudes. Financial institutions and advisors should prioritize programs that mitigate hyperbolic discounting tendencies among clients. This study represents a significant advancement in the research on financial literacy, offering a comprehensive framework for future studies and practical applications aimed at improving financial decision-making outcomes.",
+    "authors": [
+      "Bawalle AA",
+      "Lal S",
+      "Nguyen TXT",
+      "Khan MSR",
+      "Kadoya Y."
+    ],
+    "year": "2024",
+    "venue": "",
+    "url": "https://doi.org/10.3390/bs14110994"
+  },
+  {
+    "source": "europepmc",
+    "title": "Priorities for contraceptive method and service delivery attributes among adolescent girls and young women in Kenya: a qualitative study.",
+    "abstract": "<h4>Introduction</h4>Despite increasing global commitment to meeting the family planning needs of adolescent girls and young women (AGYW), there is limited research on how they prioritize contraceptive method and service delivery characteristics. In this qualitative study, we examine the specific elements that drive the contraceptive choices of Kenyan AGYW, and apply our findings to the development of attributes and levels for a discrete choice experiment (DCE).<h4>Methods</h4>Our four-stage approach included data collection, data reduction, removing inappropriate attributes, and optimizing wording. Between June-October 2021, we conducted in-depth interviews with 30 sexually-active 15-24 year-old AGYW in Kisumu county, Kenya who were non-pregnant and desired to delay pregnancy. Interviews focused on priorities for contraceptive attributes, how AGYW make trade-offs between among these attributes, and the influences of preferences on contraceptive choice. Translated transcripts were qualitatively coded and analyzed with a constant comparative approach to identify key concepts. We developed and iteratively revised a list of attributes and levels, and pre-tested draft DCE choice tasks using cognitive interviews with an additional 15 AGYW to optimize comprehension and relevance.<h4>Results</h4>In-depth interview participants' median age was 18, 70% were current students, and 93% had a primary sexual partner. AGYW named a variety of priorities and preferences related to choosing and accessing contraceptive methods, which we distilled into six key themes: side effects; effectiveness; user control; privacy; source of services; and cost. Bleeding pattern was top of mind for participants; amenorrhea was generally considered an intolerable side effect. Many participants felt more strongly about privacy than effectiveness, though some prioritized duration of use and minimizing chance of pregnancy above other contraceptive characteristics. Most AGYW preferred a clinic setting for access, as they desired contraceptive counseling from a provider, but pharmacies were considered preferable for reasons of privacy. We selected, refined, and pre-tested 7 DCE attributes, each with 2-4 levels.<h4>Conclusions</h4>Identifying AGYW preferences for contraceptive method and service delivery characteristics is essential to developing innovative strategies to meet their unique SRH needs. DCE methods may provide valuable quantitative perspectives to guide and tailor contraceptive counseling and service delivery interventions for AGYW who want to use contraception.",
+    "authors": [
+      "Harrington EK",
+      "Hauber B",
+      "Ouma DC",
+      "Kimanthi S",
+      "Dollah A",
+      "Onono M",
+      "Bukusi EA."
+    ],
+    "year": "2024",
+    "venue": "",
+    "url": "https://doi.org/10.3389/frph.2024.1360390"
+  },
+  {
+    "source": "europepmc",
+    "title": "The pervasive impact of frailty on ovarian cancer care and the role of prehabilitation: Qualitative perspectives of key stakeholders.",
+    "abstract": "<h4>Introduction</h4>We performed a qualitative study to explore key stakeholders' perspectives about the impact of frailty on ovarian cancer care and evaluate a candidate prehabilitation intervention.<h4>Materials and methods</h4>We conducted semi-structured interviews with patient-caregiver dyads and multi-disciplinary clinicians. Patients were\u00a0\u2265\u00a050\u00a0years of age with a new diagnosis of advanced stage (III/IV) ovarian cancer who received cancer-directed treatment (chemotherapy and/or surgery) during the past year and met criteria as pre-frail or frail using the FRAIL scale. We used a semi-structured interview guide to elicit participants' views on frailty, nutrition, physical therapy, and a candidate prehabilitation intervention. We used inductive and deductive approaches to code and analyze interviews and identify emergent themes and patterns.<h4>Results</h4>Ten patients and caregivers (five dyads) and 10 providers were interviewed. We identified four themes: (1) frailty screening is essential to prevent over- and under-treatment, but underused; (2) stakeholders preferred a multidisciplinary approach to providing tailored care for frail patients over a candidate prehabilitation intervention; (3) patient, family caregiver, and clinician stakeholders reported multiple barriers to prehabilitation programs, including concerns about selection bias, and (4) frail patients and family members are vulnerable and require more psychosocial support.<h4>Discussion</h4>We identified significant barriers to prehabilitation interventions for frail patients with ovarian cancer; initiatives to increase frailty screening and provide tailored multi-disciplinary approaches may have a greater impact.",
+    "authors": [
+      "Cham S",
+      "Pozzar RA",
+      "Horowitz N",
+      "Feltmate C",
+      "Matulonis UA",
+      "Lai JC",
+      "Wright AA."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1016/j.jgo.2024.102173"
+  },
+  {
+    "source": "europepmc",
+    "title": "You can't have your cake and eat it too: the paradox of the American public supporting road safety but reluctant to pay the price - evidence from a discrete choice experiment.",
+    "abstract": "<h4>Background</h4>An estimated 44,680 people died in motor-vehicle crashes in the United States in 2024. A disproportionate share of these deaths involved young people. In 2023 alone, these crashes cost the U.S. $48 billion and $457 billion among adolescents aged 13-19 and in the entire population, respectively. The Safe System approach aims to improve roadway safety through safer drivers, roads, vehicles, speeds, and optimal post-crash care. Despite its effectiveness and federal investments, U.S. adoption lags other countries. Understanding public attitudes could enhance uptake.<h4>Objectives</h4>To identify factors influencing the American public's commitment to road safety and quantify preferences for speed reductions-a key element of the Safe System approach-using a discrete choice experiment (DCE).<h4>Methods</h4>A DCE survey was administered to 2,274 participants (\u226518\u00a0years) from the National Opinion Research Center's (NORC) AmeriSpeak panel, to assess preferences for speed limit changes (10-mph reduction, no change, 10-mph increase), public spending on road safety versus healthier water, and resulting annual traffic deaths (25 more, no change, 25 fewer). Multinomial and random parameter logit models estimated preference weights.<h4>Results</h4>Data from 2,060 participants (mean age 47.1 years) were analyzed. Most were non-Hispanic White (62.4%), had a bachelor's degree (46.1\u00a0%), and were employed (61.8%). There was significant support for policy change (odds ratio 0.18; 95% confidence interval 0.14-0.23). Respondents favored reducing fatalities but opposed lowering speed limits. They would accept a 10-mph speed reduction for six fewer fatal crashes. Public spending on road safety versus healthier water was a key trade-off.<h4>Conclusions</h4>Our findings highlight public support for speed limit reductions when they effectively reduce fatalities but reveal reluctance toward increased spending. Policymakers should emphasize safety benefits to ensure public acceptance.",
+    "authors": [
+      "Drabo EF",
+      "Ehsani JP",
+      "Frattaroli S",
+      "Pollack Porter KM",
+      "Michael JP."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1016/j.jsr.2025.06.020"
+  },
+  {
+    "source": "europepmc",
+    "title": "Mapping EEG Metrics to Human Affective and Cognitive Models: An Interdisciplinary Scoping Review from a Cognitive Neuroscience Perspective.",
+    "abstract": "<i>Background</i>: Electroencephalography (EEG) offers millisecond-precision measurement of neural oscillations underlying human cognition and emotion. Despite extensive research, systematic frameworks mapping EEG metrics to psychological constructs remain fragmented. <i>Objective</i>: This interdisciplinary scoping review synthesizes current knowledge linking EEG signatures to affective and cognitive models from a neuroscience perspective. <i>Methods</i>: We examined empirical studies employing diverse EEG methodologies, from traditional spectral analysis to deep learning approaches, across laboratory and naturalistic settings. <i>Results</i>: Affective states manifest through distinct frequency-specific patterns: frontal alpha asymmetry (8-13 Hz) reliably indexes emotional valence with 75-85% classification accuracy, while arousal correlates with widespread beta/gamma power changes. Cognitive processes show characteristic signatures: frontal-midline theta (4-8 Hz) increases linearly with working memory load, alpha suppression marks attentional engagement, and theta/beta ratios provide robust cognitive load indices. Machine learning approaches achieve 85-98% accuracy for subject identification and 70-95% for state classification. However, significant challenges persist: spatial resolution remains limited (2-3 cm), inter-individual variability is substantial (alpha peak frequency: 7-14 Hz range), and overlapping signatures compromise diagnostic specificity across neuropsychiatric conditions. Evidence strongly supports integrated rather than segregated processing, with cross-frequency coupling mechanisms coordinating affective-cognitive interactions. <i>Conclusions</i>: While EEG-based assessment of mental states shows considerable promise for clinical diagnosis, brain-computer interfaces, and adaptive technologies, realizing this potential requires addressing technical limitations, standardizing methodologies, and establishing ethical frameworks for neural data privacy. Progress demands convergent approaches combining technological innovation with theoretical sophistication and ethical consideration.",
+    "authors": [
+      "Gkintoni E",
+      "Halkiopoulos C."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.3390/biomimetics10110730"
   }
 ]

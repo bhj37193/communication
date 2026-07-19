@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
-"""Pull academic literature grounding for the 4-skill curriculum + behavior science.
+"""Pull academic literature grounding for the 5-skill curriculum (incl. behavior science).
 
-Sources: arXiv API (official, stdlib-only) and Semantic Scholar Graph API
-(official, covers psychology/communication journals arXiv doesn't index).
-No scraping: both targets expose clean free APIs, so Scrapling isn't needed
-here (see RESEARCH-METHODOLOGY.md's "primary source over scraper" rule).
+Sources, all official free APIs, no scraping (see RESEARCH-METHODOLOGY.md's
+"primary source over scraper" rule):
+- arXiv API (stdlib-only)
+- Semantic Scholar Graph API (covers psychology/communication journals arXiv
+  doesn't index)
+- OpenAlex (broadest multidisciplinary coverage, no key, DOI + OA status +
+  citation counts)
+- Europe PMC (free, no key, strongest on health/behavior-change literature:
+  habit formation, nudge interventions, BCT taxonomies)
+
+Re-runs are additive: existing papers per topic are kept and merged with
+whatever the new run finds, deduped by title, never dropped by a thin re-fetch.
 
 Usage: python3 research/fetch_literature.py
 Output: research/literature/<topic>.json + research/literature/INDEX.md
@@ -18,8 +26,11 @@ from pathlib import Path
 
 OUT_DIR = Path(__file__).parent / "literature"
 UA = "charisma-curriculum-research/1.0 (thebohyeon@gmail.com)"
+CONTACT = "thebohyeon@gmail.com"
 ARXIV_DELAY = 3.0  # arXiv community etiquette: no more than 1 req/3s
 S2_DELAY = 1.2
+OPENALEX_DELAY = 1.0
+EUROPEPMC_DELAY = 1.0
 
 # topic -> (arxiv query, arxiv category filter, semantic scholar query)
 TOPICS = {
@@ -113,6 +124,72 @@ def fetch_semantic_scholar(query):
     return out
 
 
+def _reconstruct_abstract(inverted_index):
+    if not inverted_index:
+        return ""
+    positions = {}
+    for word, idxs in inverted_index.items():
+        for i in idxs:
+            positions[i] = word
+    return " ".join(positions[i] for i in sorted(positions))
+
+
+def fetch_openalex(query):
+    params = urllib.parse.urlencode({
+        "search": query,
+        "per-page": MAX_RESULTS,
+        "mailto": CONTACT,
+    })
+    url = f"https://api.openalex.org/works?{params}"
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.loads(resp.read())
+    out = []
+    for w in data.get("results", []):
+        abstract = _reconstruct_abstract(w.get("abstract_inverted_index"))
+        if not abstract:
+            continue
+        out.append({
+            "source": "openalex",
+            "title": w.get("title") or w.get("display_name") or "",
+            "abstract": abstract,
+            "authors": [a.get("author", {}).get("display_name") for a in w.get("authorships", [])],
+            "year": str(w.get("publication_year", "")),
+            "venue": (((w.get("primary_location") or {}).get("source")) or {}).get("display_name", ""),
+            "citation_count": w.get("cited_by_count", 0),
+            "url": w.get("doi") or w.get("id", ""),
+        })
+    return out
+
+
+def fetch_europepmc(query):
+    params = urllib.parse.urlencode({
+        "query": query,
+        "format": "json",
+        "pageSize": MAX_RESULTS,
+        "resultType": "core",
+    })
+    url = f"https://www.ebi.ac.uk/europepmc/webservices/rest/search?{params}"
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.loads(resp.read())
+    out = []
+    for r in data.get("resultList", {}).get("result", []):
+        abstract = r.get("abstractText", "")
+        if not abstract:
+            continue
+        out.append({
+            "source": "europepmc",
+            "title": r.get("title", ""),
+            "abstract": abstract,
+            "authors": [a.strip() for a in r.get("authorString", "").split(",") if a.strip()],
+            "year": r.get("pubYear", ""),
+            "venue": r.get("journalTitle", ""),
+            "url": f"https://doi.org/{r['doi']}" if r.get("doi") else f"https://europepmc.org/article/{r.get('source', 'MED')}/{r.get('id', '')}",
+        })
+    return out
+
+
 def dedupe(papers):
     seen, out = set(), []
     for p in papers:
@@ -125,33 +202,46 @@ def dedupe(papers):
 
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    index_lines = ["# Literature index", "", "Fetched via arXiv API + Semantic Scholar Graph API (no scraping; both are official free APIs).", ""]
+    index_lines = ["# Literature index", "", "Fetched via arXiv, Semantic Scholar, OpenAlex, and Europe PMC (no scraping; all four are official free APIs). Re-runs merge additively; nothing already saved is dropped by a thin re-fetch.", ""]
 
     for topic, (arxiv_q, cat_filter, s2_q) in TOPICS.items():
         print(f"[{topic}] querying arXiv...")
         try:
-            arxiv_papers = fetch_arxiv(arxiv_q, cat_filter)
+            new_papers = fetch_arxiv(arxiv_q, cat_filter)
         except Exception as e:
             print(f"  arXiv error: {e}")
-            arxiv_papers = []
+            new_papers = []
         time.sleep(ARXIV_DELAY)
 
         print(f"[{topic}] querying Semantic Scholar...")
         try:
-            s2_papers = fetch_semantic_scholar(s2_q)
+            new_papers += fetch_semantic_scholar(s2_q)
         except Exception as e:
             print(f"  Semantic Scholar error: {e}")
-            s2_papers = []
         time.sleep(S2_DELAY)
 
-        papers = dedupe(arxiv_papers + s2_papers)
+        print(f"[{topic}] querying OpenAlex...")
+        try:
+            new_papers += fetch_openalex(s2_q)
+        except Exception as e:
+            print(f"  OpenAlex error: {e}")
+        time.sleep(OPENALEX_DELAY)
+
+        print(f"[{topic}] querying Europe PMC...")
+        try:
+            new_papers += fetch_europepmc(s2_q)
+        except Exception as e:
+            print(f"  Europe PMC error: {e}")
+        time.sleep(EUROPEPMC_DELAY)
+
         out_path = OUT_DIR / f"{topic}.json"
-        if not papers and out_path.exists() and out_path.read_text().strip() not in ("", "[]"):
-            print(f"  -> 0 papers this run, keeping existing non-empty {out_path}")
-            papers = json.loads(out_path.read_text())
-        else:
-            out_path.write_text(json.dumps(papers, indent=2))
-            print(f"  -> {len(papers)} papers -> {out_path}")
+        existing = []
+        if out_path.exists() and out_path.read_text().strip() not in ("", "[]"):
+            existing = json.loads(out_path.read_text())
+
+        papers = dedupe(existing + new_papers)
+        out_path.write_text(json.dumps(papers, indent=2))
+        print(f"  -> {len(existing)} existing + {len(new_papers)} fetched -> {len(papers)} total -> {out_path}")
 
         index_lines.append(f"## {topic} ({len(papers)} papers)")
         for p in papers[:8]:

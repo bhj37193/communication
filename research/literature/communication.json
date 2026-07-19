@@ -222,5 +222,396 @@
     "venue": "The Lancet",
     "citation_count": 0,
     "url": "https://www.semanticscholar.org/paper/83da1c93c52c56d93adfa77f290907c5abd20b1a"
+  },
+  {
+    "source": "openalex",
+    "title": "The measurement of satisfaction with healthcare: implications for practice from a systematic review of the literature",
+    "abstract": "T he NHS R&D Health Technology Assessment (HTA) Programme was set up in 1993 to ensure that high-quality research information on the costs, effectiveness and broader impact of health technologies is produced in",
+    "authors": [
+      "Rosemary Crow",
+      "Heather Gage",
+      "S Hampson",
+      "Jo Hart",
+      "Alan Kimber",
+      "Les Storey",
+      "Hayley Thomas"
+    ],
+    "year": "2002",
+    "venue": "Health Technology Assessment",
+    "citation_count": 1273,
+    "url": "https://doi.org/10.3310/hta6320"
+  },
+  {
+    "source": "openalex",
+    "title": "Disclosure, Privacy, and Stigma on Social Media",
+    "abstract": "Disclosures of distress and stigma on identified social media can be beneficial. Yet, many who may benefit from such disclosures do not engage in them. I examine factors that inform decisions to not disclose stigmatized experiences on identified social media. I conducted in-depth interviews with women in the US who used social media, had experienced pregnancy loss, and had not disclosed about their loss on identified social media. I detail six types of factors related to the self, audience, network, society, platform, and temporality that contribute to non-disclosure decisions. I show that the Disclosure Decision-Making (DDM) framework introduced in prior work explaining disclosures when they do occur, also explains non-disclosure decisions on social media. I show how DDM builds from and bridges prior privacy theories, namely, Communication Privacy Management and Contextual Integrity. I discuss design implications around removing barriers to disclosure to facilitate beneficial disclosures and reduce stigma.",
+    "authors": [
+      "Nazanin Andalibi"
+    ],
+    "year": "2020",
+    "venue": "ACM Transactions on Computer-Human Interaction",
+    "citation_count": 79,
+    "url": "https://doi.org/10.1145/3386600"
+  },
+  {
+    "source": "openalex",
+    "title": "Something Personal from the Metaverse: Goals, Topics, and Contextual Factors of Self-Disclosure in Commercial Social VR",
+    "abstract": "Current Social VR literature provides limited insight on one of the most critical behaviors for developing and maintaining interpersonal relationships: self-disclosure. Therefore, we present an online survey (N = 126) investigating how users disclose personal information to each other in Social VR. Our results indicate that many participants see in Social VR access to authentic connections with others despite tending towards skepticism and privacy concerns. Most users disclose sexuality-related information, lifestyle preferences, and personal goals. In contrast, information that breaks anonymity, such as real names and more intimate aspects of oneself, are shared less commonly. Thereby, self-disclosure decisions depend on factors like the relationship to or age of disclosure recipients, the privacy of a virtual environment, the group size, or the activity context, and is driven by different goals, i.a., relational development or exploration of oneself. These insights advance the understanding of current Social VR users and their behavior by directing future research on self-disclosure-based relationship building in Social VR and outlying broader design implications for the future metaverse.",
+    "authors": [
+      "Philipp Sykownik",
+      "Divine Maloney",
+      "Guo Freeman",
+      "Maic Masuch"
+    ],
+    "year": "2022",
+    "venue": "CHI Conference on Human Factors in Computing Systems",
+    "citation_count": 68,
+    "url": "https://doi.org/10.1145/3491102.3502008"
+  },
+  {
+    "source": "openalex",
+    "title": "Self-reported camouflaging behaviours used by autistic adults during everyday social interactions",
+    "abstract": "Autistic people may camouflage their innate autistic social behaviours to adapt to, cope within and/or influence the predominately neurotypical social landscape. This study describes behaviours exhibited, altered or avoided by autistic adults whilst camouflaging (i.e. camouflaging behaviours). Using Interpersonal Process Recall methodology, 17 autistic adults (8 women, 6 men and 3 agender/gender neutral individuals) participated in a brief social task designed to replicate a common day-to-day social situation. Participants then watched a video of their interaction with a researcher, actively identifying and describing camouflaging behaviours. Using qualitative content analysis, descriptions of 38 camouflaging behaviours described by participants were clustered into four main categories and seven subcategories: (1) masking, (2) innocuous engagement (subcategories: passive encouragement, centring social partner, deferential engagement and reducing social risk), (3) modelling neurotypical communication and (4) active self-presentation (subcategories: reciprocal social behaviours, risky social behaviours, and comfortable and familiar social behaviours). The novel use of Interpersonal Process Recall methodology addressed limitations in existing camouflaging research and facilitated the identification of previously unreported camouflaging behaviours. These camouflaging behaviours are discussed with reference to literature concerning interpersonal research and theory within and outside the field of autism. Lay abstract Camouflaging can be thought of as the process through which autistic people modify their natural social behaviours to adapt to, cope within or influence the largely neurotypical (non-autistic) social world. Many autistic people experience negative reactions to their natural or intuitive social behaviours when interacting with non-autistic people. Over time, in response to these negative reactions, autistic people\u2019s social behaviour often changes. We refer to autistic people\u2019s changed behaviours as \u2018camouflaging behaviours\u2019. Research exploring camouflaging behaviours is still at an early stage. This study investigated camouflaging behaviours used by autistic adults in everyday social interactions using a research method that was new to the field of autism. Specifically, 17 autistic adults were filmed taking part in a common everyday social situation \u2013 a conversation with a stranger. With the help of the video of this conversation, they then showed and described their camouflaging behaviours to a researcher. These autistic people identified and described a total of 38 different camouflaging behaviours. The detailed and specific information provided by autistic adults about camouflaging behaviours generated important new insights into the ways in which autistic people adapt to, cope within and influence the neurotypical (non-autistic) social world.",
+    "authors": [
+      "Julia Cook",
+      "Laura Crane",
+      "Laura Hull",
+      "Laura Bourne",
+      "William Mandy"
+    ],
+    "year": "2021",
+    "venue": "Autism",
+    "citation_count": 100,
+    "url": "https://doi.org/10.1177/13623613211026754"
+  },
+  {
+    "source": "openalex",
+    "title": "Transforming nurse\u2013patient relationships\u2014A qualitative study of nurse self\u2010disclosure in mental health care",
+    "abstract": "AIMS AND OBJECTIVES: To describe what and why nurses self-disclose to patients in mental health care. BACKGROUND: Self-disclosure is common, but controversial and difficult to delineate. Extant research suggests that self-disclosure might have several potentially beneficial effects on therapeutic alliance and treatment outcome for patients in mental health care, but results are often mixed and limited by definitional inconsistencies. DESIGN: Multi-site study with purposive sampling and source triangulation. METHOD: Qualitative descriptive study including data from 16 nurses taking part in participant observation, individual interviews and focus group interviews. RESULTS: Separate analyses resulted in four themes addressing the research question of what nurses self-disclose, and one main theme and four subthemes addressing why nurses self-disclose. The content of self-disclosure was captured in the four themes: Immediate family, Interests and activities, Life experiences and Identity. In addition, results showed that disclosures were common among the nurses. Self-disclosure's potential to transform the nurse-patient relationship, making it more open, honest, close, reciprocal and equal, was the overarching reason why nurses shared personal information. The nurses also chose to self-disclose to share existential and everyday sentiments, to give real-life advice, because it felt natural and responsive to patients' question to do so. CONCLUSION: Nurse self-disclosure is common and cover a variety of personal information. Nurses have several reasons for choosing to self-disclose, most of which are connected to improving the nurse-patient relationship. RELEVANCE TO CLINICAL PRACTICE: Self-disclosure controversy can make it difficult for nurses to know whether they should share personal information or not. Insights into the diversity of and reasons for nurse self-disclosure can help with deliberations on self-disclosure.",
+    "authors": [
+      "Jeanette Varpen Unhjem",
+      "Solfrid Vatne",
+      "Marit Helene Hem"
+    ],
+    "year": "2017",
+    "venue": "Journal of Clinical Nursing",
+    "citation_count": 35,
+    "url": "https://doi.org/10.1111/jocn.14191"
+  },
+  {
+    "source": "openalex",
+    "title": "Building Long-Term Human\u2013Robot Relationships: Examining Disclosure, Perception and Well-Being Across Time",
+    "abstract": "Abstract While interactions with social robots are novel and exciting for many people, one concern is the extent to which people\u2019s behavioural and emotional engagement might be sustained across time, since during initial interactions with a robot, its novelty is especially salient. This challenge is particularly noteworthy when considering interactions designed to support people\u2019s well-being, with limited evidence (or empirical exploration) of social robots\u2019 capacity to support people\u2019s emotional health over time. Accordingly, our aim here was to examine how long-term repeated interactions with a social robot affect people\u2019s self-disclosure behaviour toward the robot, their perceptions of the robot, and how such sustained interactions influence factors related to well-being. We conducted a mediated long-term online experiment with participants conversing with the social robot Pepper 10 times over 5 weeks. We found that people self-disclose increasingly more to a social robot over time, and report the robot to be more social and competent over time. Participants\u2019 moods also improved after talking to the robot, and across sessions, they found the robot\u2019s responses increasingly comforting as well as reported feeling less lonely. Finally, our results emphasize that when the discussion frame was supposedly more emotional (in this case, framing questions in the context of the COVID-19 pandemic), participants reported feeling lonelier and more stressed. These results set the stage for situating social robots as conversational partners and provide crucial evidence for their potential inclusion in interventions supporting people\u2019s emotional health through encouraging self-disclosure.",
+    "authors": [
+      "Guy Laban",
+      "Arvid Kappas",
+      "Val Morrison",
+      "Emily S. Cross"
+    ],
+    "year": "2023",
+    "venue": "International Journal of Social Robotics",
+    "citation_count": 80,
+    "url": "https://doi.org/10.1007/s12369-023-01076-z"
+  },
+  {
+    "source": "openalex",
+    "title": "Coming Out in Class: Challenges and Benefits of Active Learning in a Biology Classroom for LGBTQIA Students",
+    "abstract": "As we transition our undergraduate biology classrooms from traditional lectures to active learning, the dynamics among students become more important. These dynamics can be influenced by student social identities. One social identity that has been unexamined in the context of undergraduate biology is the spectrum of lesbian, gay, bisexual, transgender, queer, intersex, and asexual (LGBTQIA) identities. In this exploratory interview study, we probed the experiences and perceptions of seven students who identify as part of the LGBTQIA community. We found that students do not always experience the undergraduate biology classroom to be a welcoming or accepting place for their identities. In contrast to traditional lectures, active-learning classes increase the relevance of their LGBTQIA identities due to the increased interactions among students during group work. Finally, working with other students in active-learning classrooms can present challenges and opportunities for students considering their LGBTQIA identity. These findings indicate that these students' LGBTQIA identities are affecting their experience in the classroom and that there may be specific instructional practices that can mitigate some of the possible obstacles. We hope that this work can stimulate discussions about how to broadly make our active-learning biology classes more inclusive of this specific population of students.",
+    "authors": [
+      "Katelyn M. Cooper",
+      "Sara E. Brownell"
+    ],
+    "year": "2016",
+    "venue": "CBE\u2014Life Sciences Education",
+    "citation_count": 204,
+    "url": "https://doi.org/10.1187/cbe.16-01-0074"
+  },
+  {
+    "source": "openalex",
+    "title": "Listening in Organizations: A Synthesis and Future Agenda",
+    "abstract": "We conducted an integrative review of research on listening relevant to work and organizations, published from 2000 to 2021, and across three disciplines (management, psychology, and communication studies). We found that listening research is fragmented across three perspectives: (1) perceived listening, (2) listeners\u2019 experience, and (3) listening structures. We discuss how integrating these perspectives highlights two major tensions in listening research. First, there is a tension between speakers\u2019 perceptions and listeners\u2019 experience, which reveals a listening paradox \u2013 while listening is perceived to be beneficial for speakers, it can be experienced as costly and depleting for listeners. This paradox reveals why people struggle with listening when it is needed the most. Second, listening structures in organizations can create tensions between organizational goals and listeners\u2019 experiences. While organizations use listening structures to enable and signal listening, these efforts can impose greater costs on listeners, reinforce existing power structures, and create opportunities for unwanted surveillance. Managing these tensions provides fertile ground for future research, in part because recent advances in communication technologies are changing the dynamics and structure of listening in organizations.",
+    "authors": [
+      "Jeffrey Yip",
+      "Colin M. Fisher"
+    ],
+    "year": "2022",
+    "venue": "Academy of Management Annals",
+    "citation_count": 51,
+    "url": "https://doi.org/10.5465/annals.2020.0367"
+  },
+  {
+    "source": "openalex",
+    "title": "How self-disclosure of negative experiences shapes prosociality?",
+    "abstract": "People frequently share their negative experiences and feelings with others. Little is known, however, about the social outcomes of sharing negative experiences and the underlying neural mechanisms. We addressed this dearth of knowledge by leveraging functional near-infrared spectroscopy (fNIRS) hyperscanning: while dyad participants took turns to share their own (self-disclosure group) or a stranger's (non-disclosure group) negative and neutral experiences, their respective brain activity was recorded simultaneously by fNIRS. We observed that sharing negative (relative to neutral) experiences enhanced greater mutual prosociality, emotional empathy and interpersonal neural synchronization (INS) at the left superior frontal cortex in the self-disclosure group compared to the non-disclosure group. Importantly, mediation analyses further revealed that in the self-disclosure (but not non-disclosure) group, the increased emotional empathy and INS elicited by sharing negative experiences relative to sharing neutral experiences promoted the enhanced prosociality through increasing interpersonal liking. These results indicate that self-disclosure of negative experiences can promote prosocial behaviors via social dynamics (defined as social affective and cognitive factors, including empathy and liking) and shared neural responses. Our findings suggest that when people express negative sentiments, they incline to follow up with positive actions.",
+    "authors": [
+      "Xiaojun Cheng",
+      "Shuqi Wang",
+      "Bing Guo",
+      "Qiao Wang",
+      "Yinying Hu",
+      "Yafeng Pan"
+    ],
+    "year": "2024",
+    "venue": "Social Cognitive and Affective Neuroscience",
+    "citation_count": 23,
+    "url": "https://doi.org/10.1093/scan/nsae003"
+  },
+  {
+    "source": "openalex",
+    "title": "Developing a learning-centred framework for feedback literacy",
+    "abstract": "There is an increasing focus on notions of feedback in which students are positioned as active players rather than recipients of information. These discussions have been either conceptual in character or have an empirical focus on designs to support learners in feedback processes. There has been little emphasis on learners\u2019 perspectives on, and experiences of, the role they play in such processes and what they need in order to benefit from feedback. This study therefore seeks to identify the characteristics of feedback literacy \u2013 that is, how students understand and can utilise feedback for their own learning \u2013 by analysing students\u2019 views of feedback processes drawing on a substantial data set derived from a study of feedback in two large universities. The analysis revealed seven groupings of learner feedback literacy, including understanding feedback purposes and roles, seeking information, making judgements about work quality, working with emotions, and processing and using information for the benefit of their future work (31 categories in total). By identifying these realised components of feedback literacy, in the form of illustrative examples, the emergent set of competencies can enable investigations of the development of feedback literacy and improve feedback designs in courses through alignment to these standards.",
+    "authors": [
+      "Elizabeth Molloy",
+      "David Boud",
+      "Michael Henderson"
+    ],
+    "year": "2019",
+    "venue": "Assessment & Evaluation in Higher Education",
+    "citation_count": 497,
+    "url": "https://doi.org/10.1080/02602938.2019.1667955"
+  },
+  {
+    "source": "openalex",
+    "title": "Coping with Emotional Distress via Self-Disclosure to Robots: An Intervention with Caregivers",
+    "abstract": "People often engage in self-disclosure and social sharing when trying to cope with emotional distress. This study introduces a novel long-term intervention designed to help informal caregivers cope with emotional distress by self-disclosing towards a social robot. Research indicates that informal caregivers frequently face challenges in handling the emotional and practical demands of caregiving, often experiencing a lack of social support and limited social interaction. Accordingly, we explored the extent of informal caregivers' self-disclosure behaviour towards a social robot (Pepper, SoftBank Robotics) over time, and how their perceptions of the robot evolved. Additionally, we examined how this intervention affected caregivers' moods, perceptions of the robot as comforting, feelings of loneliness, stress levels, as well as its impact on their emotion regulation. We replicated a previous long-term experiment [1] with a dedicated sample of informal caregivers who interacted with Pepper 10 times over five weeks, discussing everyday topics. Our results show that caregivers increasingly self-disclosed to the robot over time, perceiving it as more social and competent. Participants' moods improved following interactions, and they viewed the robot as increasingly comforting. They also reported feeling progressively less lonely and stressed. Thus, our findings with informal caregivers replicated those of [1]. Moreover, after the intervention, caregivers reported greater acceptance of their caregiving roles, reappraising it more positively, and reduced feelings of blame towards others. These results highlight the potential of social robots to provide emotional support for individuals coping with emotional distress.",
+    "authors": [
+      "Guy Laban",
+      "Val Morrison",
+      "Arvid Kappas",
+      "Emily S. Cross"
+    ],
+    "year": "2025",
+    "venue": "International Journal of Social Robotics",
+    "citation_count": 23,
+    "url": "https://doi.org/10.1007/s12369-024-01207-0"
+  },
+  {
+    "source": "openalex",
+    "title": "Development of long-term B2B customer relationships: the role of self-disclosure and relational cost/benefit evaluation",
+    "abstract": "Purpose This paper aims to explore how and why salespeople enhance or hinder long-term business-to-business (B2B) customer relationships at the interpersonal level by considering self-disclosure and relational cost and reward evaluations. Design/methodology/approach Data from interviews ( N = 47) with B2B sales professionals were analyzed, focusing on the shift of the phases in long-term B2B customer relationships. Findings Long-term B2B customer relationships evolve at the interpersonal level through a process of continuous relational cost and reward evaluation, self-disclosure and business disclosure in three phases: becoming business partners, collaborative partners and collaborative and personal partners. The reward evaluations progress from being business related to including even more relational benefits. Disclosure progresses through general business disclosure and general self-disclosure; strategic business disclosure and personal life self-disclosure; and synergistic business disclosure and private self-disclosure. Research limitations/implications The long-term B2B customer relationships could be studied at the interpersonal level from the customer\u2019s perspective. Self-disclosure could be studied in cross-cultural settings as well as gender differences should be considered in future studies. Business and social penetration theory could be applied to investigate different types of relationships and other professional relationships, such as those between employers and employees. It would be important to test whether the business-related and self-disclosure subtypes apply to the development of other types of professional relationships or whether other disclosure subtypes exist. The authors recommend exploring salespeople\u2019s and customers\u2019 privacy management strategies in multiple communication channels. Practical implications Managers may apply the results of this study in their customer relationship management and sales training. Originality/value The findings outline a contextual extension of social penetration theory.",
+    "authors": [
+      "Jonna Koponen",
+      "Saara Julkunen"
+    ],
+    "year": "2022",
+    "venue": "European Journal of Marketing",
+    "citation_count": 29,
+    "url": "https://doi.org/10.1108/ejm-07-2020-0492"
+  },
+  {
+    "source": "openalex",
+    "title": "Living with Difference: Exploring the Social Self of Adolescents with Chronic Pain",
+    "abstract": "BACKGROUND: Chronic pain negatively affects an adolescent's life; however, little is known about the social impact of chronic pain for adolescents. More is known about the general peer relationships of adolescents with chronic pain than their close friendships. Close friendships begin to take on more importance during adolescence as these relationships facilitate the development of an adolescent's sense of personal identity and increasing independence from family influences. Thus, chronic pain may create friendship challenges for adolescents beyond those typically experienced during this developmental trajectory, which may negatively impact their abilities to secure social support. OBJECTIVES: To better understand the challenges adolescents with chronic pain face with regard to their friendships. METHODS: An interpretative phenomenological study using individual interviews was conducted. RESULTS: Two themes emerged. 'Rethinking the self with pain' describes the intrusive nature of chronic pain, challenging the participants to rethink the way they view themselves and their place within their social network. 'Rethinking friendships' describes the interpretation of their friends' reactions to their chronic pain condition, which led to these adolescents spending more time by themselves, and feeling misunderstood and unsupported. CONCLUSIONS: The impact of chronic pain on the adolescent as an individual as well as the responses of close friends and others within their social network resulted in the development of new friendship needs. However, the adolescents were not always able to secure these new friendship needs. Their experiences suggest factors within friendships that may be ameliorated by interventions, thus maintaining and strengthening their close friendships.",
+    "authors": [
+      "Paula Forgeron",
+      "Joan Evans",
+      "Patrick J. McGrath",
+      "Bonnie Stevens",
+      "G. Allen Finley"
+    ],
+    "year": "2013",
+    "venue": "Pain Research and Management",
+    "citation_count": 88,
+    "url": "https://doi.org/10.1155/2013/120632"
+  },
+  {
+    "source": "openalex",
+    "title": "Maternal disclosure and adolescent prosocial behavior: The mediating roles of adolescent disclosure and coping",
+    "abstract": "Abstract In this study, we considered the impact of mothers' willingness to disclose about distressing events and rule transgressions on their adolescent children's willingness to disclose about similar events, as well as adolescents' ability to cope and to show concern for others. Mothers and their 12\u2010 to 14\u2010year\u2010old children ( N = 125) were asked to say how likely they would be to talk about moderately distressing concerns as well as minor rule transgressions. Adolescent positive coping skills were also assessed. Teachers ( N = 92) rated the adolescents' prosocial behaviors in the classroom. Adolescents' disclosure about distressing events and positive coping mediated the relation between maternal disclosure about distressing events and adolescent prosocial behavior. Further, maternal disclosure alone about both distressing events and rule transgressions was related to adolescent prosocial behavior through positive coping. These results suggest that mothers' willingness to talk about their own negative experiences can help children cope better and, ultimately, to show greater empathy and concern for others.",
+    "authors": [
+      "Hali Kil",
+      "Joan E. Grusec",
+      "Maria Paula Chaparro"
+    ],
+    "year": "2018",
+    "venue": "Social Development",
+    "citation_count": 29,
+    "url": "https://doi.org/10.1111/sode.12287"
+  },
+  {
+    "source": "openalex",
+    "title": "The sustainability behaviour of small firms in tourism: the role of self-efficacy and contextual constraints",
+    "abstract": "This article presents a grounded theory to explain why some small businesses in tourism adopt sustainable business practices while others do not, even when they share environmental and wider sustainability concerns. It does so based on research undertaken among business owners in Crete. The paper starts by considering studies on sustainability awareness, knowledge and the mechanisms for accepting responsibility. Secondly, it summarises the influence of task difficulty and effort on sustainability self-efficacy. Thirdly, it focuses on social comparisons and vicarious experiences, as a way of learning what is important. Finally, it examines powerlessness due to perceived situational constraints. In so doing, the study finds that self-efficacy helps to explain sustainable attitude formation and the attitude-behaviour gap; it partly shifts the locus of responsibility for an inability to act sustainably away from the individual and towards their context. The paper contributes to the theoretical literature on small businesses and sustainability, and leads to new avenues for policy interventions.",
+    "authors": [
+      "Marianna Kornilaki",
+      "Rhodri Thomas",
+      "Xavier Font"
+    ],
+    "year": "2019",
+    "venue": "Journal of Sustainable Tourism",
+    "citation_count": 114,
+    "url": "https://doi.org/10.1080/09669582.2018.1561706"
+  },
+  {
+    "source": "europepmc",
+    "title": "High-quality listening behaviors linked to social connection between strangers.",
+    "abstract": "Despite the urgent need to improve social connection, practical evidence-based recommendations on how to do so during daily interactions are lacking. One key behavior theorized to facilitate social connection is high-quality listening, yet behavioral evidence is limited. Across two pre-registered studies, we tested whether observed high-quality listening behaviors during conversations between strangers are associated with behavioral and subjective markers of social connection, and whether listening behaviors account for the effectiveness of simple interventions aimed at increasing social connection. Pairs of strangers conversed in either a 10-minute semi-structured conversation (\"deep talk\"; Study 1) or a brief, \"small talk\" opportunity (Study 2) following a randomized social connectedness intervention (total N\u2009=\u2009646). In Study 1, we found that the frequency of verbal listening behaviors (i.e., verbal validation, follow-up questions) predicted faster conversational response times and other markers of social connection (i.e., 3<sup>rd</sup> party observers and self- and partner-reports). Additionally, people randomized to a social connectedness intervention (vs. active control) asked their partner more follow-up questions (i.e., displayed high-quality listening behavior), which in turn, predicted increased social connection. We replicated and extended Study 1 to small talk conversations and found global listening behaviors also predicted behavioral and partner-reported social connection. Verbal listening indicators, however, were less consistently linked to markers of social connection and no evidence emerged that the intervention increased listening behaviors during small talk. Findings suggest observable high-quality listening behaviors may be a promising route to fostering social connection and may enhance the effectiveness of interventions aimed at improving social connection.",
+    "authors": [
+      "West TN",
+      "Huston S",
+      "Chandler KR",
+      "Zhou J",
+      "Fredrickson BL."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1038/s44271-025-00342-2"
+  },
+  {
+    "source": "europepmc",
+    "title": "Culturally sensitive CLEAR guidelines on disclosing and communicating a diagnosis of dementia.",
+    "abstract": "Providing a dementia diagnosis is challenging, especially in primary care and considering diverse patient backgrounds. The Alzheimer Society of Canada (ASC), the College of Family Physicians of Canada, and the Canadian Consensus Conference on the Diagnosis and Treatment of Dementia (CCCDTD) guideline group partnered with patients, care partners, and clinicians to generate contemporaneous guidance for primary care practitioners. While relevant to all communities, Black and Chinese Canadians were formally represented in working groups. A literature review identified needs areas. Informed by Guidelines International Network (GIN) principles and through iterative group meetings with all partners, these needs were explored and incorporated into guidance. The Compassionate Language and Empathetic Approaches for Respectful Dementia Disclosure (CLEAR) offers recommendations on: holistic engagement, fostering hope, acknowledging care partners, identifying disclosing clinicians, appointment structure and environment, person-centered communication, specific discussion topics, and emotional supports, all through a cultural competence lens. These guidelines address communication challenges in disclosing a dementia diagnosis and enhancing care and support for persons living with dementia and their care partners. HIGHLIGHTS: Healthcare practitioners (HCPs) struggle with disclosing and communicating dementia diagnoses. Guidance is limited in primary care and different patient ethnocultural groups. We developed culturally sensitive guidelines with scripts and practical materials. Appropriate communication techniques and terminology are recommended in Compassionate Language and Empathetic Approaches for Respectful Dementia Disclosure (CLEAR). Patient-centered and holistic approaches for the patient and care partner are emphasized.",
+    "authors": [
+      "Ismail Z",
+      "Sivananthan S",
+      "Main S",
+      "M\u00e9nard A",
+      "McLaren-Beato J",
+      "Chambers LW",
+      "Welch V",
+      "Vedel I",
+      "Smith EE",
+      "Ewa V",
+      "Feldman S."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1002/alz.70744"
+  },
+  {
+    "source": "europepmc",
+    "title": "From battlefield to living room: a community-based narrative intervention for reciprocal healing during war.",
+    "abstract": "<h4>Background</h4>The \"Swords of Iron\" war created a reality of shared trauma, blurring the boundaries between the front line and the home front. Traditional clinical models often face challenges in providing scalable, real-time responses to mass trauma. This study examines \"Hero in the Living Room\"-a community-based narrative intervention-as a mechanism for processing trauma and promoting resilience during the acute phase of conflict.<h4>Methods</h4>Using a qualitative-phenomenological approach, semi-structured interviews were conducted with 65 participants: 25 active-duty soldiers and 40 civilians who hosted or attended the sessions. Data were analyzed using Reflexive Thematic Analysis.<h4>Results</h4>The findings reveal a dynamic of Reciprocal Healing underpinned by three psychosocial mechanisms: (1) <i>Narrative coherence</i>: soldiers utilized the audience to organize fragmented memories into a linear narrative, gaining social validation; (2) <i>From helplessness to agency</i>: civilians transitioned from passive spectators to an \"Active Container\", engaging in a functional transformation of the domestic space into a therapeutic setting; and (3) <i>The Mutual defense alliance</i>: an emotional exchange occurred wherein soldiers provided a sense of physical security/meaning, while the community offered psychological security and normalization.<h4>Conclusions</h4>The study suggests that community-based narrative interventions serve as effective complementary tools to clinical therapy. By relocating trauma discourse from the clinic to the living room, the model bridges the civil-military gap and fosters collective resilience in times of national crisis.",
+    "authors": [
+      "Cohen Zada O."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.3389/fpubh.2026.1776917"
+  },
+  {
+    "source": "europepmc",
+    "title": "Combining Listening Caf\u00e9s and a Games-Based Co-Design Approach for Public Involvement With Underserved Communities: A Methodology and Lessons Learned From Health Research.",
+    "abstract": "<h4>Background</h4>Meaningful involvement of underserved communities in health research requires consideration of structural, cultural and linguistic diversity. Games offer promising ways to foster engagement with complex topics and create shared language. However, there is limited evidence on the effectiveness of games for enabling meaningful Public Involvement in health research and minimal methodological guidance on how to facilitate games-based co-design with underserved groups. This paper evaluated a combined participatory Listening Caf\u00e9 and games-based approach to public involvement, aimed at supporting meaningful conversations about health with community members, reflecting on the process and lessons learned to establish a replicable methodological model for inclusive public involvement in health research.<h4>Design</h4>We collaborated with community partners from two Family Hubs in Southern England to plan and deliver co-design sessions. Initial meetings addressed preferred ways of working, event locations, accessibility, ownership of the final product and budgeting. The sessions took place in the community and adopted the Listening Caf\u00e9 model, which is a participatory approach for public involvement that builds trust through shared food and informal conversations. The process included three co-design sessions and a follow-up 3 months later. Evaluation methods included feedback forms, verbal check-ins and written reflections from researchers, community partners and community members.<h4>Results</h4>Through a series of Listening Caf\u00e9s, we co-designed the card game, 'Me: Inside and Out', to encourage conversations about the challenges of living with health conditions with underserved groups. The game facilitated rich, meaningful conversations, fostered empathy and enabled community members to share their lived experiences. Community members reported feeling heard, valued and more connected from being involved in the co-design process, playing the game and understanding more about each other.<h4>Conclusion</h4>A combined participatory Listening Caf\u00e9 and games-based co-design approach for public involvement can effectively involve underserved communities in health research. Cultural sensitivity, shared ownership and relationship-building are crucial processes for fostering inclusion. The Listening Caf\u00e9 model proved effective in creating safe, informal spaces for dialogue. Researchers can adopt this methodological approach for public involvement to address perceived barriers to involving underserved communities, co-producing outcomes that reflect the voices of those it aims to serve.<h4>Patient or public contribution</h4>Community partners (Sarah and Julie) supported planning the sessions. Community members attended and contributed to co-design sessions.",
+    "authors": [
+      "Holt S",
+      "Newman S",
+      "Powell J",
+      "Henaghan-Sykes K",
+      "Newman S",
+      "Santer M",
+      "Morrison L."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1111/hex.70603"
+  },
+  {
+    "source": "europepmc",
+    "title": "Current Landscape of Mental Health Conversational Agents From a Trauma-Informed Care Lens: Scoping Review.",
+    "abstract": "<h4>Background</h4>Conversational agents (CAs) are increasingly used in mental health care to enhance access and engagement. However, their safe, ethical, and user-sensitive design remains a challenge. Despite growing attention to trauma-informed approaches in human-computer interaction, there is limited work on how the trauma-informed care (TIC) framework could be applied in the design of mental health CAs and no comprehensive synthesis to date.<h4>Objective</h4>Guided by the Substance Abuse and Mental Health Services Administration's TIC framework, this scoping review explored how TIC principles (safety; trustworthiness and transparency; collaboration and mutuality; empowerment, voice, and choice; peer support; and cultural, historical, and gender issues) are currently represented in the design and evaluation of mental health conversational agents (MHCAs) and identified gaps and opportunities to promote more trauma-informed design practices.<h4>Methods</h4>Online databases, as well as a secondary survey of citation lists from an initial search, were used to identify English-language journal articles and conference proceedings from 2000 to 2024 that empirically evaluated an independent, web- or app-based, unassisted CA used for mental health and included concepts from TIC.<h4>Results</h4>Our analysis included 38 publications (n=28, 73.7%, published in 2020 or later) covering 28 distinct MHCAs. Most studies used experimental methods (n=23, 60.6%) or user studies (n=11, 28.9%), with samples skewed toward female (men: mean 34.92%, SD 18.64%), young in age (mean 32.52, SD 14.6 y), and predominantly nonclinical (n=29, 76.3%). MHCAs were largely rule-based prototypes. No studies explicitly referenced the TIC framework as a guiding lens for MHCA design or evaluation. A total of 26 studies referenced terminology from TIC core principles but rarely defined them, while all 38 included language that could be linked to one or more principles. Overall, TIC-related concepts appeared most often within intervention design descriptions, qualitative assessments, or as items embedded in questionnaires evaluating broader constructs. Trustworthiness and transparency, safety, empowerment, voice and choice, and collaboration and mutuality were comparatively well addressed, while peer support and cultural, historical, and gender issues were largely absent. Design recommendations, where present, were relatively broad and emphasized secure, customizable, reliable, human-like, and context-sensitive MHCAs that offered multimodal interaction, goal setting and tracking, and transparency.<h4>Conclusions</h4>Studies did not self-identify as using Substance Abuse and Mental Health Services Administration's framework for TIC, making it more difficult to identify its elements. The fragmented terms, disciplines, and metrics used make it difficult to draw more systematic conclusions about the current research landscape related to TIC, but our analysis indicates TIC to be a descriptive and potentially unifying framework and provides a starting point for the explicit trauma-informed MHCA research and design.",
+    "authors": [
+      "Kollig F",
+      "Voelker K",
+      "Ryan E",
+      "Pfafman R",
+      "Nova FF."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.2196/77876"
+  },
+  {
+    "source": "europepmc",
+    "title": "Extending the boundaries of care: Collaboratively planning connections between rehabilitation and community resources for chronic pain self-management.",
+    "abstract": "<h4>Background</h4>Linkages (i.e. partnerships or referral pathways) between chronic pain management services and community resources can strengthen the continuum of care and address unmet needs, although implementing these connections is challenging.<h4>Aims</h4>The aim of this study was to conduct exploratory, strategic planning to inform linkages between pain self-management within multidisciplinary rehabilitation and community resources that support the quality of life of individuals with chronic pain.<h4>Methods</h4>Using a participatory design, the deliberative dialogue methodology actively engaged individuals living with chronic pain (<i>n</i> =\u00a02), health care professionals (<i>n</i> =\u00a03), and researchers (<i>n</i> =\u00a02) in a collaborative planning process guided by the PRECEDE-PROCEED model. The dialogic data were analyzed repeatedly, with synthesis within the sessions followed by two cycles of inductive and deductive coding.<h4>Results</h4>Following the adapted PRECEDE-PROCEED model, community linkages were guided by the goal for individuals living with pain to stay active socially, mentally, and physically, noting an environment lacking affordable, adapted resources. Participants identified linkage strategies to address predisposing (e.g. knowledge of resources), reinforcing (e.g. support of influential individuals), or enabling (e.g. accessibility) factors to promote a change in behavior and environment. Relevant community resources were described across the social determinants of health, reflecting access to necessary services (e.g. financial support, food banks, community-based health services) and engagement in meaningful activities (e.g. adapted exercise, recreation, peer support, and active listening groups).<h4>Conclusions</h4>This study provides methodological, theoretical, and actionable contributions to help co-develop linkages between rehabilitation-based pain self-management and community resources for comprehensive, equity-oriented care that reflects the multidimensional experience of living with chronic pain.",
+    "authors": [
+      "George NC",
+      "Laplante X",
+      "Giroux CM",
+      "Lemyze C",
+      "Lussier M",
+      "Leblanc MN",
+      "Quesnel-Vall\u00e9e A",
+      "Boivin A",
+      "Ahmed S."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1080/24740527.2026.2639116"
+  },
+  {
+    "source": "europepmc",
+    "title": "Effect of the Fake Phone Call App on Patient Adherence Behavior and Motivation in Conversation Training Therapy: A Randomized Crossover Trial.",
+    "abstract": "<h4>Purpose</h4>The Fake Phone Call app was previously developed and feasibility-tested for conversational target voice practice in resonant voice therapy. The purpose of the present study was to examine its effect on adherence and motivation for conversational practice in conversation training therapy (CTT) as well as its usability and utility in CTT.<h4>Method</h4>Eleven patients referred for voice therapy served as their own control in a randomized crossover trial comparing 1 week of app-supported homework practice with 1 week of standard-of-care homework completion in CTT. Dependent variables included adherence and motivation variables. In addition, usability and utility as well as outcomes were examined at study completion.<h4>Results</h4>App support significantly increased practice frequency, practice fidelity, and goal commitment for practice. Usability and utility were good. Exploratory investigation revealed that patients randomized to receive the app condition first and the standard-of-care condition second had greater gains on all study variables and significantly greater self-reported generalization at treatment completion.<h4>Conclusion</h4>Fake Phone Call support significantly improves adherence and motivation for CTT, with additional benefits when provided earlier in therapy.",
+    "authors": [
+      "van Leer E",
+      "Gillespie AI",
+      "Shelly S",
+      "Voyles C."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.1044/2025_ajslp-25-00364"
+  },
+  {
+    "source": "europepmc",
+    "title": "Effectiveness of Communication Competence in AI Conversational Agents for Health: Systematic Review and Meta-Analysis.",
+    "abstract": "<h4>Background</h4>With advancements in artificial intelligence and large language models, researchers and designers have increasingly focused on enhancing the conversational capacity of health-related conversational agents (CAs). Communication competence, a key concept in interpersonal communication influencing relational and health outcomes, has been extended to human-machine communication to emphasize the CAs' ability to demonstrate appropriate communicative behaviors in managing relationships with humans.<h4>Objective</h4>This review aims to summarize the operationalization of communication competence in health CAs and assess its impact on 4 primary outcomes: users' evaluations of CA, use of CA, psychological outcomes, and health outcomes.<h4>Methods</h4>A systematic literature search was conducted in 7 databases (ACM Digital Library, APA PsycInfo, Communication and Mass Media Complete, ProQuest Dissertations & Theses, Scopus, Web of Science Core Collection, and PubMed). Studies were included if they adopted experimental designs to manipulate CAs' communication competence in health-related conversations, recruited human participants, and reported at least 1 relevant outcome. Risk of bias was assessed using the revised Cochrane risk-of-bias tool. The systematic review summarized commonly used communication competence strategies. Three-level random-effects meta-analytic models were used to estimate pooled effect sizes for 4 primary outcomes. Moderator analyses were conducted to assess whether effect sizes varied across publication year, participants' average age, type of interaction with CAs, health topics, and publication outlet.<h4>Results</h4>Of the 8309 identified papers, 31 independent experimental studies were included in the systematic review. Eleven strategies were identified to enhance CAs' communication competence: empathetic response, contingency, humor, small talk, emotional expressiveness, self-disclosure, personalization, social etiquette, explanation, open-ended questions, and partnership. Of the 31 studies, 25 met the criteria for meta-analysis, which involved 4525 participants with a mean age of 29.7 (SD 9.2) years. The meta-analytic findings showed that communication competence has a significant small-to-medium effect on users' evaluations of CAs (Hedges g=0.45, 95% CI 0.24-0.66) and psychological outcomes (Hedges g=0.49, 95% CI 0.19-0.78). The effect sizes on the use of CA (Hedges g=0.11, 95% CI -0.05 to 0.26) and health outcomes (Hedges g=0.18, 95% CI -0.13 to 0.50) are not significant. Moderator analyses showed that the effects remain stable across participants' age, type of interaction, and health topics.<h4>Conclusions</h4>This review highlights communication competence as a critical component in the design of health care CAs, particularly in improving users' evaluations and psychological outcomes. However, the limited number of studies examining health outcomes restricts the robustness of its effectiveness on this outcome. Future research is encouraged to directly evaluate the effects on tangible health outcomes.",
+    "authors": [
+      "Qin J",
+      "Nan Y",
+      "Li Z",
+      "Meng J."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.2196/76296"
+  },
+  {
+    "source": "europepmc",
+    "title": "The role of nursing communication: A critical interpretive synthesis.",
+    "abstract": "<h4>Aim</h4>The primary aim of this paper is to explore and interpret the <i>role of nursing communication in patient care</i>. The secondary aim is to identify conceptual inconsistencies in the existing literature and synthesize these insights with our previous interpretations to develop a conceptual framework that clarifies the role of nursing communication, thereby providing a nursing-specific foundation for developing communication skills.<h4>Background</h4>The need for <i>effective nursing communication</i> is widely emphasized within the discipline of nursing, and despite the widespread use of that phrase, its role in patient care and the nursing profession remains nebulous. Nursing communication's meaning and value have become more equated with financial indicators than the nurse-patient relationships central to the phenomenon.<h4>Methods</h4>A Critical Interpretive Synthesis approach was used to interpret the role of nursing communication in patient care. Electronic searches of <i>PubMed, EBSCOhost, Cochrane Library, PsycINFO, Communication & Mass Media Complete, Web of Science, Embase,</i> and <i>Google Scholar</i> were conducted between January 2024 and March 2024. A CIS seven-phase process guided the literature synthesis and formation of a conceptual framework.<h4>Results</h4>Five synthetic constructs clarify the role of nursing communication and contribute to the final conceptual framework: 1) ongoing holistic engagement, 2) humble guide supporting the patient's itinerary, 3) effective information exchange, 4) maintaining nursing individuality within an existing system, and 5) nursing presence.<h4>Conclusion</h4>The role of nursing communication emphasizes maintaining a nursing presence that communicates high-quality physical care and ongoing holistic engagement centered around the patient's values, needs, and wishes. This conceptual framework prioritizes the unique nurse-patient communicatory relationship and gives nurse researchers, policymakers, and educators a new way of thinking about and prioritizing the role of nursing communication.",
+    "authors": [
+      "Grant JB",
+      "Jones J",
+      "Candrian C",
+      "Oman KS",
+      "Reed SM."
+    ],
+    "year": "2025",
+    "venue": "",
+    "url": "https://doi.org/10.1016/j.ijnsa.2025.100373"
+  },
+  {
+    "source": "europepmc",
+    "title": "Where Is the Client in Client-Centered Care? Centering the Experiences of Integrated Care Among Black Women in Public Health Settings.",
+    "abstract": "<b>Background/Objectives</b>: Integrated behavioral healthcare (IC) in public health settings may be optimal for advancing mental health equity among low-income and economically marginalized (LIEM) Black women. This study explores the provision of mental health services in public health clinics and assesses client experiences and recommendations for healthcare system improvement. <b>Methods</b>: Black women receiving mental health services in public health clinics completed surveys (<i>n</i> = 81) and in-depth interviews (<i>n</i> = 8, follow-up: <i>n</i> = 7). Analysis included descriptive statistics, interpretive phenomenological analysis, and member checking (<i>n</i> = 4). <b>Results</b>: Survey respondents reported high perceptions of providers' cultural responsiveness (M = 13.35/14) and high satisfaction with IC services (M = 4.48/5.0). However, qualitative interviews revealed that these scores may be relative to low baseline expectations for care. Across interviewees, personalized care emerged as critical for high-quality IC service delivery, and pregnant interviewees reflected on the importance of IC during pregnancy, which can compound prior mental health concerns. Notably, positive IC reflections waned over time, and 75% of interviewees \"fell through the cracks\" between receiving referral for and accessing community resources, resulting in persistent unmet mental health needs. This experience, paired with a lack of systemic follow-up from the public health department, was perceived as a form of institutional betrayal. <b>Conclusions</b>: While IC in public health settings holds promise for health equity, results underscore the need for person-centered care that prioritizes authentic screening, warm handoffs, and closed-loop referrals-particularly for LIEM Black women, who frequently have prior experiences with fragmented healthcare systems. To ensure IC meets client needs without causing unintentional harm, healthcare systems should co-design solutions with clients.",
+    "authors": [
+      "Tolley AJ",
+      "Scott VC",
+      "Langhinrichsen-Rohling J",
+      "Dahl AA",
+      "Rao E",
+      "Lim JH."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.3390/healthcare14030416"
+  },
+  {
+    "source": "europepmc",
+    "title": "Healthcare Professionals' Perspectives on Barriers and Facilitators in Care and Rehabilitation of Adults with Myasthenia Gravis in Neurological Departments in Denmark.",
+    "abstract": "<h4>Introduction</h4>Myasthenia gravis (MG) is a rare, chronic autoimmune disease that causes various fluctuating symptoms. Healthcare professionals at neurological departments often focus on treating MG with the risk of overlooking other aspects of daily living. Rehabilitation seeks to enable people with disabilities to become as independent as possible in everyday activities. This study aims to explore how healthcare professionals at neurological departments perceive barriers and facilitators in care and rehabilitation of adults with MG in Denmark to target future rehabilitation initiatives.<h4>Methods/materials</h4>A qualitative design using individual interviews with healthcare professionals employed at neurological departments was performed. The qualitative interpretive description methodology aimed at informing clinical practice and the critical psychology framework by Klaus Holzkamp guided the study. Ten participants were included.<h4>Results</h4>The results showed how \"Supporting patient understanding and navigation through personalized care\", \"Navigating responsibility and resources in clinical practice\", and \"Organizational structures impacting on professional quality of care\" were important areas for the healthcare professionals when considering barriers and facilitators to rehabilitation for their patients. The first two areas were the center of the participants' clinical practice, and surrounding and impacting on this center was the participants' perception of their ability to navigate responsibilities and resources in their clinical practice. The third area had significant impact on the quality of care, allocation of resources, and structural changes within the specialized healthcare services.<h4>Conclusion</h4>Healthcare professionals at neurological departments experience multiple facilitators and barriers to the rehabilitation of adults with MG. Their agency potential is deeply rooted in the relational, organizational, and structural settings that they engage in. Their ability to support adults with MG in coping with their condition depends on expertise, flexibility, continuity, and interdisciplinary collaboration both in and outside their organization. It is pivotal that organizational structures support these conditions. If not, it may have negative consequences for the patients' agency potential, rehabilitation, and health.",
+    "authors": [
+      "Olesen LK",
+      "Werlauff U",
+      "Missel M",
+      "Schirakow L",
+      "Handberg C."
+    ],
+    "year": "2026",
+    "venue": "",
+    "url": "https://doi.org/10.2147/jmdh.s585293"
   }
 ]

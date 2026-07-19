@@ -1,8 +1,8 @@
 # Literature index
 
-Fetched via arXiv API + Semantic Scholar Graph API (no scraping; both are official free APIs).
+Fetched via arXiv, Semantic Scholar, OpenAlex, and Europe PMC (no scraping; all four are official free APIs). Re-runs merge additively; nothing already saved is dropped by a thin re-fetch.
 
-## communication (17 papers)
+## communication (43 papers)
 - [Dependency Dialogue Acts -- Annotation Scheme and Case Study](http://arxiv.org/abs/2302.12944v1) (arxiv, 2023)
 - [The Impact of a Chatbot's Ephemerality-Framing on Self-Disclosure Perceptions](http://arxiv.org/abs/2505.20464v1) (arxiv, 2025)
 - [Category Aware Explainable Conversational Recommendation](http://arxiv.org/abs/2103.08733v1) (arxiv, 2021)
@@ -12,7 +12,7 @@ Fetched via arXiv API + Semantic Scholar Graph API (no scraping; both are offici
 - [What should I Ask: A Knowledge-driven Approach for Follow-up Questions Generation in Conversational Surveys](http://arxiv.org/abs/2205.10977v2) (arxiv, 2022)
 - [A Multimodal Dialogue System for Conversational Image Editing](http://arxiv.org/abs/2002.06484v1) (arxiv, 2020)
 
-## problem_solving (15 papers)
+## problem_solving (35 papers)
 - [Navigating the State of Cognitive Flow: Context-Aware AI Interventions for Effective Reasoning Support](http://arxiv.org/abs/2504.16021v1) (arxiv, 2025)
 - [Computational Safety for Generative AI: A Hypothesis Testing Perspective](http://arxiv.org/abs/2502.12445v2) (arxiv, 2025)
 - [Reasoning Language Models for Root Cause Analysis in 5G Wireless Networks](http://arxiv.org/abs/2507.21974v1) (arxiv, 2025)
@@ -22,7 +22,7 @@ Fetched via arXiv API + Semantic Scholar Graph API (no scraping; both are offici
 - [Towards Explainable Test Case Prioritisation with Learning-to-Rank Models](http://arxiv.org/abs/2405.13786v1) (arxiv, 2024)
 - [When One Modality Sabotages the Others: A Diagnostic Lens on Multimodal Reasoning](http://arxiv.org/abs/2511.02794v1) (arxiv, 2025)
 
-## critical_thinking (30 papers)
+## critical_thinking (60 papers)
 - [Overview of CheckThat! 2020: Automatic Identification and Verification of Claims in Social Media](http://arxiv.org/abs/2007.07997v1) (arxiv, 2020)
 - [SynClaimEval: A Framework for Evaluating the Utility of Synthetic Data in Long-Context Claim Verification](http://arxiv.org/abs/2511.09539v1) (arxiv, 2025)
 - [MArgE: Meshing Argumentative Evidence from Multiple Large Language Models for Justifiable Claim Verification](http://arxiv.org/abs/2508.02584v1) (arxiv, 2025)
@@ -32,7 +32,7 @@ Fetched via arXiv API + Semantic Scholar Graph API (no scraping; both are offici
 - [Annotating Implicit Reasoning in Arguments with Causal Links](http://arxiv.org/abs/2110.13692v1) (arxiv, 2021)
 - [AVerImaTeC: A Dataset for Automatic Verification of Image-Text Claims with Evidence from the Web](http://arxiv.org/abs/2505.17978v2) (arxiv, 2025)
 
-## decision_making (15 papers)
+## decision_making (54 papers)
 - [Quantum decision making by social agents](http://arxiv.org/abs/1202.4918v2) (arxiv, 2012)
 - [Risk-aware Meta-level Decision Making for Exploration Under Uncertainty](http://arxiv.org/abs/2209.05580v3) (arxiv, 2022)
 - [Modeling of Mixed Decision Making Process](http://arxiv.org/abs/1203.5452v1) (arxiv, 2012)
@@ -42,7 +42,7 @@ Fetched via arXiv API + Semantic Scholar Graph API (no scraping; both are offici
 - [Gender Bias of LLM in Economics: An Existentialism Perspective](http://arxiv.org/abs/2410.19775v1) (arxiv, 2024)
 - [A Constraint Satisfaction Approach to Decision under Uncertainty](http://arxiv.org/abs/1302.4946v1) (arxiv, 2013)
 
-## behavior_science (29 papers)
+## behavior_science (54 papers)
 - [Digital interventions and habit formation in educational technology](http://arxiv.org/abs/2310.10850v2) (arxiv, 2023)
 - [Neural Demand Estimation with Habit Formation and Rationality Constraints](http://arxiv.org/abs/2603.02331v1) (arxiv, 2026)
 - [Targeting Behavior or Intention? Intervention Strategies in Expressed-Private Opinion Dynamics](http://arxiv.org/abs/2606.16645v1) (arxiv, 2026)
