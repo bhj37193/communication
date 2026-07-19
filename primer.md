@@ -1,12 +1,41 @@
 # Primer: Charisma Trainer -> 4-skill Alpha-style platform pivot. Name TBD.
 
 ## STATUS
-FABLE-PROMPT-EMPIRE.md Parts 1 AND 2 are DONE (written by two parallel Fable
-sessions; this file merges both). Part 1: FINANCIAL-MODEL-20YR.md written and
-verified (zero em-dashes, all numbers tie to a simulation). Part 2:
-CONTENT-ROADMAP-4-SKILLS.md written and verified (zero em-dashes). Part 3
-(RESEARCH-METHODOLOGY.md) has NOT been run. No open autonomous work. Last
-updated 2026-07-19 at context-limit checkpoint of the Part 1 session.
+FABLE-PROMPT-EMPIRE.md Parts 1, 2, AND 3 are ALL DONE. Part 1:
+FINANCIAL-MODEL-20YR.md written and verified (zero em-dashes, all numbers tie
+to a simulation). Part 2: CONTENT-ROADMAP-4-SKILLS.md written and verified
+(zero em-dashes). Part 3: RESEARCH-METHODOLOGY.md written and verified (zero
+em-dashes, 1858 words), run via an Agent with model="fable". Post-run
+reconciliation (below) done. No open autonomous work. Last updated 2026-07-19.
+
+## RECONCILIATION (Part 1 vs Part 2, done since no Fable session saw both)
+- **Naming drift, real, unfixed:** FINANCIAL-MODEL-20YR.md line 4 still names
+  the fourth skill "Cognitive Training" (the working-assumption name). Part 2
+  explicitly rejected that name (brain-training category fails string-scoring
+  and carries FTC/Lumosity-precedent risk) and renamed it "Critical Thinking,"
+  stating the rename applies even for marketing. Part 1 ran in parallel and
+  never saw that rename. This is label-only: Part 1's dollar figures are
+  skill-agnostic aggregates (SKILL_ROLLOUT never names which skill ships which
+  year), so no number is wrong, just the doc's own intro line is now stale
+  against Part 2's decision. Left unedited pending the naming call below.
+- **Build-cost blind spot, not a contradiction, but unmodeled:** Part 1's
+  SKILL_ROLLOUT assumption (Section 2.3) is "year 1 ships Communication plus
+  one new skill, year 2 adds the third, year 3 completes all four," uniform
+  cost/pace regardless of which skill. Part 2's Section 3 build order
+  (Communication -> Problem-Solving -> Decision-Making -> Critical Thinking)
+  explicitly flags Critical Thinking as the highest implementation risk (new
+  structured-close UX, most homework-like). The two are not contradictory
+  (CT landing last, in year 3, is consistent with it being hardest), but
+  neither doc actually checked whether a 3-year all-in build cadence holds up
+  once CT's extra engineering effort is priced in. No engineering-time
+  estimate exists anywhere in this repo yet; flagging as a gap, not fixing it
+  here since it would require new estimation, not just cross-referencing.
+
+## OPEN DECISION FOR THE USER (do not resolve autonomously)
+Final skill names are still unconfirmed. Part 2 proposes: Communication /
+Problem-Solving / Critical Thinking (renamed from "Cognitive [training]") /
+Decision-Making. If confirmed, the one-line fix in FINANCIAL-MODEL-20YR.md
+(line 4, "Cognitive Training" -> "Critical Thinking") should be made to match.
 
 ## COMPLETED: PART 1 (financial model session)
 - Locked inputs read: PRD-CHARISMA-CHAT.md, AVATAR-TIER-PRICING.md,
@@ -33,9 +62,11 @@ updated 2026-07-19 at context-limit checkpoint of the Part 1 session.
   untouched score()). No LLM in any score path.
 
 ## EXACT NEXT STEP
-None autonomous. If user says go: run Part 3 (RESEARCH-METHODOLOGY.md) per
-HOW-TO-RUN-FABLE.md section 5c, then do the post-run reconciliation note in
-section 5 (incl. reconciling Part 1's taxonomy naming vs Part 2's rename).
+None autonomous. Waiting on the user to confirm final skill names (see OPEN
+DECISION above). Once confirmed, apply the one-line "Cognitive Training" ->
+final-name fix in FINANCIAL-MODEL-20YR.md line 4. All three FABLE-PROMPT-
+EMPIRE.md parts are otherwise complete; FABLE-PROMPT-PROVEN-PROGRESS.md
+(HOW-TO-RUN-FABLE.md section 4) is still queued, not run.
 
 ## LOCKED DECISIONS
 - Repurpose current app/folder, no new app.

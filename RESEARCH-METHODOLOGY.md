@@ -76,9 +76,14 @@ same way (search + fetch), in this priority order:
    subscriber count, ARPU-derivable revenue, and subscription gross margin every
    quarter. These filings are free, audited, and the highest-quality numbers this
    project will ever get. Use them to sanity-check every assumption in the
-   financial model (conversion rate, ARPU, gross margin at scale).
+   financial model (conversion rate, ARPU, gross margin at scale). Concrete
+   anchor verified from DUOL's filings (SEC EDGAR CIK 1562088): roughly 9% of
+   monthly active users were paid subscribers as of the FY2025 10-K, the best
+   real-world free-to-paid ceiling check available for a consumer learning app.
 2. US government statistical data: BLS Consumer Expenditure Survey (household
-   spend on education), BLS Current Population Survey and Census ACS (count of US
+   spend on education; bls.gov/cex/tables.htm, including BLS's dedicated
+   education expenditure table), BLS Current Population Survey and Census ACS
+   (count of US
    adults by age/income bracket, the raw TAM denominator), and OECD education
    spend data if a non-US TAM view is wanted. Free, citable, stable URLs.
 3. App-market intelligence published for free in annual reports and press
@@ -93,8 +98,12 @@ same way (search + fetch), in this priority order:
 
 Where paid is genuinely best, named plainly as instructed: if this project ever
 needs defensible segment-level breakdown (e.g. "adult soft-skills training app
-spend, US, by age bracket") rather than a topline, HolonIQ (edtech-specific) and
-a single Grand View Research report (typically ~$3-6k) are the real sources, and
+spend, US, by age bracket") rather than a topline, the best-fit single purchase
+for this product category is Marketdata Enterprises' "The U.S. Personal
+Development / Self-Improvement Market" report (the standard reference for the
+roughly $10-15B US self-improvement market, in the ~$1-2k class); for
+edtech-specific segmentation, HolonIQ and a single Grand View Research or
+IBISWorld report (typically ~$1-6k) are the real sources, and
 Statista's individual-statistic tier (~$40-200/statistic range via one-off
 purchase or a ~$200/mo account) is the cheap middle option. Do not buy any of
 these for the current financial model; the model's named-assumption discipline
@@ -170,7 +179,7 @@ justified instead:
 | Free report toplines / press releases | $0 | Use for TAM headline figures |
 | Wayback Machine for historical pricing | $0 | Use if pricing history matters |
 | changedetection.io / Visualping-class | $0-50/mo | Only if 1c trigger met |
-| Apify actors | ~$5-50/mo at this scale | Only if 1c trigger met AND change-detection insufficient |
+| Apify actors | free tier ($5/mo platform credit) to $29/mo Starter | Only if 1c trigger met AND change-detection insufficient |
 | Statista single statistics | ~$40-200 range per need | Only for load-bearing paywalled numbers |
 | HolonIQ / Grand View full reports | ~$1k-6k | Only for external-audience segment data |
 

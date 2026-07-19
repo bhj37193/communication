@@ -138,3 +138,52 @@ No em-dashes anywhere.
 Reconcile the outputs: check the dossier's unit-economics numbers against the PRD, confirm
 the core-code tests actually pass before agents build on them, and confirm the proven-progress
 schema additions don't break the core-code tests (re-run core/server test suites after).
+
+## 6. Financial model V2 (paid-only, 30-day money-back guarantee, clean-room)
+
+Second-opinion financial model with the founder's revised business model: no free
+tier, no trial, 30-day money-back guarantee, fixed-cost infra bias with a
+self-hosted open-weights crossover analysis. The prompt is deliberately
+clean-room: it forbids reading the freemium docs so the session is not anchored
+by v1. Writes FINANCIAL-MODEL-20YR-V2.md; v1 stays untouched as the freemium
+counterfactual.
+
+Paste into ONE fresh Fable session:
+
+```
+Read /Users/main/Desktop/Active Projects/communication/FABLE-PROMPT-FINANCIAL-V2.md
+and execute it in full. Obey its section 0 forbidden-inputs rule exactly: do not
+read the freemium documents it names. Write the full document to
+/Users/main/Desktop/Active Projects/communication/FINANCIAL-MODEL-20YR-V2.md.
+No em-dashes.
+```
+
+After the run: compare FINANCIAL-MODEL-20YR-V2.md against FINANCIAL-MODEL-20YR.md
+side by side (year to breakeven, peak funding need, year-20 after-tax, and the
+refund-rate stress line vs v1's churn sensitivity) before choosing a model.
+
+## 7. Platform strategy (mobile + web sync, one VPS, per-skill modality)
+
+Context-rich, not clean-room: this prompt deliberately points Fable at the existing
+PRD, content roadmap, engine code, and V2 financial model rather than forbidding them.
+Asks for the build strategy for the 4-skill platform as two synced surfaces (mobile
+app + new web app) on the single existing VPS, under the paid-only/30-day-refund
+terms from FINANCIAL-MODEL-20YR-V2.md. It does not assume the live avatar is needed
+for all 4 skills; it asks Fable to decide and defend a modality per skill, seeded with
+the hypothesis that only Communication clearly needs it. Writes PLATFORM-STRATEGY.md.
+
+Paste into ONE fresh Fable session:
+
+```
+Read /Users/main/Desktop/Active Projects/communication/FABLE-PROMPT-PLATFORM-STRATEGY.md
+and execute it in full. Read every file listed in its Section 0 first; this is a
+context-rich run, not clean-room. Write the full document to
+/Users/main/Desktop/Active Projects/communication/PLATFORM-STRATEGY.md
+No em-dashes.
+```
+
+After the run: check PLATFORM-STRATEGY.md's per-skill modality decision against
+CONTENT-ROADMAP-4-SKILLS.md's build order (a skill that comes out text-only should be
+cheaper and faster to build than the roadmap's risk notes assumed if they priced in
+avatar work it doesn't need), and check its build sequence against BUILD-EXECUTION-PLAN.md
+for any phase-number collision before treating either as the current build order.
