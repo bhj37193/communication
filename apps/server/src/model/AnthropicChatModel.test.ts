@@ -86,6 +86,23 @@ describe('AnthropicChatModel', () => {
     expect(result.json).toEqual(good);
   });
 
+  it('strips a ```json code fence before parsing', async () => {
+    const good = { reply: 'hi', warmth_delta: 1, reason_code: 'open_question' };
+    const create = vi.fn().mockResolvedValue(textResult('```json\n' + JSON.stringify(good) + '\n```'));
+    const model = new AnthropicChatModel(fakeClient(create));
+
+    const result = await model.complete({
+      system: 's',
+      messages: [],
+      maxTokens: 120,
+      json: CharacterOutputSchema,
+      tag: 'character',
+    });
+
+    expect(create).toHaveBeenCalledTimes(1);
+    expect(result.json).toEqual(good);
+  });
+
   it('retries once with a corrective message when JSON fails to parse or validate, then succeeds', async () => {
     const good = { reply: 'hi', warmth_delta: 1, reason_code: 'open_question' };
     const create = vi

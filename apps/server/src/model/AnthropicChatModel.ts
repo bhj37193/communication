@@ -48,6 +48,12 @@ function toAnthropicRole(role: ChatMessage['role']): 'user' | 'assistant' {
   return role === 'user' ? 'user' : 'assistant';
 }
 
+// Claude often wraps JSON replies in ```json fences despite instructions not to.
+function stripCodeFence(text: string): string {
+  const match = text.trim().match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
+  return match?.[1] ?? text;
+}
+
 export class AnthropicChatModel implements ChatModel {
   constructor(private readonly client: AnthropicClient) {}
 
@@ -103,7 +109,7 @@ export class AnthropicChatModel implements ChatModel {
   ): { ok: true; value: unknown } | { ok: false } {
     if (!schema) return { ok: true, value: undefined };
     try {
-      const out = schema.safeParse(JSON.parse(this.textOf(result)));
+      const out = schema.safeParse(JSON.parse(stripCodeFence(this.textOf(result))));
       return out.success ? { ok: true, value: out.data } : { ok: false };
     } catch {
       return { ok: false };

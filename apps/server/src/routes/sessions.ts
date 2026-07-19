@@ -1,3 +1,4 @@
+import { assembleCharacterTurn, assembleFeedback } from '@charisma/core/assemble';
 import { clamp, score } from '@charisma/core/score';
 import type { ChatMessage } from '@charisma/core/schemas';
 import { CharacterOutputSchema, FeedbackOutputSchema } from '@charisma/core/schemas';
@@ -47,13 +48,6 @@ async function loadOwnedSession(deps: Deps, id: string, userId: string): Promise
     .from(sessions)
     .where(and(eq(sessions.id, id), eq(sessions.userId, userId)));
   return row ?? null;
-}
-
-function characterSystemPrompt(warmth: number): string {
-  const p = SAM_PACK.unit.persona;
-  const w = clamp(0, 3, warmth);
-  const behavior = p.behavior_by_warmth[String(w) as '0' | '1' | '2' | '3'];
-  return `${p.brief}\nHidden depth, reveal only when earned: ${p.hidden_depth}\nCurrent warmth ${w}/3: ${behavior}`;
 }
 
 async function recordModelUsage(
@@ -184,11 +178,17 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
 
     const chatModel = deps.getChatModel(id);
     let completion: Awaited<ReturnType<typeof chatModel.complete>>;
+    const characterCall = assembleCharacterTurn({
+      persona: SAM_PACK.unit.persona,
+      unit: SAM_PACK.unit,
+      warmth: session.warmth,
+      transcript,
+    });
     try {
       completion = await chatModel.complete({
-        system: characterSystemPrompt(session.warmth),
-        messages: transcript,
-        maxTokens: 120,
+        system: characterCall.system,
+        messages: characterCall.messages,
+        maxTokens: characterCall.maxTokens,
         json: CharacterOutputSchema,
         tag: 'character',
       });
@@ -240,11 +240,12 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     let feedbackCalls = session.feedbackCalls;
     let feedback: ReturnType<typeof buildTemplateFeedback> | undefined;
     let templateFallback = false;
+    const feedbackCall = assembleFeedback({ unit: SAM_PACK.unit, transcript });
     for (let attempt = 0; attempt < 2 && !feedback; attempt += 1) {
       const completion = await chatModel.complete({
-        system: SAM_PACK.unit.feedback_prompt,
-        messages: transcript,
-        maxTokens: 300,
+        system: feedbackCall.system,
+        messages: feedbackCall.messages,
+        maxTokens: feedbackCall.maxTokens,
         json: FeedbackOutputSchema,
         tag: 'feedback',
       });
