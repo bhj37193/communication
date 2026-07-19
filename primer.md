@@ -3,41 +3,27 @@
 ## STATUS
 
 Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
-+ `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker +
-retention/deletion sweep + Clerk webhook + analytics, plus `apps/server/src/db/client.ts`.
-Integration suite proves the full loop end to end; E2E smoke proves it over real HTTP
-against a real spawned server process; CI now runs the whole offline-green list on every PR.
++ `AnthropicChatModel` (real) / `FakeChatModel` (test) + `FakeAuthVerifier` + daily cap +
+cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics, plus
+`apps/server/src/db/client.ts`. Integration suite proves the full loop end to end; E2E
+smoke proves it over real HTTP against a real spawned server process; CI runs the whole
+offline-green list on every PR.
 
-**Completed this session:** P0-26 AnthropicChatModel (`packages/core` untouched). New:
-`apps/server/src/model/AnthropicChatModel.ts` — real `ChatModel` impl. Path ambiguity
-resolved via `model.ts`'s own header comment: concrete implementations live outside
-`packages/core`, so this is `apps/server/src/`, not `packages/core/`. Injected
-`AnthropicClient` (narrow `{ messages: { create } }` interface, not the full SDK type) so
-unit tests run offline against a fake; `composition.ts` wires the real `new
-Anthropic({ apiKey })` from `@anthropic-ai/sdk` (added to `apps/server/package.json`,
-installed). Model id `claude-haiku-4-5`, system sent as one cache_control:ephemeral text
-block, temperature 0.7 character / 0.2 feedback (PRD 3.4), one corrective JSON retry
-before throwing, usage mapped incl. `cache_read_input_tokens` -> `cachedInputTokens`
-(nullish-coalesced to 0). Post-advisor-review fix: retry now sums usage across BOTH API
-calls (`sumUsage`), not just the second — the first (failed) call's tokens were silently
-dropped, which would have undercounted the cost circuit breaker on every retry. Also
-switched the retry's corrective turn from an `{assistant, user}` pair to a single `user`
-message quoting the bad output, since a transcript ending on a `character` turn would
-otherwise produce two consecutive `assistant` messages (untestable without G-01; sidestepped
-instead of shipped-unverified). Added `ANTHROPIC_API_KEY` to `env.ts` (default `''`);
-`composition.ts` fail-closed throws if `MODEL_PROVIDER=anthropic` and the key is empty.
-`apps/server/scripts/smoke-anthropic.ts` + `smoke:anthropic` script: one real
-character-turn call, asserts schema + nonzero usage, deferred until G-01. 8 unit tests
-(model id, cache_control, temps by tag, maxTokens, retry-then-succeed w/ summed-usage
-assertion, retry-exhausted-throws, usage mapping incl. null->0, retry role-alternation
-w/ character-ending transcript) all green. `pnpm ci:local` -> exit 0, all green (fake
-provider path untouched, still default, incl. e2e smoke). Manually verified (no live API
-call): `MODEL_PROVIDER=anthropic` wiring in `composition.ts` constructs `AnthropicChatModel`
-correctly end to end.
+**Completed this session:** P0-26 AnthropicChatModel. `apps/server/src/model/AnthropicChatModel.ts`,
+real `ChatModel` impl (concrete impls live outside `packages/core`, per `model.ts`'s
+header comment). Injected `AnthropicClient` interface so tests run offline;
+`composition.ts` wires the real SDK client when `MODEL_PROVIDER=anthropic`, fail-closed
+if `ANTHROPIC_API_KEY` is empty. Model `claude-haiku-4-5`, cache_control:ephemeral system
+block, temp 0.7 character / 0.2 feedback, one corrective JSON retry (single `user`
+message quoting the bad output, to avoid consecutive-assistant-role risk), usage summed
+across both calls on retry (fixed an undercount bug caught in review — was only
+returning the second call's tokens, would have undercounted the cost circuit breaker).
+`smoke:anthropic` script deferred until G-01. 8 unit tests green. `pnpm ci:local` exit 0
+(typecheck, 94 tests across packages, e2e smoke, all green).
 
-Flagged, unfixed (2, carried from P0-20): (a) `/end` passes `computeSignals` a
-`warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b)
-409 CAPPED spec wants a next-open-time, current impl/test omit it. Both need own cycle.
+Flagged, unfixed (carried, need own cycle): (a) `/end` passes `computeSignals` a
+`warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b) 409
+CAPPED spec wants a next-open-time, current impl/test omit it.
 
 **Next action (ONE task only):** P0-27 Expo app (deps P0-16..P0-19, satisfied;
 AUTONOMOUS). Files: everything under `apps/mobile/src`, `app.json`, jest config, tests.
@@ -45,9 +31,9 @@ Goal: three surfaces (entry, chat with typing delay + remaining counter, result 
 plus profile (sign out, delete my data), typed api client, dev fake-auth mode
 (`EXPO_PUBLIC_DEV_FAKE_AUTH=true` sends `x-test-user`), Clerk code paths present but inert
 without a publishable key. Accept: `pnpm --filter @charisma/mobile typecheck && pnpm
---filter @charisma/mobile test`. Note: `apps/mobile` doesn't exist yet — this is a fresh
-scaffold, not an edit; check `apps/server`'s typed api client shape (routes/schemas) for
-the contract the mobile client must match before scaffolding.
+--filter @charisma/mobile test`. Note: `apps/mobile` doesn't exist yet — fresh scaffold,
+not an edit; check `apps/server`'s typed api client shape (routes/schemas) for the
+contract the mobile client must match before scaffolding.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
