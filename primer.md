@@ -5,24 +5,19 @@
 Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
 + `AnthropicChatModel` (real) / `FakeChatModel` (test) + `FakeAuthVerifier` + daily cap +
 cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI. `apps/mobile`
-(Expo/RN) now has P0-27 (scaffold) and P0-28 (share card) both closed and green. `apps/web`
-not started (P2, not blocking).
+(Expo/RN): P0-27 (scaffold) and P0-28 (share card) both CLOSED, green. `apps/web` not
+started (P2, not blocking).
 
-**P0-28 CLOSED (Share card).** `apps/mobile/components/ScoreCard.tsx` (forwardRef<View>,
-renders SCORE + PASSED/KEEP PRACTICING + the exact POSITIONING.md paradox tagline — no
-win/fix/moment/quote text, ever), `lib/share.ts` (`captureRef` -> `Sharing.shareAsync` ->
-fire-and-forget `trackShareTapped()`, analytics failure never blocks/rejects the share),
-Share button wired into `app/result.tsx`. New server route `POST /v1/events/share-tapped`
-in `apps/server/src/routes/me.ts` (didn't exist before — needed so `share_tapped`, already
-in the analytics `EVENT_SCHEMAS` allowlist, could actually fire); `lib/api.ts` got
-`trackShareTapped()`. Deliberate scope cut: NO streak number on the card — no streak data
-source exists anywhere (no column, no field, no endpoint); fabricating one was out of
-scope, this is a documented gap not a bug. Deps added: `react-native-view-shot`,
-`expo-sharing` (via `expo install`). New jest mocks for both in `jest.setup.js`. Verified:
-`pnpm --filter @charisma/mobile typecheck` clean, mobile tests 24/24 (was 20/20),
-`pnpm --filter @charisma/server test` 33/33 incl. new `events.test.ts` (401 + 204 + row
-persisted), `pnpm -r typecheck` clean, full `pnpm ci:local` exit 0 (core 63/63, e2e smoke
-score 100, mobile 24/24).
+**P0-28 CLOSED (Share card).** `components/ScoreCard.tsx` (forwardRef<View>, SCORE +
+PASSED/KEEP PRACTICING + exact POSITIONING.md paradox tagline — no win/fix/moment/quote
+text, ever), `lib/share.ts` (`captureRef` -> `Sharing.shareAsync` -> fire-and-forget
+`trackShareTapped()`), Share button on `app/result.tsx`. New server route `POST
+/v1/events/share-tapped` (`apps/server/src/routes/me.ts`, didn't exist before — needed so
+`share_tapped`, already in the analytics allowlist, could fire); `lib/api.ts` got
+`trackShareTapped()`. Deliberate cut: NO streak number, no data source exists (documented
+gap, not a bug). Deps added: `react-native-view-shot`, `expo-sharing`. Verified: mobile
+tests 24/24 (was 20/20), server 33/33 incl. new `events.test.ts`, `pnpm -r typecheck`
+clean, full `pnpm ci:local` exit 0 (core 63/63, e2e smoke 100).
 
 Flagged, unfixed (carried, need own cycle): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b) 409
