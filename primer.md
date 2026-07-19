@@ -2,12 +2,14 @@
 _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
-Curriculum doc complete/approved. Communication now has two independent,
-parallel north stars in the engine: connection (locked, untouched) and
-clarity (new, engine-only). Core+server `tsc --noEmit` clean, 95 core
-tests pass. No serve path exists yet for ANY unit type in this phase-0
-app (no unit-serving route, no mastery-fold write from `progress_events`
-into `user_skill_state`, no mobile screen reads unit fields).
+`CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md` is complete and fully approved
+(all 5 sections final, Sec 3's 12 anchors user-approved). Communication
+now has two independent, parallel north stars in the engine: connection
+(locked, untouched) and clarity (new, engine-only). Core+server
+`tsc --noEmit` clean, 95 core tests pass. No serve path exists yet for
+ANY unit type in this phase-0 app (no unit-serving route, no
+mastery-fold write from `progress_events` into `user_skill_state`, no
+mobile screen reads unit fields).
 
 ## COMPLETED THIS SESSION
 - Sec 4 engine (prior work): `DrillSchema`, `unit_type` discriminator on
@@ -21,14 +23,18 @@ into `user_skill_state`, no mobile screen reads unit fields).
   Fixed a substring-matching bug in filler/hedge counting (word-boundary
   regex now, was false-firing 'er'/'um' inside ordinary words).
   Zero edits to `connection-northstar.md`, `ReasonCodeSchema`,
-  `SignalsSchema`, `computeSignals`, `score()`. `SkillPackSchema.units`
-  still `UnitSchema[]` only, nothing loads through it yet.
+  `SignalsSchema`, `computeSignals`, `score()`.
+- Gave user a full status readout of the curriculum doc vs. engine state
+  (no code changed this turn).
 
 ## EXACT NEXT STEP
 User must decide before any serve-path code is written: (a) build the
 scenario-unit serve path first, drill/explain units ride along, or (b)
 scope a narrow drill-only path (e.g. attestation endpoint appending to
 `progress_events` only). Not started either way. Parked, still open.
+Separately: curriculum doc is final and ready to author real
+content-library files from (drills, expert-anchor material) whenever
+user wants to start, independent of the serve-path decision.
 
 ## LOCKED DECISIONS (do not re-litigate)
 - 4-skill taxonomy final: Communication, Problem-Solving, Critical
