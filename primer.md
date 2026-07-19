@@ -9,26 +9,22 @@ cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI
 author-only half) CLOSED — docker-compose.yml/Caddyfile/deploy.yml/README.md at repo root +
 apps/server/Dockerfile.
 
-**This session:** closed both bugs queued from the prior primer, then cancelled autopilot
-mode cleanly (`/oh-my-claudecode:cancel`, no linked ralph/ultraqa, skill-active cleared).
-(a) `warmthTrace` missing-leading-0 bug: root cause was the single `insert(sessions)` in
-`apps/server/src/routes/sessions.ts` relying on the `warmth_trace` column's `[]` default
-instead of seeding `[0]` for the opener (the `playSession` test helper in
-`packages/core/fakes/FakeChatModel.ts` already did this right, masking it from unit tests).
-Fixed at that one shared insert. Added `loop.test.ts` regression test
-(`warmTwoIndex accounts for the opener before crediting reciprocity`) — proven red without
-the fix, green with it.
-(b) 409 CAPPED now returns `next_open_at` (ISO instant of user's next tz-local midnight) via
-new `nextLocalMidnightUTC` helper in `caps.ts` (stdlib `Intl`, `ponytail:`-flagged DST-at-
-midnight edge case). Updated `sessions.caps.test.ts` CAPPED assertion to cover it.
-Full `apps/server` suite: 34/34 green. Both fixes verified by stash-revert-rerun (red without,
-green with). Changes are **uncommitted** in the working tree (user hasn't asked to commit).
+**Prior session:** closed 2 queued bugs in `apps/server`, both committed (`git log`: "checkpoint
+wire session/chat-turn/scoring..." → later checkpoints). (a) `warmthTrace` was missing the
+opener's implicit warmth-0 (root cause: the one `insert(sessions)` in `routes/sessions.ts` used
+the `warmth_trace` column's `[]` default instead of seeding `[0]`) — fixed at that single
+insert; regression test added in `loop.test.ts`. (b) 409 CAPPED now returns `next_open_at`
+(next tz-local midnight) via new `nextLocalMidnightUTC` in `services/caps.ts`; test updated.
+Full `apps/server` suite 34/34 green, both fixes stash-verified as real regressions.
 
-**Next action:** primer's task queue is empty — both bugs closed, nothing further specified.
-Await next instruction. If resuming cold, first `git status`/`git diff` to see the 4 uncommitted
-files (`apps/server/src/routes/sessions.ts`, `apps/server/src/services/caps.ts`,
-`apps/server/src/routes/sessions.caps.test.ts`, `apps/server/test/integration/loop.test.ts`)
-before deciding whether to commit or keep iterating.
+**This session:** re-invoked via automated checkpoint/clear loop with no new task attached.
+Verified working tree is clean (`git status` empty) and both fixes are committed — nothing
+pending, nothing broken. No code changes made. Reported idle status back to user and asked
+what to tackle next (offered: apps/web P2, Clerk/Paddle/deploy gates, or other).
+
+**Next action:** none queued. Await explicit next task from user before doing further work —
+do not invent scope. If this loop fires again with still nothing queued, just re-confirm clean
+state and stop; do not repeat full autopilot phases for an empty queue.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME. Payments: Merchant-of-Record (Paddle, web only).
