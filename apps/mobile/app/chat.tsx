@@ -138,6 +138,13 @@ export default function ChatScreen() {
           style={styles.input}
           value={text}
           onChangeText={setText}
+          onKeyPress={(e: any) => {
+            // Web: Enter sends, Shift+Enter inserts a newline. No-op on native soft keyboards.
+            if (e?.nativeEvent?.key === 'Enter' && !e?.nativeEvent?.shiftKey) {
+              e.preventDefault?.();
+              if (canSend) onSend();
+            }
+          }}
           placeholder={remaining > 0 ? 'Type a message…' : 'No messages left'}
           editable={remaining > 0 && !ending}
           maxLength={500}

@@ -2,7 +2,7 @@
 // ANTHROPIC_API_KEY) lands. One real character-turn call, asserts the
 // response parses against CharacterOutputSchema and usage is nonzero.
 import Anthropic from '@anthropic-ai/sdk';
-import { CharacterOutputSchema } from '@charisma/core/schemas';
+import { CharacterOutputSchema, ReasonCodeSchema } from '@charisma/core/schemas';
 import { AnthropicChatModel } from '../src/model/AnthropicChatModel.js';
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -14,7 +14,11 @@ if (!apiKey) {
 const model = new AnthropicChatModel(new Anthropic({ apiKey }));
 
 const result = await model.complete({
-  system: 'You are Sam, a friendly stranger at a housewarming party. Reply in character as strict JSON.',
+  system:
+    'You are Sam, a friendly stranger at a housewarming party. Respond with ONLY a raw JSON ' +
+    'object (no markdown fences, no prose outside it): {"reply": "<in-character reply, 1-3 ' +
+    'sentences>", "warmth_delta": <-1, 0, or 1>, "reason_code": "<one of: ' +
+    `${ReasonCodeSchema.options.join(', ')}>"}.`,
   messages: [{ role: 'user', content: 'Hey, how do you know the host?' }],
   maxTokens: 120,
   json: CharacterOutputSchema,
