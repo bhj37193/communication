@@ -1,6 +1,6 @@
 # How to run the Fable prompts
 
-Three driver prompts. Paste each into Fable (which can write files here). Run SEPARATELY in
+Four driver prompts. Paste each into Fable (which can write files here). Run SEPARATELY in
 this order for best quality; the combined one-paste version at the bottom trades quality for
 convenience. All treat PRD-CHARISMA-CHAT.md as locked input. No em-dashes in any output.
 
@@ -66,17 +66,31 @@ Phase 0; include the mock boundary, the task DAG with per-task acceptance comman
 full human-gate register. Produce the whole document, do not summarize. No em-dashes.
 ```
 
+## 4. Proven progress / validity layer (run after core code lands)
+```
+Read /Users/main/Desktop/Active Projects/communication/FABLE-PROMPT-PROVEN-PROGRESS.md and
+/Users/main/Desktop/Active Projects/communication/PRD-CHARISMA-CHAT.md and
+/Users/main/Desktop/Active Projects/communication/POSITIONING.md. Execute the
+PROVEN-PROGRESS prompt in full: design and build the checkpoint/benchmark-retest mechanism
+and the validity roadmap exactly as specified. Write real schema/content diffs into
+packages/core/ and content-library/. If you cannot write multiple files, write one document
+to /Users/main/Desktop/Active Projects/communication/FABLE-OUT-PROVEN-PROGRESS.md with each
+file in a labeled code block. No em-dashes.
+```
+
 ## Combined (one paste, lower quality, use only if short on time)
 ```
-Do these three in order, each as a fully-completed separate output, all in
+Do these in order, each as a fully-completed separate output, all in
 /Users/main/Desktop/Active Projects/communication/. Treat PRD-CHARISMA-CHAT.md as locked
-input for all three. Finish each output completely before starting the next.
+input for all. Finish each output completely before starting the next.
 1) Execute FABLE-PROMPT-CORE-CODE.md -> write packages/core/*.ts files (or FABLE-OUT-CORE-CODE.md).
 2) Execute FABLE-PROMPT-VENTURE-DOSSIER.md -> write VENTURE-DOSSIER.md.
 3) Execute FABLE-PROMPT-BUILD-EXECUTION.md -> write BUILD-EXECUTION-PLAN.md.
+4) Execute FABLE-PROMPT-PROVEN-PROGRESS.md -> write schema/content diffs (or FABLE-OUT-PROVEN-PROGRESS.md).
 No em-dashes anywhere.
 ```
 
 ## After the runs
-Reconcile the three outputs: check the dossier's unit-economics numbers against the PRD, and
-confirm the core-code tests actually pass before agents build on them.
+Reconcile the outputs: check the dossier's unit-economics numbers against the PRD, confirm
+the core-code tests actually pass before agents build on them, and confirm the proven-progress
+schema additions don't break the core-code tests (re-run core/server test suites after).
