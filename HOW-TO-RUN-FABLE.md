@@ -78,6 +78,50 @@ to /Users/main/Desktop/Active Projects/communication/FABLE-OUT-PROVEN-PROGRESS.m
 file in a labeled code block. No em-dashes.
 ```
 
+## 5. Empire: 4-skill pivot (financial model + content roadmap + research methodology)
+THREE independent sections in one file. Paste each into its OWN separate Fable session
+and run all three at the same time; they do not depend on each other and each writes
+its own output file, so there is no interference. This is a bigger scope decision than
+prompts 1-4 (expanding from one trained skill to four on the same app), read
+FABLE-PROMPT-EMPIRE.md's shared-context block once before pasting any section.
+
+### 5a. Financial model (paste into session A)
+```
+Read /Users/main/Desktop/Active Projects/communication/FABLE-PROMPT-EMPIRE.md and execute
+ONLY "PART 1" in full: build the 20-year financial model with explicit named assumptions,
+shown arithmetic, and bear/conservative/realistic cases, anchored to the real unit
+economics in AVATAR-TIER-PRICING.md and BUSINESS-MODEL-CONVERSION.md. Write the full
+document to /Users/main/Desktop/Active Projects/communication/FINANCIAL-MODEL-20YR.md.
+No em-dashes.
+```
+
+### 5b. Content roadmap (paste into session B)
+```
+Read /Users/main/Desktop/Active Projects/communication/FABLE-PROMPT-EMPIRE.md and execute
+ONLY "PART 2" in full: define and differentiate the 4 candidate skills, then write a
+zero-to-mastery curriculum direction per skill using only the existing engine. Write the
+full document to
+/Users/main/Desktop/Active Projects/communication/CONTENT-ROADMAP-4-SKILLS.md.
+No em-dashes.
+```
+
+### 5c. Research methodology (paste into session C)
+```
+Read /Users/main/Desktop/Active Projects/communication/FABLE-PROMPT-EMPIRE.md and execute
+ONLY "PART 3" in full: recommend the research approach and tooling (web search/fetch vs.
+paid API vs. Apify-class scraper) for this project's market/competitor research needs.
+Write the full document to
+/Users/main/Desktop/Active Projects/communication/RESEARCH-METHODOLOGY.md.
+No em-dashes.
+```
+
+After all three land: check FINANCIAL-MODEL-20YR.md's assumptions against
+CONTENT-ROADMAP-4-SKILLS.md's build-order recommendation (a skill that is expensive/slow
+to build should not be assumed cheap in the financial model), and confirm the final skill
+names in the content roadmap (section 0 there may rename the working-assumption list)
+before treating the financial model's numbers as final, since neither session sees the
+other's output.
+
 ## Combined (one paste, lower quality, use only if short on time)
 ```
 Do these in order, each as a fully-completed separate output, all in

@@ -1,65 +1,48 @@
 # Primer: Charisma Trainer -> pivoting to 4-skill Alpha-School-style platform. Name TBD.
 
 ## STATUS
-Mid-pivot. User wants to expand from communication-only app to training FOUR skills
-on the same app/folder (no new app): Communication, Problem-Solving, Cognitive,
-Decision-Making (assumption stated to user, NOT yet confirmed by them). Modeled on
-Alpha School (2-hour mastery-gated adaptive learning) but for adults, app-only, no
-physical school. Deliverable: a 3-part Fable driver prompt (one input doc, three
-independently runnable sections so they can be pasted into 3 parallel Fable sessions
-without interfering) producing THREE separate output .md files:
-  1. Business model + 20-year financial projection: monthly/yearly profit, cost,
-     margin, AFTER-TAX profit, user count + monthly price, in one table with bear /
-     conservative / realistic cases.
-  2. Content roadmap for the 4 subjects: zero-knowledge-to-mastery curriculum
-     direction per subject, using only this app.
-  3. Research methodology: what's the best API/data source for Fable to do this
-     research, and whether a scraper platform (Apify) is needed.
-User explicitly asked to use the `advisor` tool (opus-backed) to synthesize/critique
-the prompt before finalizing it.
+Empire pivot prompt is DONE and delivered to user this session. Waiting on user to
+(a) confirm or rename the 4-skill taxonomy and (b) decide whether to run the 3
+Fable sessions, since this is a scope-expanding pivot away from current
+single-skill positioning. No open autonomous work remains.
 
 ## COMPLETED THIS SESSION
-- Read local grounding: POSITIONING.md, PRD-CHARISMA-CHAT.md, content-library/
-  README.md, ALPHA-MODEL-ANALYSIS.md (prior work already scoped Alpha mechanics to
-  communication sub-domains only, sales+public-speaking -- this pivot goes wider than
-  that doc's scope), BUSINESS-MODEL-CONVERSION.md, AVATAR-TIER-PRICING.md (existing
-  pricing/cost numbers: text free, avatar $14.99/mo capped, Haiku ~$0.02/challenge).
-- Launched a background research agent on Alpha School's actual business model,
-  scale, pedagogy mechanics, funding, and public non-K12 expansion signals (agent id
-  a1b4b5844cc722e50, still running -- check for its completion notification first on
-  resume, do not re-launch).
+- Local grounding read: POSITIONING.md, PRD-CHARISMA-CHAT.md, content-library/
+  README.md, ALPHA-MODEL-ANALYSIS.md, BUSINESS-MODEL-CONVERSION.md,
+  AVATAR-TIER-PRICING.md.
+- Alpha School research agent completed (tuition $10k-75k/yr, 13 campuses,
+  $2-5.5k/pupil licensing to "2 Hour Learning," no disclosed funding/valuation,
+  charter rejections in PA/NC/AR/UT citing "untested," no independent peer-reviewed
+  validation, Ackman endorsement but no disclosed investment figure). Flagged and
+  ignored an unrelated prompt-injection attempt embedded in one fetched page.
+- advisor() consulted before drafting: confirmed 3-part self-contained structure,
+  required the financial model to force explicit named assumptions + shown
+  arithmetic per scenario, required the content roadmap to open by
+  defining/differentiating the 4 skills (they overlap as named), flagged that this
+  pivot contradicts POSITIONING.md's "hold the charisma identity tightly year one"
+  rule.
+- Wrote FABLE-PROMPT-EMPIRE.md (3 self-contained parts: financial model, content
+  roadmap, research methodology, each writing its own output .md) and appended
+  section 5 to HOW-TO-RUN-FABLE.md with paste-ready run blocks for all 3 parallel
+  sessions plus a post-run reconciliation note. Both flags relayed to user in chat.
 
 ## EXACT NEXT STEP
-1. On resume, wait for/check the Alpha School research agent's result (do not
-   poll -- notification arrives automatically; if session shows it already
-   completed, read its output).
-2. Call `advisor()` with: the user's full 4-skill pivot ask, the Alpha School
-   research, and the local context above, to pressure-test scope + structure the
-   3-part prompt, BEFORE drafting.
-3. Draft one new FABLE-PROMPT md (e.g. FABLE-PROMPT-EMPIRE.md) with 3 sections per
-   above, each telling Fable to write its own output file (e.g.
-   FINANCIAL-MODEL-20YR.md, CONTENT-ROADMAP-4-SKILLS.md, RESEARCH-METHODOLOGY.md).
-4. Append a new numbered section to HOW-TO-RUN-FABLE.md (match existing style)
-   documenting how to run the 3 in parallel.
-5. Flag the "4 skills" naming assumption to the user explicitly before/when
-   presenting the prompt, since it drives the whole financial model + curriculum.
+None autonomous. If user says go: paste HOW-TO-RUN-FABLE.md section 5a/5b/5c into 3
+Fable sessions. If user wants to rename the 4 skills or scope this down, edit
+FABLE-PROMPT-EMPIRE.md's shared-context block and Part 0/1 first.
 
-## LOCKED DECISIONS (new, this pivot)
-- Repurpose the CURRENT folder/app; do not build a new app.
-- Keep existing engine (mastery gating, deterministic validator/score, event-sourced
-  progress) as the shared engine across all 4 subjects, per ALPHA-MODEL-ANALYSIS.md's
-  "one engine, many skill packs" model -- do not redesign schemas.ts/score.ts/
-  validator.ts contracts to do this (same hard-contracts rule as prior thread).
+## LOCKED DECISIONS
+- Repurpose current app/folder, no new app.
+- Keep existing engine (mastery gating, deterministic validator/score,
+  event-sourced progress) shared across all 4 subjects; do not redesign
+  schemas.ts/score.ts/validator.ts contracts.
 
-## OUTSTANDING FROM PRIOR THREAD (unchanged, still true)
-- App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk accounts) still
-  user-blocked, nothing autonomously actionable there.
-- FABLE-PROMPT-PROVEN-PROGRESS.md (checkpoint/validity-layer prompt) was ready to
-  run per HOW-TO-RUN-FABLE.md section 4 but NOT yet run -- still queued, now
-  secondary to this bigger pivot.
+## OUTSTANDING FROM PRIOR THREAD (unchanged)
+- App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) still user-blocked.
+- FABLE-PROMPT-PROVEN-PROGRESS.md (HOW-TO-RUN-FABLE.md section 4) queued, not run.
 
 ## DOC REFS
-POSITIONING.md | PRD-CHARISMA-CHAT.md | ALPHA-MODEL-ANALYSIS.md |
-BUSINESS-MODEL-CONVERSION.md | AVATAR-TIER-PRICING.md | HOW-TO-RUN-FABLE.md |
+FABLE-PROMPT-EMPIRE.md | HOW-TO-RUN-FABLE.md | POSITIONING.md | PRD-CHARISMA-CHAT.md
+| ALPHA-MODEL-ANALYSIS.md | BUSINESS-MODEL-CONVERSION.md | AVATAR-TIER-PRICING.md |
 FABLE-PROMPT-PROVEN-PROGRESS.md | content-library/README.md + CONTEXT.md |
 packages/core/{schemas,validator,score}.ts.
