@@ -7,12 +7,15 @@ import {
   OPEN_STARTERS,
   buildTemplateFeedback,
   checkEvidence,
+  claritySignalValue,
+  computeClaritySignals,
   computeSignals,
   isFollowup,
   isOpenQuestion,
   isQuestion,
   isSelfDisclosure,
   passes,
+  passesClarity,
   wordCount,
 } from './validator';
 import { score } from './score';
@@ -20,6 +23,7 @@ import {
   FeedbackOutputSchema,
   RubricLineSchema,
   type ChatMessage,
+  type ClaritySignals,
   type Signals,
 } from './schemas';
 import {
@@ -303,6 +307,97 @@ describe('pass-rule band edges (bands, not floors)', () => {
   it('hard flags gate the pass', () => {
     expect(passes({ ...base, interview_mode: true }, rubric)).toBe(false);
     expect(passes({ ...base, monologue_brag: true }, rubric)).toBe(false);
+  });
+});
+
+// --- Clarity validator (content-library/constraints/clarity-northstar.md) ---
+describe('computeClaritySignals known answers', () => {
+  const keyPoints = [
+    'checkout is at eleven tomorrow morning',
+    'breakfast is not included',
+  ];
+  const transcript: ChatMessage[] = [
+    { role: 'character', content: 'Hey, thanks for booking!' },
+    {
+      role: 'user',
+      content: 'Um, so checkout is at eleven tomorrow morning, just so you know.',
+    },
+    { role: 'user', content: 'I think breakfast is not included, sorry about that.' },
+  ];
+
+  it('both key points land, one filler and one hedge counted, sentence length averaged', () => {
+    const signals = computeClaritySignals(transcript, keyPoints);
+    expect(signals.key_points_share).toBe(1);
+    expect(signals.filler_ratio).toBe(2 / 21); // "um" + "you know"
+    expect(signals.avg_sentence_length).toBe(10.5); // (12 + 9) / 2
+    expect(signals.hedge_count).toBe(1); // "i think"
+    expect(signals.rambling).toBe(false);
+    expect(signals.off_topic).toBe(false);
+  });
+
+  it('a key point with no shared content words does not land', () => {
+    const signals = computeClaritySignals(transcript, [
+      ...keyPoints,
+      'the elevator is out of order',
+    ]);
+    expect(signals.key_points_share).toBe(2 / 3);
+  });
+
+  it('a single message over 80 words trips rambling', () => {
+    const long: ChatMessage = { role: 'user', content: Array(81).fill('word').join(' ') };
+    expect(computeClaritySignals([long], keyPoints).rambling).toBe(true);
+  });
+
+  it('majority of turns sharing no content word with any key point trips off_topic', () => {
+    const driftedTranscript: ChatMessage[] = [
+      { role: 'user', content: 'Anyway, how about that weather lately?' },
+      { role: 'user', content: 'Also did you catch the game last night?' },
+    ];
+    expect(computeClaritySignals(driftedTranscript, keyPoints).off_topic).toBe(true);
+  });
+
+  it('a single off-topic greeting among on-topic turns does not trip off_topic', () => {
+    expect(computeClaritySignals(transcript, keyPoints).off_topic).toBe(false);
+  });
+
+  it('empty key_points list yields key_points_share 0, never divides by zero', () => {
+    expect(computeClaritySignals(transcript, []).key_points_share).toBe(0);
+  });
+
+  it('does not count "er"/"um" embedded inside ordinary words as filler', () => {
+    const clean: ChatMessage = {
+      role: 'user',
+      content: 'Her number was after the water heater.',
+    };
+    expect(computeClaritySignals([clean], keyPoints).filler_ratio).toBe(0);
+  });
+});
+
+describe('claritySignalValue and passesClarity', () => {
+  const signals: ClaritySignals = {
+    key_points_share: 1,
+    filler_ratio: 0,
+    avg_sentence_length: 15,
+    hedge_count: 0,
+    rambling: false,
+    off_topic: false,
+  };
+  it('maps every field, flags as 0/1', () => {
+    expect(claritySignalValue(signals, 'key_points_share')).toBe(1);
+    expect(claritySignalValue({ ...signals, rambling: true }, 'rambling')).toBe(1);
+    expect(claritySignalValue(signals, 'off_topic')).toBe(0);
+  });
+  it('throws on an unknown signal id', () => {
+    expect(() => claritySignalValue(signals, 'nonsense')).toThrow();
+  });
+  it('a hard rubric line gates the pass', () => {
+    const rubric = [{ signal_id: 'key_points_share', band: { min: 1 }, hard: true }];
+    expect(passesClarity(signals, rubric)).toBe(true);
+    expect(passesClarity({ ...signals, key_points_share: 0.5 }, rubric)).toBe(false);
+  });
+  it('soft rubric lines never gate the pass', () => {
+    const rubric = [{ signal_id: 'filler_ratio', band: { max: 0 }, hard: false }];
+    expect(passesClarity({ ...signals, filler_ratio: 0.5 }, rubric)).toBe(true);
   });
 });
 

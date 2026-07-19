@@ -2,7 +2,13 @@
 // Deterministic validator per PRD-CHARISMA-CHAT.md Section 4.5.
 // Pure functions, zero I/O, zero inference, zero randomness: the same
 // transcript always yields the same signals and the same verdict.
-import type { ChatMessage, FeedbackOutput, RubricLine, Signals } from './schemas';
+import type {
+  ChatMessage,
+  ClaritySignals,
+  FeedbackOutput,
+  RubricLine,
+  Signals,
+} from './schemas';
 
 // Curated starter lists (PRD 4.5). Shipped as constants and mirrored in the
 // content pack JSON; a test asserts the two stay identical.
@@ -291,6 +297,122 @@ export function passes(s: Signals, rubric: RubricLine[]): boolean {
     .filter((line) => line.hard)
     .every((line) => {
       const v = signalValue(s, line.signal_id);
+      return (
+        (line.band.min === undefined || v >= line.band.min) &&
+        (line.band.max === undefined || v <= line.band.max)
+      );
+    });
+}
+
+// --- Clarity validator (content-library/constraints/clarity-northstar.md) ---
+// Deterministic lexical/structural proxies, same discipline as above: pure
+// functions computed only from the user's own text against a unit's
+// key_points, never from character output or a model judgment.
+
+// ponytail: 'like' also matches the verb ("I like that idea"), inflating
+// filler_ratio on legitimate sentences; upgrade to a part-of-speech check
+// only if real transcripts show this misfiring often.
+const FILLER_WORDS: readonly string[] = [
+  'um', 'uh', 'er', 'like', 'you know', 'sort of', 'kind of', 'basically',
+  'literally', 'i mean', 'actually', 'just saying',
+];
+const HEDGES: readonly string[] = [
+  'i think', 'i guess', 'maybe', 'probably', 'not sure but', 'i suppose',
+];
+
+// Word-boundary match, not raw substring: a naive substring count treats
+// "her", "number", "after", "water", "heater" as containing the fillers
+// "er"/"um", which would drown the signal in false positives on ordinary
+// text. \b requires the match to start/end outside a word character.
+function countOccurrences(haystack: string, needle: string): number {
+  if (needle === '') return 0;
+  const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return (haystack.match(new RegExp(`\\b${escaped}\\b`, 'g')) ?? []).length;
+}
+
+// A key point "lands" when at least half of its stemmed content words show
+// up anywhere in the user's combined text (same overlap machinery as
+// isFollowup's content-word check, applied against authored key_points
+// instead of the previous character turn).
+function keyPointLanded(keyPoint: string, userContent: Set<string>): boolean {
+  const kpWords = contentWords(keyPoint);
+  if (kpWords.size === 0) return false;
+  let hits = 0;
+  for (const w of kpWords) if (userContent.has(w)) hits += 1;
+  return hits / kpWords.size >= 0.5;
+}
+
+export function computeClaritySignals(
+  transcript: ChatMessage[],
+  keyPoints: string[],
+): ClaritySignals {
+  const userMessages = transcript.filter((m) => m.role === 'user').map((m) => m.content);
+  const userJoined = normalizeWhitespace(userMessages.join(' '));
+  const userWords = wordCount(userJoined);
+  const lower = userJoined.toLowerCase();
+
+  const userContent = contentWords(userJoined);
+  const landed = keyPoints.filter((kp) => keyPointLanded(kp, userContent)).length;
+
+  const fillerHits = FILLER_WORDS.reduce((acc, f) => acc + countOccurrences(lower, f), 0);
+  const hedgeHits = HEDGES.reduce((acc, h) => acc + countOccurrences(lower, h), 0);
+
+  const sentences = userJoined.split(/[.!?]+/).map((s) => s.trim()).filter(Boolean);
+  const avgSentenceLength =
+    sentences.length === 0
+      ? 0
+      : sentences.reduce((acc, s) => acc + wordCount(s), 0) / sentences.length;
+
+  const rambling = userMessages.some((m) => wordCount(m) > 80);
+
+  // ponytail: naive per-turn overlap against key_points, majority-vote so a
+  // single greeting/small-talk turn doesn't false-positive; upgrade to
+  // ignoring a fixed opener window if that still trips on real transcripts.
+  const missCount = userMessages.filter((m) => {
+    const words = contentWords(m);
+    if (words.size === 0) return false;
+    return !keyPoints.some((kp) => {
+      const kpWords = contentWords(kp);
+      for (const w of words) if (kpWords.has(w)) return true;
+      return false;
+    });
+  }).length;
+  const off_topic = userMessages.length >= 2 && missCount > userMessages.length / 2;
+
+  return {
+    key_points_share: keyPoints.length === 0 ? 0 : landed / keyPoints.length,
+    filler_ratio: userWords === 0 ? 0 : fillerHits / userWords,
+    avg_sentence_length: avgSentenceLength,
+    hedge_count: hedgeHits,
+    rambling,
+    off_topic,
+  };
+}
+
+export function claritySignalValue(s: ClaritySignals, id: string): number {
+  switch (id) {
+    case 'key_points_share':
+      return s.key_points_share;
+    case 'filler_ratio':
+      return s.filler_ratio;
+    case 'avg_sentence_length':
+      return s.avg_sentence_length;
+    case 'hedge_count':
+      return s.hedge_count;
+    case 'rambling':
+      return s.rambling ? 1 : 0;
+    case 'off_topic':
+      return s.off_topic ? 1 : 0;
+    default:
+      throw new Error(`unknown clarity signal: ${id}`);
+  }
+}
+
+export function passesClarity(s: ClaritySignals, rubric: RubricLine[]): boolean {
+  return rubric
+    .filter((line) => line.hard)
+    .every((line) => {
+      const v = claritySignalValue(s, line.signal_id);
       return (
         (line.band.min === undefined || v >= line.band.min) &&
         (line.band.max === undefined || v <= line.band.max)

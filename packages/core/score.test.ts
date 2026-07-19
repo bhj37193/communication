@@ -1,8 +1,8 @@
 // packages/core/score.test.ts
 // Known-answer assertions for the deterministic score (PRD 4.6).
 import { describe, expect, it } from 'vitest';
-import { SignalDefSchema, type Signals } from './schemas';
-import { score } from './score';
+import { SignalDefSchema, type ClaritySignals, type Signals } from './schemas';
+import { clarityScore, score } from './score';
 import pack from './content/everyday.housewarming-sam.json';
 
 const packDefs = SignalDefSchema.array().parse(pack.signals);
@@ -100,5 +100,110 @@ describe('determinism', () => {
   it('same signals always yield the same score', () => {
     expect(score(GOOD)).toBe(score(GOOD));
     expect(score(BAD)).toBe(score(BAD));
+  });
+});
+
+// Clarity score known answers (content-library/constraints/clarity-northstar.md).
+describe('clarity score known answers', () => {
+  const CLARITY_ZERO: ClaritySignals = {
+    key_points_share: 0,
+    filler_ratio: 0,
+    avg_sentence_length: 0,
+    hedge_count: 0,
+    rambling: false,
+    off_topic: false,
+  };
+  const CLARITY_GOOD: ClaritySignals = {
+    key_points_share: 1,
+    filler_ratio: 0,
+    avg_sentence_length: 15,
+    hedge_count: 0,
+    rambling: false,
+    off_topic: false,
+  };
+  const CLARITY_BAD: ClaritySignals = {
+    key_points_share: 0,
+    filler_ratio: 1,
+    avg_sentence_length: 40,
+    hedge_count: 5,
+    rambling: true,
+    off_topic: true,
+  };
+
+  it('good run: 40 + 35 + 10 = 85', () => {
+    expect(clarityScore(CLARITY_GOOD)).toBe(85);
+  });
+
+  it('bad run: 40 - 20 - 9 - 15 - 15 clamps to 0', () => {
+    expect(clarityScore(CLARITY_BAD)).toBe(0);
+  });
+
+  it('mid-range spot check: 40 + 17.5 + 10 - 2 - 3 = 62.5', () => {
+    expect(
+      clarityScore({
+        key_points_share: 0.5,
+        filler_ratio: 0.1,
+        avg_sentence_length: 15,
+        hedge_count: 1,
+        rambling: false,
+        off_topic: false,
+      }),
+    ).toBe(62.5);
+  });
+
+  it('zero signals score the base 40', () => {
+    expect(clarityScore(CLARITY_ZERO)).toBe(40);
+  });
+
+  it('hedge_count caps at 3: 5 and 3 score the same', () => {
+    expect(clarityScore({ ...CLARITY_ZERO, hedge_count: 5 })).toBe(
+      clarityScore({ ...CLARITY_ZERO, hedge_count: 3 }),
+    );
+    expect(clarityScore({ ...CLARITY_ZERO, hedge_count: 3 })).toBe(31);
+  });
+});
+
+describe('clarity sentence-length band edges (inclusive)', () => {
+  const base: ClaritySignals = {
+    key_points_share: 0,
+    filler_ratio: 0,
+    avg_sentence_length: 0,
+    hedge_count: 0,
+    rambling: false,
+    off_topic: false,
+  };
+  it('8 and 25 are in band, 7.99 and 25.01 are out', () => {
+    expect(clarityScore({ ...base, avg_sentence_length: 8 })).toBe(50);
+    expect(clarityScore({ ...base, avg_sentence_length: 25 })).toBe(50);
+    expect(clarityScore({ ...base, avg_sentence_length: 7.99 })).toBe(40);
+    expect(clarityScore({ ...base, avg_sentence_length: 25.01 })).toBe(40);
+  });
+});
+
+describe('clarity weights from pack SignalDefs', () => {
+  it('overriding one weight moves the score without code changes', () => {
+    const defs = SignalDefSchema.array().parse([
+      { id: 'key_points_share', kind: 'ratio', description: 'x', weight: 0 },
+    ]);
+    expect(
+      clarityScore(
+        { key_points_share: 1, filler_ratio: 0, avg_sentence_length: 15, hedge_count: 0, rambling: false, off_topic: false },
+        defs,
+      ),
+    ).toBe(50);
+  });
+});
+
+describe('clarity determinism', () => {
+  it('same signals always yield the same score', () => {
+    const s: ClaritySignals = {
+      key_points_share: 0.5,
+      filler_ratio: 0.2,
+      avg_sentence_length: 12,
+      hedge_count: 1,
+      rambling: false,
+      off_topic: false,
+    };
+    expect(clarityScore(s)).toBe(clarityScore(s));
   });
 });

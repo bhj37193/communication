@@ -134,7 +134,39 @@ export const DrillUnitSchema = z.object({
 });
 export type DrillUnit = z.infer<typeof DrillUnitSchema>;
 
-export const AnyUnitSchema = z.union([UnitSchema, DrillUnitSchema]);
+// content-library/constraints/clarity-northstar.md: second north-star
+// dimension, "did the message land". Own scenario family (explaining /
+// persuading), no warmth mechanic: nothing here scores off the character's
+// output, only the user's own text, so no persona/warmth_rules are needed.
+export const ExplainUnitSchema = z.object({
+  id: z.string().min(1),
+  skill_id: z.string().min(1),
+  principle: z.string().min(1),
+  exemplar: z.string().min(1),
+  unit_type: z.literal('explain'),
+  scenario: z.object({
+    title: z.string().min(1),
+    setup_text: z.string().min(1),
+    character_name: z.string().min(1),
+    message_budget: z.number().int().positive(),
+  }),
+  // The message that must not get lost. Landed/lost is computed against
+  // these, never against the character's reply.
+  key_points: z.array(z.string().min(1)).min(1),
+  persona: z.object({
+    brief: z.string().min(1),
+    opener: z.string().min(1),
+  }),
+  rubric: z.array(RubricLineSchema).min(1),
+  feedback_prompt: z.string().min(1),
+  mastery: z.object({
+    passes_required: z.number().int().positive(),
+    distinct_days: z.boolean(),
+  }),
+});
+export type ExplainUnit = z.infer<typeof ExplainUnitSchema>;
+
+export const AnyUnitSchema = z.union([UnitSchema, DrillUnitSchema, ExplainUnitSchema]);
 export type AnyUnit = z.infer<typeof AnyUnitSchema>;
 
 export const SkillPackSchema = z.object({
@@ -157,3 +189,16 @@ export const SignalsSchema = z.object({
   final_warmth: z.number().int().min(0).max(3),
 });
 export type Signals = z.infer<typeof SignalsSchema>;
+
+// Clarity validator's recomputed signals: content-library/constraints/
+// clarity-northstar.md. Parallel to SignalsSchema, computed only from the
+// user's own text against a unit's key_points, never from character output.
+export const ClaritySignalsSchema = z.object({
+  key_points_share: z.number().min(0).max(1),
+  filler_ratio: z.number().min(0).max(1),
+  avg_sentence_length: z.number().min(0),
+  hedge_count: z.number().int().min(0),
+  rambling: z.boolean(),
+  off_topic: z.boolean(),
+});
+export type ClaritySignals = z.infer<typeof ClaritySignalsSchema>;

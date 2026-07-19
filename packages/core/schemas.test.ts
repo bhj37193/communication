@@ -6,7 +6,9 @@ import {
   AnyUnitSchema,
   CharacterOutputSchema,
   ChatMessageSchema,
+  ClaritySignalsSchema,
   DrillUnitSchema,
+  ExplainUnitSchema,
   FeedbackOutputSchema,
   RubricLineSchema,
   SignalDefSchema,
@@ -142,6 +144,63 @@ describe('ChatMessageSchema and SignalsSchema', () => {
         interview_mode: false,
         monologue_brag: false,
         final_warmth: 4,
+      }),
+    ).toThrow();
+  });
+});
+
+describe('ExplainUnitSchema and ClaritySignalsSchema (clarity north star)', () => {
+  const explainUnit = {
+    id: 'communication.explain.rent-notice',
+    skill_id: 'communication',
+    principle: 'Say the core fact plainly before the color commentary.',
+    exemplar: 'Rent goes up $50 starting next month.',
+    unit_type: 'explain',
+    scenario: {
+      title: 'Break the rent news',
+      setup_text: 'Your roommate needs to know before they set up autopay.',
+      character_name: 'Roommate',
+      message_budget: 6,
+    },
+    key_points: ['Rent increases by $50 starting next month.'],
+    persona: {
+      brief: 'A roommate who tunes out if the point takes too long to land.',
+      opener: "What's up?",
+    },
+    rubric: [{ signal_id: 'key_points_share', band: { min: 1 }, hard: true }],
+    feedback_prompt: 'Note whether the rent change and its start date both landed.',
+    mastery: { passes_required: 2, distinct_days: true },
+  };
+
+  it('a valid explain unit validates against ExplainUnitSchema and AnyUnitSchema', () => {
+    expect(ExplainUnitSchema.parse(explainUnit).unit_type).toBe('explain');
+    expect(AnyUnitSchema.parse(explainUnit).unit_type).toBe('explain');
+  });
+
+  it('rejects an explain unit with no key_points', () => {
+    expect(() => ExplainUnitSchema.parse({ ...explainUnit, key_points: [] })).toThrow();
+  });
+
+  it('a computed clarity signals object validates', () => {
+    ClaritySignalsSchema.parse({
+      key_points_share: 1,
+      filler_ratio: 0.1,
+      avg_sentence_length: 12,
+      hedge_count: 0,
+      rambling: false,
+      off_topic: false,
+    });
+  });
+
+  it('key_points_share above 1 is rejected', () => {
+    expect(() =>
+      ClaritySignalsSchema.parse({
+        key_points_share: 1.1,
+        filler_ratio: 0,
+        avg_sentence_length: 10,
+        hedge_count: 0,
+        rambling: false,
+        off_topic: false,
       }),
     ).toThrow();
   });

@@ -18,7 +18,9 @@ per-stage capstone check.
 
 North stars, restated so no skill this document touches is without one:
 
-- **Communication:** DID THEY CONNECT (content-library/README.md, locked).
+- **Communication:** two independent north stars (content-library/README.md):
+  DID THEY CONNECT (connection-northstar.md, locked, rapport scenarios) and
+  DID THE MESSAGE LAND (clarity-northstar.md, explain/persuade scenarios).
 - **Problem-Solving:** DID THEY FIND THE REAL PROBLEM: did the user locate
   and verify the real cause before proposing a fix.
 - **Critical Thinking:** DID THEY JUDGE THE CLAIM ON ITS EVIDENCE: did the

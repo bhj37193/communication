@@ -4,12 +4,17 @@ The human-editable source of everything the model ever sees: skills, personas, t
 system prompts, and the constraints that govern them. Plain text, layered, ICM-style. The
 folder structure tells you what feeds what; CONTEXT.md gives the exact load order.
 
-## The north star
+## The two north stars
 
-The product exists to create a genuine connection between two people. The skills are the
-means; connection is the end. Every file in this library answers one question: DID THEY
-CONNECT? The full definition lives in `constraints/connection-northstar.md` and governs
-every other file here.
+Communication has two independent halves, each with its own full definition in
+`constraints/`:
+
+- Connection: DID THEY CONNECT? `constraints/connection-northstar.md`. Rapport-building
+  scenarios, governed by warmth.
+- Clarity: DID THE MESSAGE LAND? `constraints/clarity-northstar.md`. Explaining/persuading
+  scenarios, governed by whether the authored `key_points` reached the listener. Its own
+  signal set (`ClaritySignalsSchema`), its own scoring path (`clarityScore`); the
+  connection signals, scoring, and `ReasonCodeSchema` stay untouched.
 
 ## Author vs serve
 
@@ -22,7 +27,8 @@ SERVE layer is code and JSON that the runtime actually loads:
 | skills/everyday-connection.md        | same JSON: unit.principle, unit.rubric, pack.signals    |
 | prompts/character-system-prompt.md   | packages/core/assemble.ts (characterSystem)             |
 | prompts/feedback-prompt.md           | packages/core/assemble.ts (feedbackSystem)              |
-| constraints/*.md                     | embedded in both prompt renderers in assemble.ts        |
+| constraints/connection-northstar.md  | embedded in both prompt renderers in assemble.ts        |
+| constraints/clarity-northstar.md     | not served yet; engine-only (ExplainUnitSchema/clarityScore), same as drill units |
 | library/talks.md                     | never served; author-time reference only                |
 
 Workflow: edit the md file, fold the change into the serve artifact on the right, run
