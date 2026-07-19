@@ -8,29 +8,46 @@ retention/deletion sweep + Clerk webhook + analytics, plus `apps/server/src/db/c
 Integration suite proves the full loop end to end; E2E smoke proves it over real HTTP
 against a real spawned server process; CI now runs the whole offline-green list on every PR.
 
-**Completed this session:** P0-25 CI pipeline (`packages/core` untouched). New:
-`.github/workflows/ci.yml` — postgres:18 service container (trust auth, matching local
-parity), migrates a fresh db, then runs the exact Section 3.6 list. Root script
-`ci:local` mirrors the same 7 commands for local runs, skipping migrate (local
-`charisma_test` already migrated; `0000_init.sql` isn't idempotent). `@charisma/content`/
-`@charisma/mobile` don't exist yet — `pnpm --filter` on an unscaffolded package no-ops at
-exit 0 (confirmed), so the list is clean today and activates once those land. `pnpm
-ci:local` -> exit 0, all 7 green; `ci.yml` YAML-parse validated (unverified live: assumes
-ubuntu-latest ships `psql` for the migrate step). Hardened `smoke.ts`: try/finally so the
-spawned server is killed even on an unexpected throw, not just an asserted mismatch.
+**Completed this session:** P0-26 AnthropicChatModel (`packages/core` untouched). New:
+`apps/server/src/model/AnthropicChatModel.ts` — real `ChatModel` impl. Path ambiguity
+resolved via `model.ts`'s own header comment: concrete implementations live outside
+`packages/core`, so this is `apps/server/src/`, not `packages/core/`. Injected
+`AnthropicClient` (narrow `{ messages: { create } }` interface, not the full SDK type) so
+unit tests run offline against a fake; `composition.ts` wires the real `new
+Anthropic({ apiKey })` from `@anthropic-ai/sdk` (added to `apps/server/package.json`,
+installed). Model id `claude-haiku-4-5`, system sent as one cache_control:ephemeral text
+block, temperature 0.7 character / 0.2 feedback (PRD 3.4), one corrective JSON retry
+before throwing, usage mapped incl. `cache_read_input_tokens` -> `cachedInputTokens`
+(nullish-coalesced to 0). Post-advisor-review fix: retry now sums usage across BOTH API
+calls (`sumUsage`), not just the second — the first (failed) call's tokens were silently
+dropped, which would have undercounted the cost circuit breaker on every retry. Also
+switched the retry's corrective turn from an `{assistant, user}` pair to a single `user`
+message quoting the bad output, since a transcript ending on a `character` turn would
+otherwise produce two consecutive `assistant` messages (untestable without G-01; sidestepped
+instead of shipped-unverified). Added `ANTHROPIC_API_KEY` to `env.ts` (default `''`);
+`composition.ts` fail-closed throws if `MODEL_PROVIDER=anthropic` and the key is empty.
+`apps/server/scripts/smoke-anthropic.ts` + `smoke:anthropic` script: one real
+character-turn call, asserts schema + nonzero usage, deferred until G-01. 8 unit tests
+(model id, cache_control, temps by tag, maxTokens, retry-then-succeed w/ summed-usage
+assertion, retry-exhausted-throws, usage mapping incl. null->0, retry role-alternation
+w/ character-ending transcript) all green. `pnpm ci:local` -> exit 0, all green (fake
+provider path untouched, still default, incl. e2e smoke). Manually verified (no live API
+call): `MODEL_PROVIDER=anthropic` wiring in `composition.ts` constructs `AnthropicChatModel`
+correctly end to end.
 
 Flagged, unfixed (2, carried from P0-20): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b)
 409 CAPPED spec wants a next-open-time, current impl/test omit it. Both need own cycle.
 
-**Next action (ONE task only):** P0-26 AnthropicChatModel (deps P0-08/P0-12, satisfied;
-AUTONOMOUS build+unit, GATED G-01 for live smoke). Files: `model/AnthropicChatModel.ts`,
-`scripts/smoke-anthropic.ts`, unit tests w/ injected fake Anthropic client asserting model
-id, cache_control on system block, temps by tag, maxTokens, JSON retry, usage mapping.
-Goal: real ChatModel fully built offline; `smoke:anthropic` is the deferred live check
-once G-01 lands. Accept: `pnpm --filter @charisma/server test` (live: `smoke:anthropic`
-after G-01). Note: bare `model/AnthropicChatModel.ts` path is ambiguous
-(`packages/core/model/` vs `apps/server/src/model/`) — check where `FakeChatModel` sits first.
+**Next action (ONE task only):** P0-27 Expo app (deps P0-16..P0-19, satisfied;
+AUTONOMOUS). Files: everything under `apps/mobile/src`, `app.json`, jest config, tests.
+Goal: three surfaces (entry, chat with typing delay + remaining counter, result card)
+plus profile (sign out, delete my data), typed api client, dev fake-auth mode
+(`EXPO_PUBLIC_DEV_FAKE_AUTH=true` sends `x-test-user`), Clerk code paths present but inert
+without a publishable key. Accept: `pnpm --filter @charisma/mobile typecheck && pnpm
+--filter @charisma/mobile test`. Note: `apps/mobile` doesn't exist yet — this is a fresh
+scaffold, not an edit; check `apps/server`'s typed api client shape (routes/schemas) for
+the contract the mobile client must match before scaffolding.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:

@@ -9,6 +9,7 @@ const EnvSchema = z.object({
   // instantiate concrete classes (mock-boundary architecture).
   AUTH_PROVIDER: z.enum(['fake', 'clerk']).default('fake'),
   MODEL_PROVIDER: z.enum(['fake', 'anthropic']).default('fake'),
+  ANTHROPIC_API_KEY: z.string().default(''),
   DAILY_MODEL_BUDGET_USD: z.coerce.number().positive().default(20),
   // Empty -> /v1/webhooks/clerk accepts unsigned JSON bodies (fake/test mode).
   CLERK_WEBHOOK_SECRET: z.string().default(''),
