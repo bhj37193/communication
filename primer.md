@@ -4,33 +4,32 @@
 
 Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator + score)
 + `FakeChatModel` + `FakeAuthVerifier` + daily cap + cost circuit breaker +
-retention/deletion sweep + Clerk webhook, plus `apps/server/src/db/client.ts`.
+retention/deletion sweep + Clerk webhook + analytics, plus `apps/server/src/db/client.ts`.
 
-**Completed this session:** P0-21 retention/deletion + Clerk webhook (`packages/core`
-untouched). New: `services/retention.ts` (hourly sweep: TTL hard-delete of expired
-transcripts/results; stale-open sessions >60min -> `abandoned`/`scored` via
-`buildTemplateFeedback` directly, no model call; `WHERE state='open'` guard on both
-transitions closes a `/end` race), `services/deletion.ts` (wraps SECURITY DEFINER
-`delete_user_data(uuid)`), `routes/me.ts` (`DELETE /v1/me/data` -> 204),
-`routes/webhooks.ts` (Clerk `user.created` upserts, `user.deleted` hard-deletes,
-idempotent), `webhooks/verifyClerkWebhook.ts` (hand-rolled svix HMAC-SHA256,
-`node:crypto`, no new dep; unsigned only when `CLERK_WEBHOOK_SECRET=''` — real Clerk
-unavailable under current gates, tested against self-signed fixtures only),
-`jobs/scheduler.ts` (hourly, started from `index.ts` only). Tests:
-`routes/retention.test.ts`, 7 tests. `pnpm --filter @charisma/server test` -> 18/18.
-`pnpm -r test` green: core 63/63, server 18/18. `pnpm -r typecheck` clean.
+**Completed this session:** P0-22 analytics, content-free by construction (`packages/core`
+untouched). `services/analytics.ts`: `trackEvent`, allowlisted names, per-name Zod
+`.strict()` props (enums/numbers only); `d1_return` derived from `localDate(tz)` of the
+user's last event vs `now`; both inserts stamp `createdAt: now` explicitly (not DB
+`defaultNow()`) so the day-boundary is provable under synthetic timestamps. Wired into
+`routes/sessions.ts`: `upsertUser`->`signup`, `POST /sessions`->`session_started`,
+`/end`->`session_completed`, `/result`->`result_viewed`. Unwired (no route yet):
+`challenge_viewed`, `share_tapped`, `streak_broken`, `paywall_viewed`, `subscribe_*`.
+Tests: `analytics.test.ts`, 5 (dual `@ts-expect-error`+`.rejects.toThrow()` on bad enum;
+same-day negative case added after review caught original new-day test passed for wrong
+reason). `test` -> 23/23. `pnpm -r test`: core 63/63, server 23/23, typecheck clean.
 
 Flagged, unfixed (2, carried from P0-20): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b)
 409 CAPPED spec wants a next-open-time, current impl/test omit it. Both need own cycle.
 
-**Next action (ONE task only):** P0-22 analytics, content-free by construction (deps
-P0-15, satisfied). Build `services/analytics.ts`: insert fn accepts only allowlisted
-event names (Section 4.3 CHECK list) + per-name Zod-closed props schema, enums/numbers
-only, no free-text; wire across routes; unit tests prove a string prop fails
-compilation (type-level) AND throws at runtime; `d1_return` derived server-side on
-first event of a new local day. Do NOT touch `packages/core`. Refs:
-BUILD-EXECUTION-PLAN.md (search "P0-22"). Accept: `pnpm --filter @charisma/server test`.
+**Next action (ONE task only):** P0-23 integration suite, the loop proof (deps
+P0-18..P0-22, satisfied, AUTONOMOUS). Files: `test/integration/loop.test.ts`,
+`test/integration/setup.ts`. Full HTTP round trips vs app factory + `charisma_test` +
+Fakes -> good run (8 msgs, end, poll: score 100, passed, WIN quote matches U3), bad run
+(score 10, failed), fabricated-quote run (template fallback), plus caps/retention/webhook
+green together. Partial scoped version exists at `routes/sessions.test.ts`
+(`describe('the loop proof (P0-23, scoped)')`, good-run only) — extend, don't duplicate.
+Refs: BUILD-EXECUTION-PLAN.md ("P0-23"). Accept: `test:integration` (script TBD, add it).
 
 Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
 
@@ -55,7 +54,7 @@ Migration applied to `charisma_test` ONLY, not yet to dev db `charisma`.
 - SOURCE-DO-NOT-SHIP/ deletion discrepancy still unreconciled before IP sign-off.
 
 ## DOC REFS
-BUILD-PLAN-MAP.md | BUILD-EXECUTION-PLAN.md (offset/limit only) |
-FABLE-PROMPT-CHARISMA-CHAT.md (supersedes BUILD-BRIEF-FOR-FABLE.md/prd.md) |
-POSITIONING.md | PRICING-AND-ECONOMICS.md | AVATAR-TIER-PRICING.md |
-BUSINESS-MODEL-CONVERSION.md | COMPETITOR-REVIEW-MINING.md | HANDOFF.md (loop doctrine).
+BUILD-PLAN-MAP.md | BUILD-EXECUTION-PLAN.md (offset/limit only) | FABLE-PROMPT-CHARISMA-CHAT.md
+(supersedes BUILD-BRIEF-FOR-FABLE.md/prd.md) | POSITIONING.md | PRICING-AND-ECONOMICS.md |
+AVATAR-TIER-PRICING.md | BUSINESS-MODEL-CONVERSION.md | COMPETITOR-REVIEW-MINING.md | HANDOFF.md
+(loop doctrine).

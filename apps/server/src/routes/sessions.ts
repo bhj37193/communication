@@ -8,6 +8,7 @@ import { z } from 'zod';
 import type { Deps } from '../composition.js';
 import { SAM_PACK, SAM_UNIT_ID } from '../content.js';
 import { modelUsage, results, sessions, transcripts, users } from '../db/schema.js';
+import { trackEvent } from '../services/analytics.js';
 import { checkBreaker, checkDailyCap, incrementDailyUsage } from '../services/caps.js';
 
 type UserRow = typeof users.$inferSelect;
@@ -19,7 +20,10 @@ export async function upsertUser(deps: Deps, clerkId: string): Promise<UserRow> 
   const existing = await deps.db.select().from(users).where(eq(users.clerkId, clerkId));
   if (existing[0]) return existing[0];
   const inserted = await deps.db.insert(users).values({ clerkId }).onConflictDoNothing().returning();
-  if (inserted[0]) return inserted[0];
+  if (inserted[0]) {
+    await trackEvent(deps.db, inserted[0], 'signup', {}, new Date());
+    return inserted[0];
+  }
   const [row] = await deps.db.select().from(users).where(eq(users.clerkId, clerkId));
   return row!; // lost an insert race; the winner's row is guaranteed to exist
 }
@@ -112,6 +116,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       expiresAt: addDays(now, 60),
     });
     await incrementDailyUsage(deps.db, user.id, user.tz, now);
+    await trackEvent(deps.db, user, 'session_started', {}, now);
 
     reply.code(201).send({
       session_id: sessionRow.id,
@@ -265,6 +270,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     });
     await deps.db.update(sessions).set({ state: 'scored', feedbackCalls }).where(eq(sessions.id, id));
     deps.releaseChatModel(id);
+    await trackEvent(deps.db, user, 'session_completed', { score: scoreValue, result: passed ? 'passed' : 'failed' }, now);
 
     reply.send({ session_id: id, status: 'scored' });
   });
@@ -288,6 +294,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'result not found' } });
       return;
     }
+    await trackEvent(deps.db, user, 'result_viewed', {}, new Date());
     reply.send({
       score: row.score,
       passed: row.passed,
