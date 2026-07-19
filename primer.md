@@ -20,6 +20,7 @@ Paddle/G-03 not needed yet).
   rerun the full mobile suite. Server-side (`env.ts` CLERK_SECRET_KEY,
   `AuthVerifier.ts` ClerkAuthVerifier, `composition.ts` wiring) NOT yet
   confirmed written — check on resume. NOTHING here has been reviewed yet.
+  As of this checkpoint the agent is STILL running; no new report to review.
 
 ## EXACT NEXT STEP
 1. Check status of `a1a25387581a1450f` (TaskOutput, block=false first). If
