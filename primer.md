@@ -1,5 +1,5 @@
 # Primer: Charisma Trainer -> 4-skill Alpha-style platform pivot. Name TBD.
-_Last touched: 2026-07-19._
+_Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
 `CURRICULUM-V2-NON-AI-EXPERT-SOURCING.md` (repo root) is complete and
