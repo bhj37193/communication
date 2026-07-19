@@ -10,7 +10,10 @@ export function localDate(tz: string, now: Date): string {
 }
 
 export function dailyCapExceeded(scoredCount: number): boolean {
-  return scoredCount >= 1;
+  // Dev override: FREE_DAILY_SCORED_LIMIT lets dogfooding run many scored sessions.
+  // Defaults to 1 (the real free-tier cap), so production behavior is unchanged.
+  const limit = Number(process.env.FREE_DAILY_SCORED_LIMIT) || 1;
+  return scoredCount >= limit;
 }
 
 export async function checkDailyCap(

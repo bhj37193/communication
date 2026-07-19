@@ -6,7 +6,7 @@ Server loop complete and green: sessions/messages/end/result wired to packages/c
 (test) + FakeAuthVerifier + daily cap + cost breaker + retention sweep + Clerk webhook +
 analytics + CI. Core 71/71, server 35/35, typecheck clean. apps/mobile P0-27/28 closed.
 apps/web not started (P2). content-library/ + assemble.ts committed (e1a00e5).
-**G-01 (Anthropic key) CLOSED this session.**
+**G-01 (Anthropic key) CLOSED.** Autopilot cancelled cleanly (inactive, resume preserved).
 
 ## COMPLETED THIS SESSION
 Key confirmed in apps/server/.env; `pnpm smoke:anthropic` PASSED. Full real e2e Sam
@@ -23,7 +23,7 @@ nothing fixed):
    second call implausibly fast; add debug log before trusting cost data.
 4. cached_in=0 everywhere: cache_control set, but Haiku 4.5 min cacheable prefix is
    4096 tokens and unit prompt ~1k. Silently uncached until prompt grows. Not a bug.
-Test server killed; primer updated.
+Test server killed; primer updated; autopilot state cancelled via /cancel.
 
 ## EXACT NEXT STEP
 None pending from loop. User picks one: (a) tune warmth/validator thresholds against
