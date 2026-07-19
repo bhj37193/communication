@@ -3,9 +3,11 @@ _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
 Autopilot Phase 0 done. Phase 1 (planning) in progress: architect agent
-`phase1-planner` dispatched in background, confirmed still working (no
-`.omc/plans/autopilot-impl.md` yet). Fallback wakeup ~15:45; its own
-completion notification is the primary wake signal. No code written yet.
+`phase1-planner` dispatched in background, no `.omc/plans/autopilot-
+impl.md` on disk yet. Many stop-hook cycles have passed with no
+notification arriving, so sent it a check-in message via SendMessage
+(name `phase1-planner`) asking it to confirm status/report if already
+done. Fallback wakeup ~15:45 also still scheduled. No code written yet.
 
 ## COMPLETED THIS SESSION
 - `.omc/autopilot/spec.md` (Phase 0): 3 deliverables — (1) `routeNextUnit`
@@ -47,15 +49,12 @@ manually). Once `.omc/plans/autopilot-impl.md` exists, confirm it names
   Spec.md Non-goals are locked scope cuts. `prd.md` obsolete.
 
 ## OUTSTANDING OPS
-- App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) user-blocked.
-  FABLE-PROMPT-PROVEN-PROGRESS.md still deferred, unrelated.
+- App-store tasks #1-4 user-blocked; FABLE-PROMPT-PROVEN-PROGRESS.md deferred, unrelated.
 
 ## DOC REFS
-PRD-CHARISMA-CHAT.md (§3.2, §3.7/INV-7, §4, §4.7, §5) |
-.omc/autopilot/spec.md | .omc/plans/autopilot-impl.md (pending) |
-apps/server/test/integration/loop.test.ts |
-apps/server/src/routes/{sessions,sessions.caps.test}.ts |
-apps/server/src/db/{schema,seed}.ts |
-apps/server/src/db/migrations/0000_init.sql |
-apps/server/src/services/{profile,caps}.ts | apps/server/src/content.ts |
-packages/core/schemas.ts | apps/mobile/app/index.tsx | apps/mobile/lib/api.ts
+PRD-CHARISMA-CHAT.md (§3.2, §3.7/INV-7, §4, §4.7, §5) | .omc/autopilot/
+spec.md | .omc/plans/autopilot-impl.md (pending) | apps/server/test/
+integration/loop.test.ts | apps/server/src/routes/{sessions,sessions.caps
+.test}.ts | apps/server/src/db/{schema,seed}.ts+migrations/0000_init.sql
+| apps/server/src/services/{profile,caps}.ts | apps/server/src/content.ts
+| packages/core/schemas.ts | apps/mobile/app/index.tsx | lib/api.ts
