@@ -1,4 +1,5 @@
 # Primer: Charisma Trainer -> 4-skill Alpha-style platform pivot. Name TBD.
+_Last touched: 2026-07-19._
 
 ## STATUS
 FABLE-PROMPT-CURRICULUM-V2.md was executed. Deliverable written:
