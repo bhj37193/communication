@@ -9,7 +9,7 @@ import type { Deps } from '../composition.js';
 import { SAM_PACK, SAM_UNIT_ID } from '../content.js';
 import { modelUsage, results, sessions, transcripts, users } from '../db/schema.js';
 import { trackEvent } from '../services/analytics.js';
-import { checkBreaker, checkDailyCap, incrementDailyUsage } from '../services/caps.js';
+import { checkBreaker, checkDailyCap, incrementDailyUsage, nextLocalMidnightUTC } from '../services/caps.js';
 
 type UserRow = typeof users.$inferSelect;
 type SessionRow = typeof sessions.$inferSelect;
@@ -90,7 +90,13 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
       return;
     }
     if (!(await checkDailyCap(deps.db, user.id, user.tz, now))) {
-      reply.code(409).send({ error: { code: 'CAPPED', message: 'daily scored session limit reached' } });
+      reply.code(409).send({
+        error: {
+          code: 'CAPPED',
+          message: 'daily scored session limit reached',
+          next_open_at: nextLocalMidnightUTC(user.tz, now).toISOString(),
+        },
+      });
       return;
     }
 
@@ -98,7 +104,7 @@ export function registerSessionRoutes(app: FastifyInstance, deps: Deps): void {
     try {
       const inserted = await deps.db
         .insert(sessions)
-        .values({ userId: user.id, unitId: SAM_UNIT_ID })
+        .values({ userId: user.id, unitId: SAM_UNIT_ID, warmthTrace: [0] })
         .returning();
       sessionRow = inserted[0]!;
     } catch (err) {

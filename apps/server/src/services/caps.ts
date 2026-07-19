@@ -69,3 +69,31 @@ export async function todaySpendUsd(db: Db, now: Date): Promise<number> {
 export async function checkBreaker(db: Db, budgetUsd: number, now: Date): Promise<boolean> {
   return (await todaySpendUsd(db, now)) < budgetUsd;
 }
+
+// ponytail: single offset-correction pass, can land up to an hour off right
+// at a DST transition that coincides with local midnight. Fine for a
+// cap-reset hint; add a second correction pass if that edge case ever bites.
+export function nextLocalMidnightUTC(tz: string, now: Date): Date {
+  const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  const guess = new Date(`${localDate(tz, tomorrow)}T00:00:00Z`);
+  const dtf = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    hour12: false,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+  const parts = Object.fromEntries(dtf.formatToParts(guess).map((p) => [p.type, p.value]));
+  const asUtc = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    Number(parts.hour) % 24,
+    Number(parts.minute),
+    Number(parts.second),
+  );
+  return new Date(guess.getTime() - (asUtc - guess.getTime()));
+}

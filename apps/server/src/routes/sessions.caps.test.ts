@@ -50,8 +50,21 @@ describe('daily scored-session cap', () => {
 
     const second = await app.inject({ method: 'POST', url: '/v1/sessions', headers });
     expect(second.statusCode).toBe(409);
-    expect(second.json()).toEqual({
-      error: { code: 'CAPPED', message: 'daily scored session limit reached' },
+    const body = second.json();
+    // Test users default to tz 'UTC' (schema default), so the reset is exactly
+    // tomorrow's UTC calendar date at midnight — deterministic, no fake clock needed.
+    const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    const expectedNextOpen = new Date(Date.UTC(
+      tomorrow.getUTCFullYear(),
+      tomorrow.getUTCMonth(),
+      tomorrow.getUTCDate(),
+    )).toISOString();
+    expect(body).toEqual({
+      error: {
+        code: 'CAPPED',
+        message: 'daily scored session limit reached',
+        next_open_at: expectedNextOpen,
+      },
     });
   });
 });

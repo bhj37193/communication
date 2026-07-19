@@ -6,25 +6,28 @@ Session/chat-turn/submit-scoring endpoints wired to `packages/core` (validator +
 + `AnthropicChatModel` (real) / `FakeChatModel` (test) + `FakeAuthVerifier` + daily cap +
 cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI. `apps/mobile`
 (Expo/RN): P0-27, P0-28 CLOSED. `apps/web` not started (P2). P0-29 (deploy artifacts,
-author-only half) CLOSED prior session — see docker-compose.yml/Caddyfile/deploy.yml/README.md
-at repo root + apps/server/Dockerfile.
+author-only half) CLOSED — docker-compose.yml/Caddyfile/deploy.yml/README.md at repo root +
+apps/server/Dockerfile.
 
-**This session:** cancelled a stray autopilot mode left active from a prior `/autopilot`
-invocation (state marked inactive, skill-active cleared, no linked ralph/ultraqa) — that mode
-didn't match this repo's actual ralph-loop/primer.md pattern, no autopilot work was lost.
-Then picked up the next queued task from primer.md: fixing bug (a) below. Dispatched an
-Explore agent to map every `computeSignals` call site and confirm exactly where the `/end`
-handler's `warmthTrace` array is missing its leading opener `0`. **Agent had not yet returned
-results when this context-watchdog trigger fired** — no fix has been written yet, nothing to
-verify.
+**This session:** closed both bugs queued from the prior primer.
+(a) `warmthTrace` missing-leading-0 bug: root cause was the single `insert(sessions)` in
+`apps/server/src/routes/sessions.ts` relying on the `warmth_trace` column's `[]` default
+instead of seeding `[0]` for the opener (the `playSession` test helper in
+`packages/core/fakes/FakeChatModel.ts` already did this right, masking it from unit tests).
+Fixed at that one shared insert. Added `loop.test.ts` regression test
+(`warmTwoIndex accounts for the opener before crediting reciprocity`) — proven red without
+the fix, green with it.
+(b) 409 CAPPED now returns `next_open_at` (ISO instant of user's next tz-local midnight) via
+new `nextLocalMidnightUTC` helper in `caps.ts` (stdlib `Intl`, `ponytail:`-flagged DST-at-
+midnight edge case). Updated `sessions.caps.test.ts` CAPPED assertion to cover it.
+Full `apps/server` suite: 34/34 green. Both fixes verified by stash-revert-rerun (red without,
+green with). Changes are **uncommitted** in the working tree (user hasn't asked to commit).
 
-**Next action (ONE task only):** Check the Explore agent's findings (or re-run the search if
-its result was lost across /clear: grep `computeSignals(` across apps/server, packages/core,
-tests). Confirm the `/end` handler's trace array omits a leading `0` for the opener message,
-shifting `warmTwoIndex`/reciprocity math. Fix at computeSignals' shared call site / trace
-construction, not per-caller (ponytail root-cause rule). Add/update one test asserting correct
-indexing. Then move to bug (b): 409 CAPPED response missing next-open-time field (spec wants
-it, current impl/test omit it) — same file area likely.
+**Next action:** primer's task queue is empty — both bugs closed, nothing further specified.
+Await next instruction. If resuming cold, first `git status`/`git diff` to see the 4 uncommitted
+files (`apps/server/src/routes/sessions.ts`, `apps/server/src/services/caps.ts`,
+`apps/server/src/routes/sessions.caps.test.ts`, `apps/server/test/integration/loop.test.ts`)
+before deciding whether to commit or keep iterating.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME. Payments: Merchant-of-Record (Paddle, web only).
