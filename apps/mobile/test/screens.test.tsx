@@ -21,6 +21,10 @@ jest.mock('../lib/api', () => ({
 
 jest.mock('../lib/share', () => ({ shareScoreCard: jest.fn(() => Promise.resolve()) }));
 
+jest.mock('../app/_layout', () => ({
+  useAuth: () => ({ ready: true, authenticated: true, signOut: jest.fn() }),
+}));
+
 let mockParams: Record<string, string> = {};
 
 import EntryScreen from '../app/index';

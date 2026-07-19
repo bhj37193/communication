@@ -1,10 +1,17 @@
+import { ClerkProvider, useAuth as useClerkAuth } from '@clerk/clerk-expo';
 import { Stack } from 'expo-router';
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import { getDevUserId, isAuthConfigured, signOut as authSignOut } from '../lib/auth';
+import {
+  CLERK_PUBLISHABLE_KEY,
+  getDevUserId,
+  isAuthConfigured,
+  signOut as authSignOut,
+  tokenCache,
+} from '../lib/auth';
 
 interface AuthContextValue {
   ready: boolean;
-  // True when a usable auth identity exists (dev-fake, or Clerk fallback).
+  // True when a usable auth identity exists (dev-fake, or a signed-in Clerk user).
   authenticated: boolean;
   signOut: () => Promise<void>;
 }
@@ -17,7 +24,8 @@ export function useAuth(): AuthContextValue {
   return ctx;
 }
 
-function AuthProvider({ children }: { children: ReactNode }) {
+// Dev-fake / no-Clerk-key path: unchanged from before Clerk was wired.
+function DevAuthProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
 
@@ -50,15 +58,46 @@ function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// Clerk-configured path: bridges Clerk's own useAuth()/signOut() into the same
+// AuthContextValue shape so screens (index.tsx, profile.tsx) never need to
+// know which auth backend is active.
+function ClerkAuthBridge({ children }: { children: ReactNode }) {
+  const { isLoaded, isSignedIn, signOut: clerkSignOut } = useClerkAuth();
+
+  const value: AuthContextValue = {
+    ready: isLoaded,
+    authenticated: !!isSignedIn,
+    signOut: async () => {
+      await clerkSignOut();
+    },
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+// Static per-process: a real Clerk key with dev-fake off. ClerkProvider throws
+// without a publishable key, so it can only ever mount when this is true.
+const USE_CLERK = !isAuthConfigured();
+
 export default function RootLayout() {
-  return (
-    <AuthProvider>
-      <Stack screenOptions={{ headerShown: true }}>
-        <Stack.Screen name="index" options={{ title: 'Charisma Trainer' }} />
-        <Stack.Screen name="chat" options={{ title: 'The Housewarming' }} />
-        <Stack.Screen name="result" options={{ title: 'Your Result' }} />
-        <Stack.Screen name="profile" options={{ title: 'Profile' }} />
-      </Stack>
-    </AuthProvider>
+  const screens = (
+    <Stack screenOptions={{ headerShown: true }}>
+      <Stack.Screen name="index" options={{ title: 'Charisma Trainer' }} />
+      <Stack.Screen name="chat" options={{ title: 'The Housewarming' }} />
+      <Stack.Screen name="result" options={{ title: 'Your Result' }} />
+      <Stack.Screen name="profile" options={{ title: 'Profile' }} />
+      <Stack.Screen name="sign-in" options={{ title: 'Sign in' }} />
+      <Stack.Screen name="sign-up" options={{ title: 'Sign up' }} />
+    </Stack>
   );
+
+  if (USE_CLERK) {
+    return (
+      <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY} tokenCache={tokenCache}>
+        <ClerkAuthBridge>{screens}</ClerkAuthBridge>
+      </ClerkProvider>
+    );
+  }
+
+  return <DevAuthProvider>{screens}</DevAuthProvider>;
 }

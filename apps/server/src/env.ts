@@ -13,6 +13,8 @@ const EnvSchema = z.object({
   DAILY_MODEL_BUDGET_USD: z.coerce.number().positive().default(20),
   // Empty -> /v1/webhooks/clerk accepts unsigned JSON bodies (fake/test mode).
   CLERK_WEBHOOK_SECRET: z.string().default(''),
+  // Required when AUTH_PROVIDER=clerk; composition.ts enforces this at startup.
+  CLERK_SECRET_KEY: z.string().default(''),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

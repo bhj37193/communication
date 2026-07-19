@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useAuth } from './_layout';
 import { ApiError, createSession } from '../lib/api';
 
 // Phase-0 scenario copy is static server content with no fetch endpoint, so it
@@ -11,6 +12,7 @@ const SCENARIO_SETUP =
 
 export default function EntryScreen() {
   const router = useRouter();
+  const { authenticated } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -61,9 +63,15 @@ export default function EntryScreen() {
       </Pressable>
 
       <View style={styles.footer}>
-        <Pressable onPress={() => router.push('/profile')} accessibilityRole="button">
-          <Text style={styles.link}>Profile</Text>
-        </Pressable>
+        {authenticated ? (
+          <Pressable onPress={() => router.push('/profile')} accessibilityRole="button">
+            <Text style={styles.link}>Profile</Text>
+          </Pressable>
+        ) : (
+          <Pressable onPress={() => router.push('/sign-in')} accessibilityRole="button">
+            <Text style={styles.link}>Sign in</Text>
+          </Pressable>
+        )}
       </View>
     </ScrollView>
   );

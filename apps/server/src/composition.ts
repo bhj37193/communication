@@ -3,7 +3,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { FakeChatModel, SAM_GOOD_RUN } from '@charisma/core/fakes/FakeChatModel';
 import type { ChatModel } from '@charisma/core/model';
-import { FakeAuthVerifier, type AuthVerifier } from './auth/AuthVerifier.js';
+import { ClerkAuthVerifier, FakeAuthVerifier, type AuthVerifier } from './auth/AuthVerifier.js';
 import type { Db } from './db/client.js';
 import type { Env } from './env.js';
 import { AnthropicChatModel } from './model/AnthropicChatModel.js';
@@ -26,10 +26,17 @@ export function buildDeps(env: Env, db: Db): Deps {
   if (env.NODE_ENV === 'production' && env.AUTH_PROVIDER === 'fake') {
     throw new Error('fail-closed: AUTH_PROVIDER=fake is forbidden when NODE_ENV=production');
   }
-  if (env.AUTH_PROVIDER !== 'fake') {
-    throw new Error(`AUTH_PROVIDER=${env.AUTH_PROVIDER} has no implementation yet`);
+  let authVerifier: AuthVerifier;
+  if (env.AUTH_PROVIDER === 'clerk') {
+    if (!env.CLERK_SECRET_KEY) {
+      throw new Error('CLERK_SECRET_KEY is required when AUTH_PROVIDER=clerk');
+    }
+    authVerifier = new ClerkAuthVerifier(env.CLERK_SECRET_KEY);
+  } else if (env.AUTH_PROVIDER === 'fake') {
+    authVerifier = new FakeAuthVerifier();
+  } else {
+    throw new Error(`AUTH_PROVIDER=${env.AUTH_PROVIDER as string} has no implementation yet`);
   }
-  const authVerifier: AuthVerifier = new FakeAuthVerifier();
 
   if (env.MODEL_PROVIDER === 'anthropic') {
     if (!env.ANTHROPIC_API_KEY) {
