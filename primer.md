@@ -12,22 +12,22 @@ Paddle/G-03 not needed yet).
 - **Task #6 IN PROGRESS (background agent a1a25387581a1450f)**: real Clerk
   auth wiring, mobile + server. Its `advisor()` call took ~3.5 min,
   returned 15:23:14; last observed action was reading
-  `AnthropicChatModel.test.ts` at 15:23:22, acting on advisor feedback —
-  no new output since across the last two polls (may just be slow, may be
-  near done; check timestamps, don't assume stalled from repeat-identical
-  output alone). Self-reported before the advisor call: mobile suite 24/24
-  pass, server suite 35/35 pass, typecheck clean both sides, no debug
-  leftovers, no leaked secrets. Mobile side confirmed written:
-  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
-  `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
+  `AnthropicChatModel.test.ts` at 15:23:22, acting on advisor feedback — no
+  new output observed since across several polls. Self-reported before the
+  advisor call: mobile suite 24/24 pass, server suite 35/35 pass, typecheck
+  clean both sides, no debug leftovers, no leaked secrets. Mobile side
+  confirmed written: `apps/mobile/app/_layout.tsx` splits `DevAuthProvider`
+  vs `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
   `apps/mobile/lib/auth.ts` has real `getClerkToken()`
   (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
-  **The diff has NOT been independently reviewed by me yet.**
+  **The diff has NOT been independently reviewed by me yet.** Note: polling
+  this agent's output via TaskOutput is expensive (large truncated JSONL
+  dump each call) — on resume, poll sparingly, not every turn.
 
 ## EXACT NEXT STEP
-1. `TaskOutput(a1a25387581a1450f, block=false)` to check current state. If
-   `status: completed`, read the full diff (`git diff`) myself first —
-   don't just accept the self-report, especially server-side files
+1. `TaskOutput(a1a25387581a1450f, block=false)` ONCE to check current
+   state. If `status: completed`, read the full diff (`git diff`) myself
+   first — don't just accept the self-report, especially server-side files
    (env.ts CLERK_SECRET_KEY, AuthVerifier.ts ClerkAuthVerifier,
    composition.ts wiring) which weren't independently confirmed.
 2. Run `pnpm --filter @charisma/server test` + typecheck server+mobile
