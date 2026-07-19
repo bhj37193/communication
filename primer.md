@@ -2,34 +2,33 @@
 _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
-Autopilot Phase 4 validation COMPLETE and CLEARED: architect APPROVE
-(x2), security-reviewer APPROVE Risk-LOW (x2), fresh code-reviewer
-APPROVE Risk-LOW (dispatched this session after the prior verdict went
-untraceable). All 3 reviewers clean. Phase 5 cleanup done: 3 stale
-autopilot session states (all `awaiting_confirmation` leftovers from
-earlier `/clear` checkpoints today) cleared via `state_clear`; no ralph/
-ultrawork/ultraqa states existed. `state_list_active` now reports no
-active modes. The Phase 1 "full scenario-unit serve path" feature
-(fold.ts, router.ts, generalized sessions.ts + GET /v1/challenge/today,
-mobile getChallenge()) is implementation-complete and validated -
-autopilot cycle for this feature is DONE.
+Everything is DONE, VALIDATED, and COMMITTED. Working tree is clean
+(`git status` = nothing to commit) and `state_list_active` reports no
+active OMC modes. Nothing is in flight.
 
-Side task (DONE this session): `research/fetch_literature.py` fixed and
-verified - all 5 topics have real, on-topic papers (communication 17,
-problem_solving 15, critical_thinking 30, decision_making 15,
-behavior_science 29). Fixed a CA-cert issue (prior session) and an
-arXiv URL percent-encoding bug (`InvalidURL` on every request); added a
-non-clobber guard against Semantic Scholar's intermittent per-topic
-429s overwriting good data. Uncommitted:
-`research/fetch_literature.py`, `research/literature/*`.
+Full scenario-unit serve-path feature (fold.ts, router.ts, generalized
+sessions.ts, GET /v1/challenge/today, mobile getChallenge()): Phase 4
+validation cleared (architect APPROVE, security-reviewer APPROVE
+Risk-LOW, code-reviewer APPROVE Risk-LOW). Implementation-complete.
+
+Side task DONE + committed: `research/fetch_literature.py` - fixed the
+arXiv query URL percent-encoding bug (only `query` was quoted, not the
+full assembled string incl. category filter, which left raw spaces ->
+`InvalidURL` on every arXiv call). Non-clobber guard added so a 0-result
+run (e.g. Semantic Scholar 429) doesn't overwrite good existing data.
+All 5 topics have real papers; exact per-topic counts drifted slightly
+across reruns from concurrent sessions hitting live APIs - re-run the
+script if you need a fresh authoritative count. `research/*` is
+committed, not a pending working-tree change.
+
+⚠ CONCURRENCY: this repo had 3 autopilot sessions racing on this exact
+task/primer.md simultaneously earlier today (session ids started
+3689665d/4d32b76a/7b90af06). If more than one Claude Code tab is still
+open on this project, `/clear` the extras to stop duplicate work.
 
 ## EXACT NEXT STEP
-No autopilot work in flight. Next session should:
-1. Ask user whether to commit the literature-fetch changes (uncommitted
-   working-tree changes in `research/`).
-2. Ask user for the next feature/task - this cycle's scope
-   (`.omc/plans/autopilot-impl.md`, full scenario-unit serve path) is
-   fully shipped and validated. No known blockers remain.
+No autopilot work in flight - nothing to resume. Ask the user what
+feature/task to work on next.
 
 ## LOCKED DECISIONS (do not re-litigate)
 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
