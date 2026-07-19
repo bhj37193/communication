@@ -21,8 +21,7 @@ message wasn't rolled back on send failure, now popped + text restored in the ca
 `result.tsx` polling was unbounded, now `MAX_POLLS` (~3min) + `MAX_CONSECUTIVE_ERRORS` (3
 retries on transient errors before surfacing). Verified: `pnpm --filter @charisma/mobile
 typecheck && test` (20/20), `pnpm -r typecheck` clean, `pnpm ci:local` exit 0 (e2e smoke
-score 100). Cosmetic/unfixed: jest `act()` warning in `chat.tsx`'s typing-delay update
-(non-blocking, tests green).
+score 100). Cosmetic/unfixed: jest `act()` warning in `chat.tsx`'s typing-delay update.
 
 Flagged, unfixed (carried, need own cycle): (a) `/end` passes `computeSignals` a
 `warmthTrace` missing the leading opener `0` — shifts `warmTwoIndex`/reciprocity; (b) 409
