@@ -109,15 +109,18 @@ for advertising). No third-party ad SDK is present.
 
 - Support URL: `TODO` (needs a hosted page — VPS is Task #3, not yet provisioned)
 - Marketing URL: `TODO` (optional, skip if none)
-- Privacy Policy URL: `TODO` (**required by Apple before submission** — needs
-  a hosted privacy policy page reflecting the table above; blocked on VPS
-  Task #3 or any static host)
+- Privacy Policy URL: `TODO` (**required by Apple before submission**) —
+  page is drafted at `legal/privacy-policy.html` (reflects the table above,
+  self-contained, no build step); still needs to be deployed to a host and
+  this filled in with the resulting URL. Blocked on VPS Task #3 or any
+  static host (GitHub Pages / Cloudflare Pages work fine for this).
 
 ## What's still blocking submission
 
 1. App name (user "still deciding") → blocks App Name, Subtitle, bundle
    display name, and description's `{{APP_NAME}}` placeholder.
 2. Real icon/screenshots (current assets are placeholder, PIL-generated).
-3. A hosted Privacy Policy URL (needs Task #3 VPS or any static host).
+3. Deploying the drafted Privacy Policy page (`legal/privacy-policy.html`)
+   to a host (needs Task #3 VPS or any static host) and filling in the URL.
 4. Apple Developer Program membership (Task #1) to actually create the
    App Store Connect listing at all.

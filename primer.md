@@ -2,56 +2,60 @@
 _Last touched: 2026-07-19._
 
 ## STATUS
-Working tree DIRTY: CONTENT-ROADMAP-4-SKILLS.md (modified this session,
-not yet committed). Prior session's changes (.gitignore, research/*,
-research/README.md) were already committed via checkpoint commits before
-this session started; do not re-ask about those.
+Working tree DIRTY: `apps/mobile/app-store-listing.md` (modified this
+session, not yet committed), `legal/` (new dir, untracked). Everything
+else is clean/committed, including the prior concurrent session's
+Behavior Science grounding-citation pass on CONTENT-ROADMAP-4-SKILLS.md
+(verified present on disk and already committed -- do not re-ask).
 
 ## COMPLETED THIS SESSION
-Added a "Research grounding" subsection to CONTENT-ROADMAP-4-SKILLS.md
-§1.5 (Behavior Science), citing 4 papers from the 54-paper
-research/literature/behavior_science.json corpus against specific design
-claims (named source + access date, per RESEARCH-METHODOLOGY.md §4):
-- Gardner & Rebar 2019 (habit = context-cued, willpower-detached) grounds
-  the premature_advice hard-fail gate.
-- Michie et al. 2011 "Behaviour Change Wheel" grounds the closed 5-term
-  TECHNIQUE taxonomy.
-- Sheeran et al. 2023 "Activation Versus Change" grounds the if/then PLAN
-  format + environmental redesign as a technique.
-- Ma et al. 2023 meta-regression (social-reward beta=-0.40, problem-solving
-  beta=+0.36) grounds the technique_matched gate restricting accountability
-  check-in to social loops -- cited as an honest caution, not just support.
-Verified the Unit B claim (habit stacking + accountability check-in gated
-to Theo/Sam's social loop) against the actual doc before citing it -- matches.
-This closes the earlier finding that CONTENT-ROADMAP-4-SKILLS.md had zero
-citations back to the 246-paper research corpus despite the corpus existing.
+Drafted `legal/privacy-policy.html`: self-contained static page (no build
+step, dark-mode aware), content pulled from the already-audited data table
+in `apps/mobile/app-store-listing.md` (data collected, 60-day transcript
+auto-delete, immediate full delete on account deletion, no tracking/no
+third-party analytics, children's privacy). Has a TODO placeholder for a
+real support email and a note to replace the working app name once final.
+Cross-referenced it from `apps/mobile/app-store-listing.md` (both the
+Privacy Policy URL line and the numbered blocker list) so it's no longer
+a bare TODO -- item 3 of the app-store blockers is now "deploy this file
+and fill in the URL," not "write the page."
 
 ## EXACT NEXT STEP
-User was offered, not yet confirmed: run the same grounding-citation pass
-on the other 4 skills (Communication, Problem-Solving, Critical Thinking,
-Decision-Making), each citing its own topic's JSON in research/literature/
-against its own §1.x design claims in CONTENT-ROADMAP-4-SKILLS.md. Ask
-before starting if not already confirmed. Behavior Science implementation
-in code (packages/core/schemas.ts, validator.ts, score.ts) is still NOT
-started -- roadmap spec is grounded but unbuilt.
+Nothing in flight. App-store items 1 (name), 2 (real icon/screenshots),
+4 (Apple Developer Program enrollment) are still genuinely user-blocked.
+Item 3 (privacy policy) is drafted but needs a host (GitHub Pages /
+Cloudflare Pages both work, no VPS required) and the resulting URL filled
+into `apps/mobile/app-store-listing.md`. Ask the user what to work on next.
 
 ## LOCKED DECISIONS (do not re-litigate)
 5-skill taxonomy (Communication, Problem-Solving, Critical Thinking,
-Decision-Making, Behavior Science - all 5 as transcript-scorable drills).
-Non-AI drill self-attested pass; 8 drill reps + 1 AI capstone/stage;
-expert anchors credibility-only; no pricing content in curriculum; engine
-extends never redesigns; connection/clarity north stars parallel. Full
-scenario-unit serve-path scope over drill-only slice; spec/plan Non-goals
-are locked cuts; `prd.md` obsolete, PRD-CHARISMA-CHAT.md is source of
-truth.
+Decision-Making, Behavior Science -- all 5 as transcript-scorable drills;
+Behavior Science added + grounded with citations by a prior concurrent
+session, verified real). Non-AI drill self-attested pass; 8 drill reps +
+1 AI capstone/stage; expert anchors credibility-only; no pricing content
+in curriculum; engine extends never redesigns; connection/clarity north
+stars parallel. Full scenario-unit serve-path scope over drill-only slice;
+spec/plan Non-goals are locked cuts; `prd.md` obsolete,
+PRD-CHARISMA-CHAT.md is source of truth.
 
 ## OUTSTANDING OPS
-App-store tasks #1-4 user-blocked; FABLE-PROMPT-PROVEN-PROGRESS.md
+App-store tasks: #1 name, #2 artwork, #4 Apple Developer enrollment are
+user-blocked; #3 privacy policy is drafted, needs hosting + URL.
+Behavior Science grounding-citation pass exists only for §1.5; the other
+4 skills (Communication, Problem-Solving, Critical Thinking,
+Decision-Making) don't yet have research citations against their §1.x
+design claims -- offer, don't start unprompted. Behavior Science
+implementation in code (packages/core/schemas.ts, validator.ts, score.ts)
+is spec'd/grounded but NOT started. FABLE-PROMPT-PROVEN-PROGRESS.md
 deferred, unrelated.
+
+⚠ CONCURRENCY: this repo has had multiple autopilot sessions racing on
+this exact primer.md same-day. If more than one Claude Code tab is open
+on this project, `/clear` the extras to stop duplicate/conflicting work.
 
 ## DOC REFS
 PRD-CHARISMA-CHAT.md | .omc/plans/autopilot-impl.md | apps/server/src/
 routes/sessions.ts | apps/server/src/services/{fold,router,profile,
 caps}.ts | apps/mobile/app/index.tsx | apps/mobile/lib/api.ts |
 CONTENT-ROADMAP-4-SKILLS.md | RESEARCH-METHODOLOGY.md |
-research/fetch_literature.py | research/README.md
+apps/mobile/app-store-listing.md | legal/privacy-policy.html

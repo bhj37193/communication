@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Charisma Trainer</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    line-height: 1.6;
+    color: #1e293b;
+    background: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e2e8f0; background: #0f172a; }
+    a { color: #93c5fd; }
+    table { border-color: #334155 !important; }
+    th, td { border-color: #334155 !important; }
+    th { background: #1e293b !important; }
+  }
+  h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.2rem; margin-top: 2.25rem; }
+  .updated { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+  th, td { border: 1px solid #cbd5e1; padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; }
+  code { background: rgba(125,125,125,0.15); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  .todo { color: #b45309; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="updated">Charisma Trainer &middot; Last updated: 2026-07-19</p>
+
+<p><em>App name pending final decision — replace "Charisma Trainer" throughout
+this page once the name is locked (see <code>apps/mobile/app-store-listing.md</code>).</em></p>
+
+<p>Charisma Trainer ("we", "our", "the app") is a mobile app for practicing
+real-time text conversations with an AI character and getting feedback on
+your communication skills. This page explains what data we collect, why,
+and how to have it deleted.</p>
+
+<h2>Data we collect</h2>
+<table>
+  <thead>
+    <tr><th>Category</th><th>Data</th><th>Linked to you?</th><th>Used for</th><th>Shared with third parties?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Identifiers</td><td>Opaque user ID from our authentication provider (Clerk)</td><td>Yes</td><td>App functionality, your account</td><td>No — Clerk holds your real identity (email/credentials); our database never stores your email or name</td></tr>
+    <tr><td>Usage data</td><td>Session state, scores, streaks, call counts</td><td>Yes</td><td>App functionality</td><td>No</td></tr>
+    <tr><td>User content</td><td>Chat transcript text from your practice sessions</td><td>Yes</td><td>Generating the AI character's replies and your feedback</td><td><strong>Yes — sent to Anthropic (our AI model provider) to generate responses.</strong> Never used for advertising and never sold</td></tr>
+    <tr><td>Purchases</td><td>Subscription/entitlement status and product</td><td>Yes</td><td>App functionality</td><td>Payment processor only (Apple, Google, or Paddle)</td></tr>
+    <tr><td>Diagnostics/analytics</td><td>A fixed, allowlisted set of event names and numeric/enum values (e.g. a session completed with a given score)</td><td>Yes</td><td>First-party analytics only</td><td>No — we do not use any third-party analytics or crash-reporting SDK</td></tr>
+  </tbody>
+</table>
+
+<p>We do <strong>not</strong> collect: your precise location (only your
+general timezone, to know your local day for streaks), contacts, photos,
+browsing history, advertising identifiers, or any content from messaging
+with other real users. There is no user-to-user messaging, feed, or public
+profile in this app — you interact only with an AI character.</p>
+
+<h2>Tracking</h2>
+<p>We do not track you across other companies' apps or websites for
+advertising purposes, and no third-party advertising SDK is present in the
+app.</p>
+
+<h2>Data retention</h2>
+<ul>
+  <li>Chat transcripts and session results are automatically and permanently
+    deleted 60 days after creation.</li>
+  <li>If you delete your account, every record associated with it (sessions,
+    transcripts, results, progress, analytics events, usage, entitlements,
+    and your profile) is permanently deleted right away, in one operation.</li>
+</ul>
+
+<h2>How to delete your data</h2>
+<p>Deleting your account from within the app (or by contacting us, see
+below) permanently deletes all of your data as described above. This
+action cannot be undone.</p>
+
+<h2>Children's privacy</h2>
+<p>Charisma Trainer is not directed at children and is not knowingly used
+by children under 13.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, we will update the "Last updated" date above.</p>
+
+<h2>Contact</h2>
+<p class="todo">TODO: add a real support/contact email before submitting to the App Store.</p>
+
+</body>
+</html>
