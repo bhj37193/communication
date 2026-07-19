@@ -2,41 +2,40 @@
 _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
-Autopilot Phase 0 done. Phase 1 (planning) in progress: architect agent
-`phase1-planner` dispatched in background; no `.omc/plans/autopilot-
-impl.md` on disk yet; sent a check-in, no reply yet. Fallback wakeup
-~15:51 scheduled as backstop. No code written yet.
+Autopilot Phase 0 + Phase 1 done. `.omc/plans/autopilot-impl.md` exists
+(`phase1-planner` completed; its notification never surfaced in-band —
+found by checking disk directly, not by polling further). Next: dispatch
+`oh-my-claudecode:critic` to validate the plan, then Phase 2 execution.
+No code written yet.
 
 ## COMPLETED THIS SESSION
-- `.omc/autopilot/spec.md` (Phase 0): (1) `routeNextUnit` + `GET /v1/
-  challenge/today` (PRD INV-7: never list/catalog) + generalizing
-  `POST /v1/sessions` off a DB-loaded unit spec instead of hardcoded
-  `SAM_PACK` (byte-identical regression bar); (2) `foldProgress` pure
-  fold fn (`progress_events` enum verified vs migrations/0000_init.sql
-  :56-59; mastery `passes_required:2, distinct_days:true` unreachable
-  same-day, needs synthetic-event unit tests, user-tz via `caps.ts`);
-  (3) mobile `index.tsx` fetching the new endpoint. Non-goals: no review
-  mechanics, no real drill/explain serving, no `SkillPackSchema`
-  widening, no content loader.
-- Dispatched `oh-my-claudecode:architect` (`phase1-planner`, opus, bg)
-  for the Phase 1 plan; not yet returned despite a check-in ping.
+- `.omc/autopilot/spec.md` (Phase 0): 3 deliverables — unit-serving route
+  (`routeNextUnit`+`GET /v1/challenge/today`, PRD INV-7 no catalog),
+  mastery-fold (`foldProgress` pure fn off `progress_events`), mobile
+  fetch. Non-goals: no review mechanics, no real drill/explain serving,
+  no `SkillPackSchema` widening, no content loader.
+- `.omc/plans/autopilot-impl.md` (Phase 1, 7 steps, dependency-ordered:
+  fold.ts+test -> router.ts -> sessions.ts generalization+fold-writer ->
+  GET /v1/challenge/today -> regression gate (loop.test.ts +
+  sessions.caps.test.ts + full server/core suite, unmodified) -> mobile
+  -> final verify). Key resolved calls: `SAM_PACK.signals` stays
+  module-sourced (pack-level signals never seeded to DB — A1); loaded
+  spec parsed via `UnitSchema` not `AnyUnitSchema` (scenario-only is
+  real — A2); `foldProgress` pure, writer detects newly-mastered via
+  prior-status diff so replays never re-fire `skill_mastered` (A3).
+  **Critical regression catch**: `routeNextUnit` must treat a user with
+  zero `user_skill_state` rows as eligible, not locked — `loop.test.ts`
+  uses fresh random users and would break otherwise.
 - Resolved: `prd.md` is a superseded older draft ("Cadence"); PRD-
   CHARISMA-CHAT.md:3 supersedes it, ignore prd.md going forward.
-- Read `loop.test.ts` in full — THE regression gate. 4 fixed-value cases
-  (good run score 100 + exact signals; bad run score 20, monologue_brag;
-  fabricated-quote->template fallback; warmTwoIndex opener-offset) must
-  survive SAM_PACK->DB-loaded-spec generalization byte-for-byte. Uses
-  `buildTestApp`/`playToResult`/`seedContent` (./setup.js) + `FakeChatModel`
-  /SAM_GOOD_RUN/SAM_BAD_RUN (@charisma/core/fakes). Also: sessions.caps
-  .test.ts + app/AuthVerifier/retention/analytics/caps/events + core's
-  schemas/score/validator/assemble tests.
 
 ## EXACT NEXT STEP
-Wait for `phase1-planner`'s reply/notification (no more pinging beyond
-the one sent). Once `.omc/plans/autopilot-impl.md` exists, confirm it
-names loop.test.ts's 4 fixed-value cases as the regression gate, run
-`oh-my-claudecode:critic`, then Phase 2 (execution), Phase 3 (QA), Phase
-4 (architect+security-reviewer+code-reviewer), Phase 5 (cleanup+cancel).
+Dispatch `oh-my-claudecode:critic` (opus, read-only) with spec.md + the
+plan to validate before Phase 2 (execution via executor agents). Phase 3
+QA must run `loop.test.ts` + `sessions.caps.test.ts` + full server/core
+suite unmodified — any diff is a bug in the new code, never a reason to
+edit the test. Then Phase 4 (architect+security-reviewer+code-reviewer),
+Phase 5 (cleanup + `/oh-my-claudecode:cancel`).
 
 ## LOCKED DECISIONS (do not re-litigate)
 - 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
@@ -45,15 +44,15 @@ names loop.test.ts's 4 fixed-value cases as the regression gate, run
   connection/clarity north stars parallel, clarity never touches
   connection's locked code path.
 - Full scenario-unit serve-path scope (2026-07-19) over drill-only slice.
-  Spec.md Non-goals are locked scope cuts. `prd.md` obsolete.
+  spec.md/plan.md Non-goals are locked scope cuts. `prd.md` obsolete.
 
 ## OUTSTANDING OPS
 App-store tasks #1-4 user-blocked; FABLE-PROMPT-PROVEN-PROGRESS.md deferred, unrelated.
 
 ## DOC REFS
 PRD-CHARISMA-CHAT.md (§3.2, §3.7/INV-7, §4, §4.7, §5) | .omc/autopilot/
-spec.md | .omc/plans/autopilot-impl.md (pending) | apps/server/test/
-integration/{loop,setup}.ts | apps/server/src/routes/sessions*.ts |
-apps/server/src/db/{schema,seed}.ts+migrations/0000_init.sql |
-apps/server/src/services/{profile,caps}.ts | packages/core/{schemas,
-fakes/FakeChatModel}.ts | apps/mobile/app/index.tsx | lib/api.ts
+spec.md | .omc/plans/autopilot-impl.md | apps/server/test/integration/
+{loop,setup}.ts | apps/server/src/routes/sessions*.ts | apps/server/src/
+db/{schema,seed}.ts+migrations/0000_init.sql | apps/server/src/services/
+{profile,caps}.ts | packages/core/{schemas,fakes/FakeChatModel}.ts |
+apps/mobile/app/index.tsx | lib/api.ts
