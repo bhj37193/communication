@@ -307,6 +307,35 @@ want to keep talking to you"). No lesson precedes it; the first unit IS the less
   interview_mode max 0 hard; monologue_brag max 0 hard; open_questions min 2
   max 6 hard; spotlight_share 0.4 to 0.7 soft. Mastery: 2 passes, distinct days.
 
+**Research grounding** (named source + access date, per RESEARCH-METHODOLOGY.md
+§4; drawn from `research/literature/communication.json`, accessed 2026-07-19):
+- The followups/open_questions gates rest on a direct empirical link, not a
+  house style preference: West, Huston et al., "High-quality listening
+  behaviors linked to social connection between strangers" (2025), find in two
+  pre-registered studies that observed high-quality listening behaviors during
+  conversations between strangers predict behavioral and subjective markers of
+  social connection — i.e. the DID THEY CONNECT north star is measuring the
+  same construct this paper measures.
+- Yip & Fisher, "Listening in Organizations: A Synthesis and Future Agenda,"
+  (2022, 51 citations) integratively review listening research across
+  management, psychology, and communication studies and flag a persistent
+  tension between speaking and listening as separable, trainable behaviors —
+  supports scoring open_questions and followups as distinct signals rather
+  than one blended "engagement" score.
+- The reciprocity gate descends from Cheng & Wang, "How self-disclosure of
+  negative experiences shapes prosociality?" (2024), whose hyperscanning study
+  has dyad participants take turns sharing negative experiences and finds the
+  turn-taking exchange itself, not one-sided sharing, is what drives the
+  prosocial effect — direct support for interview_mode as a hard-fail and
+  reciprocity as its own required signal, not a byproduct of enough questions.
+- One honest caution: Andalibi, "Disclosure, Privacy, and Stigma on Social
+  Media" (2020, 79 citations), interviews people who chose NOT to disclose a
+  stigmatized experience and catalogs the self, audience, and network factors
+  behind that choice — evidence that pressing directly for a stigmatized
+  disclosure can backfire, which is why Jordan's caregiving and Alex's career
+  change are authored to surface only in layers as warmth is earned, never as
+  a direct ask.
+
 ### 1.2 PROBLEM-SOLVING
 
 **North star (one sentence):** DID THEY FIND THE REAL PROBLEM: did the user
@@ -404,6 +433,39 @@ same trace; only the persona text reinterprets it.
   exactly one change keyword in the same message); root_cause_named min 1 soft;
   final_warmth min 2 soft. Mastery: 2 passes, distinct days.
 
+**Research grounding** (named source + access date, per RESEARCH-METHODOLOGY.md
+§4; drawn from `research/literature/problem_solving.json`, accessed
+2026-07-19):
+- Heppner & Witty, "Problem-Solving Appraisal and Human Adjustment" (2004, 220
+  citations), synthesize 20 years of research on the Problem Solving
+  Inventory and establish problem-solving appraisal — how a person evaluates
+  their own diagnostic process, distinct from the fix they land on — as a
+  measurable construct with real adjustment outcomes. Grounds stage 1
+  (diagnose before prescribing) as scoring an established construct, not an
+  invented house rule.
+- Stanisławski, "The Coping Circumplex Model" (2019, 397 citations), integrates
+  the coping literature around a structural distinction between
+  problem-focused engagement with a stressor's actual cause and avoidant or
+  reactive responses that skip straight to action. Grounds the premature_fix
+  hard-fail: jumping to "have you tried..." before the facts are on the table
+  is the avoidant pattern this literature associates with worse outcomes, not
+  a stylistic ding.
+- Schulz & Meyer, "Challenges in the Automatic Analysis of Students'
+  Diagnostic Reasoning" (2018), name the epistemic activities diagnostic
+  reasoning is made of — hypothesis generation, evidence generation, evidence
+  evaluation, drawing conclusions — as separable, assessable steps. Directly
+  supports scoring clarifying_questions, hypothesis_stated, and
+  root_cause_named as distinct signals rather than one blended
+  "did-they-figure-it-out" score.
+- One honest caution: this corpus is thin on human-subjects research specific
+  to interpersonal problem-diagnosis coaching — the three papers above ground
+  the underlying cognitive skill (diagnose before you act) rather than the
+  social delivery of it (asking a friend the right questions without
+  lecturing). The isolate-the-variable mechanic in Unit B (test_proposed
+  against two confounded changes) has no direct human-subjects source in this
+  corpus; it is designed from the general principle, not a specific study, and
+  that absence is recorded here rather than papered over.
+
 ### 1.3 CRITICAL THINKING
 
 **North star (one sentence):** DID THEY JUDGE THE CLAIM ON ITS EVIDENCE: did the
@@ -499,6 +561,38 @@ earns concessions; enthusiasm and vague skepticism earn nothing.
   steelman_present min 1 hard; gap_named min 1 hard; claim_quoted min 1 hard;
   evidence_requests min 2 soft; final_warmth min 2 soft. Mastery: 2 passes,
   distinct days.
+
+**Research grounding** (named source + access date, per RESEARCH-METHODOLOGY.md
+§4; drawn from `research/literature/critical_thinking.json`, accessed
+2026-07-19):
+- The CLAIM/EVIDENCE/GAP/VERDICT closing format is not an invented mnemonic:
+  Dawes et al., "Sicily statement on evidence-based practice" (2005, 927
+  citations), the field-defining consensus statement on evidence-based
+  practice, lays out the same ask-evidence-appraise-conclude sequence as the
+  minimum skill set for evidence-based reasoning. The pack's four-line close
+  is that sequence compressed to a scorable format.
+- Deeks & Dinnes, "Evaluating non-randomised intervention studies" (2003,
+  2,932 citations), is the standard methodology reference for spotting bias in
+  non-randomized evidence — selection effects, confounding, who got counted.
+  Grounds gap_named and base_rate_probe directly: Unit B's "just Marcus,"
+  survivorship-flavored stock tip is a lay version of exactly the selection
+  bias this literature catalogs.
+- Redaelli & Biller-Andorno, "Mastering critical thinking skills is strongly
+  associated with the ability to recognize fakeness and misinformation"
+  (2025, 14 citations), operationalizes critical thinking into measurable
+  sub-concepts (including causation vs. correlation) and finds skill on those
+  sub-concepts predicts real-world discernment of fake content. Supports the
+  pack's core bet: that scoring claim_quoted, gap_named, and verdict_given as
+  separate hard signals produces a skill that transfers, not just a format
+  habit.
+- One honest caution: Markman & McMullen, "A Reflection and Evaluation Model
+  of Comparative Thinking" (2003, 334 citations), distinguish two
+  psychologically distinct modes of comparison — an experiential "as if"
+  mode and an evaluative, more effortful mode — and note people default to
+  the easier experiential one. That is the risk the steelman_present gate is
+  built to counter: without a hard requirement to state the strongest version
+  of the other side's case, users default to easy dismissal rather than the
+  harder evaluative comparison this literature says produces sound judgment.
 
 ### 1.4 DECISION-MAKING
 
@@ -603,6 +697,39 @@ surfaced. Asking what matters and to whom earns it; rushing to a verdict burns i
   choice_committed min 1 hard; waffle max 0 hard; unknown_named min 1 hard;
   tripwire_set min 1 hard; options_listed min 2 hard; final_warmth min 2
   soft. Mastery: 2 passes, distinct days.
+
+**Research grounding** (named source + access date, per RESEARCH-METHODOLOGY.md
+§4; drawn from `research/literature/decision_making.json`, accessed
+2026-07-19):
+- Loewenstein & Thaler, "Anomalies: Intertemporal Choice" (1989, 874
+  citations), the foundational paper on inconsistent discounting, documents
+  that people systematically misprice tradeoffs when the cost of a choice is
+  left implicit — the rate people apply depends on framing, not on the actual
+  cost. Grounds tradeoff_priced as a hard gate rather than a nicety: forcing
+  the COST line to name what the NOT-chosen option's keywords actually cost
+  is the direct counter to this well-documented mispricing.
+- Sahu & Padhy, "Envisioning the Future of Behavioral Decision-Making: A
+  Systematic Literature Review of Behavioral Reasoning Theory" (2020, 363
+  citations), synthesize Behavioral Reasoning Theory's core claim that
+  intentions and behavior run through explicitly named reasons for and
+  against, not vague attitude. Supports OPTIONS and COST as separately
+  scored lines: the pack is asking users to state the reasons, not just
+  arrive at a feeling.
+- Klinger, "Goal Commitments and the content of thoughts and dreams: basic
+  principles" (2013, 186 citations), shows that committing to a goal changes
+  what a person subsequently notices and attends to — commitment is a
+  distinct cognitive state, not just a label applied after enough talk.
+  Grounds choice_committed and the waffle hard-fail: CHOICE naming exactly
+  one option is meant to capture that state-change, and hedge phrases
+  ("either way," "you decide") indicate it has not happened yet.
+- One honest caution: Kahan, "Ideology, motivated reasoning, and cognitive
+  reflection" (2013, 1,264 citations), finds that confident, decisive
+  conclusions are frequently the product of motivated reasoning rather than
+  good evidence weighing — decisiveness and correctness are not the same
+  thing. That is why unknown_named and tripwire_set are separate hard gates
+  from choice_committed: the pack rewards naming what you cannot know and
+  what would change your mind alongside the commitment, not the confident
+  commitment alone.
 
 ### 1.5 BEHAVIOR SCIENCE
 
