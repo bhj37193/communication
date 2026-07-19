@@ -3,60 +3,52 @@ _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
 Autopilot Phase 0 done. Phase 1 (planning) in progress: architect agent
-`phase1-planner` dispatched in background, not yet returned. A fallback
-wakeup is scheduled (~15:45); its own completion notification is the
-primary wake signal. No code written yet.
+`phase1-planner` dispatched in background, confirmed still working (no
+`.omc/plans/autopilot-impl.md` yet). Fallback wakeup ~15:45; its own
+completion notification is the primary wake signal. No code written yet.
 
 ## COMPLETED THIS SESSION
-- Phase 0 spec written: `.omc/autopilot/spec.md`. Covers 3 deliverables:
-  (1) `routeNextUnit` service + `GET /v1/challenge/today` (PRD INV-7:
-  never a list/catalog endpoint) + generalizing `POST /v1/sessions` off
-  a DB-loaded unit spec instead of the hardcoded `SAM_PACK` import
-  (byte-identical regression bar for the single seeded unit); (2)
-  mastery-fold service `foldProgress` (pure function; `progress_events`
-  enum verified byte-for-byte against migrations/0000_init.sql:56-59;
-  mastery block is `passes_required:2, distinct_days:true`, unreachable
-  end-to-end in one day — must be tested as pure fn with synthetic
-  events, user-tz dates via `caps.ts`'s pattern); (3) mobile `index.tsx`
-  fetching `GET /v1/challenge/today` instead of hardcoded copy. Non-goals:
-  no review mechanics, no real drill/explain serving, no
-  `SkillPackSchema` widening, no content loader.
-- Dispatched `oh-my-claudecode:architect` (agent `phase1-planner`, opus,
-  background) to write `.omc/plans/autopilot-impl.md`. Not yet returned.
-- Resolved: `prd.md` is a superseded older draft ("Cadence", voice-first
-  LiveKit/Deepgram/FastAPI). PRD-CHARISMA-CHAT.md:3 supersedes it. Ignore
-  prd.md going forward.
-- Located the exact regression suite for spec.md's byte-identical bar:
-  `apps/server/test/integration/loop.test.ts` ("the loop proof" — runs
-  full session flows, asserts exact deterministic scores) and
-  `apps/server/src/routes/sessions.caps.test.ts`. Full test-file list
-  under apps/server + packages/core: app.test.ts, AuthVerifier.test.ts,
-  AnthropicChatModel.test.ts, retention.test.ts, sessions.caps.test.ts,
-  analytics.test.ts, caps.test.ts, events.test.ts, loop.test.ts,
-  schemas/score/validator/assemble.test.ts (packages/core).
+- `.omc/autopilot/spec.md` (Phase 0): 3 deliverables — (1) `routeNextUnit`
+  service + `GET /v1/challenge/today` (PRD INV-7: never list/catalog) +
+  generalizing `POST /v1/sessions` off a DB-loaded unit spec instead of
+  hardcoded `SAM_PACK` (byte-identical regression bar for the seeded
+  unit); (2) `foldProgress` pure fold fn (`progress_events` enum verified
+  vs migrations/0000_init.sql:56-59; mastery `passes_required:2,
+  distinct_days:true` unreachable in one day — needs synthetic-event unit
+  tests, user-tz dates via `caps.ts` pattern); (3) mobile `index.tsx`
+  fetching the new endpoint instead of hardcoded copy. Non-goals: no
+  review mechanics, no real drill/explain serving, no `SkillPackSchema`
+  widening, no content loader.
+- Dispatched `oh-my-claudecode:architect` (`phase1-planner`, opus, bg) to
+  write the Phase 1 plan. Not yet returned.
+- Resolved: `prd.md` is a superseded older draft ("Cadence", voice-first).
+  PRD-CHARISMA-CHAT.md:3 supersedes it; ignore prd.md going forward.
+- Located the regression suite for spec.md's byte-identical bar:
+  `apps/server/test/integration/loop.test.ts` ("the loop proof", full
+  session runs w/ exact deterministic scores) + `sessions.caps.test.ts`.
+  Also present: app/AuthVerifier/AnthropicChatModel/retention/analytics/
+  caps/events tests + packages/core's schemas/score/validator/assemble.
 
 ## EXACT NEXT STEP
-Wait for `phase1-planner` completion notification (do not poll/resume
-manually). Once `.omc/plans/autopilot-impl.md` exists, ensure its plan
-names `loop.test.ts` + `sessions.caps.test.ts` explicitly as the
-regression gate, then run `oh-my-claudecode:critic` to validate, then
-Phase 2 (execution), Phase 3 (QA: those tests must pass unmodified),
-Phase 4 (validation: architect + security-reviewer + code-reviewer),
-Phase 5 (cleanup + `/oh-my-claudecode:cancel`).
+Wait for `phase1-planner`'s completion notification (do not poll/resume
+manually). Once `.omc/plans/autopilot-impl.md` exists, confirm it names
+`loop.test.ts` + `sessions.caps.test.ts` as the regression gate, run
+`oh-my-claudecode:critic` to validate, then Phase 2 (execution), Phase 3
+(QA: those tests pass unmodified), Phase 4 (architect + security-reviewer
++ code-reviewer), Phase 5 (cleanup + `/oh-my-claudecode:cancel`).
 
 ## LOCKED DECISIONS (do not re-litigate)
-- 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps
-  + 1 AI capstone per stage; expert anchors credibility-only w/
-  corroboration rule; no pricing content in curriculum docs; engine
-  extends, never redesigns; connection/clarity north stars parallel,
-  clarity never touches connection's locked code path.
-- Full scenario-unit serve-path scope chosen (2026-07-19) over narrow
-  drill-only slice. Spec.md Non-goals are locked scope cuts.
-- `prd.md` obsolete; PRD-CHARISMA-CHAT.md is sole authoritative spec.
+- 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
+  1 AI capstone/stage; expert anchors credibility-only w/ corroboration;
+  no pricing content in curriculum docs; engine extends, never redesigns;
+  connection/clarity north stars parallel, clarity never touches
+  connection's locked code path.
+- Full scenario-unit serve-path scope (2026-07-19) over drill-only slice.
+  Spec.md Non-goals are locked scope cuts. `prd.md` obsolete.
 
 ## OUTSTANDING OPS
 - App-store tasks #1-4 (Apple Developer, EAS, VPS, Clerk) user-blocked.
-- FABLE-PROMPT-PROVEN-PROGRESS.md still deferred, unrelated.
+  FABLE-PROMPT-PROVEN-PROGRESS.md still deferred, unrelated.
 
 ## DOC REFS
 PRD-CHARISMA-CHAT.md (§3.2, §3.7/INV-7, §4, §4.7, §5) |
