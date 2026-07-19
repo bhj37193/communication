@@ -5,8 +5,11 @@
 education in the 4 locked skills, Alpha School model, no teachers/school,
 AI-minimized). Ran /deep-interview to turn it into a spec, then handed off
 to /plan --consensus --direct (RALPLAN-DR, non-interactive). Consensus
-loop is IN PROGRESS, not done. No production code changed; only
-.omc/specs/, .omc/state/, and this primer touched.
+loop is IN PROGRESS, not done. Stale autopilot state from this session's
+earlier interrupted /autopilot invocation was cleared (autopilot never
+actually ran any phase; superseded by deep-interview -> plan pivot).
+`ralplan` state is the only one still legitimately active. No production
+code changed; only .omc/specs/, .omc/state/, and this primer touched.
 
 ## EXACT NEXT STEP
 Resume the ralplan consensus loop (state: .omc/state/ralplan-state.json,
