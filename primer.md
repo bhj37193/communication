@@ -2,46 +2,40 @@
 _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
-Autopilot Phase 0+1 done (plan APPROVED). Phase 2 (Steps 1-7 of
-`.omc/plans/autopilot-impl.md`) DONE and verified this session. Phase 4
-(multi-perspective validation): architect APPROVE (confirmed twice),
-security-reviewer APPROVE Risk-LOW (confirmed twice). code-reviewer
-(agent id `ac9a7eb575e9ea495`) has completed its review per its own
-status but has not yet stated an explicit verdict in any message
-received — nudged twice via SendMessage asking for a one-line
-APPROVE/REJECT + issue list; response not yet landed.
+Autopilot Phase 2 done and verified (prior session). Phase 4 validation:
+architect APPROVE (x2), security-reviewer APPROVE Risk-LOW (x2).
+code-reviewer (agent id `ac9a7eb575e9ea495`) verdict still not landed as
+of last check - unresolved blocker, unrelated to this session's work.
 
-## COMPLETED THIS SESSION
-- `apps/server/src/services/fold.ts`/`fold.test.ts`, `router.ts`: done,
-  verified (Wave A).
-- `apps/server/src/routes/sessions.ts`: generalized off DB-loaded unit
-  spec via `loadUnitSpec`/`routeNextUnit`; `SAM_UNIT_ID` import dropped,
-  `SAM_PACK` kept only for `.signals`; fold writer wired in `/end`; new
-  `GET /v1/challenge/today` (explicit field allowlist, excludes opener).
-- `apps/mobile/lib/api.ts` + `app/index.tsx`: `getChallenge()` added,
-  hardcoded `SCENARIO_TITLE`/`SCENARIO_SETUP` removed, screen fetches
-  copy on mount.
-- `apps/mobile/test/api.test.ts` + `test/screens.test.tsx`: updated for
-  the new endpoint/mock.
-- Verified (already done, do not re-run unless a validator flags a
-  regression): server/mobile/core `tsc --noEmit` all clean; server
-  vitest 43/43, core vitest 95/95, mobile jest 26/26 all green; grep
-  confirms zero residual `SAM_UNIT_ID`/`SAM_PACK.unit.`/
-  `SCENARIO_TITLE`/`SCENARIO_SETUP`.
+Separate, unrelated side task this session: built a literature-fetch
+script (arXiv API + Semantic Scholar API, stdlib-only, no scraping
+needed) at `research/fetch_literature.py` to ground the 4-skill
+curriculum + behavior science in academic sources. Script ran but
+returned 0 results for all 5 topics - root cause found: local Python
+3.10 (python.org build) has no CA cert bundle, so every HTTPS/HTTP
+request throws `SSLCertVerificationError: unable to get local issuer
+certificate`. Not a sandbox/network block - a known python.org-installer
+gap.
 
 ## EXACT NEXT STEP
-1. Wait for/collect code-reviewer's (agent id `ac9a7eb575e9ea495`)
-   explicit verdict. Do NOT call `TaskOutput` on it (dumps full
-   transcript, blows context). If no real verdict lands after 1-2 more
-   checks, it is reasonable to dispatch one fresh code-reviewer agent
-   against the same diff rather than waiting indefinitely (2/3
-   reviewers have already given clean APPROVE, so this is the last
-   blocker to Phase 5).
-2. On all-3 APPROVE: Phase 5 — delete `.omc/state/{autopilot,ralph,
+Autopilot thread (higher priority, pre-existing blocker):
+1. Collect code-reviewer's explicit verdict (do NOT `TaskOutput` it -
+   dumps full transcript). If still nothing after 1-2 more checks,
+   dispatch one fresh code-reviewer agent against the same diff (2/3
+   reviewers already clean APPROVE).
+2. On all-3 APPROVE: Phase 5 - delete `.omc/state/{autopilot,ralph,
    ultrawork,ultraqa}-state.json`, run `/oh-my-claudecode:cancel`.
-3. If code-reviewer (or a fresh redispatch) rejects: fix the specific
-   file:line issues, re-run affected test suite, re-validate only that
-   reviewer (max 3 rounds per autopilot policy).
+3. On reject: fix file:line issues, re-run affected suite, re-validate
+   only that reviewer (max 3 rounds).
+
+Literature research thread (side task, resume when convenient):
+1. Fix SSL certs: `/Applications/Python 3.10/Install Certificates.command`
+   (or `uv pip install --system certifi` + set `SSL_CERT_FILE` env var to
+   `certifi.where()`).
+2. Re-run `python3 research/fetch_literature.py` from repo root.
+3. Check `research/literature/INDEX.md` + per-topic `.json` files got
+   populated (non-empty); if Semantic Scholar 429s, the script already
+   retries 3x with backoff - just re-run if it still fails.
 
 ## LOCKED DECISIONS (do not re-litigate)
 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
@@ -56,7 +50,8 @@ App-store tasks #1-4 user-blocked; FABLE-PROMPT-PROVEN-PROGRESS.md
 deferred, unrelated.
 
 ## DOC REFS
-PRD-CHARISMA-CHAT.md | .omc/autopilot/spec.md | .omc/plans/
-autopilot-impl.md | apps/server/src/routes/sessions.ts | apps/server/
-src/services/{fold,router,profile,caps}.ts | packages/core/schemas.ts |
-apps/mobile/app/index.tsx | apps/mobile/lib/api.ts
+PRD-CHARISMA-CHAT.md | .omc/plans/autopilot-impl.md | apps/server/src/
+routes/sessions.ts | apps/server/src/services/{fold,router,profile,
+caps}.ts | apps/mobile/app/index.tsx | apps/mobile/lib/api.ts |
+CONTENT-ROADMAP-4-SKILLS.md | RESEARCH-METHODOLOGY.md |
+research/fetch_literature.py

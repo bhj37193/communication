@@ -23,4 +23,3 @@ const raw: unknown = JSON.parse(
 );
 
 export const SAM_PACK = PackSchema.parse(raw);
-export const SAM_UNIT_ID = SAM_PACK.unit.id;
