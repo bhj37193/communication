@@ -1,8 +1,8 @@
 # 20-Year Financial Model: 4-Skill Adult Training App
 
 Produced by Fable 5 against FABLE-PROMPT-EMPIRE.md Part 1 (2026-07-19). Models the
-4-skill pivot (Communication, Problem-Solving, Cognitive Training, Decision-Making,
-working taxonomy per the shared context) of the existing charisma app: app-only,
+4-skill pivot (Communication, Problem-Solving, Critical Thinking, Decision-Making,
+final taxonomy per CONTENT-ROADMAP-4-SKILLS.md) of the existing charisma app: app-only,
 mastery-gated, no physical location, no teachers, subscription SaaS. Unit economics
 are inherited from AVATAR-TIER-PRICING.md and BUSINESS-MODEL-CONVERSION.md, not
 re-derived. Every number in every output table traces to a named assumption in
