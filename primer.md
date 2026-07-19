@@ -29,7 +29,8 @@ AUTONOMOUS build+unit, GATED G-01 for live smoke). Files: `model/AnthropicChatMo
 id, cache_control on system block, temps by tag, maxTokens, JSON retry, usage mapping.
 Goal: real ChatModel fully built offline; `smoke:anthropic` is the deferred live check
 once G-01 lands. Accept: `pnpm --filter @charisma/server test` (live: `smoke:anthropic`
-after G-01).
+after G-01). Note: bare `model/AnthropicChatModel.ts` path is ambiguous
+(`packages/core/model/` vs `apps/server/src/model/`) — check where `FakeChatModel` sits first.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME, founder relocating to Korea. Payments:
@@ -40,8 +41,8 @@ after G-01).
   (lip-synced, PTT, 15-min trial -> $14.99/mo or $119/yr, 120-min cap). Avatar = Phase 6.
 - Model: Claude Haiku behind swappable ChatModel; 2 calls/session (character + scoring);
   scoring PASS is deterministic, not LLM-judged.
-- Build order: thin vertical slice (Sam housewarming) end-to-end first, then diagnostic +
-  skill tree + paywall, then model swap at scale.
+- Build order: thin vertical slice (Sam housewarming) end-to-end, then diagnostic + skill
+  tree + paywall, then model swap at scale.
 
 ## OUTSTANDING OPS / ENV FACTS
 - Native Postgres 18, localhost:5432, NO Docker. Superuser `main`, local trust auth, no
