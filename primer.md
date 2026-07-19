@@ -10,14 +10,14 @@ Paddle/G-03 not needed yet).
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
 - **Task #6 IN PROGRESS (background agent a1a25387581a1450f)**: real Clerk
-  auth wiring, mobile + server. Its `advisor()` call took ~3.5 min and
-  returned at 15:23:14; it's now acting on that feedback (was reading
-  `AnthropicChatModel.test.ts`, likely checking a pattern/convention the
-  advisor flagged) — a few identical polls in a row earlier was NOT a
-  stall, just a slow advisor call; check timestamps before concluding
-  stuck. Self-reported before that call: mobile suite 24/24 pass, server
-  suite 35/35 pass, typecheck clean both sides, no debug leftovers, no
-  leaked secrets. Mobile side confirmed written:
+  auth wiring, mobile + server. Its `advisor()` call took ~3.5 min,
+  returned 15:23:14; last observed action was reading
+  `AnthropicChatModel.test.ts` at 15:23:22, acting on advisor feedback —
+  no new output since across the last two polls (may just be slow, may be
+  near done; check timestamps, don't assume stalled from repeat-identical
+  output alone). Self-reported before the advisor call: mobile suite 24/24
+  pass, server suite 35/35 pass, typecheck clean both sides, no debug
+  leftovers, no leaked secrets. Mobile side confirmed written:
   `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
   `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
   `apps/mobile/lib/auth.ts` has real `getClerkToken()`
