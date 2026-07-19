@@ -15,7 +15,7 @@ type SessionRow = typeof sessions.$inferSelect;
 
 const MessageBodySchema = z.object({ text: z.string().trim().min(1).max(500) });
 
-async function upsertUser(deps: Deps, clerkId: string): Promise<UserRow> {
+export async function upsertUser(deps: Deps, clerkId: string): Promise<UserRow> {
   const existing = await deps.db.select().from(users).where(eq(users.clerkId, clerkId));
   if (existing[0]) return existing[0];
   const inserted = await deps.db.insert(users).values({ clerkId }).onConflictDoNothing().returning();
@@ -24,7 +24,7 @@ async function upsertUser(deps: Deps, clerkId: string): Promise<UserRow> {
   return row!; // lost an insert race; the winner's row is guaranteed to exist
 }
 
-async function requireUser(
+export async function requireUser(
   deps: Deps,
   req: FastifyRequest,
   reply: FastifyReply,

@@ -10,6 +10,8 @@ const EnvSchema = z.object({
   AUTH_PROVIDER: z.enum(['fake', 'clerk']).default('fake'),
   MODEL_PROVIDER: z.enum(['fake', 'anthropic']).default('fake'),
   DAILY_MODEL_BUDGET_USD: z.coerce.number().positive().default(20),
+  // Empty -> /v1/webhooks/clerk accepts unsigned JSON bodies (fake/test mode).
+  CLERK_WEBHOOK_SECRET: z.string().default(''),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

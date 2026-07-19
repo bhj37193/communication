@@ -3,6 +3,7 @@ import { buildDeps } from './composition.js';
 import { createDb } from './db/client.js';
 import { ensureContentSeeded } from './db/seed.js';
 import { loadEnv } from './env.js';
+import { startScheduler } from './jobs/scheduler.js';
 
 const env = loadEnv();
 const { db } = createDb(env.DATABASE_URL);
@@ -10,6 +11,7 @@ const deps = buildDeps(env, db);
 const app = buildApp(deps);
 
 await ensureContentSeeded(db);
+startScheduler(db);
 
 app.listen({ port: env.PORT, host: '0.0.0.0' }).catch((err) => {
   app.log.error(err);
