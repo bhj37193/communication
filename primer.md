@@ -24,15 +24,17 @@ character / Sonnet feedback). Mobile app works end-to-end live. Pivoting to
   analytics/crash SDK present). App Name/Subtitle/Screenshots/Privacy
   Policy URL/Support URL left as explicit TODO — do not fill with
   "Charisma Trainer" or fabricated URLs.
-- Checked in with user (2026-07-19, twice): name still "deciding",
-  placeholder icon confirmed wanted, tasks #1-4 confirmed still all
-  pending both times — no change between checks.
+- Checked in with user (2026-07-19, 3x): name still "deciding", tasks
+  #1-4 confirmed still all pending every time, no change between checks.
+  Last 2 `/autopilot` invocations had zero new state vs. the prior one —
+  flagged to user that something may be auto-re-firing the command.
 
 ## EXACT NEXT STEP
 Nothing autonomously actionable — remaining #8 gaps (name, screenshots,
 hosted privacy policy URL) and #1-4 are all user-blocked. On resume:
 1. Check in on app name + #1-4 status again (don't assume stale, don't
-   re-ask if already volunteered).
+   re-ask if already volunteered). If yet another resume shows zero new
+   state again, say so plainly instead of re-running the same checks.
 2. Once a real name exists: update `app.json` name/slug, fill in
    `app-store-listing.md` Name/Subtitle/`{{APP_NAME}}`.
 3. Once real artwork exists: swap `apps/mobile/assets/{icon,
@@ -57,7 +59,6 @@ hosted privacy policy URL) and #1-4 are all user-blocked. On resume:
 - Native Postgres 18, localhost:5432, no Docker locally. apps/server/.env
   (gitignored) holds real env incl. Anthropic key.
 - Gates: G-01 CLOSED. G-02 Clerk in progress. G-03 Paddle deferred.
-  G-04/05/09 deploy in progress via deploy/.
 - User has zero of: Apple Developer, Expo/EAS, VPS, Clerk accounts.
 - Flagged only, don't fix unprompted: ci.yml/root package.json reference
   nonexistent `@charisma/content`; SOURCE-DO-NOT-SHIP/ deletion discrepancy.
