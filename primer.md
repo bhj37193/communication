@@ -9,20 +9,19 @@ Paddle/G-03 not needed yet).
 ## COMPLETED THIS SESSION
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
-- **Task #6 NEARLY DONE (background agent a1a25387581a1450f, still
+- **Task #6 NEARLY DONE (background agent a1a25387581a1450f, was still
   `running` as of last check — do NOT duplicate, do NOT trust as final
   yet)**: real Clerk auth wiring, mobile + server. Self-reported: mobile
   suite 24/24 pass, server suite 35/35 pass, typecheck clean both sides, no
   leaked secrets found in `.env.example` files, no debug leftovers. Agent
-  just called its own advisor for a final self-check and had not yet
-  reported completion. Mobile side confirmed written:
-  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
-  `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
-  `apps/mobile/lib/auth.ts` has real `getClerkToken()`
-  (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
-  Server-side files not yet individually re-confirmed post-edit by me.
-  **I (main session) have NOT independently reviewed the diff yet** — the
-  above is the agent's own self-report only.
+  called its own advisor for a final self-check and had not yet reported
+  completion. Mobile side confirmed written: `apps/mobile/app/_layout.tsx`
+  splits `DevAuthProvider` vs `ClerkAuthBridge` behind
+  `USE_CLERK = !isAuthConfigured()`; `apps/mobile/lib/auth.ts` has real
+  `getClerkToken()` (`getClerkInstance().session?.getToken()`) +
+  AsyncStorage `tokenCache`. Server-side files not yet individually
+  re-confirmed post-edit by me. **I (main session) have NOT independently
+  reviewed the diff yet** — the above is the agent's own self-report only.
 
 ## EXACT NEXT STEP
 1. Check status of `a1a25387581a1450f` (TaskOutput, block=false). If
