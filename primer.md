@@ -9,63 +9,64 @@ Paddle/G-03 not needed yet).
 ## COMPLETED THIS SESSION
 - **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
   .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
-- **Task #6 NEARLY DONE (background agent a1a25387581a1450f, STILL
-  `running` across multiple checks — do NOT duplicate, do NOT trust as
-  final)**: real Clerk auth wiring, mobile + server. Self-reported: mobile
-  suite 24/24 pass, server suite 35/35 pass, typecheck clean both sides, no
-  leaked secrets in `.env.example` files, no debug leftovers. Agent called
-  its own advisor for a final self-check and has been stuck there across
-  several polls with no new output — worth checking for a stall on next
-  resume, not just re-polling indefinitely. Mobile side confirmed written:
-  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
+- **Task #6 LIKELY STALLED (background agent a1a25387581a1450f)**: real
+  Clerk auth wiring, mobile + server. Self-reported (before stalling):
+  mobile suite 24/24 pass, server suite 35/35 pass, typecheck clean both
+  sides, no leaked secrets, no debug leftovers. Output has been **byte-
+  identical across 4+ polls**, frozen mid its own `advisor()` call
+  (`srvtoolu_01PuxmNNZ3wpt6uLQyvufWYy`, ~15:19:57) with no progress since —
+  treat as stalled, not "almost done." Mobile side of its work is confirmed
+  written: `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
   `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
   `apps/mobile/lib/auth.ts` has real `getClerkToken()`
   (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`.
-  **I (main session) have NOT independently reviewed the diff yet** — the
-  above is the agent's own self-report only.
+  Server-side files (env.ts/AuthVerifier.ts/composition.ts) not yet
+  independently confirmed by me. **The diff has NOT been reviewed by me.**
 
 ## EXACT NEXT STEP
-1. Check status of `a1a25387581a1450f` (TaskOutput, block=false). If still
-   `running` with no progress since this checkpoint, consider it possibly
-   stalled post-advisor-call — read its output file directly for the
-   advisor response before deciding whether to wait longer or intervene.
-   If `status: completed`, read the FULL diff (`git diff`) myself first.
-2. Independently rerun `pnpm --filter @charisma/server test` +
-   `pnpm --filter @charisma/mobile test` + typecheck both. Confirm
-   fake-auth path (`AUTH_PROVIDER=fake`, default) still passes untouched.
-   Clerk path is NOT verifiable yet (no Clerk account — task #4): only
-   claim it typechecks and matches Clerk's documented API, never "works."
-3. Then resume task #7 (eas.json + app icons — user artwork needed, don't
-   fabricate branding) and #8 (App Store listing prep).
-4. Tasks #1-4 (signups: Apple Developer, Expo/EAS, VPS, Clerk) are blocking
-   and on the user — check in before assuming done.
+1. Do ONE non-blocking `TaskOutput(a1a25387581a1450f, block=false)` check.
+   If still identical/no new timestamp progress: stop polling, this agent
+   is dead weight. Either `TaskStop` it or just proceed treating its file
+   edits as-is (they're on disk regardless of task status).
+2. Read the actual diff myself: `git status` / `git diff` on
+   apps/server/src/env.ts, apps/server/src/auth/AuthVerifier.ts,
+   apps/server/src/composition.ts, apps/mobile/app/_layout.tsx,
+   apps/mobile/lib/auth.ts, plus any new sign-in/sign-up screen files.
+   Don't trust the self-report — verify server-side pieces exist.
+3. Run `pnpm --filter @charisma/server test` + typecheck server+mobile.
+   Confirm fake-auth path (`AUTH_PROVIDER=fake`, default) still passes.
+   Clerk path is unverifiable (no Clerk account — task #4): only claim it
+   typechecks/matches Clerk's API, never "works."
+4. If server-side pieces are missing/broken, finish them directly (don't
+   relaunch a background agent for this — do it inline, it's a small,
+   well-understood diff at this point).
+5. Then task #7 (eas.json + icons, need user artwork) and #8 (listing prep).
+6. Tasks #1-4 (Apple Developer, Expo/EAS, VPS, Clerk signups) are on the
+   user — check in, don't assume done.
 
 ## LOCKED DECISIONS
-- Entity: Korean young-entrepreneur SME.
-- ONE mode, EVERYDAY/charisma, TEXT CHAT only v1. Daily challenge vs AI
-  character -> feedback + deterministic score + streak. 3-5 min.
-- Text chat fully free; paywall = premium AVATAR tier (Phase 6, not built).
+- Entity: Korean young-entrepreneur SME. ONE mode, EVERYDAY/charisma, TEXT
+  CHAT only v1. Daily challenge vs AI character -> feedback + deterministic
+  score + streak. 3-5 min. Text chat free; paywall = AVATAR tier (Phase 6).
 - Prompt design LOCKED: static system per unit; per-turn context in
-  messages, never in system (assemble.test.ts enforces).
-- Model per touchpoint: character = Haiku (`claude-haiku-4-5`), feedback =
-  Sonnet (`claude-sonnet-5`), routed by call `tag` in AnthropicChatModel.
-- Mobile-only public App Store release is the target; hosting = user's own
-  plain Ubuntu VPS, no Docker, no PaaS; real Clerk auth required.
+  messages, never system (assemble.test.ts enforces).
+- Models: character = Haiku (`claude-haiku-4-5`), feedback = Sonnet
+  (`claude-sonnet-5`), routed by call `tag` in AnthropicChatModel.
+- Mobile-only App Store release target; hosting = user's own plain Ubuntu
+  VPS, no Docker/PaaS; real Clerk auth required to ship.
 
 ## OUTSTANDING OPS / ENV FACTS
 - Native Postgres 18, localhost:5432, no Docker locally. apps/server/.env
   (gitignored) holds real env incl. Anthropic key.
-- Gates: G-01 CLOSED. G-02 Clerk in progress. G-03 Paddle deferred. G-04/05/09
-  deploy in progress via deploy/.
-- User has zero of: Apple Developer account, Expo/EAS account, VPS, Clerk
-  account — all four are hard blockers only the user can clear.
-- Flagged only, do not fix unprompted: ci.yml/root package.json reference
-  nonexistent `@charisma/content`; SOURCE-DO-NOT-SHIP/ deletion discrepancy
-  unreconciled before IP sign-off.
+- Gates: G-01 CLOSED. G-02 Clerk in progress. G-03 Paddle deferred.
+  G-04/05/09 deploy in progress via deploy/.
+- User has zero of: Apple Developer, Expo/EAS, VPS, Clerk accounts.
+- Flagged only, don't fix unprompted: ci.yml/root package.json reference
+  nonexistent `@charisma/content`; SOURCE-DO-NOT-SHIP/ deletion discrepancy.
 - userProfile projection (services/profile.ts) feeds FEEDBACK only, never
-  the character (Sam is a stranger, must not know history).
+  the character.
 
 ## DOC REFS
 content-library/README.md + CONTEXT.md | BUILD-PLAN-MAP.md |
 BUILD-EXECUTION-PLAN.md (gates ~1370-1395) | FABLE-PROMPT-CONNECTION-LIBRARY.md
-| POSITIONING.md | HANDOFF.md (loop doctrine) | deploy/README.md.
+| POSITIONING.md | HANDOFF.md | deploy/README.md.
