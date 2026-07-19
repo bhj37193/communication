@@ -6,15 +6,15 @@ Server loop complete and green: sessions/messages/end/result wired to packages/c
 (test) + FakeAuthVerifier + daily cap + cost breaker + retention sweep + Clerk webhook +
 analytics + CI. Core 71/71, server 35/35, typecheck clean. apps/mobile P0-27/28 closed.
 apps/web not started (P2). content-library/ + assemble.ts committed (e1a00e5).
-**G-01 (Anthropic key) CLOSED.** Autopilot cancelled cleanly (inactive, resume preserved).
+**G-01 (Anthropic key) CLOSED.** Autopilot cancelled cleanly; loop idle awaiting user pick.
 
 ## COMPLETED THIS SESSION
-Key confirmed in apps/server/.env; `pnpm smoke:anthropic` PASSED. Full real e2e Sam
-session vs live Haiku (server booted with MODEL_PROVIDER=anthropic shell override on
-:3999; .env untouched, still MODEL_PROVIDER=fake): open -> 4 turns -> end -> scored
-20/100 fail. Replies in-character; Haiku rejected an invented detail. Usage recorded
-(4 character + 2 feedback rows, ~6k in / ~700 out total). Findings (reported only,
-nothing fixed):
+G-01 closure: key confirmed in apps/server/.env; `pnpm smoke:anthropic` PASSED. Full real
+e2e Sam session vs live Haiku (MODEL_PROVIDER=anthropic shell override on :3999; .env
+untouched, still fake): open -> 4 turns -> end -> scored 20/100 fail. Replies
+in-character; Haiku rejected an invented detail. Usage recorded (4 character + 2
+feedback rows, ~6k in / ~700 out). Loop refired once with no new task: git clean,
+findings reported, no scope invented. Findings (reported only, nothing fixed):
 1. warmth 0 all turns (Haiku warmth_delta judgment; possibly stingy, tune later).
 2. open_questions/followups = 0 despite 3 real questions: validator start-anchored per
    PRD 4.5 (question must START message); trailing questions never count. Tuning question.
@@ -23,13 +23,12 @@ nothing fixed):
    second call implausibly fast; add debug log before trusting cost data.
 4. cached_in=0 everywhere: cache_control set, but Haiku 4.5 min cacheable prefix is
    4096 tokens and unit prompt ~1k. Silently uncached until prompt grows. Not a bug.
-Test server killed; primer updated; autopilot state cancelled via /cancel.
 
 ## EXACT NEXT STEP
-None pending from loop. User picks one: (a) tune warmth/validator thresholds against
-real transcripts, (b) debug log for feedback retry anomaly, (c) G-02 Clerk, (d) mobile
-app against real server. If checkpoint loop refires with no new task: check git status,
-report findings above, do not invent scope, do not re-run autopilot phases.
+BLOCKED on user picking one: (a) tune warmth/validator thresholds against real
+transcripts, (b) debug log for feedback retry anomaly, (c) G-02 Clerk, (d) mobile app
+against real server. If checkpoint loop refires with no new task: check git status,
+restate the four options, do not invent scope, do not re-run autopilot phases.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME. Payments: Paddle MoR, web only.
