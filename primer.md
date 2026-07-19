@@ -4,12 +4,13 @@ _Last touched: 2026-07-19 (checkpoint)._
 ## STATUS
 Autopilot Phase 0+1 done (plan APPROVED). Phase 2 (Steps 1-7 of
 `.omc/plans/autopilot-impl.md`) DONE and verified this session. Phase 4
-(multi-perspective validation) dispatched: architect, security-reviewer,
-code-reviewer running in background against the full diff. No
-completion notification received yet as of this checkpoint (waited
-twice, ~40min combined, none landed) — may still be running, or a
-notification was lost across a context clear. Do not assume failure;
-just re-check.
+(multi-perspective validation) in progress: architect + security-
+reviewer both returned APPROVE but only a thin one-line summary landed
+(full findings text was lost); both were resumed via SendMessage and
+asked to restate findings in full — response not yet received.
+code-reviewer (3rd validator) has not yet reported at all. Do not
+re-dispatch fresh reviewers until confirming these are truly dead —
+just keep waiting for notifications.
 
 ## COMPLETED THIS SESSION
 - `apps/server/src/services/fold.ts`/`fold.test.ts`, `router.ts`: done
@@ -22,26 +23,29 @@ just re-check.
   hardcoded `SCENARIO_TITLE`/`SCENARIO_SETUP` removed, screen fetches
   copy on mount.
 - `apps/mobile/test/api.test.ts` + `test/screens.test.tsx`: both
-  updated for the new endpoint/mock (screens.test.tsx fix was
-  unrelated fallout of removing hardcoded copy, now fixed).
+  updated for the new endpoint/mock.
 - Verified: server/mobile/core `tsc --noEmit` all clean; server vitest
   43/43, core vitest 95/95, mobile jest 26/26, all green; grep confirms
   zero residual `SAM_UNIT_ID`/`SAM_PACK.unit.`/`SCENARIO_TITLE`/
-  `SCENARIO_SETUP`.
+  `SCENARIO_SETUP`. This is real, already verified — do not re-run
+  unless a validator flags a specific regression.
 
 ## EXACT NEXT STEP
-1. Check for the 3 background Phase 4 validator agents' results (they
-   were dispatched via the Agent tool: architect, security-reviewer,
-   code-reviewer, each reviewing `git diff` on sessions.ts/api.ts/
-   index.tsx/api.test.ts/screens.test.tsx + fold.ts/router.ts/
-   fold.test.ts). Wait for task-notification; do NOT call `TaskOutput`
-   (dumps full transcript, blows context). If uncertain whether
-   dispatched agents are even still alive, it's fine to just re-dispatch
-   the same 3 reviews fresh rather than guessing at stale state.
-2. If all 3 approve: Phase 5 — delete `.omc/state/{autopilot,ralph,
-   ultrawork,ultraqa}-state.json`, run `/oh-my-claudecode:cancel`.
-3. If any reject: fix specific file:line issues, re-run affected test
-   suite, re-dispatch only the rejecting reviewer(s) (max 3 rounds).
+1. Wait for task-notifications from: architect (agent id
+   `afd6cf61411359a5a`, resumed, asked to restate findings),
+   security-reviewer (agent id `a7bd09cb0c723513f`, resumed, asked to
+   restate findings), code-reviewer (agent id `ac9a7eb575e9ea495`,
+   original dispatch, never reported). Do NOT call `TaskOutput` on any
+   of them (dumps full transcript, blows context).
+2. If all 3 land and all APPROVE: Phase 5 — delete `.omc/state/
+   {autopilot,ralph,ultrawork,ultraqa}-state.json`, run
+   `/oh-my-claudecode:cancel`.
+3. If any reject: fix the specific file:line issues, re-run affected
+   test suite, re-dispatch only the rejecting reviewer(s) (max 3 rounds
+   per autopilot policy).
+4. If code-reviewer notification never arrives after 1-2 more wakeups,
+   it's reasonable to dispatch a fresh code-reviewer agent rather than
+   waiting indefinitely.
 
 ## LOCKED DECISIONS (do not re-litigate)
 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
