@@ -9,7 +9,8 @@ cost circuit breaker + retention/deletion sweep + Clerk webhook + analytics + CI
 author-only half) CLOSED — docker-compose.yml/Caddyfile/deploy.yml/README.md at repo root +
 apps/server/Dockerfile.
 
-**This session:** closed both bugs queued from the prior primer.
+**This session:** closed both bugs queued from the prior primer, then cancelled autopilot
+mode cleanly (`/oh-my-claudecode:cancel`, no linked ralph/ultraqa, skill-active cleared).
 (a) `warmthTrace` missing-leading-0 bug: root cause was the single `insert(sessions)` in
 `apps/server/src/routes/sessions.ts` relying on the `warmth_trace` column's `[]` default
 instead of seeding `[0]` for the opener (the `playSession` test helper in
