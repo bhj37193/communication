@@ -1,48 +1,45 @@
 # Primer: Charisma Trainer (consumer, TEXT-CHAT charisma app). Name TBD.
 
 ## STATUS
-Core loop green (core 71/71, server 35/35) on real Anthropic models (Haiku
+Core loop green (core 71/71, server 39/39) on real Anthropic models (Haiku
 character / Sonnet feedback). Mobile app works end-to-end live. Pivoting to
-**public App Store release, mobile-only** (apps/web stays P2/deferred,
-Paddle/G-03 not needed yet).
+**public App Store release, mobile-only** (apps/web stays P2/deferred).
 
 ## COMPLETED THIS SESSION
-- **Task #5 DONE, reviewed**: `deploy/` (README, systemd unit, Caddyfile,
-  .env.example) — no Docker, native Postgres 18, tsx runtime, Caddy auto-TLS.
-- **Task #6 IN PROGRESS (background agent a1a25387581a1450f)**: real Clerk
-  auth wiring, mobile + server. Still actively running (confirmed not
-  stalled) as of 15:28: post-advisor it fixed a small `ready` destructuring
-  bug it introduced in `app/index.tsx`, reran mobile typecheck (clean,
-  `tsc --noEmit`) and mobile jest (24/24 pass), and was starting a final
-  debug-code/secret-leak grep across touched files before reporting.
-  Mobile side confirmed written by direct Read (not just agent self-report):
-  `apps/mobile/app/_layout.tsx` splits `DevAuthProvider` vs
-  `ClerkAuthBridge` behind `USE_CLERK = !isAuthConfigured()`;
-  `apps/mobile/lib/auth.ts` has real `getClerkToken()`
-  (`getClerkInstance().session?.getToken()`) + AsyncStorage `tokenCache`;
-  `apps/mobile/app/index.tsx` gates Sign-in link on `ready`. Server-side
-  files (env.ts, AuthVerifier.ts, composition.ts) NOT yet independently
-  reviewed by me — saw a ClerkAuthVerifier unit test fragment fly by in the
-  transcript (verify() reads Bearer token, calls injected verifyToken with
-  secretKey, returns {externalId} from `sub` claim) but haven't read the
-  real source file yet. Note: polling this agent's output via TaskOutput is
-  expensive (1.4MB+ truncated dump per call) — poll sparingly, prefer
-  waiting for the completion notification over re-polling.
+- Task #5 DONE: `deploy/` (systemd, Caddyfile, .env.example, no Docker).
+- Task #6 DONE, independently verified (not just agent self-report): real
+  Clerk auth wiring mobile+server. server 39/39, mobile jest 24/24, both
+  typecheck clean, diff scoped to 8 expected files, no leaked secrets.
+  Clerk itself still unverifiable end-to-end (no real account, task #4).
+- Task #7 DONE: `eas.json` build profiles (submit block omitted, needs
+  #1/#2). Placeholder icon/adaptive-icon/splash (PIL-generated, explicitly
+  non-final) wired into `app.json`.
+- Task #8 partially DONE: drafted `apps/mobile/app-store-listing.md` —
+  description, keywords, category, age rating (4+), full privacy label
+  derived directly from schema.ts/analytics.ts/retention.ts/deletion.ts/
+  AnthropicChatModel.ts/webhooks.ts (our DB stores only Clerk's opaque
+  user id, never email/name; chat text goes to Anthropic for replies/
+  feedback; transcripts/results hard-delete at 60d; account deletion is
+  one atomic DB fn wiping every table via Clerk's webhook; no third-party
+  analytics/crash SDK present). App Name/Subtitle/Screenshots/Privacy
+  Policy URL/Support URL left as explicit TODO — do not fill with
+  "Charisma Trainer" or fabricated URLs.
+- Checked in with user (2026-07-19): name still "deciding", placeholder
+  icon confirmed wanted, tasks #1-4 confirmed still all pending.
 
 ## EXACT NEXT STEP
-1. `TaskOutput(a1a25387581a1450f, block=false)` ONCE to check current
-   state. If `status: completed`, read the full diff (`git diff`) myself
-   first — don't just accept the self-report, especially server-side files
-   (env.ts CLERK_SECRET_KEY, AuthVerifier.ts ClerkAuthVerifier,
-   composition.ts wiring) which weren't independently confirmed.
-2. Run `pnpm --filter @charisma/server test` + typecheck server+mobile
-   myself. Confirm fake-auth path (`AUTH_PROVIDER=fake`, default) still
-   passes. Clerk path is unverifiable (no Clerk account — task #4): only
-   claim it typechecks/matches Clerk's API, never "works."
-3. Then task #7 (eas.json + icons, need user artwork, don't fabricate
-   branding) and #8 (App Store listing prep).
-4. Tasks #1-4 (Apple Developer, Expo/EAS, VPS, Clerk signups) are on the
-   user — check in, don't assume done.
+Nothing autonomously actionable — remaining #8 gaps (name, screenshots,
+hosted privacy policy URL) and #1-4 are all user-blocked. On resume:
+1. Check in on app name + #1-4 status again (don't assume stale, don't
+   re-ask if already volunteered).
+2. Once a real name exists: update `app.json` name/slug, fill in
+   `app-store-listing.md` Name/Subtitle/`{{APP_NAME}}`.
+3. Once real artwork exists: swap `apps/mobile/assets/{icon,
+   adaptive-icon,splash}.png`; take real screenshots.
+4. Once #1/#2 land: fill `eas.json` submit block + `app.json`
+   extra.eas.projectId/owner from `eas init`.
+5. Once #3 (VPS) lands: host a privacy policy page from the table in
+   `app-store-listing.md`, link as Privacy Policy URL.
 
 ## LOCKED DECISIONS
 - Entity: Korean young-entrepreneur SME. ONE mode, EVERYDAY/charisma, TEXT
@@ -52,8 +49,8 @@ Paddle/G-03 not needed yet).
   messages, never system (assemble.test.ts enforces).
 - Models: character = Haiku (`claude-haiku-4-5`), feedback = Sonnet
   (`claude-sonnet-5`), routed by call `tag` in AnthropicChatModel.
-- Mobile-only App Store release target; hosting = user's own plain Ubuntu
-  VPS, no Docker/PaaS; real Clerk auth required to ship.
+- Mobile-only App Store release; hosting = user's own plain Ubuntu VPS,
+  no Docker/PaaS; real Clerk auth required to ship.
 
 ## OUTSTANDING OPS / ENV FACTS
 - Native Postgres 18, localhost:5432, no Docker locally. apps/server/.env
@@ -63,10 +60,8 @@ Paddle/G-03 not needed yet).
 - User has zero of: Apple Developer, Expo/EAS, VPS, Clerk accounts.
 - Flagged only, don't fix unprompted: ci.yml/root package.json reference
   nonexistent `@charisma/content`; SOURCE-DO-NOT-SHIP/ deletion discrepancy.
-- userProfile projection (services/profile.ts) feeds FEEDBACK only, never
-  the character.
 
 ## DOC REFS
 content-library/README.md + CONTEXT.md | BUILD-PLAN-MAP.md |
 BUILD-EXECUTION-PLAN.md (gates ~1370-1395) | FABLE-PROMPT-CONNECTION-LIBRARY.md
-| POSITIONING.md | HANDOFF.md | deploy/README.md.
+| POSITIONING.md | HANDOFF.md | deploy/README.md | apps/mobile/app-store-listing.md.

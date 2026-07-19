@@ -7,6 +7,11 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#1e293b"
+    },
     "plugins": [
       "expo-router",
       "expo-sharing"
@@ -16,7 +21,11 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.charisma.trainer"
+      "package": "com.charisma.trainer",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1e293b"
+      }
     }
   }
 }
