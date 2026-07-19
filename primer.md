@@ -2,42 +2,34 @@
 _Last touched: 2026-07-19 (checkpoint)._
 
 ## STATUS
-Autopilot Phase 2 (full scenario-unit serve path) implemented and
-verified in a prior session. Phase 4 validation: architect APPROVE (x2),
-security-reviewer APPROVE Risk-LOW (x2). Prior code-reviewer verdict
-(agent id `ac9a7eb575e9ea495`) was untraceable this session (no
-`.omc/state/{autopilot,ralph,ultrawork,ultraqa}-state.json`, no tracked
-Task, no saved verdict) - treated as lost. A fresh code-reviewer agent
-(worktree-isolated, background, agent id `ae3c693954390d110`) was
-dispatched against the Phase 1 plan scope - IN FLIGHT, verdict not yet
-collected as of this checkpoint.
+Autopilot Phase 4 validation COMPLETE and CLEARED: architect APPROVE
+(x2), security-reviewer APPROVE Risk-LOW (x2), fresh code-reviewer
+APPROVE Risk-LOW (dispatched this session after the prior verdict went
+untraceable). All 3 reviewers clean. Phase 5 cleanup done: 3 stale
+autopilot session states (all `awaiting_confirmation` leftovers from
+earlier `/clear` checkpoints today) cleared via `state_clear`; no ralph/
+ultrawork/ultraqa states existed. `state_list_active` now reports no
+active modes. The Phase 1 "full scenario-unit serve path" feature
+(fold.ts, router.ts, generalized sessions.ts + GET /v1/challenge/today,
+mobile getChallenge()) is implementation-complete and validated -
+autopilot cycle for this feature is DONE.
 
-Side task (DONE this session): `research/fetch_literature.py`
-(arXiv API + Semantic Scholar API, stdlib-only). Root cause of earlier
-all-zero results was two stacked bugs: (1) machine's Python had no CA
-cert bundle (fixed via `certifi` + `SSL_CERT_FILE`, prior session), (2)
-arXiv query URL wasn't fully percent-encoded, throwing `InvalidURL` on
-every request (fixed: encode the whole `search_query` incl. category
-filter via `urlencode`, not just the term string). Also added a
-non-clobber guard (don't overwrite a non-empty topic JSON with an empty
-result on re-run) since Semantic Scholar's unauthenticated API 429s
-intermittently per-topic. Re-ran clean: all 5 topics have real, on-topic
-papers (communication 17, problem_solving 15, critical_thinking 30,
-decision_making 15, behavior_science 29). Changes uncommitted:
+Side task (DONE this session): `research/fetch_literature.py` fixed and
+verified - all 5 topics have real, on-topic papers (communication 17,
+problem_solving 15, critical_thinking 30, decision_making 15,
+behavior_science 29). Fixed a CA-cert issue (prior session) and an
+arXiv URL percent-encoding bug (`InvalidURL` on every request); added a
+non-clobber guard against Semantic Scholar's intermittent per-topic
+429s overwriting good data. Uncommitted:
 `research/fetch_literature.py`, `research/literature/*`.
 
 ## EXACT NEXT STEP
-1. Collect code-reviewer agent `ae3c693954390d110`'s verdict (do NOT
-   `TaskOutput`/read its transcript file directly - wait for the
-   completion notification, or `SendMessage` it if it seems stuck).
-2. On APPROVE (all 3 reviewers clean): Phase 5 - confirm
-   `.omc/state/{autopilot,ralph,ultrawork,ultraqa}-state.json` don't
-   exist (they didn't as of this checkpoint - likely a no-op), then run
-   `/oh-my-claudecode:cancel`.
-3. On REJECT: fix file:line issues, re-run affected suite, re-validate
-   only that reviewer (max 3 rounds).
-4. Ask user whether to commit the literature-fetch changes - not yet
-   committed, sitting alongside the autopilot work.
+No autopilot work in flight. Next session should:
+1. Ask user whether to commit the literature-fetch changes (uncommitted
+   working-tree changes in `research/`).
+2. Ask user for the next feature/task - this cycle's scope
+   (`.omc/plans/autopilot-impl.md`, full scenario-unit serve path) is
+   fully shipped and validated. No known blockers remain.
 
 ## LOCKED DECISIONS (do not re-litigate)
 4-skill taxonomy final; non-AI drill self-attested pass; 8 drill reps +
