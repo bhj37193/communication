@@ -5,15 +5,15 @@ _Last touched: 2026-07-20._
 Problem-Solving vertical slice DONE and verified by my own pass (full
 monorepo test suite green: core 108/108, server 43/43, mobile 26/26; tsc
 --noEmit clean core+server). Background code-reviewer agent (task id
-ae04e4257c2a4ecc5) still RUNNING across many context rotations, doing its
-own independent verification. Partial findings seen in its trace so far
-(all favorable, none final yet): schemas.ts and validator.ts confirmed
-purely additive vs baseline commit 09ea317 (zero removed/changed lines,
-after it caught its own tooling bug where RTK proxy silently swallowed
-piped `git diff` output and redid the diff properly); isQuestion/isFollowup
-bodies in validator.ts confirmed intact/unchanged; its own `tsc --noEmit`
-re-run is clean. No findings/defects reported yet. Do NOT poll manually --
-wait for its completion notification. Source of truth for the 5-skill
+ae04e4257c2a4ecc5) still RUNNING across many context rotations. Partial
+findings so far, all favorable, none final: schemas.ts and validator.ts
+confirmed purely additive vs baseline commit 09ea317 (zero removed/changed
+lines); isQuestion/isFollowup bodies in validator.ts unchanged; its own
+tsc --noEmit clean. No defects reported yet. IMPORTANT: stop calling
+TaskOutput on this agent -- each call dumps hundreds of KB of its sidechain
+transcript and is what's spiking context to the watchdog threshold every
+rotation. Just wait for its completion notification passively; a
+ScheduleWakeup fallback is already set. Source of truth for the 5-skill
 design is CONTENT-ROADMAP-4-SKILLS.md (NOT PRD-CHARISMA-CHAT.md).
 
 ## COMPLETED THIS SESSION
@@ -27,12 +27,13 @@ Decision-Making/Critical Thinking/Behavior Science (strictly sequential,
 PS was first).
 
 ## EXACT NEXT STEP
-1. When the code-reviewer agent (ae04e4257c2a4ecc5) reports back: if it has
-   findings, fix them (small additive diffs), re-run `pnpm vitest run` +
-   `tsc --noEmit`. If clean, go to step 2.
+1. Wait for the code-reviewer agent (ae04e4257c2a4ecc5) completion
+   notification (do NOT call TaskOutput on it again -- context cost). If
+   findings exist, fix them (small additive diffs), re-run
+   `pnpm vitest run` + `tsc --noEmit`. If clean, go to step 2.
 2. Ask the user: wire Problem-Solving into content.ts/seed.ts/a route so
-   it's playable, OR start Decision-Making's slice next (same proven
-   pattern). Do not start it unprompted -- sequential build order.
+   it's playable, OR start Decision-Making's slice next. Do not start it
+   unprompted -- sequential build order.
 
 ## LOCKED DECISIONS (do not re-litigate)
 5-skill taxonomy (Communication done, Problem-Solving code-layer done,
