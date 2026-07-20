@@ -5,22 +5,23 @@ _Last touched: 2026-07-20._
 Problem-Solving vertical slice DONE and verified by my own pass (full
 monorepo test suite green: core 108/108, server 43/43, mobile 26/26; tsc
 --noEmit clean core+server). Background code-reviewer agent (task id
-ae04e4257c2a4ecc5) still RUNNING -- independently re-diffing score.ts/
-schemas.ts against pre-PS baseline commit 09ea317 and re-running the core
-suite itself (108 PASS/0 FAIL seen so far, no findings reported yet).
-A "cat -A" Bash error appeared twice in that agent's own sidechain
-(BSD cat doesn't support -A) -- it is the reviewer agent's own error to
-self-correct, not mine; nothing to retry on my end. Do NOT poll the agent
-manually -- wait for its completion notification. Source of truth for the
-5-skill design is CONTENT-ROADMAP-4-SKILLS.md (NOT PRD-CHARISMA-CHAT.md).
+ae04e4257c2a4ecc5) still RUNNING across multiple context rotations --
+independently re-diffing score.ts/schemas.ts against pre-PS baseline
+commit 09ea317 and re-running the core suite itself (108 PASS/0 FAIL seen
+so far, no findings reported yet). A recurring "cat -A" Bash error in that
+agent's own sidechain (BSD cat doesn't support -A) is its own error to
+self-correct, not mine -- nothing to retry on my end, do not react to it
+again. Do NOT poll the agent manually -- wait for its completion
+notification. Source of truth for the 5-skill design is
+CONTENT-ROADMAP-4-SKILLS.md (NOT PRD-CHARISMA-CHAT.md).
 
 ## COMPLETED THIS SESSION
-Unchanged from prior rotation: schemas.ts (Problem*Schema additions),
+Unchanged from prior rotations: schemas.ts (Problem*Schema additions),
 validator-problem.ts (new), score.ts (PROBLEM_WEIGHTS + scoreProblem),
 mastery.ts (new, masteryLevel() per §2.3), content/problem-solving.dying-
 plants.json (stage-1 unit), validator-problem.test.ts + mastery.test.ts.
 All additive; Communication engine untouched (independently re-confirmed
-by the reviewer agent's baseline diff this rotation).
+by the reviewer agent's baseline diff).
 NOT done: wiring content.ts/seed.ts/DB routes to serve PS live;
 Decision-Making/Critical Thinking/Behavior Science (strictly sequential,
 PS was first).
