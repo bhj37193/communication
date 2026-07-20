@@ -9,11 +9,10 @@ ae04e4257c2a4ecc5) still RUNNING across many context rotations. Partial
 findings so far, all favorable, none final: schemas.ts and validator.ts
 confirmed purely additive vs baseline commit 09ea317 (zero removed/changed
 lines); isQuestion/isFollowup bodies in validator.ts unchanged; its own
-tsc --noEmit clean. No defects reported yet. IMPORTANT: do not call
-TaskOutput on this agent again -- each call dumps hundreds of KB of its
-sidechain transcript and was the main driver of repeated watchdog triggers.
-Just wait for its completion notification passively (a ScheduleWakeup
-fallback is already set around the ~20:22 mark). Source of truth for the
+tsc --noEmit clean. No defects reported yet. Do not call TaskOutput on
+this agent again -- each call dumps hundreds of KB of its sidechain
+transcript and was the main driver of repeated watchdog triggers. Just
+wait for its completion notification passively. Source of truth for the
 5-skill design is CONTENT-ROADMAP-4-SKILLS.md (NOT PRD-CHARISMA-CHAT.md).
 
 ## COMPLETED THIS SESSION
