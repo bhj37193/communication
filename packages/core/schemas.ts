@@ -202,3 +202,45 @@ export const ClaritySignalsSchema = z.object({
   off_topic: z.boolean(),
 });
 export type ClaritySignals = z.infer<typeof ClaritySignalsSchema>;
+
+// --- Problem-Solving pack (CONTENT-ROADMAP-4-SKILLS.md §1.2, §2.2) ---
+// Additive only: SignalsSchema/UnitSchema/ReasonCodeSchema/CharacterOutputSchema
+// above are untouched; Communication validates exactly as before.
+
+export const ProblemSignalsSchema = z.object({
+  clarifying_questions: z.number().int().min(0),
+  premature_fix: z.number().int().min(0),
+  hypothesis_stated: z.number().int().min(0),
+  restated_problem: z.boolean(),
+  test_proposed: z.number().int().min(0),
+  root_cause_named: z.number().int().min(0),
+  followups: z.number().int().min(0),
+  final_warmth: z.number().int().min(0).max(3),
+});
+export type ProblemSignals = z.infer<typeof ProblemSignalsSchema>;
+
+// Per-unit keyword blocks (§2.2): root_cause_keywords is authored per unit
+// (every unit has a root cause to name); change_keywords only matters for
+// units built around an isolate-the-variable mechanic (§1.2 Unit B), so it
+// defaults to empty rather than being required on every unit.
+export const ProblemUnitSchema = UnitSchema.extend({
+  root_cause_keywords: z.array(z.string().min(1)).min(1),
+  change_keywords: z.array(z.string().min(1)).default([]),
+});
+export type ProblemUnit = z.infer<typeof ProblemUnitSchema>;
+
+export const ProblemReasonCodeSchema = z.enum([
+  'specific_question',
+  'followup',
+  'restated',
+  'premature_fix',
+  'generic_advice',
+  'ignored_content',
+  'neutral',
+]);
+export type ProblemReasonCode = z.infer<typeof ProblemReasonCodeSchema>;
+
+export const ProblemCharacterOutputSchema = CharacterOutputSchema.extend({
+  reason_code: ProblemReasonCodeSchema,
+});
+export type ProblemCharacterOutput = z.infer<typeof ProblemCharacterOutputSchema>;

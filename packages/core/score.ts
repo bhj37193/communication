@@ -11,7 +11,7 @@
 //   - 20 * monologue_brag)
 // Weights live in the pack's SignalDefs (penalties carry negative weights);
 // when defs are omitted the PRD defaults apply. Same transcript, same score.
-import type { ClaritySignals, SignalDef, Signals } from './schemas';
+import type { ClaritySignals, ProblemSignals, SignalDef, Signals } from './schemas';
 
 export function clamp(min: number, max: number, v: number): number {
   return Math.min(max, Math.max(min, v));
@@ -82,5 +82,49 @@ export function clarityScore(signals: ClaritySignals, defs?: SignalDef[]): numbe
       w('hedge_count') * Math.min(signals.hedge_count, 3) +
       w('rambling') * (signals.rambling ? 1 : 0) +
       w('off_topic') * (signals.off_topic ? 1 : 0),
+  );
+}
+
+// Problem-Solving score (CONTENT-ROADMAP-4-SKILLS.md §1.2, §2.2), same
+// clamp(0, 100, base + weighted-sum) shape as score()/clarityScore() above.
+// Weights are this pack's own first-pass values (the roadmap specifies the
+// signal set and rubric bands, not exact weights); does not touch
+// DEFAULT_WEIGHTS/score() -- Communication scores are unaffected.
+// problem_score = clamp(0, 100,
+//   40
+//   + 8  * min(clarifying_questions, 3)
+//   + 10 * min(followups, 2)
+//   + 8  * min(hypothesis_stated, 1)
+//   + 10 * restated_problem
+//   + 8  * min(test_proposed, 1)
+//   + 15 * min(root_cause_named, 1)
+//   + 5  * final_warmth
+//   - 20 * min(premature_fix, 1))
+export const PROBLEM_WEIGHTS: Record<string, number> = {
+  clarifying_questions: 8,
+  followups: 10,
+  hypothesis_stated: 8,
+  restated_problem: 10,
+  test_proposed: 8,
+  root_cause_named: 15,
+  final_warmth: 5,
+  premature_fix: -20,
+};
+
+export function scoreProblem(signals: ProblemSignals, defs?: SignalDef[]): number {
+  const w = (id: string): number =>
+    defs?.find((d) => d.id === id)?.weight ?? PROBLEM_WEIGHTS[id] ?? 0;
+  return clamp(
+    0,
+    100,
+    40 +
+      w('clarifying_questions') * Math.min(signals.clarifying_questions, 3) +
+      w('followups') * Math.min(signals.followups, 2) +
+      w('hypothesis_stated') * Math.min(signals.hypothesis_stated, 1) +
+      w('restated_problem') * (signals.restated_problem ? 1 : 0) +
+      w('test_proposed') * Math.min(signals.test_proposed, 1) +
+      w('root_cause_named') * Math.min(signals.root_cause_named, 1) +
+      w('final_warmth') * signals.final_warmth +
+      w('premature_fix') * Math.min(signals.premature_fix, 1),
   );
 }

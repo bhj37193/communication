@@ -1,0 +1,61 @@
+{
+  "pack_id": "problem-solving",
+  "version": "1.0.0",
+  "signals": [
+    { "id": "clarifying_questions", "kind": "count", "description": "Count of specific factual user questions that are not fix markers.", "weight": 8 },
+    { "id": "followups", "kind": "count", "description": "Count of user messages that build on the character's previous answer.", "weight": 10 },
+    { "id": "hypothesis_stated", "kind": "count", "description": "Count of user messages proposing a named hypothesis before any fix.", "weight": 8 },
+    { "id": "restated_problem", "kind": "flag", "description": "User restates the problem back, confirmed by content-word overlap.", "weight": 10 },
+    { "id": "test_proposed", "kind": "count", "description": "Count of messages proposing a test that isolates exactly one changed variable.", "weight": 8 },
+    { "id": "root_cause_named", "kind": "count", "description": "Count of messages naming the unit's actual root cause.", "weight": 15 },
+    { "id": "final_warmth", "kind": "count", "description": "Last value of the server-held warmth trace, 0 to 3.", "weight": 5 },
+    { "id": "premature_fix", "kind": "flag", "description": "Any fix-marker language before facts are on the table.", "weight": -20 }
+  ],
+  "unit": {
+    "id": "problem-solving.ask-before-answering.dying-plants",
+    "skill_id": "problem-solving.stage1.ask-before-answering",
+    "principle": "Diagnose before you prescribe: find out what's actually going on before you suggest anything.",
+    "exemplar": "Maya: 'Every plant I own is dying, I'm cursed.' You: 'When did you first notice it starting -- one plant at a time, or all at once?' (You asked before you advised.)",
+    "scenario": {
+      "title": "The Dying Plants",
+      "setup_text": "Your friend Maya's plants keep dying. Find out what's actually going on before you suggest anything -- the advice she's already heard costs you the conversation. 10 messages.",
+      "character_name": "Maya",
+      "message_budget": 10
+    },
+    "persona": {
+      "brief": "Maya, warm but exasperated. She's heard 'talk to them' and 'more sunlight' a hundred times and deflects generic advice with polite fatigue. Never breaks character, never volunteers key facts unasked.",
+      "hidden_depth": "After moving apartments in spring she repotted everything into decorative pots with no drainage holes, and now waters daily 'to be safe.' The plants are drowning. She has never connected the repotting to the deaths.",
+      "opener": "I swear I'm cursed. Third plant this month. I'm about to give up and buy plastic ones.",
+      "warmth_rules": {
+        "increments": [
+          "asks a specific factual question (when it started, what changed, watering routine, what the leaves look like)",
+          "follows up digging into her previous answer",
+          "restates the pattern back to her accurately"
+        ],
+        "decrements": [
+          "generic advice or any fix before the facts are on the table",
+          "plant-trivia lectures",
+          "\"have you tried...\" in the first exchanges"
+        ],
+        "neutral": [
+          "sympathy alone (\"that sucks!\") moves nothing"
+        ]
+      },
+      "behavior_by_warmth": {
+        "0": "Vague doom: \"they just die.\" Guarded, a little tired of advice.",
+        "1": "Mentions it started \"sometime after the move.\"",
+        "2": "Mentions the new pots she bought \"because the old ones were ugly.\"",
+        "3": "Walks through her daily watering habit and the exact repotting timeline, all facts on the table."
+      }
+    },
+    "rubric": [
+      { "signal_id": "clarifying_questions", "band": { "min": 3 }, "hard": true },
+      { "signal_id": "premature_fix", "band": { "max": 0 }, "hard": true },
+      { "signal_id": "final_warmth", "band": { "min": 2 }, "hard": false }
+    ],
+    "feedback_prompt": "You are a warm, sharp problem-solving coach. Score ONLY the USER's diagnostic skill in the transcript, using their actual words as evidence. Return JSON: win {text, quote: user's exact line}, fix {text: one instruction, anchored to a quote or number}, moment {text, quote}: find where the cause surfaced or stayed buried, tied directly to what the USER asked or assumed. If the user prescribed before diagnosing, name the exact line where that happened. Keep it short, specific, encouraging. Quote real lines only. Do not invent anything not in the transcript. Do not output a score.",
+    "mastery": { "passes_required": 2, "distinct_days": true },
+    "root_cause_keywords": ["drainage", "drainage holes", "overwatering", "too much water", "waterlogged"],
+    "change_keywords": []
+  }
+}
