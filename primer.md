@@ -9,12 +9,12 @@ ae04e4257c2a4ecc5) still RUNNING across many context rotations. Partial
 findings so far, all favorable, none final: schemas.ts and validator.ts
 confirmed purely additive vs baseline commit 09ea317 (zero removed/changed
 lines); isQuestion/isFollowup bodies in validator.ts unchanged; its own
-tsc --noEmit clean. No defects reported yet. IMPORTANT: stop calling
-TaskOutput on this agent -- each call dumps hundreds of KB of its sidechain
-transcript and is what's spiking context to the watchdog threshold every
-rotation. Just wait for its completion notification passively; a
-ScheduleWakeup fallback is already set. Source of truth for the 5-skill
-design is CONTENT-ROADMAP-4-SKILLS.md (NOT PRD-CHARISMA-CHAT.md).
+tsc --noEmit clean. No defects reported yet. IMPORTANT: do not call
+TaskOutput on this agent again -- each call dumps hundreds of KB of its
+sidechain transcript and was the main driver of repeated watchdog triggers.
+Just wait for its completion notification passively (a ScheduleWakeup
+fallback is already set around the ~20:22 mark). Source of truth for the
+5-skill design is CONTENT-ROADMAP-4-SKILLS.md (NOT PRD-CHARISMA-CHAT.md).
 
 ## COMPLETED THIS SESSION
 Unchanged from prior rotations: schemas.ts (Problem*Schema additions),
@@ -28,9 +28,9 @@ PS was first).
 
 ## EXACT NEXT STEP
 1. Wait for the code-reviewer agent (ae04e4257c2a4ecc5) completion
-   notification (do NOT call TaskOutput on it again -- context cost). If
-   findings exist, fix them (small additive diffs), re-run
-   `pnpm vitest run` + `tsc --noEmit`. If clean, go to step 2.
+   notification (do NOT call TaskOutput on it again). If findings exist,
+   fix them (small additive diffs), re-run `pnpm vitest run` +
+   `tsc --noEmit`. If clean, go to step 2.
 2. Ask the user: wire Problem-Solving into content.ts/seed.ts/a route so
    it's playable, OR start Decision-Making's slice next. Do not start it
    unprompted -- sequential build order.
