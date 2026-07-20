@@ -39,7 +39,10 @@ export const RESTATED_MARKERS: readonly string[] = [
 ];
 
 function containsAny(lower: string, markers: readonly string[]): boolean {
-  return markers.some((m) => lower.includes(m));
+  return markers.some((m) => {
+    const escaped = m.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`\\b${escaped}\\b`).test(lower);
+  });
 }
 
 export interface ProblemUnitKeywords {

@@ -83,6 +83,23 @@ describe('BAD run: fix before facts', () => {
   });
 });
 
+describe('marker matching respects word boundaries', () => {
+  it('"industry" does not false-trigger the "try " fix marker', () => {
+    const transcript: ChatMessage[] = [
+      q('What is the industry standard watering schedule for houseplants?'),
+    ];
+    const signals = computeSignals(transcript, [], unit);
+    expect(signals.premature_fix).toBe(0);
+    expect(signals.clarifying_questions).toBe(1);
+  });
+
+  it('an actual "try" fix suggestion still trips the marker', () => {
+    const transcript: ChatMessage[] = [q('Have you tried more sunlight?')];
+    const signals = computeSignals(transcript, [], unit);
+    expect(signals.premature_fix).toBe(1);
+  });
+});
+
 describe('test_proposed requires exactly one change_keyword match', () => {
   const unitWithChanges = { ...unit, change_keywords: ['rates', 'tracker'] };
 
